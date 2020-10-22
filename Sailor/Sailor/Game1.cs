@@ -25,8 +25,8 @@ namespace Sailor
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            DSTextures = new LoadDrunkenSailor();
             BGTexture = new LoadBackground();
+            DSTextures = new LoadDrunkenSailor();
         }
 
         protected override void Initialize()

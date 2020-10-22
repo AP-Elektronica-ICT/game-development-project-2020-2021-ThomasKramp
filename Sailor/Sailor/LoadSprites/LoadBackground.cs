@@ -17,10 +17,10 @@ namespace Sailor.LoadSprites
 
         public void LoadSprites(ContentManager Content)
         {
-            System.IO.DirectoryInfo directory = new System.IO.DirectoryInfo($"Content\\Background");
+            System.IO.DirectoryInfo directory = new System.IO.DirectoryInfo($"Content\\Background\\Tiles");
             for (int i = 1; i <= directory.GetFiles().Length; i++)
             {
-                textureList.Add(Content.Load<Texture2D>($"Drunken Sailor\\Tiles\\Tile{i}"));
+                textureList.Add(Content.Load<Texture2D>($"Background\\Tiles\\Tile{i}"));
             }
         }
     }

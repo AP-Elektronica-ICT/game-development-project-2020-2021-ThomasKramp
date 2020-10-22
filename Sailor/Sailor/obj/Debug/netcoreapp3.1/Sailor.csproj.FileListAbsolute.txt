@@ -200,3 +200,11 @@ C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-20
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\obj\Debug\netcoreapp3.1\Sailor.dll
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\obj\Debug\netcoreapp3.1\Sailor.pdb
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\obj\Debug\netcoreapp3.1\Sailor.genruntimeconfig.cache
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Background\Tiles\Tile1.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Background\Tiles\Tile2.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Background\Tiles\Tile3.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Background\Tiles\Tile4.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Background\Tiles\Tile5.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Background\Tiles\Tile6.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Background\Tiles\Tile7.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Background\Tiles\Tile8.xnb
