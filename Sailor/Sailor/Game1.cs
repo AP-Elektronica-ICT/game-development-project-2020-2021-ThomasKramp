@@ -15,7 +15,7 @@ namespace Sailor
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private LoadDrunkenSailor DSTextures;
-        private List<Texture2D> BGTexture;
+        private LoadBackground BGTexture;
         Hero hero;
         Level level;
         
@@ -26,7 +26,7 @@ namespace Sailor
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
             DSTextures = new LoadDrunkenSailor();
-            BGTexture = new List<Texture2D>();
+            BGTexture = new LoadBackground();
         }
 
         protected override void Initialize()
@@ -40,7 +40,7 @@ namespace Sailor
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-
+            BGTexture.LoadSprites(Content);
             InitializeBackgound();
 
             DSTextures.LoadSprites(Content);
@@ -51,7 +51,7 @@ namespace Sailor
 
         private void InitializeBackgound()
         {
-            level = new Level(BGTexture);
+            level = new Level(BGTexture.textureList);
             level.CreateWorld();
         }
 
