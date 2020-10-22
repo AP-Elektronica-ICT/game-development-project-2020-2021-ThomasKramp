@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "j9flAdxtK9LpX73GUkKBnDMjdEZLIoGAHgEHjz1vnYvFByWVpLHnr4tH2NvFYOFew8Gk0W6x/8KGpFXo2mdynQ==",
+  "dgSpecHash": "VosWKprbRwby6XEXM6P+cEbyng2pF2ToeB3DzjZ6qv2WkgaOz3YACB9HSJoNfg2p2KjsJpajdNKsNsYklMd9ZQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Thoma\\Documents\\AP\\Semester 3\\Game Dev\\Sailor\\Sailor\\Sailor.csproj",
+  "projectFilePath": "C:\\Users\\Thoma\\Documents\\AP\\Semester 3\\Game Dev\\game-development-project-2020-2021-ThomasKramp\\Sailor\\Sailor\\Sailor.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Thoma\\.nuget\\packages\\libuv\\1.9.1\\libuv.1.9.1.nupkg.sha512",
     "C:\\Users\\Thoma\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\1.1.0\\microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512",

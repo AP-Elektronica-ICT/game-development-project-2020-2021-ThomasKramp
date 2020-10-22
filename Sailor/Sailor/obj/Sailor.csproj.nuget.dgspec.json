@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Thoma\\Documents\\AP\\Semester 3\\Game Dev\\Sailor\\Sailor\\Sailor.csproj": {}
+    "C:\\Users\\Thoma\\Documents\\AP\\Semester 3\\Game Dev\\game-development-project-2020-2021-ThomasKramp\\Sailor\\Sailor\\Sailor.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Thoma\\Documents\\AP\\Semester 3\\Game Dev\\Sailor\\Sailor\\Sailor.csproj": {
+    "C:\\Users\\Thoma\\Documents\\AP\\Semester 3\\Game Dev\\game-development-project-2020-2021-ThomasKramp\\Sailor\\Sailor\\Sailor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Thoma\\Documents\\AP\\Semester 3\\Game Dev\\Sailor\\Sailor\\Sailor.csproj",
+        "projectUniqueName": "C:\\Users\\Thoma\\Documents\\AP\\Semester 3\\Game Dev\\game-development-project-2020-2021-ThomasKramp\\Sailor\\Sailor\\Sailor.csproj",
         "projectName": "Sailor",
-        "projectPath": "C:\\Users\\Thoma\\Documents\\AP\\Semester 3\\Game Dev\\Sailor\\Sailor\\Sailor.csproj",
+        "projectPath": "C:\\Users\\Thoma\\Documents\\AP\\Semester 3\\Game Dev\\game-development-project-2020-2021-ThomasKramp\\Sailor\\Sailor\\Sailor.csproj",
         "packagesPath": "C:\\Users\\Thoma\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Thoma\\Documents\\AP\\Semester 3\\Game Dev\\Sailor\\Sailor\\obj\\",
+        "outputPath": "C:\\Users\\Thoma\\Documents\\AP\\Semester 3\\Game Dev\\game-development-project-2020-2021-ThomasKramp\\Sailor\\Sailor\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
