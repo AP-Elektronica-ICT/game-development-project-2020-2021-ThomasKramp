@@ -6,6 +6,7 @@ namespace Sailor.Animation
 {
     class Animatie
     {
+        public Rectangle SourceRectangle { get; set; }
         public Texture2D CurrentFrame { get; set; }
         private List<Texture2D> frames;
         private int counter;
@@ -24,13 +25,20 @@ namespace Sailor.Animation
 
         public void Update(GameTime gameTime)
         {
-            if (counter >= frames.Count)
-            {
-                counter = 0;
-            }
+            // De frame counter wordt gereset
+            if (counter >= frames.Count) counter = 0;
+
+            // Gaat een nieuw frame inladen indien nodig
             CurrentFrame = frames[counter];
+
+            // Kijkt telkens naar de groote van de sprite en implementeert de dimensies
+            SourceRectangle = new Rectangle(0, 0, CurrentFrame.Width, CurrentFrame.Height);
+
+            // Gaat de frame snelheid vertragen, afhankelijk van de hoeveelheid frames
             frameMovement += frames.Count * gameTime.ElapsedGameTime.TotalSeconds;
-            // frames.Count/16 werkt ook
+
+            // Er wordt 1 bij de frame counter toegevoegd
+                // frames.Count/16 werkt ook
             if (frameMovement >= 1)
             {
                 counter++;

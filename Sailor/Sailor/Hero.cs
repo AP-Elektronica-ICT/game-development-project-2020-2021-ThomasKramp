@@ -17,9 +17,7 @@ namespace Sailor
     class Hero : ITransform
     {
         Dictionary<int, List<Texture2D>> heroTextures;
-        private Rectangle SourceRectangle;
         Animatie animatie;
-        private int counter = 0;
         public Vector2 positie { get; set; }
         private IInputReader inputReader;
         private IGameCommands moveCommands;
@@ -36,9 +34,6 @@ namespace Sailor
         public void Update(GameTime gameTime)
         {
             animatie.AddFrames(heroTextures[state]);
-            if (counter >= heroTextures[state].Count) counter = 0;
-            SourceRectangle = new Rectangle(0, 0, heroTextures[state][counter].Width, heroTextures[state][counter].Height);
-
             Vector2 richting = inputReader.ReadInput();
             state = (int) KeyBoardReader.cState;
             MoveHorizontal(richting);
@@ -73,9 +68,8 @@ namespace Sailor
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(animatie.CurrentFrame, positie, SourceRectangle, 
+            spriteBatch.Draw(animatie.CurrentFrame, positie, animatie.SourceRectangle, 
                 Color.White, BasicRotation, BasicOrigin, BasicScale, KeyBoardReader.effect, BasicLayerDepth);
-            counter++;
         }
     }
 }
