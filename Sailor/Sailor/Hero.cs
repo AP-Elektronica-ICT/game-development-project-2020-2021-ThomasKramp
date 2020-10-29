@@ -63,13 +63,13 @@ namespace Sailor
 
         // Extra variabelen voor de draw methode
             //  A rotation of this sprite.
-            float rotation = 0f;
+            float BasicRotation = 0f;
             // Center of the rotation. 0,0 by default.
-            Vector2 origin = new Vector2(0, 0);
+            Vector2 BasicOrigin = new Vector2(0, 0);
             // A scaling of this sprite.
-            float scale = 1f;
+            float BasicScale = 1f;
             // A depth of the layer of this sprite.
-            float layerDepth = 0f;
+            float BasicLayerDepth = 0f;
 
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -78,7 +78,7 @@ namespace Sailor
                 counter = 0;
             }
             spriteBatch.Draw(heroTextures[state][counter], positie, animatie.CurrentFrame.SourceRectangle, 
-                Color.White, rotation, origin, scale, KeyBoardReader.effect, layerDepth);
+                Color.White, BasicRotation, BasicOrigin, BasicScale, KeyBoardReader.effect, BasicLayerDepth);
             counter++;
         }
     }
