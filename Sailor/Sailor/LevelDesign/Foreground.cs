@@ -62,12 +62,7 @@ namespace Sailor.LevelDesign
                 {
                     if (tileArray[y, x] == 1)
                     {
-                        if (y == 20 && x == 12)
-                        {
-                            // X en Y zijn geinverteerd in de array[hoogte, breedte]
-                            blokArray[y, x] = new Blok(texture[r.Next(0, texture.Count)], new Vector2((x * 64) - (shift * 32), y * 16));
-                        }
-                        
+                        blokArray[y, x] = new Blok(texture[r.Next(0, texture.Count)], new Vector2((x * 64) - (shift * 32), y * 16));
                     }
                 }
             }

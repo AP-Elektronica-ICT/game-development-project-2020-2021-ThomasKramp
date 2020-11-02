@@ -37,14 +37,14 @@ namespace Sailor
             inputReader = reader;
             moveCommands = commands;
             // Vinden waar de eerste staat
-            positie = new Vector2(75, 300);
+            positie = new Vector2(75, 350);
         }
 
         public void Update(GameTime gameTime, Foreground foreground)
         {
             animatie.AddFrames(heroTextures[state]);
             richting = inputReader.ReadInput();
-            //richting = MoveVertical(richting, foreground);
+            richting = MoveVertical(richting, foreground);
             frame = animatie.SourceRectangle;
             state = (int) KeyBoardReader.cState;
             MoveHorizontal(richting, foreground);
@@ -53,31 +53,25 @@ namespace Sailor
 
         private Vector2 MoveVertical(Vector2 richting, Foreground foreground)
         {
-            if (ColDetec.TopColliding(this))
-            {
-                KeyBoardReader.Jumped = false;
-                valSnelheid = 0;
-            }
-            if (KeyBoardReader.Jumped)
+            if (KeyBoardReader.Jumped && valSnelheid <= 0)
             {
                 KeyBoardReader.cState = CharacterState.Jump;
-                if (valSnelheid == 0) {
-                    valSnelheid = -10f;
-                } else {
-                    valSnelheid /= 1.1f;
-                }
-                if (valSnelheid > -0.1) {
-                    KeyBoardReader.Jumped = false;
-                }
-            } else if (ColDetec.BottomColliding(this))
-            {
-                if (valSnelheid > 0.01)
+                if (valSnelheid == 0)
                 {
-                    KeyBoardReader.cState = CharacterState.Ground;
-                    valSnelheid /= 1.4f;
-                } else {
+                    valSnelheid = -10f;
+                }
+                valSnelheid /= 1.1f;
+                if (valSnelheid > -1 || ColDetec.TopColliding(this, foreground))
+                {
+                    KeyBoardReader.Jumped = false;
                     valSnelheid = 0;
                 }
+            } else if (ColDetec.BottomColliding(this, foreground)) {
+                if (valSnelheid > 0.1)
+                {
+                    KeyBoardReader.cState = CharacterState.Ground;
+                }
+                valSnelheid = 0;
             } else {
                 valSnelheid += 0.1f;
             }
@@ -87,10 +81,11 @@ namespace Sailor
 
         private void MoveHorizontal(Vector2 richting, Foreground foreground)
         {
-            if (!ColDetec.LeftColliding(this, foreground) && !ColDetec.RightColliding(this, foreground))
+            if (ColDetec.LeftColliding(this, foreground) || ColDetec.RightColliding(this, foreground))
             {
-                moveCommands.Execute(this, richting);
+                richting.X = 0;
             }
+            moveCommands.Execute(this, richting);
         }
 
         private Vector2 Limit(Vector2 v, int max)
