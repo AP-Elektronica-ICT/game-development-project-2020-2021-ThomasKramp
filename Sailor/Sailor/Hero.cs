@@ -3,10 +3,12 @@ using Microsoft.Xna.Framework.Graphics;
 // Voor input keys library te implemteren
 using Microsoft.Xna.Framework.Input;
 using Sailor.Animation;
+using Sailor.CollisionDetection;
 using Sailor.Commands;
 using Sailor.Input;
 using Sailor.Interfaces;
 using Sailor.LoadSprites;
+using SharpDX.Direct3D9;
 using SharpDX.DXGI;
 using System;
 using System.Collections.Generic;
@@ -19,6 +21,9 @@ namespace Sailor
         Dictionary<int, List<Texture2D>> heroTextures;
         Animatie animatie;
         public Vector2 positie { get; set; }
+        public Rectangle frame { get; set; }
+        public Vector2 richting { get; set; }
+
         private IInputReader inputReader;
         private IGameCommands moveCommands;
         public int state = (int) CharacterState.Idle;
@@ -34,15 +39,28 @@ namespace Sailor
         public void Update(GameTime gameTime)
         {
             animatie.AddFrames(heroTextures[state]);
-            Vector2 richting = inputReader.ReadInput();
+            richting = inputReader.ReadInput();
+            frame = animatie.SourceRectangle;
             state = (int) KeyBoardReader.cState;
             MoveHorizontal(richting);
             animatie.Update(gameTime);
         }
 
+        private int Fall()
+        {
+            if (ColDetec.TopColliding(this) && ColDetec.BottomColliding(this))
+            {
+                return -1;
+            }
+            return 0;
+        }
+
         private void MoveHorizontal(Vector2 richting)
         {
-            moveCommands.Execute(this, richting);
+            if (ColDetec.LeftColliding(this) && ColDetec.RightColliding(this))
+            {
+                moveCommands.Execute(this, richting);
+            }
         }
 
         private Vector2 Limit(Vector2 v, int max)

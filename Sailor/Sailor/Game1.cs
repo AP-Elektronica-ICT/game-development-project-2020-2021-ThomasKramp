@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Sailor.CollisionDetection;
 using Sailor.Commands;
 using Sailor.Input;
 using Sailor.LevelDesign;
