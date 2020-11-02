@@ -4,13 +4,8 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Drunken Sailor/Ground/GroundDS1.png</File>
-    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Drunken Sailor/Ground/GroundDS2.png</File>
-    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Drunken Sailor/Ground/GroundDS3.png</File>
-    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Background/Tiles/Tile1.png</File>
-    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Background/Tiles/Tile2.png</File>
-    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Background/Tiles/Tile3.png</File>
-    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Background/Tiles/Tile4.png</File>
+    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Background/Tile/TileBG1.png</File>
+    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Background/Tile/TileBG2.png</File>
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Drunken Sailor/Attack/AttackDS1.png</File>
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Drunken Sailor/Attack/AttackDS10.png</File>
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Drunken Sailor/Attack/AttackDS11.png</File>
@@ -22,6 +17,9 @@
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Drunken Sailor/Attack/AttackDS7.png</File>
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Drunken Sailor/Attack/AttackDS8.png</File>
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Drunken Sailor/Attack/AttackDS9.png</File>
+    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Drunken Sailor/Ground/GroundDS1.png</File>
+    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Drunken Sailor/Ground/GroundDS2.png</File>
+    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Drunken Sailor/Ground/GroundDS3.png</File>
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Drunken Sailor/Idle/IdleDS1.png</File>
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Drunken Sailor/Idle/IdleDS10.png</File>
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Drunken Sailor/Idle/IdleDS11.png</File>
@@ -83,8 +81,86 @@
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Drunken Sailor/Run/RunDS7.png</File>
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Drunken Sailor/Run/RunDS8.png</File>
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Drunken Sailor/Run/RunDS9.png</File>
+    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Foreground/Tile/TileFG1.png</File>
+    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Foreground/Tile/TileFG2.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

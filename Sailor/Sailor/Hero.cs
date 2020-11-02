@@ -7,6 +7,7 @@ using Sailor.CollisionDetection;
 using Sailor.Commands;
 using Sailor.Input;
 using Sailor.Interfaces;
+using Sailor.LevelDesign;
 using Sailor.LoadSprites;
 using SharpDX.Direct3D9;
 using SharpDX.DXGI;
@@ -36,21 +37,21 @@ namespace Sailor
             inputReader = reader;
             moveCommands = commands;
             // Vinden waar de eerste staat
-            positie = new Vector2(0, 000);
+            positie = new Vector2(75, 300);
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, Foreground foreground)
         {
             animatie.AddFrames(heroTextures[state]);
             richting = inputReader.ReadInput();
-            richting = MoveVertical(richting);
+            //richting = MoveVertical(richting, foreground);
             frame = animatie.SourceRectangle;
             state = (int) KeyBoardReader.cState;
-            MoveHorizontal(richting);
+            MoveHorizontal(richting, foreground);
             animatie.Update(gameTime);
         }
 
-        private Vector2 MoveVertical(Vector2 richting)
+        private Vector2 MoveVertical(Vector2 richting, Foreground foreground)
         {
             if (ColDetec.TopColliding(this))
             {
@@ -63,7 +64,7 @@ namespace Sailor
                 if (valSnelheid == 0) {
                     valSnelheid = -10f;
                 } else {
-                    valSnelheid /= 1.2f;
+                    valSnelheid /= 1.1f;
                 }
                 if (valSnelheid > -0.1) {
                     KeyBoardReader.Jumped = false;
@@ -73,7 +74,7 @@ namespace Sailor
                 if (valSnelheid > 0.01)
                 {
                     KeyBoardReader.cState = CharacterState.Ground;
-                    valSnelheid /= 1.2f;
+                    valSnelheid /= 1.4f;
                 } else {
                     valSnelheid = 0;
                 }
@@ -84,9 +85,9 @@ namespace Sailor
             return richting;
         }
 
-        private void MoveHorizontal(Vector2 richting)
+        private void MoveHorizontal(Vector2 richting, Foreground foreground)
         {
-            if (!ColDetec.LeftColliding(this) && !ColDetec.RightColliding(this))
+            if (!ColDetec.LeftColliding(this, foreground) && !ColDetec.RightColliding(this, foreground))
             {
                 moveCommands.Execute(this, richting);
             }

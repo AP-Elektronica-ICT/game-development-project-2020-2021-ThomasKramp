@@ -17,8 +17,10 @@ namespace Sailor
         private SpriteBatch _spriteBatch;
         private LoadDrunkenSailor DSTextures;
         private LoadBackground BGTexture;
+        private LoadForeground FGTexture;
         Hero hero;
-        Level level;
+        Foreground foreground;
+        Background background;
         
 
         public Game1()
@@ -27,6 +29,7 @@ namespace Sailor
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
             BGTexture = new LoadBackground();
+            FGTexture = new LoadForeground();
             DSTextures = new LoadDrunkenSailor();
         }
 
@@ -41,6 +44,9 @@ namespace Sailor
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            FGTexture.LoadSprites(Content);
+            InitializeForegound();
+
             BGTexture.LoadSprites(Content);
             InitializeBackgound();
 
@@ -50,10 +56,16 @@ namespace Sailor
             // TODO: use this.Content to load your game content here
         }
 
+        private void InitializeForegound()
+        {
+            foreground = new Foreground(FGTexture.textureList);
+            foreground.CreateWorld();
+        }
+
         private void InitializeBackgound()
         {
-            level = new Level(BGTexture.textureList);
-            level.CreateWorld();
+            background = new Background(BGTexture.textureList);
+            background.CreateWorld();
         }
 
         private void InitializeGameObject()
@@ -68,7 +80,7 @@ namespace Sailor
                 Exit();
 
             // TODO: Add your update logic here
-            hero.Update(gameTime);
+            hero.Update(gameTime, foreground);
             base.Update(gameTime);
         }
 
@@ -80,7 +92,9 @@ namespace Sailor
 
             _spriteBatch.Begin();
 
-            level.DrawWorld(_spriteBatch);
+            background.DrawWorld(_spriteBatch);
+
+            foreground.DrawWorld(_spriteBatch);
 
             hero.Draw(_spriteBatch);
 
