@@ -32,9 +32,10 @@ namespace Sailor.Input
                 richting = new Vector2(0, 0);
                 cState = CharacterState.Idle;
             }
-            if (state.IsKeyDown(Keys.Up))
+            if (state.IsKeyDown(Keys.Space))
             {
                 Jumped = true;
+                cState = CharacterState.Jump;
             }
             return richting;
         }
