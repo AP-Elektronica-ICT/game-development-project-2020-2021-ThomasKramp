@@ -43,9 +43,9 @@ namespace Sailor
         {
             animatie.AddFrames(heroTextures[state]);
             richting = inputReader.ReadInput();
+            richting = MoveVertical(richting);
             frame = animatie.SourceRectangle;
             state = (int) KeyBoardReader.cState;
-            richting = MoveVertical(richting);
             MoveHorizontal(richting);
             animatie.Update(gameTime);
         }
@@ -59,23 +59,26 @@ namespace Sailor
             }
             if (KeyBoardReader.Jumped)
             {
-                if (valSnelheid == 0)
-                {
-                    valSnelheid = -100f;
+                KeyBoardReader.cState = CharacterState.Jump;
+                if (valSnelheid == 0) {
+                    valSnelheid = -10f;
+                } else {
+                    valSnelheid /= 1.2f;
                 }
-                else
-                {
-                    valSnelheid /= 1.25f;
-                }
-                if (valSnelheid > -1)
-                {
+                if (valSnelheid > -0.1) {
                     KeyBoardReader.Jumped = false;
                 }
             } else if (ColDetec.BottomColliding(this))
             {
-                valSnelheid = 0;
+                if (valSnelheid > 0.01)
+                {
+                    KeyBoardReader.cState = CharacterState.Ground;
+                    valSnelheid /= 1.2f;
+                } else {
+                    valSnelheid = 0;
+                }
             } else {
-                valSnelheid += 1f;
+                valSnelheid += 0.1f;
             }
             richting.Y = valSnelheid;
             return richting;

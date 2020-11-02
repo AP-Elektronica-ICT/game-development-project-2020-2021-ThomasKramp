@@ -9,6 +9,7 @@ namespace Sailor.LoadSprites
         Idle = 1,
         Run,
         Attack,
-        Jump
+        Jump,
+        Ground
     }
 }
