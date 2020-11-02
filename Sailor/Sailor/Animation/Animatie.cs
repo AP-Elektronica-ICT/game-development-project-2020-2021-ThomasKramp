@@ -17,9 +17,9 @@ namespace Sailor.Animation
             frames = new List<Texture2D>();
         }
 
-        public void AddFrames(List<Texture2D> Frames)
+        public void AddFrames(List<Texture2D> frameLijst)
         {
-            frames = Frames;
+            frames = frameLijst;
             CurrentFrame = frames[0];
         }
 

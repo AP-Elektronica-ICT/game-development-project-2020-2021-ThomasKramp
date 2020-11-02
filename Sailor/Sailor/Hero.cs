@@ -3,10 +3,13 @@ using Microsoft.Xna.Framework.Graphics;
 // Voor input keys library te implemteren
 using Microsoft.Xna.Framework.Input;
 using Sailor.Animation;
+using Sailor.CollisionDetection;
 using Sailor.Commands;
 using Sailor.Input;
 using Sailor.Interfaces;
+using Sailor.LevelDesign;
 using Sailor.LoadSprites;
+using SharpDX.Direct3D9;
 using SharpDX.DXGI;
 using System;
 using System.Collections.Generic;
@@ -19,9 +22,13 @@ namespace Sailor
         Dictionary<int, List<Texture2D>> heroTextures;
         Animatie animatie;
         public Vector2 positie { get; set; }
+        public Rectangle frame { get; set; }
+        public Vector2 richting { get; set; }
+
         private IInputReader inputReader;
         private IGameCommands moveCommands;
         public int state = (int) CharacterState.Idle;
+        private float valSnelheid = 0;
 
         public Hero(Dictionary<int, List<Texture2D>> texture, IInputReader reader, IGameCommands commands)
         {
@@ -29,19 +36,55 @@ namespace Sailor
             animatie = new Animatie();
             inputReader = reader;
             moveCommands = commands;
+            // Vinden waar de eerste staat
+            positie = new Vector2(75, 350);
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, Foreground foreground)
         {
             animatie.AddFrames(heroTextures[state]);
-            Vector2 richting = inputReader.ReadInput();
+            richting = inputReader.ReadInput();
+            richting = MoveVertical(richting, foreground);
+            frame = animatie.SourceRectangle;
             state = (int) KeyBoardReader.cState;
-            MoveHorizontal(richting);
+            MoveHorizontal(richting, foreground);
             animatie.Update(gameTime);
         }
 
-        private void MoveHorizontal(Vector2 richting)
+        private Vector2 MoveVertical(Vector2 richting, Foreground foreground)
         {
+            if (KeyBoardReader.Jumped && valSnelheid <= 0)
+            {
+                KeyBoardReader.cState = CharacterState.Jump;
+                if (valSnelheid == 0)
+                {
+                    valSnelheid = -10f;
+                }
+                valSnelheid /= 1.1f;
+                if (valSnelheid > -1 || ColDetec.TopColliding(this, foreground))
+                {
+                    KeyBoardReader.Jumped = false;
+                    valSnelheid = 0;
+                }
+            } else if (ColDetec.BottomColliding(this, foreground)) {
+                if (valSnelheid > 0.1)
+                {
+                    KeyBoardReader.cState = CharacterState.Ground;
+                }
+                valSnelheid = 0;
+            } else {
+                valSnelheid += 0.1f;
+            }
+            richting.Y = valSnelheid;
+            return richting;
+        }
+
+        private void MoveHorizontal(Vector2 richting, Foreground foreground)
+        {
+            if (ColDetec.LeftColliding(this, foreground) || ColDetec.RightColliding(this, foreground))
+            {
+                richting.X = 0;
+            }
             moveCommands.Execute(this, richting);
         }
 

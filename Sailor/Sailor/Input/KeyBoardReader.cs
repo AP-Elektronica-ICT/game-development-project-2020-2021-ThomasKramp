@@ -12,6 +12,8 @@ namespace Sailor.Input
     {
         public static SpriteEffects effect = SpriteEffects.None;
         public static CharacterState cState = CharacterState.Idle;
+        public static bool Jumped = false;
+
         public Vector2 ReadInput()
         {
             Vector2 richting = Vector2.Zero;
@@ -27,7 +29,13 @@ namespace Sailor.Input
                 cState = CharacterState.Run;
                 effect = SpriteEffects.None;
             } else {
+                richting = new Vector2(0, 0);
                 cState = CharacterState.Idle;
+            }
+            if (state.IsKeyDown(Keys.Space))
+            {
+                Jumped = true;
+                cState = CharacterState.Jump;
             }
             return richting;
         }

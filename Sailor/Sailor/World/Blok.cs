@@ -10,11 +10,13 @@ namespace Sailor.World
     {
         private Texture2D texture { get; set; }
         public Vector2 Positie { get; set; }
+        public Rectangle rectangle { get; set; }
 
         public Blok(Texture2D blokTexture, Vector2 positie)
         {
             texture = blokTexture;
             Positie = positie;
+            rectangle = new Rectangle(0,0, texture.Width, texture.Height);
         }
 
         public void Draw(SpriteBatch spriteBatch)

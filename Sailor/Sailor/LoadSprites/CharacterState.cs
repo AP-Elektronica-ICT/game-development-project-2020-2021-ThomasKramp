@@ -8,6 +8,8 @@ namespace Sailor.LoadSprites
     {
         Idle = 1,
         Run,
-        Attack
+        Attack,
+        Jump,
+        Ground
     }
 }
