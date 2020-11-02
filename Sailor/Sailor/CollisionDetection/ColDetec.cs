@@ -12,35 +12,35 @@ namespace Sailor.CollisionDetection
         {
             if (sailor.frame.Left + sailor.positie.X + sailor.richting.X < 0)
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
         public static bool RightColliding(Hero sailor) 
         {
             // Console. Width kan gevonden worden met Game.GraphicsDevice.Viewport.Width
             if (sailor.frame.Right + sailor.positie.X + sailor.richting.X > 800)
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
         public static bool TopColliding(Hero sailor)
         {
             if (sailor.frame.Top + sailor.positie.Y + sailor.richting.Y < 0)
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
         public static bool BottomColliding(Hero sailor)
         {
             // Console. Width kan gevonden worden met Game.GraphicsDevice.Viewport.Heigt
-            if (sailor.frame.Bottom + sailor.positie.Y + sailor.richting.Y > 400)
+            if (sailor.frame.Bottom + sailor.positie.Y + sailor.richting.Y > 450)
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
     }
 }

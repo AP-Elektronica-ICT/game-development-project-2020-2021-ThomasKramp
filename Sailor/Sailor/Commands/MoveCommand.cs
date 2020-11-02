@@ -11,7 +11,7 @@ namespace Sailor.Commands
         public Vector2 snelheid;
         public MoveCommand()
         {
-            snelheid = new Vector2(3, 0);
+            snelheid = new Vector2(3, 0.1f);
         }
         public void Execute(ITransform transform, Vector2 richting)
         {

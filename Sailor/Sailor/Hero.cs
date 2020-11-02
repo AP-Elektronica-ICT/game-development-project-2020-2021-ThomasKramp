@@ -27,6 +27,7 @@ namespace Sailor
         private IInputReader inputReader;
         private IGameCommands moveCommands;
         public int state = (int) CharacterState.Idle;
+        private float valSnelheid = 0;
 
         public Hero(Dictionary<int, List<Texture2D>> texture, IInputReader reader, IGameCommands commands)
         {
@@ -34,6 +35,8 @@ namespace Sailor
             animatie = new Animatie();
             inputReader = reader;
             moveCommands = commands;
+            // Vinden waar de eerste staat
+            positie = new Vector2(0, 000);
         }
 
         public void Update(GameTime gameTime)
@@ -42,22 +45,45 @@ namespace Sailor
             richting = inputReader.ReadInput();
             frame = animatie.SourceRectangle;
             state = (int) KeyBoardReader.cState;
+            richting = MoveVertical(richting);
             MoveHorizontal(richting);
             animatie.Update(gameTime);
         }
 
-        private int Fall()
+        private Vector2 MoveVertical(Vector2 richting)
         {
-            if (ColDetec.TopColliding(this) && ColDetec.BottomColliding(this))
+            if (ColDetec.TopColliding(this))
             {
-                return -1;
+                KeyBoardReader.Jumped = false;
+                valSnelheid = 0;
             }
-            return 0;
+            if (KeyBoardReader.Jumped)
+            {
+                if (valSnelheid == 0)
+                {
+                    valSnelheid = -100f;
+                }
+                else
+                {
+                    valSnelheid /= 1.25f;
+                }
+                if (valSnelheid > -1)
+                {
+                    KeyBoardReader.Jumped = false;
+                }
+            } else if (ColDetec.BottomColliding(this))
+            {
+                valSnelheid = 0;
+            } else {
+                valSnelheid += 1f;
+            }
+            richting.Y = valSnelheid;
+            return richting;
         }
 
         private void MoveHorizontal(Vector2 richting)
         {
-            if (ColDetec.LeftColliding(this) && ColDetec.RightColliding(this))
+            if (!ColDetec.LeftColliding(this) && !ColDetec.RightColliding(this))
             {
                 moveCommands.Execute(this, richting);
             }
