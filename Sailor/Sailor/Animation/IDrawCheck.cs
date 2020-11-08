@@ -6,8 +6,8 @@ using System.Text;
 
 namespace Sailor.Animation
 {
-    interface IAnimatieEigenschap
+    interface IDrawCheck
     {
-        public void Check(ITransform transform, Vector2 richting);
+        public void Check(IDrawEffect transform, Vector2 richting);
     }
 }

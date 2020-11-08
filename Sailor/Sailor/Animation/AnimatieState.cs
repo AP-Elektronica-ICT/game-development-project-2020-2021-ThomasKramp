@@ -8,9 +8,9 @@ using System.Text;
 
 namespace Sailor.Animation
 {
-    class AnimatieState : IAnimatieEigenschap
+    class AnimatieState : IDrawCheck
     {
-        public void Check(ITransform transform, Vector2 richting)
+        public void Check(IDrawEffect transform, Vector2 richting)
         {
             if (richting.X == 1 || richting.X == -1) transform.state = CharacterState.Run;
             else transform.state = CharacterState.Idle;

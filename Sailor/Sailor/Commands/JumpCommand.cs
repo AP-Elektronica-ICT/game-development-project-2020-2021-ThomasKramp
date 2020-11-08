@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Sailor.CollisionDetection;
-using Sailor.Input;
 using Sailor.Interfaces;
-using Sailor.LoadSprites;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +12,7 @@ namespace Sailor.Commands
         public Vector2 snelheid;
         public static bool Jumped = false;
         public static bool HitGround = false;
-
+        int groundTeller = 0;
 
         public JumpCommand()
         {
@@ -37,17 +35,15 @@ namespace Sailor.Commands
             }
             else if (ColDetec.BottomColliding(transform, richting))
             {
-                if (snelheid.Y > 0.01)
+                // Dient om doorheen heel de ground animatie te gaan
+                if (snelheid.Y > 0 || groundTeller < 9)
                 {
-                    // Nodig om door de hele Ground animatie te gaan 
-                    snelheid.Y /= 2;
+                    if (groundTeller > 9) groundTeller = 0;
+                    else groundTeller++;
                     HitGround = true;
                 }
-                else
-                {
-                    snelheid.Y = 0;
-                    HitGround = false;
-                }
+                else HitGround = false;
+                snelheid.Y = 0;
             }
             else
             {

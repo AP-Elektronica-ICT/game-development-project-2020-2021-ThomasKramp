@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Sailor.CollisionDetection;
-using Sailor.Commands;
 using Sailor.Input;
 using Sailor.LevelDesign;
 using Sailor.LoadSprites;
@@ -70,7 +68,7 @@ namespace Sailor
 
         private void InitializeGameObject()
         {
-            hero = new Hero(DSTextures.textureDic, new KeyBoardReader(), new MoveCommand());
+            hero = new Hero(DSTextures.textureDic, new KeyBoardReader());
         }
 
 

@@ -7,25 +7,12 @@ using System.Text;
 
 namespace Sailor.Animation
 {
-    class AnimatieEffect : IAnimatieEigenschap
+    class AnimatieEffect : IDrawCheck
     {
-        // Gaat ervoor zorgen dat de sprite niet spontaan terugdraait
-        private SpriteEffects SpriteEffect;
-
-        public void Check(ITransform transform, Vector2 richting)
+        public void Check(IDrawEffect transform, Vector2 richting)
         {
-            switch (richting.X)
-            {
-                case -1:
-                    SpriteEffect = SpriteEffects.FlipHorizontally;
-                    break;
-                case 1:
-                    SpriteEffect = SpriteEffects.None;
-                    break;
-                default:
-                    break;
-            }
-            transform.effect = SpriteEffect;
+            if (richting.X == -1) transform.effect = SpriteEffects.FlipHorizontally;
+            if (richting.X == 1) transform.effect = SpriteEffects.None;
         }
     }
 }
