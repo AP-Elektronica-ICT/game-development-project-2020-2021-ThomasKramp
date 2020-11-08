@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sailor.World
 {
-    class Blok
+    public class Blok
     {
         private Texture2D texture { get; set; }
         public Vector2 Positie { get; set; }

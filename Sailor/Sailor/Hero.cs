@@ -23,12 +23,17 @@ namespace Sailor
         Animatie animatie;
         public Vector2 positie { get; set; }
         public Rectangle frame { get; set; }
-        public Vector2 richting { get; set; }
+        public SpriteEffects effect { get; set; }
+        public CharacterState state { get; set; }
 
         private IInputReader inputReader;
         private IGameCommands moveCommands;
-        public int state = (int) CharacterState.Idle;
-        private float valSnelheid = 0;
+        private Vector2 richting;
+
+        // Moet nog weggehaald worden
+        private IGameCommands jumpCommand = new JumpCommand();
+        private AnimatieEffect animatieEffect = new AnimatieEffect();
+        private AnimatieState animatieState = new AnimatieState();
 
         public Hero(Dictionary<int, List<Texture2D>> texture, IInputReader reader, IGameCommands commands)
         {
@@ -38,65 +43,29 @@ namespace Sailor
             moveCommands = commands;
             // Vinden waar de eerste staat
             positie = new Vector2(75, 350);
+            state = CharacterState.Idle;
         }
 
-        public void Update(GameTime gameTime, Foreground foreground)
+        public void Update(GameTime gameTime)
         {
-            animatie.AddFrames(heroTextures[state]);
+            animatie.AddFrames(heroTextures[(int)state]);
             richting = inputReader.ReadInput();
-            richting = MoveVertical(richting, foreground);
             frame = animatie.SourceRectangle;
-            state = (int) KeyBoardReader.cState;
-            MoveHorizontal(richting, foreground);
+            CheckEffects();
+            ExecuteCommands(richting);
             animatie.Update(gameTime);
         }
 
-        private Vector2 MoveVertical(Vector2 richting, Foreground foreground)
+        private void CheckEffects()
         {
-            if (KeyBoardReader.Jumped && valSnelheid <= 0)
-            {
-                KeyBoardReader.cState = CharacterState.Jump;
-                if (valSnelheid == 0)
-                {
-                    valSnelheid = -10f;
-                }
-                valSnelheid /= 1.1f;
-                if (valSnelheid > -1 || ColDetec.TopColliding(this, foreground))
-                {
-                    KeyBoardReader.Jumped = false;
-                    valSnelheid = 0;
-                }
-            } else if (ColDetec.BottomColliding(this, foreground)) {
-                if (valSnelheid > 0.1)
-                {
-                    KeyBoardReader.cState = CharacterState.Ground;
-                }
-                valSnelheid = 0;
-            } else {
-                valSnelheid += 0.1f;
-            }
-            richting.Y = valSnelheid;
-            return richting;
+            animatieEffect.Check(this, richting);
+            animatieState.Check(this, richting);
         }
 
-        private void MoveHorizontal(Vector2 richting, Foreground foreground)
+        private void ExecuteCommands(Vector2 richting)
         {
-            if (ColDetec.LeftColliding(this, foreground) || ColDetec.RightColliding(this, foreground))
-            {
-                richting.X = 0;
-            }
+            jumpCommand.Execute(this, richting);
             moveCommands.Execute(this, richting);
-        }
-
-        private Vector2 Limit(Vector2 v, int max)
-        {
-            if (v.Length() > max)
-            {
-                float ratio = max / v.Length();
-                v.X *= ratio;
-                v.Y *= ratio;
-            }
-            return v;
         }
 
         // Extra variabelen voor de draw methode
@@ -112,7 +81,7 @@ namespace Sailor
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(animatie.CurrentFrame, positie, animatie.SourceRectangle, 
-                Color.White, BasicRotation, BasicOrigin, BasicScale, KeyBoardReader.effect, BasicLayerDepth);
+                Color.White, BasicRotation, BasicOrigin, BasicScale, effect, BasicLayerDepth);
         }
     }
 }

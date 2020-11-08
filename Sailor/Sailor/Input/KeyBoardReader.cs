@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Sailor.Commands;
 using Sailor.LoadSprites;
 using System;
 using System.Collections.Generic;
@@ -10,33 +11,18 @@ namespace Sailor.Input
 {
     class KeyBoardReader : IInputReader
     {
-        public static SpriteEffects effect = SpriteEffects.None;
         public static CharacterState cState = CharacterState.Idle;
-        public static bool Jumped = false;
+        Vector2 richting = new Vector2(0, 1);
 
         public Vector2 ReadInput()
         {
-            Vector2 richting = Vector2.Zero;
             KeyboardState state = Keyboard.GetState();
-            if (state.IsKeyDown(Keys.Left))
-            {
-                richting = new Vector2(-1, 0);
-                cState = CharacterState.Run;
-                effect = SpriteEffects.FlipHorizontally;
-            } else if (state.IsKeyDown(Keys.Right))
-            {
-                richting = new Vector2(1, 0);
-                cState = CharacterState.Run;
-                effect = SpriteEffects.None;
-            } else {
-                richting = new Vector2(0, 0);
-                cState = CharacterState.Idle;
-            }
-            if (state.IsKeyDown(Keys.Space))
-            {
-                Jumped = true;
-                cState = CharacterState.Jump;
-            }
+
+            if (state.IsKeyDown(Keys.Left)) richting.X = -1;
+            else if (state.IsKeyDown(Keys.Right)) richting.X = 1;
+            else richting.X = 0;
+
+            if (state.IsKeyDown(Keys.Space)) JumpCommand.Jumped = true;
             return richting;
         }
     }

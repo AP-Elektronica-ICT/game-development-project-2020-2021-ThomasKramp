@@ -9,23 +9,23 @@ namespace Sailor.CollisionDetection
 {
     class ColDetec
     {
-        public static bool LeftColliding(Hero sailor, Foreground foreground)
+        public static bool LeftColliding(ITransform sailor, Vector2 richting)
         {
-            for (int x = 0; x < foreground.blokArray.GetLength(0); x++)
+            for (int x = 0; x < Game1.Foreground.blokArray.GetLength(0); x++)
             {
-                for (int y = 0; y < foreground.blokArray.GetLength(1); y++)
+                for (int y = 0; y < Game1.Foreground.blokArray.GetLength(1); y++)
                 {
                     // Ziet of blokken bestaan
-                    if (foreground.blokArray[x, y] != null)
+                    if (Game1.Foreground.blokArray[x, y] != null)
                     {
                         // Kijkt naar de X coordinaten
-                        if (sailor.frame.Left + sailor.positie.X + sailor.richting.X < foreground.blokArray[x, y].Positie.X + foreground.blokArray[x, y].rectangle.Right
-                            && sailor.frame.Right + sailor.positie.X > foreground.blokArray[x, y].Positie.X + foreground.blokArray[x, y].rectangle.Right
+                        if (sailor.frame.Left + sailor.positie.X + richting.X - 1.5 < Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].rectangle.Right
+                            && sailor.frame.Right + sailor.positie.X > Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].rectangle.Right
                             )
                         {
                             // Kijkt naar de Y coordinaten
-                            if (sailor.frame.Bottom + sailor.positie.Y > foreground.blokArray[x, y].Positie.Y + foreground.blokArray[x, y].rectangle.Top
-                            && sailor.frame.Top + sailor.positie.Y < foreground.blokArray[x, y].Positie.Y + foreground.blokArray[x, y].rectangle.Bottom)
+                            if (sailor.frame.Bottom + sailor.positie.Y > Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].rectangle.Top
+                            && sailor.frame.Top + sailor.positie.Y < Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].rectangle.Bottom)
                             {
                                 return true;
                             }
@@ -35,23 +35,23 @@ namespace Sailor.CollisionDetection
             }
             return false;
         }
-        public static bool RightColliding(Hero sailor, Foreground foreground) 
+        public static bool RightColliding(ITransform sailor, Vector2 richting) 
         {
-            for (int x = 0; x < foreground.blokArray.GetLength(0); x++)
+            for (int x = 0; x < Game1.Foreground.blokArray.GetLength(0); x++)
             {
-                for (int y = 0; y < foreground.blokArray.GetLength(1); y++)
+                for (int y = 0; y < Game1.Foreground.blokArray.GetLength(1); y++)
                 {
                     // Ziet of blokken bestaan
-                    if (foreground.blokArray[x, y] != null)
+                    if (Game1.Foreground.blokArray[x, y] != null)
                     {
                         // Kijkt naar de X coordinaten
-                        if (sailor.frame.Right + sailor.positie.X + sailor.richting.X > foreground.blokArray[x, y].Positie.X + foreground.blokArray[x, y].rectangle.Left
-                            && sailor.frame.Left + sailor.positie.X  < foreground.blokArray[x, y].Positie.X + foreground.blokArray[x, y].rectangle.Left
+                        if (sailor.frame.Right + sailor.positie.X + richting.X + 1.5 > Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].rectangle.Left
+                            && sailor.frame.Left + sailor.positie.X  < Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].rectangle.Left
                             )
                         {
                             // Kijkt naar de Y coordinaten
-                            if (sailor.frame.Bottom + sailor.positie.Y > foreground.blokArray[x, y].Positie.Y + foreground.blokArray[x, y].rectangle.Top
-                            && sailor.frame.Top + sailor.positie.Y < foreground.blokArray[x, y].Positie.Y + foreground.blokArray[x, y].rectangle.Bottom)
+                            if (sailor.frame.Bottom + sailor.positie.Y > Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].rectangle.Top
+                            && sailor.frame.Top + sailor.positie.Y < Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].rectangle.Bottom)
                             {
                                 return true;
                             }
@@ -61,23 +61,23 @@ namespace Sailor.CollisionDetection
             }
             return false;
         }
-        public static bool TopColliding(Hero sailor, Foreground foreground)
+        public static bool TopColliding(ITransform sailor, Vector2 richting)
         {
-            for (int x = 0; x < foreground.blokArray.GetLength(0); x++)
+            for (int x = 0; x < Game1.Foreground.blokArray.GetLength(0); x++)
             {
-                for (int y = 0; y < foreground.blokArray.GetLength(1); y++)
+                for (int y = 0; y < Game1.Foreground.blokArray.GetLength(1); y++)
                 {
                     // Ziet of blokken bestaan
-                    if (foreground.blokArray[x, y] != null)
+                    if (Game1.Foreground.blokArray[x, y] != null)
                     {
                         // Kijkt naar de X coordinaten
-                        if (sailor.frame.Right + sailor.positie.X > foreground.blokArray[x, y].Positie.X + foreground.blokArray[x, y].rectangle.Left
-                            && sailor.frame.Left + sailor.positie.X < foreground.blokArray[x, y].Positie.X + foreground.blokArray[x, y].rectangle.Right
+                        if (sailor.frame.Right + sailor.positie.X > Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].rectangle.Left
+                            && sailor.frame.Left + sailor.positie.X < Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].rectangle.Right
                             )
                         {
                             // Kijkt naar de Y coordinaten
-                            if (sailor.frame.Top + sailor.positie.Y + sailor.richting.Y - 5 < foreground.blokArray[x, y].Positie.Y + foreground.blokArray[x, y].rectangle.Bottom
-                            && sailor.frame.Bottom + sailor.positie.Y > foreground.blokArray[x, y].Positie.Y + foreground.blokArray[x, y].rectangle.Bottom)
+                            if (sailor.frame.Top + sailor.positie.Y + richting.Y - 5 < Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].rectangle.Bottom
+                            && sailor.frame.Bottom + sailor.positie.Y > Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].rectangle.Bottom)
                             {
                                 return true;
                             }
@@ -87,23 +87,23 @@ namespace Sailor.CollisionDetection
             }
             return false;
         }
-        public static bool BottomColliding(Hero sailor, Foreground foreground)
+        public static bool BottomColliding(ITransform sailor, Vector2 richting)
         {
-            for (int x = 0; x < foreground.blokArray.GetLength(0); x++)
+            for (int x = 0; x < Game1.Foreground.blokArray.GetLength(0); x++)
             {
-                for (int y = 0; y < foreground.blokArray.GetLength(1); y++)
+                for (int y = 0; y < Game1.Foreground.blokArray.GetLength(1); y++)
                 {
                     // Ziet of blokken bestaan
-                    if (foreground.blokArray[x, y] != null)
+                    if (Game1.Foreground.blokArray[x, y] != null)
                     {
                         // Kijkt naar de X coordinaten
-                        if (sailor.frame.Right + sailor.positie.X > foreground.blokArray[x, y].Positie.X + foreground.blokArray[x, y].rectangle.Left
-                            && sailor.frame.Left + sailor.positie.X < foreground.blokArray[x, y].Positie.X + foreground.blokArray[x, y].rectangle.Right
+                        if (sailor.frame.Right + sailor.positie.X > Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].rectangle.Left
+                            && sailor.frame.Left + sailor.positie.X < Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].rectangle.Right
                             )
                         {
                             // Kijkt naar de Y coordinaten
-                            if (sailor.frame.Top + sailor.positie.Y < foreground.blokArray[x, y].Positie.Y + foreground.blokArray[x, y].rectangle.Top
-                            && sailor.frame.Bottom + sailor.positie.Y + sailor.richting.Y + 5 > foreground.blokArray[x, y].Positie.Y + foreground.blokArray[x, y].rectangle.Top)
+                            if (sailor.frame.Top + sailor.positie.Y < Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].rectangle.Top
+                            && sailor.frame.Bottom + sailor.positie.Y + richting.Y + 5 > Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].rectangle.Top)
                             {
                                 return true;
                             }

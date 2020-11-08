@@ -19,7 +19,7 @@ namespace Sailor
         private LoadBackground BGTexture;
         private LoadForeground FGTexture;
         Hero hero;
-        Foreground foreground;
+        public static Foreground Foreground;
         Background background;
         
 
@@ -58,8 +58,8 @@ namespace Sailor
 
         private void InitializeForegound()
         {
-            foreground = new Foreground(FGTexture.textureList);
-            foreground.CreateWorld();
+            Game1.Foreground = new Foreground(FGTexture.textureList);
+            Game1.Foreground.CreateWorld();
         }
 
         private void InitializeBackgound()
@@ -80,7 +80,7 @@ namespace Sailor
                 Exit();
 
             // TODO: Add your update logic here
-            hero.Update(gameTime, foreground);
+            hero.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -94,7 +94,7 @@ namespace Sailor
 
             background.DrawWorld(_spriteBatch);
 
-            foreground.DrawWorld(_spriteBatch);
+            Game1.Foreground.DrawWorld(_spriteBatch);
 
             hero.Draw(_spriteBatch);
 
