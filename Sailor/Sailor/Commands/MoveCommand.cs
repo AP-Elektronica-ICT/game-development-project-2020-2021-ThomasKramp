@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Sailor.CollisionDetection;
+using Sailor.Detection;
 using Sailor.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ namespace Sailor.Commands
         }
         public void Execute(ITransform transform, Vector2 richting)
         {
-            if (ColDetec.LeftColliding(transform, richting) || ColDetec.RightColliding(transform, richting)) snelheid.X = 0;
+            if (CollisionDetection.LeftColliding(transform, richting) || CollisionDetection.RightColliding(transform, richting)) snelheid.X = 0;
             else snelheid.X = 3;
             richting *= snelheid;
             transform.positie += richting;

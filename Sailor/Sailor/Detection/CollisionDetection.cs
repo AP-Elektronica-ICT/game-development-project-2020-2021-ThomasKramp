@@ -4,9 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sailor.CollisionDetection
+namespace Sailor.Detection
 {
-    class ColDetec
+    class CollisionDetection
     {
         public static bool LeftColliding(ITransform sailor, Vector2 richting)
         {
