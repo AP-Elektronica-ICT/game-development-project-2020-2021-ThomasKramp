@@ -9,12 +9,12 @@ namespace Sailor.LoadSprites
 {
     class LoadDrunkenSailor
     {
-        public Dictionary<int, List<Texture2D>> textureDic { get; set; }
+        public Dictionary<CharacterState, List<Texture2D>> textureDic { get; set; }
 
         public LoadDrunkenSailor()
         {
             
-            textureDic = new Dictionary<int, List<Texture2D>>();
+            textureDic = new Dictionary<CharacterState, List<Texture2D>>();
         }
 
         public void LoadSprites(ContentManager Content)
@@ -37,7 +37,7 @@ namespace Sailor.LoadSprites
                     // "Drunken Sailor\\Idle\\IdleDS1"
                     tempList.Add(Content.Load<Texture2D>($"Drunken Sailor\\{state.ToString()}\\{state.ToString()}DS{j}"));
                 }
-                textureDic.Add(i, tempList);
+                textureDic.Add(state, tempList);
             }
         }
     }

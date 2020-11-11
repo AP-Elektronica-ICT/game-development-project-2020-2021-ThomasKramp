@@ -59,7 +59,7 @@ namespace Sailor
 
         private void InitializeForegound()
         {
-            Game1.Foreground = new Foreground(FGTexture.textureList);
+            Game1.Foreground = new Foreground(FGTexture.textureDic);
             Game1.Foreground.CreateWorld();
         }
 

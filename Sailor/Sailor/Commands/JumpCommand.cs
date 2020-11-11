@@ -51,6 +51,8 @@ namespace Sailor.Commands
             }
             richting *= snelheid;
             transform.positie += richting;
+            ScrollDetection.TopCollide(transform, richting);
+            ScrollDetection.BottomCollide(transform, richting);
         }
     }
 }

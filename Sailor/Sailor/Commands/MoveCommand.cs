@@ -16,11 +16,11 @@ namespace Sailor.Commands
         }
         public void Execute(ITransform transform, Vector2 richting)
         {
-            if (CollisionDetection.LeftCollide(transform, richting) || CollisionDetection.RightCollide(transform, richting)) snelheid.X = 0;
-            else snelheid.X = 3;
             richting *= snelheid;
+            if (CollisionDetection.LeftCollide(transform, richting) || CollisionDetection.RightCollide(transform, richting)) richting.X = 0;
             transform.positie += richting;
-            //ScrollDetection.LeftCollide(transform, richting);
+            ScrollDetection.LeftCollide(transform, richting);
+            ScrollDetection.RightCollide(transform, richting);
         }
     }
 }

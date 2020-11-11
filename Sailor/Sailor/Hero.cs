@@ -13,7 +13,7 @@ namespace Sailor
 {
     class Hero : ITransform, IDrawEffect, IDrawState
     {
-        Dictionary<int, List<Texture2D>> heroTextures;
+        Dictionary<CharacterState, List<Texture2D>> heroTextures;
         Animatie animatie;
         public Vector2 positie { get; set; }
         public Rectangle frame { get; set; }
@@ -29,7 +29,7 @@ namespace Sailor
         private AnimatieEffect animatieEffect = new AnimatieEffect();
         private AnimatieState animatieState = new AnimatieState();
 
-        public Hero(Dictionary<int, List<Texture2D>> texture, IInputReader reader)
+        public Hero(Dictionary<CharacterState, List<Texture2D>> texture, IInputReader reader)
         {
             heroTextures = texture;
             animatie = new Animatie();
@@ -44,7 +44,7 @@ namespace Sailor
             richting = inputReader.ReadInput();
             CheckEffects();
             ExecuteCommands(richting);
-            animatie.AddFrames(heroTextures[(int)state]);
+            animatie.AddFrames(heroTextures[state]);
             // hier iets voor vinden
             frame = animatie.SourceRectangle;
             animatie.Update(gameTime);
