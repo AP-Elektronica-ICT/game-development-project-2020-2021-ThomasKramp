@@ -937,6 +937,42 @@
 /processorParam:TextureFormat=Color
 /build:Drunken Sailor/Run/RunDS9.png
 
+#begin Foreground/RevTile/RevTileFG1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Foreground/RevTile/RevTileFG1.png
+
+#begin Foreground/RevTile/RevTileFG2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Foreground/RevTile/RevTileFG2.png
+
+#begin Foreground/RevTile/RevTileFG3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Foreground/RevTile/RevTileFG3.png
+
 #begin Foreground/Tile/TileFG1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -960,4 +996,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Foreground/Tile/TileFG2.png
+
+#begin Foreground/Tile/TileFG3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Foreground/Tile/TileFG3.png
 

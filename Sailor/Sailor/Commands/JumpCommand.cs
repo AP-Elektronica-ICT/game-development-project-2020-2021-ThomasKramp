@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Sailor.CollisionDetection;
+using Sailor.Detection;
 using Sailor.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -27,13 +27,13 @@ namespace Sailor.Commands
                     snelheid.Y = -10f;
                 }
                 snelheid.Y /= 1.1f;
-                if (snelheid.Y > -1 || ColDetec.TopColliding(transform, richting))
+                if (snelheid.Y > -1 || CollisionDetection.TopCollide(transform, richting))
                 {
                     Jumped = false;
                     snelheid.Y = 0;
                 }
             }
-            else if (ColDetec.BottomColliding(transform, richting))
+            else if (CollisionDetection.BottomCollide(transform, richting))
             {
                 // Dient om doorheen heel de ground animatie te gaan
                 if (snelheid.Y > 0 || groundTeller < 9)
@@ -51,6 +51,8 @@ namespace Sailor.Commands
             }
             richting *= snelheid;
             transform.positie += richting;
+            ScrollDetection.TopCollide(transform, richting);
+            ScrollDetection.BottomCollide(transform, richting);
         }
     }
 }
