@@ -17,9 +17,10 @@ namespace Sailor
         private LoadBackground BGTexture;
         private LoadForeground FGTexture;
         Hero hero;
+        public static int ConsoleWidth;
+        public static int ConsoleHeigth;
         public static Foreground Foreground;
         Background background;
-        
 
         public Game1()
         {
@@ -29,6 +30,8 @@ namespace Sailor
             BGTexture = new LoadBackground();
             FGTexture = new LoadForeground();
             DSTextures = new LoadDrunkenSailor();
+            ConsoleWidth = this.Window.ClientBounds.Width;
+            ConsoleHeigth = this.Window.ClientBounds.Height;
         }
 
         protected override void Initialize()

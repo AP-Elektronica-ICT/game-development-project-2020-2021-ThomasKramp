@@ -27,13 +27,13 @@ namespace Sailor.Commands
                     snelheid.Y = -10f;
                 }
                 snelheid.Y /= 1.1f;
-                if (snelheid.Y > -1 || CollisionDetection.TopColliding(transform, richting))
+                if (snelheid.Y > -1 || CollisionDetection.TopCollide(transform, richting))
                 {
                     Jumped = false;
                     snelheid.Y = 0;
                 }
             }
-            else if (CollisionDetection.BottomColliding(transform, richting))
+            else if (CollisionDetection.BottomCollide(transform, richting))
             {
                 // Dient om doorheen heel de ground animatie te gaan
                 if (snelheid.Y > 0 || groundTeller < 9)
