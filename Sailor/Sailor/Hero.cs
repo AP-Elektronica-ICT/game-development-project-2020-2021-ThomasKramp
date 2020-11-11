@@ -11,7 +11,7 @@ using System.Text;
 
 namespace Sailor
 {
-    class Hero : ITransform, IDrawEffect
+    class Hero : ITransform, IDrawEffect, IDrawState
     {
         Dictionary<int, List<Texture2D>> heroTextures;
         Animatie animatie;
@@ -26,8 +26,8 @@ namespace Sailor
         // Moet nog weggehaald worden
         private IGameCommands moveCommands = new MoveCommand();
         private IGameCommands jumpCommands = new JumpCommand();
-        private IDrawCheck animatieEffect = new AnimatieEffect();
-        private IDrawCheck animatieState = new AnimatieState();
+        private AnimatieEffect animatieEffect = new AnimatieEffect();
+        private AnimatieState animatieState = new AnimatieState();
 
         public Hero(Dictionary<int, List<Texture2D>> texture, IInputReader reader)
         {
@@ -41,11 +41,12 @@ namespace Sailor
 
         public void Update(GameTime gameTime)
         {
-            animatie.AddFrames(heroTextures[(int)state]);
             richting = inputReader.ReadInput();
-            frame = animatie.SourceRectangle;
             CheckEffects();
             ExecuteCommands(richting);
+            animatie.AddFrames(heroTextures[(int)state]);
+            // hier iets voor vinden
+            frame = animatie.SourceRectangle;
             animatie.Update(gameTime);
         }
 

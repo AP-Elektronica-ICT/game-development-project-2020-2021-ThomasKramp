@@ -8,16 +8,15 @@ using System.Text;
 
 namespace Sailor.Animation
 {
-    class AnimatieState : IDrawCheck
+    class AnimatieState
     {
-        public void Check(IDrawEffect transform, Vector2 richting)
+        public void Check(IDrawState transform, Vector2 richting)
         {
             if (richting.X == 1 || richting.X == -1) transform.state = CharacterState.Run;
             else transform.state = CharacterState.Idle;
 
             if (JumpCommand.Jumped) transform.state = CharacterState.Jump;
             if (JumpCommand.HitGround) transform.state = CharacterState.Ground;
-
         }
     }
 }

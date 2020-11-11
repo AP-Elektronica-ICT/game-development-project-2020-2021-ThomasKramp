@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Sailor.Animation
 {
-    class AnimatieEffect : IDrawCheck
+    class AnimatieEffect
     {
         public void Check(IDrawEffect transform, Vector2 richting)
         {
