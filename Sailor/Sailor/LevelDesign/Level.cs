@@ -44,7 +44,7 @@ namespace Sailor.LevelDesign
             {1,1,1,1,1,1,1,1,1,1,1,1,1},
         };
 
-        private Blok[,] blokArray = new Blok[30,13];
+        private StaticBlok[,] blokArray = new StaticBlok[30,13];
         private List<Texture2D> texture { get; set; }
 
         public Level(List<Texture2D> texture)
@@ -64,7 +64,7 @@ namespace Sailor.LevelDesign
                     if (tileArray[y, x] == 1)
                     {
                         // X en Y zijn geinverteerd in de array[hoogte, breedte]
-                        blokArray[y, x] = new Blok(texture[r.Next(0, texture.Count)], new Vector2((x * 64)-(shift*32), y * 16));
+                        blokArray[y, x] = new StaticBlok(texture[r.Next(0, texture.Count)], new Vector2((x * 64)-(shift*32), y * 16));
                     }
                 }
             }

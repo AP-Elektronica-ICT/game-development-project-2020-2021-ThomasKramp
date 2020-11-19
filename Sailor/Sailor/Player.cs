@@ -5,17 +5,15 @@ using Sailor.Commands;
 using Sailor.Input;
 using Sailor.Interfaces;
 using Sailor.LoadSprites;
+using Sailor.World;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Sailor
 {
-    class Player : IMoveable, IDrawEffect, IDrawState
+    class Player : Blok, IMoveAble, IDrawEffect, IDrawState
     {
-        public Vector2 Positie { get; set; }
-        public Rectangle Frame { get; set; }
-        public Texture2D CurrentTexture { get; set; }
         public Dictionary<CharacterState, List<Texture2D>> Textures { get; set; }
         public SpriteEffects effect { get; set; }
         public CharacterState state { get; set; }
@@ -78,7 +76,7 @@ namespace Sailor
         // A depth of the layer of this sprite.
         float BasicLayerDepth = 0f;
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(CurrentTexture, Positie, Frame, Color.White, BasicRotation, BasicOrigin, BasicScale, effect, BasicLayerDepth);
         }

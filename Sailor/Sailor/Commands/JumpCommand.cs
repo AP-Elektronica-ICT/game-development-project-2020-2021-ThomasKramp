@@ -12,7 +12,7 @@ namespace Sailor.Commands
         public Vector2 snelheid;
         public static bool Jumped = false;
         public static bool Falling = false;
-        public static bool HitGround = false;
+        public static bool Ground = false;
 
         public JumpCommand()
         {
@@ -35,7 +35,7 @@ namespace Sailor.Commands
             }
             else if (CollisionDetection.BottomCollide(transform, richting))
             {
-                if (snelheid.Y > 0) HitGround = true;
+                if (snelheid.Y > 0) Ground = true;
                 Falling = false;
                 snelheid.Y = 0;
             }

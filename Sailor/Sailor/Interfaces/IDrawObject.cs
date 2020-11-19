@@ -1,15 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sailor.LoadSprites;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Sailor.Interfaces
 {
-    interface IMoveAble
+    interface IDrawObject
     {
-        public Dictionary<CharacterState, List<Texture2D>> Textures { get; set; }
-        public void Update(GameTime gameTime) { }
+        public Texture2D CurrentTexture { get; set; }
+        public Rectangle Frame { get; set; }
     }
 }

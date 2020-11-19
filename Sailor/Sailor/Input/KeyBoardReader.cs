@@ -16,7 +16,7 @@ namespace Sailor.Input
         public Vector2 ReadInput()
         {
             KeyboardState state = Keyboard.GetState();
-            if (!JumpCommand.HitGround && !AttackCommand.Attack)
+            if (!JumpCommand.Ground && !AttackCommand.Attack)
             {
                 if (state.IsKeyDown(Keys.Left)) richting.X = -1;
                 else if (state.IsKeyDown(Keys.Right)) richting.X = 1;

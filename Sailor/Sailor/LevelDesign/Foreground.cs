@@ -110,20 +110,20 @@ namespace Sailor.LevelDesign
                     switch (tileArray2[y, x])
                     {
                         case 1:
-                            blokArray[y, x] = new Blok(FGTextures[(ForgroundObjects)(y % 2) + 1]
+                            blokArray[y, x] = new StaticBlok(FGTextures[(ForgroundObjects)(y % 2) + 1]
                                 [r.Next(0, FGTextures[(ForgroundObjects)(y % 2) + 1].Count)],
                                 new Vector2(x * 64, y * 16));
                             break;
                         case 2:
-                            blokArray[y, x] = new Blok(FGTextures[ForgroundObjects.Furniture][0],
+                            blokArray[y, x] = new StaticBlok(FGTextures[ForgroundObjects.Furniture][0],
                                 new Vector2(x * 64, y * 16 - 28));
                             break;
                         case 3:
-                            blokArray[y, x] = new Blok(FGTextures[ForgroundObjects.Furniture][1],
+                            blokArray[y, x] = new StaticBlok(FGTextures[ForgroundObjects.Furniture][1],
                                 new Vector2(x * 64, y * 16 - 16));
                             break;
                         case 4:
-                            blokArray[y, x] = new Blok(FGTextures[ForgroundObjects.Furniture][2],
+                            blokArray[y, x] = new StaticBlok(FGTextures[ForgroundObjects.Furniture][2],
                                 new Vector2(x * 64, y * 16 - 40));
                             break;
                         default:

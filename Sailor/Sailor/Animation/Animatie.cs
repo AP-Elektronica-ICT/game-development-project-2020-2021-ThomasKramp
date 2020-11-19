@@ -13,20 +13,20 @@ namespace Sailor.Animation
 
         public Animatie() { }
 
-        public void Update(IDrawAble drawable, List<Texture2D> Textures, GameTime gameTime)
+        public void Update(IDrawObject drawable, List<Texture2D> Textures, GameTime gameTime)
         {
-            // De frame counter wordt gereset
+            // De texture counter wordt gereset
             if (counter >= Textures.Count)
             {
                 counter = 0;
-                JumpCommand.HitGround = false;
+                JumpCommand.Ground = false;
                 AttackCommand.Attack = false;
             }
 
-            // Gaat een nieuw frame inladen indien nodig
+            // Gaat een nieuw texture inladen indien nodig
             drawable.CurrentTexture = Textures[counter];
 
-            // Sorites besnijden indien er nog tijd over is
+            // Sprites besnijden indien er nog tijd over is
             // Kijkt telkens naar de groote van de sprite en implementeert de dimensies
             drawable.Frame = new Rectangle(0, 0, drawable.CurrentTexture.Width, drawable.CurrentTexture.Height);
 
