@@ -16,7 +16,7 @@ namespace Sailor
         private LoadDrunkenSailor DSTextures;
         private LoadBackground BGTexture;
         private LoadForeground FGTexture;
-        Hero hero;
+        Player hero;
         public static int ConsoleWidth;
         public static int ConsoleHeigth;
         public static Foreground Foreground;
@@ -71,7 +71,7 @@ namespace Sailor
 
         private void InitializeGameObject()
         {
-            hero = new Hero(DSTextures.textureDic, new KeyBoardReader());
+            hero = new Player(DSTextures.textureDic, new KeyBoardReader());
         }
 
 

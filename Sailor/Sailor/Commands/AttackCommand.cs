@@ -9,7 +9,7 @@ namespace Sailor.Commands
     class AttackCommand : IGameCommands
     {
         public static bool Attack = false;
-        public void Execute(ITransform transform, Vector2 richting)
+        public void Execute(IGameObject transform, Vector2 richting)
         {
             
         }

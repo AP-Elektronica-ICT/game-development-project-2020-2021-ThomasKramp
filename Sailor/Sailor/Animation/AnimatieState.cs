@@ -10,7 +10,7 @@ namespace Sailor.Animation
 {
     class AnimatieState
     {
-        public void Check(IDrawState transform, Vector2 richting)
+        public void Update(IDrawState transform, Vector2 richting)
         {
             if (richting.X == 1 || richting.X == -1) transform.state = CharacterState.Run;
             else transform.state = CharacterState.Idle;

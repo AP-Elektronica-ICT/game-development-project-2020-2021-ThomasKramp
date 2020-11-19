@@ -9,7 +9,7 @@ namespace Sailor.Interfaces
 {
     interface IDrawEffect
     {
-        public Vector2 positie { get; set; }
+        public Vector2 Positie { get; set; }
         public SpriteEffects effect { get; set; }
     }
 }

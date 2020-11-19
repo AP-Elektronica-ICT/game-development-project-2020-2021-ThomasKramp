@@ -14,11 +14,11 @@ namespace Sailor.Commands
         {
             snelheid = new Vector2(3, 0);
         }
-        public void Execute(ITransform transform, Vector2 richting)
+        public void Execute(IGameObject transform, Vector2 richting)
         {
             richting *= snelheid;
             if (CollisionDetection.LeftCollide(transform, richting) || CollisionDetection.RightCollide(transform, richting)) richting.X = 0;
-            transform.positie += richting;
+            transform.Positie += richting;
             ScrollDetection.LeftCollide(transform, richting);
             ScrollDetection.RightCollide(transform, richting);
         }

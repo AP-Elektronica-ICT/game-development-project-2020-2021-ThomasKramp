@@ -1,33 +1,22 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sailor.Commands;
+using Sailor.Interfaces;
 using System.Collections.Generic;
 
 namespace Sailor.Animation
 {
     class Animatie
     {
-        public Rectangle SourceRectangle { get; set; }
-        public Texture2D CurrentFrame { get; set; }
-        private List<Texture2D> frames;
-        private int counter;
+        private int counter = 0;
         private double frameMovement = 0;
 
-        public Animatie()
-        {
-            frames = new List<Texture2D>();
-        }
+        public Animatie() { }
 
-        public void AddFrames(List<Texture2D> frameLijst)
-        {
-            frames = frameLijst;
-            CurrentFrame = frames[0];
-        }
-
-        public void Update(GameTime gameTime)
+        public void Update(IDrawAble drawable, List<Texture2D> Textures, GameTime gameTime)
         {
             // De frame counter wordt gereset
-            if (counter >= frames.Count)
+            if (counter >= Textures.Count)
             {
                 counter = 0;
                 JumpCommand.HitGround = false;
@@ -35,13 +24,14 @@ namespace Sailor.Animation
             }
 
             // Gaat een nieuw frame inladen indien nodig
-            CurrentFrame = frames[counter];
+            drawable.CurrentTexture = Textures[counter];
 
+            // Sorites besnijden indien er nog tijd over is
             // Kijkt telkens naar de groote van de sprite en implementeert de dimensies
-            SourceRectangle = new Rectangle(0, 0, CurrentFrame.Width, CurrentFrame.Height);
+            drawable.Frame = new Rectangle(0, 0, drawable.CurrentTexture.Width, drawable.CurrentTexture.Height);
 
             // Gaat de frame snelheid vertragen, afhankelijk van de hoeveelheid frames
-            frameMovement += frames.Count * gameTime.ElapsedGameTime.TotalSeconds;
+            frameMovement += Textures.Count * gameTime.ElapsedGameTime.TotalSeconds;
 
             // Er wordt 1 bij de frame counter toegevoegd
                 // 1 werkt ook

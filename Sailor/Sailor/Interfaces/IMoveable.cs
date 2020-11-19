@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Sailor.Interfaces
 {
-    public interface ITransform
+    interface IMoveable : IDrawAble
     {
-        public Vector2 positie { get; set; }
-        public Rectangle frame { get; set; }
+        public Dictionary<CharacterState, List<Texture2D>> Textures { get; set; }
+        public void Update(GameTime gameTime) { }
     }
 }

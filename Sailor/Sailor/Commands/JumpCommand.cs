@@ -18,7 +18,7 @@ namespace Sailor.Commands
         {
             snelheid = new Vector2(0, 0);
         }
-        public void Execute(ITransform transform, Vector2 richting)
+        public void Execute(IGameObject transform, Vector2 richting)
         {
             if (Jumped && snelheid.Y <= 0 && !Falling)
             {
@@ -46,7 +46,7 @@ namespace Sailor.Commands
                 snelheid.Y += 0.1f;
             }
             richting *= snelheid;
-            transform.positie += richting;
+            transform.Positie += richting;
             ScrollDetection.TopCollide(transform, richting);
             ScrollDetection.BottomCollide(transform, richting);
         }

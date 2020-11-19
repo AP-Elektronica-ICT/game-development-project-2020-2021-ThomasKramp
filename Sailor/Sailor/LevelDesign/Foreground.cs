@@ -10,7 +10,14 @@ namespace Sailor.LevelDesign
 {
     public class Foreground
     {
-        public byte[,] tileArray = new Byte[,]
+        /* Texture number
+         * Nothing = 0
+         * Tile = 1
+         * Barrel = 2
+         * Table = 3
+         * Chair = 4
+         */
+        public byte[,] tileArray1 = new Byte[,]
         {
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -50,6 +57,39 @@ namespace Sailor.LevelDesign
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
         };
+        public byte[,] tileArray2 = new Byte[,]
+        {
+            {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,4,0,0,0,0,2,0,0,0,0,0,3,0,1},
+            {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+        };
 
         public Blok[,] blokArray;
         public Dictionary<ForgroundObjects, List<Texture2D>> FGTextures { get; set; }
@@ -61,17 +101,33 @@ namespace Sailor.LevelDesign
 
         public void CreateWorld()
         {
-            blokArray = new Blok[tileArray.GetLength(0), tileArray.GetLength(1)];
+            blokArray = new Blok[tileArray2.GetLength(0), tileArray2.GetLength(1)];
             Random r = new Random();
-            for (int y = 0; y < tileArray.GetLength(0); y++)
+            for (int y = 0; y < tileArray2.GetLength(0); y++)
             {
-                List<Texture2D> temp = FGTextures[(ForgroundObjects)(y % 2) + 1];
-                for (int x = 0; x < tileArray.GetLength(1); x++)
+                for (int x = 0; x < tileArray2.GetLength(1); x++)
                 {
-                    if (tileArray[y, x] == 1)
+                    switch (tileArray2[y, x])
                     {
-                        blokArray[y, x] = new Blok(temp[r.Next(0, temp.Count)], new Vector2(x * 64, y * 16));
-                        
+                        case 1:
+                            blokArray[y, x] = new Blok(FGTextures[(ForgroundObjects)(y % 2) + 1]
+                                [r.Next(0, FGTextures[(ForgroundObjects)(y % 2) + 1].Count)],
+                                new Vector2(x * 64, y * 16));
+                            break;
+                        case 2:
+                            blokArray[y, x] = new Blok(FGTextures[ForgroundObjects.Furniture][0],
+                                new Vector2(x * 64, y * 16 - 28));
+                            break;
+                        case 3:
+                            blokArray[y, x] = new Blok(FGTextures[ForgroundObjects.Furniture][1],
+                                new Vector2(x * 64, y * 16 - 16));
+                            break;
+                        case 4:
+                            blokArray[y, x] = new Blok(FGTextures[ForgroundObjects.Furniture][2],
+                                new Vector2(x * 64, y * 16 - 40));
+                            break;
+                        default:
+                            break;
                     }
                 }
             }
@@ -79,9 +135,9 @@ namespace Sailor.LevelDesign
 
         public void DrawWorld(SpriteBatch spritebatch)
         {
-            for (int x = 0; x < tileArray.GetLength(0); x++)
+            for (int x = 0; x < tileArray2.GetLength(0); x++)
             {
-                for (int y = 0; y < tileArray.GetLength(1); y++)
+                for (int y = 0; y < tileArray2.GetLength(1); y++)
                 {
                     if (blokArray[x, y] != null)
                     {

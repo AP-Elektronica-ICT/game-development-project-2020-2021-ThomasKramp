@@ -11,12 +11,12 @@ using System.Text;
 
 namespace Sailor
 {
-    class Hero : ITransform, IDrawEffect, IDrawState
+    class Player : IMoveable, IDrawEffect, IDrawState
     {
-        Dictionary<CharacterState, List<Texture2D>> heroTextures;
-        Animatie animatie;
-        public Vector2 positie { get; set; }
-        public Rectangle frame { get; set; }
+        public Vector2 Positie { get; set; }
+        public Rectangle Frame { get; set; }
+        public Texture2D CurrentTexture { get; set; }
+        public Dictionary<CharacterState, List<Texture2D>> Textures { get; set; }
         public SpriteEffects effect { get; set; }
         public CharacterState state { get; set; }
 
@@ -24,37 +24,41 @@ namespace Sailor
         private Vector2 richting;
 
         // Moet nog weggehaald worden
-        private IGameCommands moveCommands = new MoveCommand();
-        private IGameCommands jumpCommands = new JumpCommand();
-        private IGameCommands attackCommands = new AttackCommand();
-        private AnimatieEffect animatieEffect = new AnimatieEffect();
-        private AnimatieState animatieState = new AnimatieState();
+        Animatie animatie;
+        AnimatieEffect animatieEffect;
+        AnimatieState animatieState;
+        IGameCommands moveCommands;
+        IGameCommands jumpCommands;
+        IGameCommands attackCommands;
+        
 
-        public Hero(Dictionary<CharacterState, List<Texture2D>> texture, IInputReader reader)
+        public Player(Dictionary<CharacterState, List<Texture2D>> textures, IInputReader reader)
         {
-            heroTextures = texture;
+            Textures = textures;
+            #region Animatie
             animatie = new Animatie();
+            animatieEffect = new AnimatieEffect();
+            animatieState = new AnimatieState();
+            #endregion
+            #region Commands
+            moveCommands = new MoveCommand();
+            jumpCommands = new JumpCommand();
+            attackCommands = new AttackCommand();
+            #endregion
             inputReader = reader;
             // Vinden waar de eerste staat
-            positie = new Vector2(75, 350);
+            Positie = new Vector2(75, 350);
             state = CharacterState.Idle;
         }
 
         public void Update(GameTime gameTime)
         {
             richting = inputReader.ReadInput();
-            CheckEffects();
             ExecuteCommands(richting);
-            animatie.AddFrames(heroTextures[state]);
-            // hier iets voor vinden
-            frame = animatie.SourceRectangle;
-            animatie.Update(gameTime);
-        }
 
-        private void CheckEffects()
-        {
-            animatieEffect.Check(this, richting);
-            animatieState.Check(this, richting);
+            animatieEffect.Update(this, richting);
+            animatieState.Update(this, richting);
+            animatie.Update(this, Textures[state], gameTime);
         }
 
         private void ExecuteCommands(Vector2 richting)
@@ -76,8 +80,7 @@ namespace Sailor
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(animatie.CurrentFrame, positie, animatie.SourceRectangle,
-                Color.White, BasicRotation, BasicOrigin, BasicScale, effect, BasicLayerDepth);
+            spriteBatch.Draw(CurrentTexture, Positie, Frame, Color.White, BasicRotation, BasicOrigin, BasicScale, effect, BasicLayerDepth);
         }
     }
 }

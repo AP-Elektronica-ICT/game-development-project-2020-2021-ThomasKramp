@@ -9,7 +9,7 @@ namespace Sailor.Animation
 {
     class AnimatieEffect
     {
-        public void Check(IDrawEffect transform, Vector2 richting)
+        public void Update(IDrawEffect transform, Vector2 richting)
         {
             if (richting.X == -1) transform.effect = SpriteEffects.FlipHorizontally;
             if (richting.X == 1) transform.effect = SpriteEffects.None;

@@ -8,7 +8,7 @@ namespace Sailor.Interfaces
 {
     interface IDrawState
     {
-        public Vector2 positie { get; set; }
+        public Vector2 Positie { get; set; }
         public CharacterState state { get; set; }
     }
 }
