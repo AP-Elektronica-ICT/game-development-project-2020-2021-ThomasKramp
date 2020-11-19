@@ -10,6 +10,7 @@ namespace Sailor.LoadSprites
         Run,
         Attack,
         Jump,
+        Fall,
         Ground
     }
 }

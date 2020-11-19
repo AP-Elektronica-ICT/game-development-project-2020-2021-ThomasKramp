@@ -224,3 +224,7 @@ C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-20
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Foreground\RevTile\RevTileFG2.xnb
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Foreground\RevTile\RevTileFG3.xnb
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Foreground\Tile\TileFG3.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Drunken Sailor\Falling\FallingDS1.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Drunken Sailor\Falling\FallingDS2.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Drunken Sailor\Fall\FallDS1.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Drunken Sailor\Fall\FallDS2.xnb

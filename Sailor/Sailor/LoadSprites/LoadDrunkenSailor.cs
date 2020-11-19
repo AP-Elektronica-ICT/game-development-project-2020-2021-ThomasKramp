@@ -21,7 +21,7 @@ namespace Sailor.LoadSprites
         {
             System.IO.DirectoryInfo directory = new System.IO.DirectoryInfo($"Content\\Drunken Sailor");
             List<Texture2D> tempList;
-            for (int i = 1; i <= directory.GetDirectories().Length; i++)
+            for (int i = 1; i < directory.GetDirectories().Length; i++)
             {
                 tempList = new List<Texture2D>();
 
@@ -30,7 +30,7 @@ namespace Sailor.LoadSprites
                 System.IO.DirectoryInfo subDirectory = new System.IO.DirectoryInfo($"Content\\Drunken Sailor\\{state.ToString()}");
 
                 // directory.GetFiles().Length geeft hoeveel files er in de aangeroepen folder staan
-                for (int j = 1; j <= subDirectory.GetFiles().Length; j++)
+                for (int j = 1; j < subDirectory.GetFiles().Length; j++)
                 {
                     // "Drunken Sailor\\{state.ToString()}\\{state.ToString()}DS{i}"
                     // kan overeen komen met

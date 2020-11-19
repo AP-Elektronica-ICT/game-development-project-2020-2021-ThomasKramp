@@ -11,8 +11,8 @@ namespace Sailor.Commands
     {
         public Vector2 snelheid;
         public static bool Jumped = false;
+        public static bool Falling = false;
         public static bool HitGround = false;
-        int groundTeller = 0;
 
         public JumpCommand()
         {
@@ -20,7 +20,7 @@ namespace Sailor.Commands
         }
         public void Execute(ITransform transform, Vector2 richting)
         {
-            if (Jumped && snelheid.Y <= 0)
+            if (Jumped && snelheid.Y <= 0 && !Falling)
             {
                 if (snelheid.Y == 0)
                 {
@@ -35,18 +35,14 @@ namespace Sailor.Commands
             }
             else if (CollisionDetection.BottomCollide(transform, richting))
             {
-                // Dient om doorheen heel de ground animatie te gaan
-                if (snelheid.Y > 0 || groundTeller < 9)
-                {
-                    if (groundTeller > 9) groundTeller = 0;
-                    else groundTeller++;
-                    HitGround = true;
-                }
-                else HitGround = false;
+                if (snelheid.Y > 0) HitGround = true;
+                Falling = false;
                 snelheid.Y = 0;
             }
             else
             {
+                Jumped = false;
+                Falling = true;
                 snelheid.Y += 0.1f;
             }
             richting *= snelheid;

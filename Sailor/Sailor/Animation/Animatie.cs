@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sailor.Commands;
 using System.Collections.Generic;
 
 namespace Sailor.Animation
@@ -26,7 +27,12 @@ namespace Sailor.Animation
         public void Update(GameTime gameTime)
         {
             // De frame counter wordt gereset
-            if (counter >= frames.Count) counter = 0;
+            if (counter >= frames.Count)
+            {
+                counter = 0;
+                JumpCommand.HitGround = false;
+                AttackCommand.Attack = false;
+            }
 
             // Gaat een nieuw frame inladen indien nodig
             CurrentFrame = frames[counter];
@@ -38,8 +44,8 @@ namespace Sailor.Animation
             frameMovement += frames.Count * gameTime.ElapsedGameTime.TotalSeconds;
 
             // Er wordt 1 bij de frame counter toegevoegd
-                // frames.Count/16 werkt ook
-            if (frameMovement >= 1)
+                // 1 werkt ook
+            if (frameMovement >= 0.5)
             {
                 counter++;
                 frameMovement = 0;

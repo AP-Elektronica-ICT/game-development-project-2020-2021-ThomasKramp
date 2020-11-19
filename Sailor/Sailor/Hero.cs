@@ -26,6 +26,7 @@ namespace Sailor
         // Moet nog weggehaald worden
         private IGameCommands moveCommands = new MoveCommand();
         private IGameCommands jumpCommands = new JumpCommand();
+        private IGameCommands attackCommands = new AttackCommand();
         private AnimatieEffect animatieEffect = new AnimatieEffect();
         private AnimatieState animatieState = new AnimatieState();
 
@@ -58,6 +59,7 @@ namespace Sailor
 
         private void ExecuteCommands(Vector2 richting)
         {
+            attackCommands.Execute(this, richting);
             jumpCommands.Execute(this, richting);
             moveCommands.Execute(this, richting);
         }
