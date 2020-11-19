@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Sailor.World
 {
-    class StaticBlok : Blok
+    class StaticBlok : DrawBlok
     {
         public StaticBlok(Texture2D blokTexture, Vector2 positie)
         {

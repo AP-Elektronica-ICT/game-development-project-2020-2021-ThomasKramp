@@ -5,21 +5,19 @@ using Sailor.Commands;
 using Sailor.Input;
 using Sailor.Interfaces;
 using Sailor.LoadSprites;
-using Sailor.World;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sailor
+namespace Sailor.World
 {
-    class Player : Blok, IMoveAble, IDrawEffect, IDrawState
+    public abstract class DynamicBlok : DrawBlok, IMoveAble, IDrawEffect, IDrawState
     {
         public Dictionary<CharacterState, List<Texture2D>> Textures { get; set; }
         public SpriteEffects effect { get; set; }
         public CharacterState state { get; set; }
 
-        private IInputReader inputReader;
-        private Vector2 richting;
+        protected Vector2 richting;
 
         // Moet nog weggehaald worden
         Animatie animatie;
@@ -28,9 +26,8 @@ namespace Sailor
         IGameCommands moveCommands;
         IGameCommands jumpCommands;
         IGameCommands attackCommands;
-        
 
-        public Player(Dictionary<CharacterState, List<Texture2D>> textures, IInputReader reader)
+        public DynamicBlok(Dictionary<CharacterState, List<Texture2D>> textures)
         {
             Textures = textures;
             #region Animatie
@@ -43,27 +40,18 @@ namespace Sailor
             jumpCommands = new JumpCommand();
             attackCommands = new AttackCommand();
             #endregion
-            inputReader = reader;
-            // Vinden waar de eerste staat
-            Positie = new Vector2(75, 350);
             state = CharacterState.Idle;
         }
 
-        public void Update(GameTime gameTime)
-        {
-            richting = inputReader.ReadInput();
-            ExecuteCommands(richting);
-
-            animatieEffect.Update(this, richting);
-            animatieState.Update(this, richting);
-            animatie.Update(this, Textures[state], gameTime);
-        }
-
-        private void ExecuteCommands(Vector2 richting)
+        public virtual void Update(GameTime gameTime)
         {
             attackCommands.Execute(this, richting);
             jumpCommands.Execute(this, richting);
             moveCommands.Execute(this, richting);
+
+            animatieEffect.Update(this, richting);
+            animatieState.Update(this, richting);
+            animatie.Update(this, Textures[state], gameTime);
         }
 
         // Extra variabelen voor de draw methode

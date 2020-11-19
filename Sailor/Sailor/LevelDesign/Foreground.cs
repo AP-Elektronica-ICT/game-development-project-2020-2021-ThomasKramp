@@ -17,7 +17,7 @@ namespace Sailor.LevelDesign
          * Table = 3
          * Chair = 4
          */
-        public byte[,] tileArray1 = new Byte[,]
+        private byte[,] tileArray1 = new Byte[,]
         {
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -53,11 +53,11 @@ namespace Sailor.LevelDesign
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
         };
-        public byte[,] tileArray2 = new Byte[,]
+        private byte[,] tileArray2 = new Byte[,]
         {
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -86,12 +86,15 @@ namespace Sailor.LevelDesign
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,4,0,0,0,0,2,0,0,0,0,0,3,0,1},
+            {1,5,0,0,4,0,0,0,0,2,0,0,6,0,0,3,0,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
         };
 
-        public Blok[,] blokArray;
+        public DrawBlok[,] blokArray;
+
+        private int teller;
+
         public Dictionary<ForgroundObjects, List<Texture2D>> FGTextures { get; set; }
 
         public Foreground(Dictionary<ForgroundObjects, List<Texture2D>> textures)
@@ -101,7 +104,7 @@ namespace Sailor.LevelDesign
 
         public void CreateWorld()
         {
-            blokArray = new Blok[tileArray2.GetLength(0), tileArray2.GetLength(1)];
+            blokArray = new DrawBlok[tileArray2.GetLength(0), tileArray2.GetLength(1)];
             Random r = new Random();
             for (int y = 0; y < tileArray2.GetLength(0); y++)
             {
@@ -125,6 +128,9 @@ namespace Sailor.LevelDesign
                         case 4:
                             blokArray[y, x] = new StaticBlok(FGTextures[ForgroundObjects.Furniture][2],
                                 new Vector2(x * 64, y * 16 - 40));
+                            break;
+                        case 5:
+                            Game1.sailors[teller].Positie = new Vector2(x * 64, y * 16 - 58);
                             break;
                         default:
                             break;

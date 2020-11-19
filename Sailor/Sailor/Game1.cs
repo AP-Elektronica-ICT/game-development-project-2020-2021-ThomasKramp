@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using Sailor.Input;
 using Sailor.LevelDesign;
 using Sailor.LoadSprites;
+using Sailor.World;
 using System;
 using System.Collections.Generic;
 
@@ -16,9 +17,9 @@ namespace Sailor
         private LoadDrunkenSailor DSTextures;
         private LoadBackground BGTexture;
         private LoadForeground FGTexture;
-        Player hero;
         public static int ConsoleWidth;
         public static int ConsoleHeigth;
+        public static List<DynamicBlok> sailors;
         public static Foreground Foreground;
         Background background;
 
@@ -45,16 +46,24 @@ namespace Sailor
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            DSTextures.LoadSprites(Content);
+            InitializeGameObject();
+
             FGTexture.LoadSprites(Content);
             InitializeForegound();
 
             BGTexture.LoadSprites(Content);
             InitializeBackgound();
 
-            DSTextures.LoadSprites(Content);
-            InitializeGameObject();
-
             // TODO: use this.Content to load your game content here
+        }
+
+        private void InitializeGameObject()
+        {
+            sailors = new List<DynamicBlok>()
+            {
+                new Player(DSTextures.textureDic, new KeyBoardReader())
+            };
         }
 
         private void InitializeForegound()
@@ -69,19 +78,17 @@ namespace Sailor
             background.CreateWorld();
         }
 
-        private void InitializeGameObject()
-        {
-            hero = new Player(DSTextures.textureDic, new KeyBoardReader());
-        }
-
-
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
             // TODO: Add your update logic here
-            hero.Update(gameTime);
+
+            foreach (var sailor in sailors)
+            {
+                sailor.Update(gameTime);
+            }
             base.Update(gameTime);
         }
 
@@ -97,7 +104,10 @@ namespace Sailor
 
             Game1.Foreground.DrawWorld(_spriteBatch);
 
-            hero.Draw(_spriteBatch);
+            foreach (var sailor in sailors)
+            {
+                sailor.Draw(_spriteBatch);
+            }
 
             _spriteBatch.End();
 

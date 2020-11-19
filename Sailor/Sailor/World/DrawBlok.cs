@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Sailor.World
 {
-    class Blok : IGameObject, IDrawObject
+    public abstract class DrawBlok : IGameObject, IDrawObject
     {
         public Vector2 Positie { get; set; }
         public Rectangle Frame { get; set; }

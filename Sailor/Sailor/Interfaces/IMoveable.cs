@@ -10,6 +10,6 @@ namespace Sailor.Interfaces
     interface IMoveAble
     {
         public Dictionary<CharacterState, List<Texture2D>> Textures { get; set; }
-        public void Update(GameTime gameTime) { }
+        public virtual void Update(GameTime gameTime) { }
     }
 }
