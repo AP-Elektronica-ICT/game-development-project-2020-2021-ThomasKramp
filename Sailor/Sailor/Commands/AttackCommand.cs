@@ -8,10 +8,9 @@ namespace Sailor.Commands
 {
     class AttackCommand : IGameCommands
     {
-        public static bool Attack = false;
         public void Execute(IGameObject transform, Vector2 richting)
         {
-            
+            IAttacker tempAttacker = (IAttacker)transform;
         }
     }
 }

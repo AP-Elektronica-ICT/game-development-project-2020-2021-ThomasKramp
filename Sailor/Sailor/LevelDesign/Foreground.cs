@@ -86,7 +86,7 @@ namespace Sailor.LevelDesign
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,5,0,0,4,0,0,0,0,2,0,0,6,0,0,3,0,1},
+            {1,5,0,0,2,0,0,0,4,0,0,0,3,0,5,0,0,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
         };
@@ -104,6 +104,7 @@ namespace Sailor.LevelDesign
 
         public void CreateWorld()
         {
+            int sailorsTeller = 0;
             blokArray = new DrawBlok[tileArray2.GetLength(0), tileArray2.GetLength(1)];
             Random r = new Random();
             for (int y = 0; y < tileArray2.GetLength(0); y++)
@@ -130,7 +131,9 @@ namespace Sailor.LevelDesign
                                 new Vector2(x * 64, y * 16 - 40));
                             break;
                         case 5:
-                            Game1.sailors[teller].Positie = new Vector2(x * 64, y * 16 - 58);
+                            blokArray[y, x] = Game1.sailors[sailorsTeller];
+                            Game1.sailors[sailorsTeller].Positie = new Vector2(x * 64, y * 16 - 58);
+                            sailorsTeller++;
                             break;
                         default:
                             break;

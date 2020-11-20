@@ -22,7 +22,7 @@ namespace Sailor.World
 
         public override void Update(GameTime gameTime)
         {
-            richting = inputReader.ReadInput();
+            richting = inputReader.ReadInput(this);
             base.Update(gameTime);
         }
     }

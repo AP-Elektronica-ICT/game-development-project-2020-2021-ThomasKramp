@@ -15,6 +15,7 @@ namespace Sailor
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private LoadDrunkenSailor DSTextures;
+        private LoadCucumber CuTextures;
         private LoadBackground BGTexture;
         private LoadForeground FGTexture;
         public static int ConsoleWidth;
@@ -29,6 +30,7 @@ namespace Sailor
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
             BGTexture = new LoadBackground();
+            CuTextures = new LoadCucumber();
             FGTexture = new LoadForeground();
             DSTextures = new LoadDrunkenSailor();
             ConsoleWidth = this.Window.ClientBounds.Width;
@@ -47,6 +49,7 @@ namespace Sailor
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             DSTextures.LoadSprites(Content);
+            CuTextures.LoadSprites(Content);
             InitializeGameObject();
 
             FGTexture.LoadSprites(Content);
@@ -62,7 +65,8 @@ namespace Sailor
         {
             sailors = new List<DynamicBlok>()
             {
-                new Player(DSTextures.textureDic, new KeyBoardReader())
+                new Player(DSTextures.textureDic, new KeyBoardReader()),
+                new Enemy(CuTextures.textureDic)
             };
         }
 
@@ -103,11 +107,6 @@ namespace Sailor
             background.DrawWorld(_spriteBatch);
 
             Game1.Foreground.DrawWorld(_spriteBatch);
-
-            foreach (var sailor in sailors)
-            {
-                sailor.Draw(_spriteBatch);
-            }
 
             _spriteBatch.End();
 

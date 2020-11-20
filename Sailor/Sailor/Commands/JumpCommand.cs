@@ -7,12 +7,9 @@ using System.Text;
 
 namespace Sailor.Commands
 {
-    class JumpCommand : IGameCommands
+    class JumpCommand
     {
-        public Vector2 snelheid;
-        public static bool Jumped = false;
-        public static bool Falling = false;
-        public static bool Ground = false;
+        private Vector2 snelheid;
 
         public JumpCommand()
         {
@@ -20,7 +17,8 @@ namespace Sailor.Commands
         }
         public void Execute(IGameObject transform, Vector2 richting)
         {
-            if (Jumped && snelheid.Y <= 0 && !Falling)
+            IJumper tempJumper = (IJumper)transform;
+            if (tempJumper.Jumped && snelheid.Y <= 0 && !tempJumper.Falling)
             {
                 if (snelheid.Y == 0)
                 {
@@ -29,20 +27,20 @@ namespace Sailor.Commands
                 snelheid.Y /= 1.1f;
                 if (snelheid.Y > -1 || CollisionDetection.TopCollide(transform, richting))
                 {
-                    Jumped = false;
+                    tempJumper.Jumped = false;
                     snelheid.Y = 0;
                 }
             }
             else if (CollisionDetection.BottomCollide(transform, richting))
             {
-                if (snelheid.Y > 0) Ground = true;
-                Falling = false;
+                if (snelheid.Y > 0) tempJumper.Ground = true;
+                tempJumper.Falling = false;
                 snelheid.Y = 0;
             }
             else
             {
-                Jumped = false;
-                Falling = true;
+                tempJumper.Jumped = false;
+                tempJumper.Falling = true;
                 snelheid.Y += 0.1f;
             }
             richting *= snelheid;

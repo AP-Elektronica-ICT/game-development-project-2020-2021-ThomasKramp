@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Sailor.Interfaces;
+using Sailor.World;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,7 +21,7 @@ namespace Sailor.Detection
                     for (int x = 0; x < Game1.Foreground.blokArray.GetLength(1); x++)
                     {
                         // Ziet of blokken bestaan
-                        if (Game1.Foreground.blokArray[y, x] != null)
+                        if (Game1.Foreground.blokArray[y, x] != null && !(Game1.Foreground.blokArray[y, x] is Player))
                         {
                             Game1.Foreground.blokArray[y, x].Positie -= richting;
                         }
@@ -42,7 +43,7 @@ namespace Sailor.Detection
                     for (int x = 0; x <= lengthX; x++)
                     {
                         // Ziet of blokken bestaan
-                        if (Game1.Foreground.blokArray[y, x] != null)
+                        if (Game1.Foreground.blokArray[y, x] != null && !(Game1.Foreground.blokArray[y, x] is Player))
                         {
                             Game1.Foreground.blokArray[y, x].Positie -= richting;
                         }
@@ -62,7 +63,7 @@ namespace Sailor.Detection
                     for (int x = 0; x < Game1.Foreground.blokArray.GetLength(1); x++)
                     {
                         // Ziet of blokken bestaan
-                        if (Game1.Foreground.blokArray[y, x] != null)
+                        if (Game1.Foreground.blokArray[y, x] != null && !(Game1.Foreground.blokArray[y, x] is Player))
                         {
                             Game1.Foreground.blokArray[y, x].Positie -= richting;
                         }
@@ -84,7 +85,7 @@ namespace Sailor.Detection
                     for (int x = 0; x <= lengthX; x++)
                     {
                         // Ziet of blokken bestaan
-                        if (Game1.Foreground.blokArray[y, x] != null)
+                        if (Game1.Foreground.blokArray[y, x] != null && !(Game1.Foreground.blokArray[y, x] is Player))
                         {
                             Game1.Foreground.blokArray[y, x].Positie -= richting;
                         }

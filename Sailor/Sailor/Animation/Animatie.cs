@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sailor.Commands;
 using Sailor.Interfaces;
+using Sailor.World;
 using System.Collections.Generic;
 
 namespace Sailor.Animation
@@ -13,13 +14,13 @@ namespace Sailor.Animation
 
         public Animatie() { }
 
-        public void Update(IDrawObject drawable, List<Texture2D> Textures, GameTime gameTime)
+        public void Update(DynamicBlok drawable, List<Texture2D> Textures, GameTime gameTime)
         {
             if (counter >= Textures.Count)
             {
                 counter = 0;
-                JumpCommand.Ground = false;
-                AttackCommand.Attack = false;
+                drawable.Ground = false;
+                drawable.Attack = false;
             }
 
             drawable.CurrentTexture = Textures[counter];
@@ -32,7 +33,7 @@ namespace Sailor.Animation
 
             // Er wordt 1 bij de frame counter toegevoegd
                 // 1 werkt ook
-            if (frameMovement >= 0.5)
+            if (frameMovement >= 1)
             {
                 counter++;
                 frameMovement = 0;
