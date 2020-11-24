@@ -17,6 +17,10 @@ namespace Sailor.Commands
         }
         public void Execute(IGameObject transform, Vector2 richting)
         {
+            if (transform is Enemy)
+            {
+                snelheid.X = 1;
+            }
             richting *= snelheid;
             if (CollisionDetection.LeftCollide(transform, richting) || CollisionDetection.RightCollide(transform, richting)) richting.X = 0;
             transform.Positie += richting;
