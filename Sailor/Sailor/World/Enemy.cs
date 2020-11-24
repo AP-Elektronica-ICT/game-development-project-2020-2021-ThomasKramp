@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sailor.Detection;
 using Sailor.LoadSprites;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,16 @@ namespace Sailor.World
         public Enemy(Dictionary<CharacterState, List<Texture2D>> textures) : base(textures)
         {
             // Moet weg, wanneer loop patroon geimplementeerd is
-            richting = new Vector2(0, 1);
+            richting = new Vector2(-1, 1);
+            Levens = 2;
         }
 
         public override void Update(GameTime gameTime)
         {
+            if (CollisionDetection.LeftCollide(this, richting) || CollisionDetection.RightCollide(this, richting))
+            {
+                richting.X = -richting.X;
+            }
             base.Update(gameTime);
         }
     }

@@ -33,8 +33,12 @@ namespace Sailor
             CuTextures = new LoadCucumber();
             FGTexture = new LoadForeground();
             DSTextures = new LoadDrunkenSailor();
-            ConsoleWidth = this.Window.ClientBounds.Width;
-            ConsoleHeigth = this.Window.ClientBounds.Height;
+            _graphics.PreferredBackBufferWidth = 1750;
+            _graphics.PreferredBackBufferHeight = 750;
+            ConsoleWidth = 1750;
+            ConsoleHeigth = 750;
+            //ConsoleWidth = this.Window.ClientBounds.Width;
+            //ConsoleHeigth = this.Window.ClientBounds.Height;
         }
 
         protected override void Initialize()

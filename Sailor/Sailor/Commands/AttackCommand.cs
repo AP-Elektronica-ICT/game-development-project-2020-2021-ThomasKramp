@@ -12,6 +12,11 @@ namespace Sailor.Commands
         public void Execute(IGameObject transform, Vector2 richting)
         {
             IAttacker tempAttacker = (IAttacker)transform;
+            if (tempAttacker.Attack)
+            {
+                IAttacker Enemy;
+            }
+            if (tempAttacker.TextureReset) tempAttacker.Attack = false;
         }
     }
 }

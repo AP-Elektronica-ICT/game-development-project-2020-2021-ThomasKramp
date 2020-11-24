@@ -24,6 +24,7 @@ namespace Sailor.World
         public bool Falling { get; set; }
         public bool Ground { get; set; }
         public bool Attack { get; set; }
+        public int Levens { get; set; }
 
         protected Vector2 richting;
 

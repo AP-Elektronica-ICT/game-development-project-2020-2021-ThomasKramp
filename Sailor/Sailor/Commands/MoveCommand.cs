@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Sailor.Detection;
 using Sailor.Interfaces;
+using Sailor.World;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,8 +20,11 @@ namespace Sailor.Commands
             richting *= snelheid;
             if (CollisionDetection.LeftCollide(transform, richting) || CollisionDetection.RightCollide(transform, richting)) richting.X = 0;
             transform.Positie += richting;
-            ScrollDetection.LeftCollide(transform, richting);
-            ScrollDetection.RightCollide(transform, richting);
+            if (transform is Player)
+            {
+                ScrollDetection.LeftCollide(transform, richting);
+                ScrollDetection.RightCollide(transform, richting);
+            }
         }
     }
 }
