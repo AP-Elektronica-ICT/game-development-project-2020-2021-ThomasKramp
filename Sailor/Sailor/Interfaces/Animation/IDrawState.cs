@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sailor.Interfaces
+namespace Sailor.Interfaces.Animation
 {
     interface IDrawState
     {

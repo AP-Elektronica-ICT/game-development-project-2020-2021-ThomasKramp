@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Sailor.Interfaces
 {
-    interface IMoveAble
+    interface IChangeAble
     {
         public Dictionary<CharacterState, List<Texture2D>> Textures { get; set; }
         public virtual void Update(GameTime gameTime) { }

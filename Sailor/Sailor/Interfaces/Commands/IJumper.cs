@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sailor.Interfaces
+namespace Sailor.Interfaces.Commands
 {
     interface IJumper : IGameObject
     {

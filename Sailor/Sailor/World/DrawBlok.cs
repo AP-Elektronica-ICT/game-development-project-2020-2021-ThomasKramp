@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sailor.Interfaces;
+using Sailor.Interfaces.Animation;
 using System;
 using System.Collections.Generic;
 using System.Text;

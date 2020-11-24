@@ -2,8 +2,9 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sailor.Animation;
 using Sailor.Commands;
-using Sailor.Input;
 using Sailor.Interfaces;
+using Sailor.Interfaces.Animation;
+using Sailor.Interfaces.Commands;
 using Sailor.LoadSprites;
 using System;
 using System.Collections.Generic;
@@ -11,14 +12,14 @@ using System.Text;
 
 namespace Sailor.World
 {
-    public abstract class DynamicBlok : DrawBlok, IMoveAble, IDrawEffect, IDrawState, IJumper, IAttacker
+    public abstract class DynamicBlok : DrawBlok, IChangeAble, IDrawEffect, IDrawState, IJumper, IAttacker
     {
         public Dictionary<CharacterState, List<Texture2D>> Textures { get; set; }
         public SpriteEffects effect { get; set; }
         public CharacterState state { get; set; }
         public bool Jumped { get; set; }
         public bool Falling { get; set; }
-        public bool Ground { get; set; }
+        public bool Ground { get; set; } = true;
         public bool Attack { get; set; }
 
         protected Vector2 richting;
@@ -28,7 +29,7 @@ namespace Sailor.World
         AnimatieEffect animatieEffect;
         AnimatieState animatieState;
         IGameCommands moveCommands;
-        JumpCommand jumpCommands;
+        IGameCommands jumpCommands;
         IGameCommands attackCommands;
 
         public DynamicBlok(Dictionary<CharacterState, List<Texture2D>> textures)

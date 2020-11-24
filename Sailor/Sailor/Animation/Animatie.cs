@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sailor.Commands;
-using Sailor.Interfaces;
 using Sailor.World;
+using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Sailor.Animation
 {
@@ -29,15 +29,17 @@ namespace Sailor.Animation
             drawable.Frame = new Rectangle(0, 0, drawable.CurrentTexture.Width, drawable.CurrentTexture.Height);
 
             // Gaat de frame snelheid vertragen, afhankelijk van de hoeveelheid frames
-            frameMovement += Textures.Count * gameTime.ElapsedGameTime.TotalSeconds;
+            frameMovement += Math.Sqrt(Textures.Count) * gameTime.ElapsedGameTime.TotalSeconds;
 
             // Er wordt 1 bij de frame counter toegevoegd
                 // 1 werkt ook
-            if (frameMovement >= 1)
+            if (frameMovement >= 0.25)
             {
                 counter++;
                 frameMovement = 0;
             }
+
+            
         }
     }
 }
