@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sailor.Interfaces.Commands
+namespace Sailor.Interfaces.Animation
 {
-    interface IAttacker : IGameObject
+    interface IDrawDynamic : IDrawObject
     {
-        public bool Attack { get; set; }
         public bool TextureReset { get; set; }
     }
 }

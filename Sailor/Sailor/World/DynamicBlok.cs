@@ -12,14 +12,17 @@ using System.Text;
 
 namespace Sailor.World
 {
-    public abstract class DynamicBlok : DrawBlok, IChangeAble, IDrawEffect, IDrawState, IJumper, IAttacker
+    public abstract class DynamicBlok : DrawBlok, IChangeAble, IDrawDynamic, IDrawEffect, IDrawState, IJumper, IAttacker
     {
         public Dictionary<CharacterState, List<Texture2D>> Textures { get; set; }
+
+        public bool TextureReset { get; set; }
         public SpriteEffects effect { get; set; }
         public CharacterState state { get; set; }
+
         public bool Jumped { get; set; }
         public bool Falling { get; set; }
-        public bool Ground { get; set; } = true;
+        public bool Ground { get; set; }
         public bool Attack { get; set; }
 
         protected Vector2 richting;

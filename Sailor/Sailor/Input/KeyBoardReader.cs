@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using Sailor.Commands;
 using Sailor.LoadSprites;
 using Sailor.World;
 using System;
@@ -17,7 +16,8 @@ namespace Sailor.Input
         public Vector2 ReadInput(DynamicBlok sailor)
         {
             KeyboardState state = Keyboard.GetState();
-            if (!sailor.Ground && !sailor.Attack)
+            // steek "!sailor.Ground &&" in if om te laten stoppen bij ground 
+            if (!sailor.Attack)
             {
                 if (state.IsKeyDown(Keys.Left)) richting.X = -1;
                 else if (state.IsKeyDown(Keys.Right)) richting.X = 1;

@@ -49,6 +49,7 @@ namespace Sailor.Commands
                 tempJumper.Falling = true;
                 snelheid.Y += 0.1f;
             }
+            if (tempJumper.TextureReset) tempJumper.Ground = false;
             
             richting *= snelheid;
             transform.Positie += richting;
