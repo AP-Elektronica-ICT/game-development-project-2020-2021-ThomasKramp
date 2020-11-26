@@ -14,13 +14,9 @@ namespace Sailor.Animation
 
         public Animatie() { }
 
-        public void Update(IDrawDynamic drawable, List<Texture2D> Textures, GameTime gameTime)
+        public void Update(IDrawObject drawable, List<Texture2D> Textures, GameTime gameTime)
         {
-            if (counter >= Textures.Count)
-            {
-                counter = 0;
-                drawable.TextureReset = true;
-            } else drawable.TextureReset = false;
+            if (counter >= Textures.Count) counter = 0;
 
             drawable.CurrentTexture = Textures[counter];
 

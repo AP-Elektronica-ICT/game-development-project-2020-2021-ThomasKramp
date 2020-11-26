@@ -8,6 +8,5 @@ namespace Sailor.Interfaces.Commands
     {
         public bool Attack { get; set; }
         public int Levens { get; set; }
-        public bool TextureReset { get; set; }
     }
 }

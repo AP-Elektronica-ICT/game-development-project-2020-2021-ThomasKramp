@@ -21,9 +21,9 @@ namespace Sailor.Commands
         {
             IJumper tempJumper = (IJumper)transform;
 
-            if (tempJumper.Jumped)
+            if (tempJumper.Jumped && !tempJumper.Falling)
             {
-                if (CollisionDetection.BottomCollide(transform, richting))
+                if (CollisionDetection.BottomCollide(transform, richting) && tempJumper.Ground)
                 {
                     snelheid.Y = -15f;
                     tempJumper.Ground = false;
@@ -31,27 +31,20 @@ namespace Sailor.Commands
                 snelheid.Y /= 1.1f;
                 if (snelheid.Y > -1 || CollisionDetection.TopCollide(transform, richting))
                 {
-                    if (!tempJumper.Falling) snelheid.Y = 0;
-                    else snelheid.Y += 0.1f;
-                    snelheid.Y *= 1.1f;
+                    snelheid.Y = 0;
                     tempJumper.Jumped = false;
                     tempJumper.Falling = true;
                 }
             }
             else if (CollisionDetection.BottomCollide(transform, richting))
             {
-                if (tempJumper.Falling) tempJumper.Ground = true;
+                //if (tempJumper.Falling) 
+                tempJumper.Ground = true;
                 tempJumper.Falling = false;
                 snelheid.Y = 0;
             }
-            else
-            {
-                tempJumper.Ground = false;
-                tempJumper.Falling = true;
-                snelheid.Y += 0.1f;
-            }
-            if (tempJumper.TextureReset) tempJumper.Ground = false;
-            
+            else snelheid.Y += 0.1f;
+
             richting *= snelheid;
             transform.Positie += richting;
             if (transform is Player)

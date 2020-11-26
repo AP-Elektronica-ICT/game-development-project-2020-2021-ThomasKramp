@@ -16,7 +16,7 @@ namespace Sailor.Commands
             {
                 IAttacker Enemy;
             }
-            if (tempAttacker.TextureReset) tempAttacker.Attack = false;
+            
         }
     }
 }

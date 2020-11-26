@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Drunken Sailor/Ground/GroundDS1.png</SourceFile>
-  <SourceTime>2020-10-06T20:59:42.7899584+02:00</SourceTime>
+  <SourceTime>2020-11-26T13:37:50.1974939+01:00</SourceTime>
   <DestFile>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/bin/Windows/Content/Drunken Sailor/Ground/GroundDS1.xnb</DestFile>
-  <DestTime>2020-11-02T16:40:37.2049769+01:00</DestTime>
+  <DestTime>2020-11-26T13:38:55.8460964+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

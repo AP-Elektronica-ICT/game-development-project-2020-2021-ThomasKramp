@@ -19,10 +19,6 @@ namespace Sailor.World
 
         public override void Update(GameTime gameTime)
         {
-            if (CollisionDetection.LeftCollide(this, richting) || CollisionDetection.RightCollide(this, richting))
-            {
-                richting.X = -richting.X;
-            }
             base.Update(gameTime);
         }
     }

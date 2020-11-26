@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sailor.Animation;
 using Sailor.Commands;
+using Sailor.Commands.Move;
 using Sailor.Interfaces;
 using Sailor.Interfaces.Animation;
 using Sailor.Interfaces.Commands;
@@ -12,11 +13,10 @@ using System.Text;
 
 namespace Sailor.World
 {
-    public abstract class DynamicBlok : DrawBlok, IChangeAble, IDrawDynamic, IDrawEffect, IDrawState, IJumper, IAttacker
+    public abstract class DynamicBlok : DrawBlok, IChangeAble, IDrawEffect, IDrawState, IJumper, IAttacker
     {
         public Dictionary<CharacterState, List<Texture2D>> Textures { get; set; }
 
-        public bool TextureReset { get; set; }
         public SpriteEffects effect { get; set; }
         public CharacterState state { get; set; }
 

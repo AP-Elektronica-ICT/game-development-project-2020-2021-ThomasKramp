@@ -105,7 +105,7 @@ namespace Sailor.Detection
                             )
                         {
                             if (Game1.Foreground.blokArray[x, y] is PlatformBlok
-                                && player.Frame.Bottom + player.Positie.Y - richting.Y > Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Top)
+                                && player.Frame.Bottom + player.Positie.Y - richting.Y >= Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Top)
                             {
                                 continue;
                             }

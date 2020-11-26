@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sailor.Commands
+namespace Sailor.Commands.Move
 {
     public class MoveCommand : IGameCommands
     {
@@ -19,13 +19,17 @@ namespace Sailor.Commands
         {
             if (transform is Enemy)
             {
-                snelheid.X = 1;
+                if (CollisionDetection.LeftCollide(transform, richting) || CollisionDetection.RightCollide(transform, richting))
+                {
+                    snelheid *= -1;
+                }
             }
             richting *= snelheid;
-            if (CollisionDetection.LeftCollide(transform, richting) || CollisionDetection.RightCollide(transform, richting)) richting.X = 0;
+
             transform.Positie += richting;
             if (transform is Player)
             {
+                if (CollisionDetection.LeftCollide(transform, richting) || CollisionDetection.RightCollide(transform, richting)) richting.X = 0;
                 ScrollDetection.LeftCollide(transform, richting);
                 ScrollDetection.RightCollide(transform, richting);
             }
