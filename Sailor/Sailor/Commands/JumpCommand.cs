@@ -25,7 +25,7 @@ namespace Sailor.Commands
             {
                 if (CollisionDetection.BottomCollide(transform, richting))
                 {
-                    snelheid.Y = -10f;
+                    snelheid.Y = -15f;
                     tempJumper.Ground = false;
                 }
                 snelheid.Y /= 1.1f;

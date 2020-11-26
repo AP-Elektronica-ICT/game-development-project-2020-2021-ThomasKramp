@@ -8,6 +8,7 @@ namespace Sailor.LoadSprites
     {
         Tile = 1,
         RevTile,
-        Furniture
+        Furniture,
+        Platform
     }
 }
