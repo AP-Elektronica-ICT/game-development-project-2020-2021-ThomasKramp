@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sailor.Commands.Move;
 using Sailor.Detection;
 using Sailor.Input;
 using Sailor.LoadSprites;
@@ -16,6 +17,7 @@ namespace Sailor.World
         public Player(Dictionary<CharacterState, List<Texture2D>> textures, IInputReader reader) : base(textures)
         {
             inputReader = reader;
+            moveCommands = new PlayerMoveCommand();
             Levens = 3;
         }
 

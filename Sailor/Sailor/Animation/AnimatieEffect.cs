@@ -11,8 +11,8 @@ namespace Sailor.Animation
     {
         public void Update(IDrawEffect transform, Vector2 richting)
         {
-            if (richting.X == -1) transform.effect = SpriteEffects.FlipHorizontally;
-            if (richting.X == 1) transform.effect = SpriteEffects.None;
+            if (richting.X < 0) transform.effect = SpriteEffects.FlipHorizontally;
+            if (richting.X > 0) transform.effect = SpriteEffects.None;
         }
     }
 }

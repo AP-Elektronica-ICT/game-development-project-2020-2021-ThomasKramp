@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Sailor.Commands.Move
 {
-    class EnemyMoveCommand
+    class EnemyMoveCommand : MoveCommand
     {
+
     }
 }

@@ -11,7 +11,7 @@ namespace Sailor.Animation
     {
         public void Update(DynamicBlok transform, Vector2 richting)
         {
-            if (richting.X == 1 || richting.X == -1) transform.state = CharacterState.Run;
+            if (richting.X != 0) transform.state = CharacterState.Run;
             else transform.state = CharacterState.Idle;
 
             if (transform.Jumped) transform.state = CharacterState.Jump;

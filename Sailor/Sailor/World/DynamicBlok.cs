@@ -32,7 +32,7 @@ namespace Sailor.World
         Animatie animatie;
         AnimatieEffect animatieEffect;
         AnimatieState animatieState;
-        IGameCommands moveCommands;
+        protected IGameCommands moveCommands;
         IGameCommands jumpCommands;
         IGameCommands attackCommands;
 
@@ -45,7 +45,6 @@ namespace Sailor.World
             animatieState = new AnimatieState();
             #endregion
             #region Commands
-            moveCommands = new MoveCommand();
             jumpCommands = new JumpCommand();
             attackCommands = new AttackCommand();
             #endregion
