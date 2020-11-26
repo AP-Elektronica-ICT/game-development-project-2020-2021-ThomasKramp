@@ -30,7 +30,7 @@ namespace Sailor.LoadSprites
                 System.IO.DirectoryInfo subDirectory = new System.IO.DirectoryInfo($"Content\\Drunken Sailor\\{state.ToString()}");
 
                 // directory.GetFiles().Length geeft hoeveel files er in de aangeroepen folder staan
-                for (int j = 1; j < subDirectory.GetFiles().Length; j++)
+                for (int j = 1; j <= subDirectory.GetFiles().Length; j++)
                 {
                     // "Drunken Sailor\\{state.ToString()}\\{state.ToString()}DS{i}"
                     // kan overeen komen met

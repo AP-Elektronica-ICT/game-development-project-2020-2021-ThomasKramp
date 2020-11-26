@@ -16,7 +16,6 @@ namespace Sailor.Input
         public Vector2 ReadInput(DynamicBlok sailor)
         {
             KeyboardState state = Keyboard.GetState();
-            // steek "!sailor.Ground &&" in if om te laten stoppen bij ground 
             if (!sailor.Attack)
             {
                 if (state.IsKeyDown(Keys.Left)) richting.X = -1;

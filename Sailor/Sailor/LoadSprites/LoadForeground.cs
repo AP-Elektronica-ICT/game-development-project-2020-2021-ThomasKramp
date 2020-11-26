@@ -27,7 +27,7 @@ namespace Sailor.LoadSprites
                 System.IO.DirectoryInfo subDirectory = new System.IO.DirectoryInfo($"Content\\Foreground\\{fgOject.ToString()}");
 
                 int lengte = subDirectory.GetFiles().Length;
-                for (int j = 1; j < subDirectory.GetFiles().Length + 1; j++)
+                for (int j = 1; j <= subDirectory.GetFiles().Length; j++)
                 {
                     tempList.Add(Content.Load<Texture2D>($"Foreground\\{fgOject.ToString()}\\{fgOject.ToString()}FG{j}"));
                 }

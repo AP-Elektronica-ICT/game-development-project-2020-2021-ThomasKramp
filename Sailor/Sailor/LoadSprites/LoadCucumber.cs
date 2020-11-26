@@ -20,14 +20,14 @@ namespace Sailor.LoadSprites
         {
             System.IO.DirectoryInfo directory = new System.IO.DirectoryInfo($"Content\\Cucumber");
             List<Texture2D> tempList;
-            for (int i = 1; i < directory.GetDirectories().Length + 1; i++)
+            for (int i = 1; i < directory.GetDirectories().Length; i++)
             {
                 tempList = new List<Texture2D>();
 
                 CharacterState state = (CharacterState)i;
                 System.IO.DirectoryInfo subDirectory = new System.IO.DirectoryInfo($"Content\\Cucumber\\{state.ToString()}");
 
-                for (int j = 1; j < subDirectory.GetFiles().Length + 1; j++)
+                for (int j = 1; j <= subDirectory.GetFiles().Length; j++)
                 {
                     tempList.Add(Content.Load<Texture2D>($"Cucumber\\{state.ToString()}\\{state.ToString() + j}"));
                 }
