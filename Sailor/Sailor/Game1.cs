@@ -84,8 +84,8 @@ namespace Sailor
                 sailor.Update(gameTime);
             }
             camPos = Vector2.Subtract(sailors[0].Positie, new Vector2(
-                this.Window.ClientBounds.Width / 2 - 610,
-                this.Window.ClientBounds.Height / 2 + 150));
+                3 * this.Window.ClientBounds.Width / 10,
+                7 * this.Window.ClientBounds.Height / 10));
             base.Update(gameTime);
         }
 
