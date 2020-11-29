@@ -39,13 +39,9 @@ namespace Sailor
         public Matrix GetViewMatrix()
         {
             // Position = new Vector2(100, 200);
-            Matrix m =
-                Matrix.CreateTranslation(new Vector3(-Position, 0)) *//(-Position, 0.0f)) *
-                                                                     // Matrix.CreateTranslation(new Vector3(-Origin, 0.0f)) *
-                 Matrix.CreateRotationZ(Rotation) *
-                Matrix.CreateScale(Zoom, Zoom, 1);
-            //Matrix.CreateTranslation(new Vector3(ViewportCenter, 0));
-            //    Matrix.CreateTranslation(new Vector3(Position, 0.0f));
+            Matrix m = Matrix.CreateTranslation(new Vector3(-Position, 0))
+                * Matrix.CreateRotationZ(Rotation)
+                * Matrix.CreateScale(Zoom, Zoom, 1);
 
             return m;
         }

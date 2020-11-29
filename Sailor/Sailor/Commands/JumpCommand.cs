@@ -2,7 +2,6 @@
 using Sailor.Detection;
 using Sailor.Interfaces;
 using Sailor.Interfaces.Commands;
-using Sailor.World;
 using System;
 using System.Collections.Generic;
 using System.Text;

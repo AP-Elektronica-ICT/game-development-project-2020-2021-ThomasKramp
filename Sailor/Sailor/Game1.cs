@@ -18,8 +18,6 @@ namespace Sailor
         private LoadCucumber CuTextures;
         private LoadBackground BGTexture;
         private LoadForeground FGTexture;
-        public static int ConsoleWidth;
-        public static int ConsoleHeigth;
         public static List<DynamicBlok> sailors;
         public static Foreground Foreground;
         Background background;
@@ -36,10 +34,6 @@ namespace Sailor
             DSTextures = new LoadDrunkenSailor();
             _graphics.PreferredBackBufferWidth = 1750/2;
             _graphics.PreferredBackBufferHeight = 750;
-            ConsoleWidth = 1750;
-            ConsoleHeigth = 750;
-            //ConsoleWidth = this.Window.ClientBounds.Width;
-            //ConsoleHeigth = this.Window.ClientBounds.Height;
         }
 
         protected override void Initialize()
@@ -99,9 +93,12 @@ namespace Sailor
             {
                 sailor.Update(gameTime);
             }
-            camPos = Vector2.Subtract(sailors[0].Positie, new Vector2(this.Window.ClientBounds.Width/2, this.Window.ClientBounds.Height/2));
+            camPos = Vector2.Subtract(sailors[0].Positie, new Vector2(
+                this.Window.ClientBounds.Width/2 - 250,
+                this.Window.ClientBounds.Height/2 + 100));
             base.Update(gameTime);
         }
+
         float rotation = 0;
         float zoom = 1;
         public Vector2 camPos = new Vector2();
