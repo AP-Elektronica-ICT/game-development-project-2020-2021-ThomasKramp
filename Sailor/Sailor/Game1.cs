@@ -14,12 +14,10 @@ namespace Sailor
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        Dictionary<SurroundingObjects, List<Texture2D>> ohter;
         Dictionary<CharacterState, List<Texture2D>> PlayerTextures;
-        //private LoadDrunkenSailor DSTextures;
-        //private LoadCucumber CuTextures;
-        //private LoadBackground BGTexture;
-        //private LoadForeground FGTexture;
+        Dictionary<CharacterState, List<Texture2D>> CucumberTextures;
+        Dictionary<SurroundingObjects, List<Texture2D>> ForegroundTextures;
+        Dictionary<SurroundingObjects, List<Texture2D>> BackgroundTextures;
         public static List<DynamicBlok> sailors;
         public static Foreground Foreground;
         Background background;
@@ -30,11 +28,6 @@ namespace Sailor
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            PlayerTextures = LoadTextures.LoadCharacterSprites("Sailor", Content);
-            //BGTexture = new LoadBackground();
-            //CuTextures = new LoadCucumber();
-            //FGTexture = new LoadForeground();
-            //DSTextures = new LoadDrunkenSailor();
             _graphics.PreferredBackBufferWidth = 1750/2;
             _graphics.PreferredBackBufferHeight = 750;
         }
@@ -43,7 +36,7 @@ namespace Sailor
         {
             // TODO: Add your initialization logic here
 
-            camera = new Camera2d(GraphicsDevice.Viewport);
+            //camera = new Camera2d(GraphicsDevice.Viewport);
             base.Initialize();
         }
 
@@ -51,6 +44,10 @@ namespace Sailor
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            PlayerTextures = LoadTextures.LoadCharacterSprites("Sailor", Content);
+            CucumberTextures = LoadTextures.LoadCharacterSprites("Cucumber", Content);
+            ForegroundTextures = LoadTextures.LoadSurroundingsSprites("Foreground", Content);
+            BackgroundTextures = LoadTextures.LoadSurroundingsSprites("Background", Content);
             //DSTextures.LoadSprites(Content);
             //CuTextures.LoadSprites(Content);
             //InitializeGameObject();
@@ -117,8 +114,8 @@ namespace Sailor
 
             // TODO: Add your drawing code here
 
-            _spriteBatch.Begin(transformMatrix: viewMatrix);
-
+            _spriteBatch.Begin();
+            //transformMatrix: viewMatrix
             //background.DrawWorld(_spriteBatch);
 
             //Game1.Foreground.DrawWorld(_spriteBatch);
