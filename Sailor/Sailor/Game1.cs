@@ -28,7 +28,7 @@ namespace Sailor
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            _graphics.PreferredBackBufferWidth = 1750/2;
+            _graphics.PreferredBackBufferWidth = 1750;
             _graphics.PreferredBackBufferHeight = 750;
         }
 
@@ -36,7 +36,7 @@ namespace Sailor
         {
             // TODO: Add your initialization logic here
 
-            //camera = new Camera2d(GraphicsDevice.Viewport);
+            camera = new Camera2d(GraphicsDevice.Viewport);
             base.Initialize();
         }
 
@@ -46,41 +46,31 @@ namespace Sailor
 
             PlayerTextures = LoadTextures.LoadCharacterSprites("Sailor", Content);
             CucumberTextures = LoadTextures.LoadCharacterSprites("Cucumber", Content);
+            InitializeGameObject();
+
             ForegroundTextures = LoadTextures.LoadSurroundingsSprites("Foreground", Content);
             BackgroundTextures = LoadTextures.LoadSurroundingsSprites("Background", Content);
-            //DSTextures.LoadSprites(Content);
-            //CuTextures.LoadSprites(Content);
-            //InitializeGameObject();
-
-            //FGTexture.LoadSprites(Content);
-            //InitializeForegound();
-
-            //BGTexture.LoadSprites(Content);
-            //InitializeBackgound();
+            InitializeSurroundings();
 
             // TODO: use this.Content to load your game content here
         }
 
-        //private void InitializeGameObject()
-        //{
-        //    sailors = new List<DynamicBlok>()
-        //    {
-        //        new Player(DSTextures.textureDic, new KeyBoardReader()),
-        //        new Enemy(CuTextures.textureDic)
-        //    };
-        //}
+        private void InitializeGameObject()
+        {
+            sailors = new List<DynamicBlok>()
+            {
+                new Player(PlayerTextures, new KeyBoardReader()),
+                new Enemy(CucumberTextures)
+            };
+        }
 
-        //private void InitializeForegound()
-        //{
-        //    Game1.Foreground = new Foreground(FGTexture.textureDic);
-        //    Game1.Foreground.CreateWorld();
-        //}
-
-        //private void InitializeBackgound()
-        //{
-        //    background = new Background(BGTexture.textureList);
-        //    background.CreateWorld();
-        //}
+        private void InitializeSurroundings()
+        {
+            Game1.Foreground = new Foreground(ForegroundTextures);
+            Game1.Foreground.CreateWorld();
+            background = new Background(BackgroundTextures);
+            background.CreateWorld();
+        }
 
         protected override void Update(GameTime gameTime)
         {
@@ -89,13 +79,13 @@ namespace Sailor
 
             // TODO: Add your update logic here
 
-            //foreach (var sailor in sailors)
-            //{
-            //    sailor.Update(gameTime);
-            //}
-            //camPos = Vector2.Subtract(sailors[0].Positie, new Vector2(
-            //    this.Window.ClientBounds.Width/2 - 250,
-            //    this.Window.ClientBounds.Height/2 + 100));
+            foreach (var sailor in sailors)
+            {
+                sailor.Update(gameTime);
+            }
+            camPos = Vector2.Subtract(sailors[0].Positie, new Vector2(
+                this.Window.ClientBounds.Width / 2 - 610,
+                this.Window.ClientBounds.Height / 2 + 150));
             base.Update(gameTime);
         }
 
@@ -107,18 +97,18 @@ namespace Sailor
         {
             GraphicsDevice.Clear(Color.Black);
 
-            //var viewMatrix = camera.GetViewMatrix();
-            //camera.Position = camPos;
-            //camera.Rotation = rotation;
-            //camera.Zoom = zoom;
+            var viewMatrix = camera.GetViewMatrix();
+            camera.Position = camPos;
+            camera.Rotation = rotation;
+            camera.Zoom = zoom;
 
             // TODO: Add your drawing code here
 
-            _spriteBatch.Begin();
-            //transformMatrix: viewMatrix
-            //background.DrawWorld(_spriteBatch);
+            _spriteBatch.Begin(transformMatrix: viewMatrix);
+            
+            background.DrawWorld(_spriteBatch);
 
-            //Game1.Foreground.DrawWorld(_spriteBatch);
+            Game1.Foreground.DrawWorld(_spriteBatch);
 
             _spriteBatch.End();
 

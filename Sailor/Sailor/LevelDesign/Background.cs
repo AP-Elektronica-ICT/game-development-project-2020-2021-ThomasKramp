@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sailor.LoadSprites;
 using Sailor.World;
 using System;
 using System.Collections.Generic;
@@ -44,11 +45,11 @@ namespace Sailor.LevelDesign
            };
 
         private StaticBlok[,] blokArray;
-        private List<Texture2D> texture { get; set; }
+        public Dictionary<SurroundingObjects, List<Texture2D>> textures { get; set; }
 
-        public Background(List<Texture2D> texture)
+        public Background(Dictionary<SurroundingObjects, List<Texture2D>> textures)
         {
-            this.texture = texture;
+            this.textures = textures;
         }
 
         public void CreateWorld()
@@ -62,7 +63,9 @@ namespace Sailor.LevelDesign
                     if (tileArray[y, x] == 1)
                     {
                         // X en Y zijn geinverteerd in de array[hoogte, breedte]
-                        blokArray[y, x] = new StaticBlok(texture[r.Next(0, texture.Count)], new Vector2((x * 64) + ((y % 2) * 32), y * 16));
+                        blokArray[y, x] = new StaticBlok(textures[SurroundingObjects.Tile]
+                            [r.Next(0, textures[SurroundingObjects.Tile].Count)],
+                            new Vector2((x * 64) + ((y % 2) * 32), y * 16));
                     }
                 }
             }
