@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Sailor.Interfaces;
+using Sailor.World;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +9,7 @@ namespace Sailor.Detection
 {
     class CollisionDetection
     {
-        public static bool LeftCollide(ITransform transform, Vector2 richting)
+        public static bool LeftCollide(IGameObject player, Vector2 richting)
         {
             for (int x = 0; x < Game1.Foreground.blokArray.GetLength(0); x++)
             {
@@ -17,14 +18,15 @@ namespace Sailor.Detection
                     // Ziet of blokken bestaan
                     if (Game1.Foreground.blokArray[x, y] != null)
                     {
+                        if (Game1.Foreground.blokArray[x, y] is PlatformBlok) continue;
                         // Kijkt naar de X coordinaten
-                        if (transform.frame.Left + transform.positie.X + richting.X < Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].rectangle.Right
-                            && transform.frame.Right + transform.positie.X > Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].rectangle.Right
+                        if (player.Frame.Left + player.Positie.X + richting.X < Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].Frame.Right
+                            && player.Frame.Right + player.Positie.X > Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].Frame.Right
                             )
                         {
                             // Kijkt naar de Y coordinaten
-                            if (transform.frame.Bottom + transform.positie.Y - 5 > Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].rectangle.Top
-                            && transform.frame.Top + transform.positie.Y + 5 < Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].rectangle.Bottom)
+                            if (player.Frame.Bottom + player.Positie.Y - 5 > Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Top
+                            && player.Frame.Top + player.Positie.Y + 5 < Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Bottom)
                             {
                                 return true;
                             }
@@ -34,7 +36,7 @@ namespace Sailor.Detection
             }
             return false;
         }
-        public static bool RightCollide(ITransform transform, Vector2 richting)
+        public static bool RightCollide(IGameObject player, Vector2 richting)
         {
             for (int x = 0; x < Game1.Foreground.blokArray.GetLength(0); x++)
             {
@@ -43,14 +45,15 @@ namespace Sailor.Detection
                     // Ziet of blokken bestaan
                     if (Game1.Foreground.blokArray[x, y] != null)
                     {
+                        if (Game1.Foreground.blokArray[x, y] is PlatformBlok) continue;
                         // Kijkt naar de X coordinaten
-                        if (transform.frame.Right + transform.positie.X + richting.X > Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].rectangle.Left
-                            && transform.frame.Left + transform.positie.X < Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].rectangle.Left
+                        if (player.Frame.Right + player.Positie.X + richting.X > Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].Frame.Left
+                            && player.Frame.Left + player.Positie.X < Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].Frame.Left
                             )
                         {
                             // Kijkt naar de Y coordinaten
-                            if (transform.frame.Bottom + transform.positie.Y - 5 > Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].rectangle.Top
-                            && transform.frame.Top + transform.positie.Y + 5 < Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].rectangle.Bottom)
+                            if (player.Frame.Bottom + player.Positie.Y - 5 > Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Top
+                            && player.Frame.Top + player.Positie.Y + 5 < Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Bottom)
                             {
                                 return true;
                             }
@@ -60,7 +63,7 @@ namespace Sailor.Detection
             }
             return false;
         }
-        public static bool TopCollide(ITransform transform, Vector2 richting)
+        public static bool TopCollide(IGameObject player, Vector2 richting)
         {
             for (int x = 0; x < Game1.Foreground.blokArray.GetLength(0); x++)
             {
@@ -69,14 +72,15 @@ namespace Sailor.Detection
                     // Ziet of blokken bestaan
                     if (Game1.Foreground.blokArray[x, y] != null)
                     {
+                        if (Game1.Foreground.blokArray[x, y] is PlatformBlok) continue;
                         // Kijkt naar de X coordinaten
-                        if (transform.frame.Right + transform.positie.X - 5 > Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].rectangle.Left
-                            && transform.frame.Left + transform.positie.X + 5 < Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].rectangle.Right
+                        if (player.Frame.Right + player.Positie.X - 5 > Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].Frame.Left
+                            && player.Frame.Left + player.Positie.X + 5 < Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].Frame.Right
                             )
                         {
                             // Kijkt naar de Y coordinaten
-                            if (transform.frame.Top + transform.positie.Y + richting.Y < Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].rectangle.Bottom
-                            && transform.frame.Bottom + transform.positie.Y > Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].rectangle.Bottom)
+                            if (player.Frame.Top + player.Positie.Y + richting.Y < Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Bottom
+                            && player.Frame.Bottom + player.Positie.Y > Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Bottom)
                             {
                                 return true;
                             }
@@ -86,7 +90,7 @@ namespace Sailor.Detection
             }
             return false;
         }
-        public static bool BottomCollide(ITransform transform, Vector2 richting)
+        public static bool BottomCollide(IGameObject player, Vector2 richting)
         {
             for (int x = 0; x < Game1.Foreground.blokArray.GetLength(0); x++)
             {
@@ -96,13 +100,18 @@ namespace Sailor.Detection
                     if (Game1.Foreground.blokArray[x, y] != null)
                     {
                         // Kijkt naar de X coordinaten
-                        if (transform.frame.Right + transform.positie.X - 5 > Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].rectangle.Left
-                            && transform.frame.Left + transform.positie.X + 5 < Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].rectangle.Right
+                        if (player.Frame.Right + player.Positie.X - 5 > Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].Frame.Left
+                            && player.Frame.Left + player.Positie.X + 5 < Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].Frame.Right
                             )
                         {
+                            if (Game1.Foreground.blokArray[x, y] is PlatformBlok
+                                && player.Frame.Bottom + player.Positie.Y - richting.Y >= Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Top)
+                            {
+                                continue;
+                            }
                             // Kijkt naar de Y coordinaten
-                            if (transform.frame.Top + transform.positie.Y < Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].rectangle.Top
-                            && transform.frame.Bottom + transform.positie.Y + richting.Y > Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].rectangle.Top)
+                            if (player.Frame.Top + player.Positie.Y < Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Top
+                            && player.Frame.Bottom + player.Positie.Y + richting.Y > Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Top)
                             {
                                 return true;
                             }

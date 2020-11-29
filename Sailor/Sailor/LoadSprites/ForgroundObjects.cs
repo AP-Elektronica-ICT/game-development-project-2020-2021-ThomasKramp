@@ -7,6 +7,8 @@ namespace Sailor.LoadSprites
     public enum ForgroundObjects
     {
         Tile = 1,
-        RevTile
+        RevTile,
+        Furniture,
+        Platform
     }
 }
