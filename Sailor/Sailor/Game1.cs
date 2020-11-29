@@ -14,10 +14,10 @@ namespace Sailor
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private LoadDrunkenSailor DSTextures;
-        private LoadCucumber CuTextures;
-        private LoadBackground BGTexture;
-        private LoadForeground FGTexture;
+        Dictionary<CharacterState, List<Texture2D>> PlayerTextures;
+        Dictionary<CharacterState, List<Texture2D>> CucumberTextures;
+        Dictionary<SurroundingObjects, List<Texture2D>> ForegroundTextures;
+        Dictionary<SurroundingObjects, List<Texture2D>> BackgroundTextures;
         public static List<DynamicBlok> sailors;
         public static Foreground Foreground;
         Background background;
@@ -28,11 +28,7 @@ namespace Sailor
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            BGTexture = new LoadBackground();
-            CuTextures = new LoadCucumber();
-            FGTexture = new LoadForeground();
-            DSTextures = new LoadDrunkenSailor();
-            _graphics.PreferredBackBufferWidth = 1750/2;
+            _graphics.PreferredBackBufferWidth = 1750;
             _graphics.PreferredBackBufferHeight = 750;
         }
 
@@ -48,15 +44,13 @@ namespace Sailor
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            DSTextures.LoadSprites(Content);
-            CuTextures.LoadSprites(Content);
+            PlayerTextures = LoadTextures.LoadCharacterSprites("Sailor", Content);
+            CucumberTextures = LoadTextures.LoadCharacterSprites("Cucumber", Content);
             InitializeGameObject();
 
-            FGTexture.LoadSprites(Content);
-            InitializeForegound();
-
-            BGTexture.LoadSprites(Content);
-            InitializeBackgound();
+            ForegroundTextures = LoadTextures.LoadSurroundingsSprites("Foreground", Content);
+            BackgroundTextures = LoadTextures.LoadSurroundingsSprites("Background", Content);
+            InitializeSurroundings();
 
             // TODO: use this.Content to load your game content here
         }
@@ -65,20 +59,16 @@ namespace Sailor
         {
             sailors = new List<DynamicBlok>()
             {
-                new Player(DSTextures.textureDic, new KeyBoardReader()),
-                new Enemy(CuTextures.textureDic)
+                new Player(PlayerTextures, new KeyBoardReader()),
+                new Enemy(CucumberTextures)
             };
         }
 
-        private void InitializeForegound()
+        private void InitializeSurroundings()
         {
-            Game1.Foreground = new Foreground(FGTexture.textureDic);
+            Game1.Foreground = new Foreground(ForegroundTextures);
             Game1.Foreground.CreateWorld();
-        }
-
-        private void InitializeBackgound()
-        {
-            background = new Background(BGTexture.textureList);
+            background = new Background(BackgroundTextures);
             background.CreateWorld();
         }
 
@@ -94,8 +84,8 @@ namespace Sailor
                 sailor.Update(gameTime);
             }
             camPos = Vector2.Subtract(sailors[0].Positie, new Vector2(
-                this.Window.ClientBounds.Width/2 - 250,
-                this.Window.ClientBounds.Height/2 + 100));
+                3 * this.Window.ClientBounds.Width / 10,
+                7 * this.Window.ClientBounds.Height / 10));
             base.Update(gameTime);
         }
 
@@ -115,7 +105,7 @@ namespace Sailor
             // TODO: Add your drawing code here
 
             _spriteBatch.Begin(transformMatrix: viewMatrix);
-
+            
             background.DrawWorld(_spriteBatch);
 
             Game1.Foreground.DrawWorld(_spriteBatch);
