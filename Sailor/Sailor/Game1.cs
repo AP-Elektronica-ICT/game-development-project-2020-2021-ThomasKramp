@@ -23,6 +23,7 @@ namespace Sailor
         public static List<DynamicBlok> sailors;
         public static Foreground Foreground;
         Background background;
+        Camera2d camera;
 
         public Game1()
         {
@@ -33,7 +34,7 @@ namespace Sailor
             CuTextures = new LoadCucumber();
             FGTexture = new LoadForeground();
             DSTextures = new LoadDrunkenSailor();
-            _graphics.PreferredBackBufferWidth = 1750;
+            _graphics.PreferredBackBufferWidth = 1750/2;
             _graphics.PreferredBackBufferHeight = 750;
             ConsoleWidth = 1750;
             ConsoleHeigth = 750;
@@ -45,6 +46,7 @@ namespace Sailor
         {
             // TODO: Add your initialization logic here
 
+            camera = new Camera2d(GraphicsDevice.Viewport);
             base.Initialize();
         }
 
@@ -97,16 +99,25 @@ namespace Sailor
             {
                 sailor.Update(gameTime);
             }
+            camPos = Vector2.Subtract(sailors[0].Positie, new Vector2(this.Window.ClientBounds.Width/2, this.Window.ClientBounds.Height/2));
             base.Update(gameTime);
         }
+        float rotation = 0;
+        float zoom = 1;
+        public Vector2 camPos = new Vector2();
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
+
+            var viewMatrix = camera.GetViewMatrix();
+            camera.Position = camPos;
+            camera.Rotation = rotation;
+            camera.Zoom = zoom;
 
             // TODO: Add your drawing code here
 
-            _spriteBatch.Begin();
+            _spriteBatch.Begin(transformMatrix: viewMatrix);
 
             background.DrawWorld(_spriteBatch);
 

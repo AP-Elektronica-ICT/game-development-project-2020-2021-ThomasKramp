@@ -9,6 +9,5 @@ namespace Sailor.Commands
     public interface IGameCommands
     {
         public void Execute(IGameObject transform, Vector2 richting);
-
     }
 }

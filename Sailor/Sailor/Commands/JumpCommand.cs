@@ -47,11 +47,6 @@ namespace Sailor.Commands
 
             richting *= snelheid;
             transform.Positie += richting;
-            if (transform is Player)
-            {
-                ScrollDetection.TopCollide(transform, richting);
-                ScrollDetection.BottomCollide(transform, richting);
-            }
         }
     }
 }

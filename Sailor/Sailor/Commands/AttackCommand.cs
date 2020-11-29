@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Sailor.Detection;
 using Sailor.Interfaces;
 using Sailor.Interfaces.Commands;
 using System;
@@ -14,7 +15,14 @@ namespace Sailor.Commands
             IAttacker tempAttacker = (IAttacker)transform;
             if (tempAttacker.Attack)
             {
-                IAttacker Enemy;
+                if (CollisionDetection.LeftCollide(transform, new Vector2(richting.X - 5, richting.Y)))
+                {
+                    
+                }
+                if (CollisionDetection.RightCollide(transform, new Vector2(richting.X + 5, richting.Y)))
+                {
+
+                }
             }
             
         }
