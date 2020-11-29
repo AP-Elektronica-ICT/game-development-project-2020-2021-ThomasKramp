@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Sailor.LoadSprites
 {
-    public enum ForgroundObjects
+    public enum SurroundingObjects
     {
-        Tile = 1,
+        Tile = 0,
         RevTile,
         Furniture,
         Platform

@@ -6,7 +6,7 @@ namespace Sailor.LoadSprites
 {
     public enum CharacterState
     {
-        Idle = 1,
+        Idle = 0,
         Run,
         Attack,
         Jump,

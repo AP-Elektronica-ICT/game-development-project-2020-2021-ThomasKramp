@@ -8,11 +8,11 @@ namespace Sailor.LoadSprites
 {
     class LoadForeground
     {
-        public Dictionary<ForgroundObjects, List<Texture2D>> textureDic { get; set; }
+        public Dictionary<SurroundingObjects, List<Texture2D>> textureDic { get; set; }
 
         public LoadForeground()
         {
-            textureDic = new Dictionary<ForgroundObjects, List<Texture2D>>();
+            textureDic = new Dictionary<SurroundingObjects, List<Texture2D>>();
         }
 
         public void LoadSprites(ContentManager Content)
@@ -23,7 +23,7 @@ namespace Sailor.LoadSprites
             {
                 tempList = new List<Texture2D>();
 
-                ForgroundObjects fgOject = (ForgroundObjects)i;
+                SurroundingObjects fgOject = (SurroundingObjects)i;
                 System.IO.DirectoryInfo subDirectory = new System.IO.DirectoryInfo($"Content\\Foreground\\{fgOject.ToString()}");
 
                 int lengte = subDirectory.GetFiles().Length;

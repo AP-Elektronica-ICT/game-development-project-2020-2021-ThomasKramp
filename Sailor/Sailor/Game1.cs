@@ -14,10 +14,12 @@ namespace Sailor
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private LoadDrunkenSailor DSTextures;
-        private LoadCucumber CuTextures;
-        private LoadBackground BGTexture;
-        private LoadForeground FGTexture;
+        Dictionary<SurroundingObjects, List<Texture2D>> ohter;
+        Dictionary<CharacterState, List<Texture2D>> PlayerTextures;
+        //private LoadDrunkenSailor DSTextures;
+        //private LoadCucumber CuTextures;
+        //private LoadBackground BGTexture;
+        //private LoadForeground FGTexture;
         public static List<DynamicBlok> sailors;
         public static Foreground Foreground;
         Background background;
@@ -28,10 +30,11 @@ namespace Sailor
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            BGTexture = new LoadBackground();
-            CuTextures = new LoadCucumber();
-            FGTexture = new LoadForeground();
-            DSTextures = new LoadDrunkenSailor();
+            PlayerTextures = LoadTextures.LoadCharacterSprites("Sailor", Content);
+            //BGTexture = new LoadBackground();
+            //CuTextures = new LoadCucumber();
+            //FGTexture = new LoadForeground();
+            //DSTextures = new LoadDrunkenSailor();
             _graphics.PreferredBackBufferWidth = 1750/2;
             _graphics.PreferredBackBufferHeight = 750;
         }
@@ -48,39 +51,39 @@ namespace Sailor
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            DSTextures.LoadSprites(Content);
-            CuTextures.LoadSprites(Content);
-            InitializeGameObject();
+            //DSTextures.LoadSprites(Content);
+            //CuTextures.LoadSprites(Content);
+            //InitializeGameObject();
 
-            FGTexture.LoadSprites(Content);
-            InitializeForegound();
+            //FGTexture.LoadSprites(Content);
+            //InitializeForegound();
 
-            BGTexture.LoadSprites(Content);
-            InitializeBackgound();
+            //BGTexture.LoadSprites(Content);
+            //InitializeBackgound();
 
             // TODO: use this.Content to load your game content here
         }
 
-        private void InitializeGameObject()
-        {
-            sailors = new List<DynamicBlok>()
-            {
-                new Player(DSTextures.textureDic, new KeyBoardReader()),
-                new Enemy(CuTextures.textureDic)
-            };
-        }
+        //private void InitializeGameObject()
+        //{
+        //    sailors = new List<DynamicBlok>()
+        //    {
+        //        new Player(DSTextures.textureDic, new KeyBoardReader()),
+        //        new Enemy(CuTextures.textureDic)
+        //    };
+        //}
 
-        private void InitializeForegound()
-        {
-            Game1.Foreground = new Foreground(FGTexture.textureDic);
-            Game1.Foreground.CreateWorld();
-        }
+        //private void InitializeForegound()
+        //{
+        //    Game1.Foreground = new Foreground(FGTexture.textureDic);
+        //    Game1.Foreground.CreateWorld();
+        //}
 
-        private void InitializeBackgound()
-        {
-            background = new Background(BGTexture.textureList);
-            background.CreateWorld();
-        }
+        //private void InitializeBackgound()
+        //{
+        //    background = new Background(BGTexture.textureList);
+        //    background.CreateWorld();
+        //}
 
         protected override void Update(GameTime gameTime)
         {
@@ -89,13 +92,13 @@ namespace Sailor
 
             // TODO: Add your update logic here
 
-            foreach (var sailor in sailors)
-            {
-                sailor.Update(gameTime);
-            }
-            camPos = Vector2.Subtract(sailors[0].Positie, new Vector2(
-                this.Window.ClientBounds.Width/2 - 250,
-                this.Window.ClientBounds.Height/2 + 100));
+            //foreach (var sailor in sailors)
+            //{
+            //    sailor.Update(gameTime);
+            //}
+            //camPos = Vector2.Subtract(sailors[0].Positie, new Vector2(
+            //    this.Window.ClientBounds.Width/2 - 250,
+            //    this.Window.ClientBounds.Height/2 + 100));
             base.Update(gameTime);
         }
 
@@ -107,18 +110,18 @@ namespace Sailor
         {
             GraphicsDevice.Clear(Color.Black);
 
-            var viewMatrix = camera.GetViewMatrix();
-            camera.Position = camPos;
-            camera.Rotation = rotation;
-            camera.Zoom = zoom;
+            //var viewMatrix = camera.GetViewMatrix();
+            //camera.Position = camPos;
+            //camera.Rotation = rotation;
+            //camera.Zoom = zoom;
 
             // TODO: Add your drawing code here
 
             _spriteBatch.Begin(transformMatrix: viewMatrix);
 
-            background.DrawWorld(_spriteBatch);
+            //background.DrawWorld(_spriteBatch);
 
-            Game1.Foreground.DrawWorld(_spriteBatch);
+            //Game1.Foreground.DrawWorld(_spriteBatch);
 
             _spriteBatch.End();
 

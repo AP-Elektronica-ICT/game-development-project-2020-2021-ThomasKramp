@@ -94,9 +94,9 @@ namespace Sailor.LevelDesign
 
         public DrawBlok[,] blokArray;
 
-        public Dictionary<ForgroundObjects, List<Texture2D>> FGTextures { get; set; }
+        public Dictionary<SurroundingObjects, List<Texture2D>> FGTextures { get; set; }
 
-        public Foreground(Dictionary<ForgroundObjects, List<Texture2D>> textures)
+        public Foreground(Dictionary<SurroundingObjects, List<Texture2D>> textures)
         {
             FGTextures = textures;
         }
@@ -113,8 +113,8 @@ namespace Sailor.LevelDesign
                     switch (tileArray2[y, x])
                     {
                         case 1:
-                            blokArray[y, x] = new StaticBlok(FGTextures[(ForgroundObjects)(y % 2) + 1]
-                                [r.Next(0, FGTextures[(ForgroundObjects)(y % 2) + 1].Count)],
+                            blokArray[y, x] = new StaticBlok(FGTextures[(SurroundingObjects)(y % 2) + 1]
+                                [r.Next(0, FGTextures[(SurroundingObjects)(y % 2) + 1].Count)],
                                 new Vector2(x * 64, y * 16));
                             break;
                         case 2:
@@ -123,19 +123,19 @@ namespace Sailor.LevelDesign
                             sailorsTeller++;
                             break;
                         case 3:
-                            blokArray[y, x] = new StaticBlok(FGTextures[ForgroundObjects.Furniture][0],
+                            blokArray[y, x] = new StaticBlok(FGTextures[SurroundingObjects.Furniture][0],
                                 new Vector2(x * 64, y * 16 - 28));
                             break;
                         case 4:
-                            blokArray[y, x] = new StaticBlok(FGTextures[ForgroundObjects.Furniture][1],
+                            blokArray[y, x] = new StaticBlok(FGTextures[SurroundingObjects.Furniture][1],
                                 new Vector2(x * 64, y * 16 - 16));
                             break;
                         case 5:
-                            blokArray[y, x] = new StaticBlok(FGTextures[ForgroundObjects.Furniture][2],
+                            blokArray[y, x] = new StaticBlok(FGTextures[SurroundingObjects.Furniture][2],
                                 new Vector2(x * 64, y * 16 - 40));
                             break;
                         case 6:
-                            blokArray[y, x] = new PlatformBlok(FGTextures[ForgroundObjects.Platform][0],
+                            blokArray[y, x] = new PlatformBlok(FGTextures[SurroundingObjects.Platform][0],
                                 new Vector2(x * 64, y * 16));
                             break;
                         default:
