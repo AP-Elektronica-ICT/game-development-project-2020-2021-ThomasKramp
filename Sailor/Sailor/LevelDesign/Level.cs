@@ -5,20 +5,22 @@ using Sailor.World;
 using Sailor.World.Abstract;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Sailor.LevelDesign
 {
-    public class Level
+    class Level
     {
         /* Texture number
          * Nothing = 0
          * Tile = 1
-         * Barrel = 3
-         * Table = 4
-         * Chair = 5
-         * Platform = 6
+         * Player = 2
+         * Enemy = 3
+         * Barrel = 4
+         * Table = 5
+         * Chair = 6
+         * Platform = 7
          */
+
         private byte[,] BackgroundArray = new Byte[,]
            {
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -76,12 +78,12 @@ namespace Sailor.LevelDesign
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,2,0,0,0,0,0,0,0,0,0,5,0,0,2,0,0,1},
+            {1,2,0,0,0,0,0,0,0,0,0,5,0,0,3,0,0,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
         };
@@ -133,18 +135,27 @@ namespace Sailor.LevelDesign
         private Dictionary<SurroundingObjects, List<Texture2D>> backTextures;
         private Dictionary<SurroundingObjects, List<Texture2D>> surrTextures;
         private Dictionary<SurroundingObjects, List<Texture2D>> foreTextures;
+        private List<Dictionary<CharacterState, List<Texture2D>>> enemyTexures;
 
-        public Level(Dictionary<SurroundingObjects, List<Texture2D>> backTextures,
-            Dictionary<SurroundingObjects, List<Texture2D>> surrTextures)
+        public List<DynamicBlok> Enemies = new List<DynamicBlok>();
+
+        public Level(List<Dictionary<SurroundingObjects, List<Texture2D>>> LevelTexures,
+            List<Dictionary<CharacterState, List<Texture2D>>> EnemyTexures)
         {
-            this.backTextures = backTextures;
-            this.surrTextures = surrTextures;
+            this.backTextures = LevelTexures[0];
+            this.surrTextures = LevelTexures[1];
+            this.enemyTexures = EnemyTexures;
         }
 
-        public void CreateWorld()
+        public void AddEnemies()
+        {
+            Enemies.Add(new Enemy(enemyTexures[0]));
+        }
+
+        public void CreateWorld(DrawBlok player)
         {
             CreateBackGround();
-            CreateSurroundings();
+            CreateSurroundings(player);
             CreateForeground();
         }
 
@@ -166,9 +177,9 @@ namespace Sailor.LevelDesign
             }
         }
 
-        private void CreateSurroundings()
+        private void CreateSurroundings(DrawBlok player)
         {
-            int sailorsTeller = 0;
+            int enemyTeller = 0;
             Random r = new Random();
             for (int y = 0; y < SurroundisArray.GetLength(0); y++)
             {
@@ -182,23 +193,27 @@ namespace Sailor.LevelDesign
                                 new Vector2(x * 64, y * 16)));
                             break;
                         case 2:
-                            Surroundings.Add(Game1.sailors[sailorsTeller]);
-                            Game1.sailors[sailorsTeller].Positie = new Vector2(x * 64, y * 16 - 58);
-                            sailorsTeller++;
+                            Surroundings.Add(player);
+                            player.Positie = new Vector2(x * 64, y * 16 - 58);
                             break;
                         case 3:
+                            Surroundings.Add(Enemies[enemyTeller]);
+                            Enemies[enemyTeller].Positie = new Vector2(x * 64, y * 16 - 58);
+                            enemyTeller++;
+                            break;
+                        case 4:
                             Surroundings.Add(new StaticBlok(surrTextures[SurroundingObjects.Furniture][0],
                                 new Vector2(x * 64, y * 16 - 28)));
                             break;
-                        case 4:
+                        case 5:
                             Surroundings.Add(new StaticBlok(surrTextures[SurroundingObjects.Furniture][1],
                                 new Vector2(x * 64, y * 16 - 16)));
                             break;
-                        case 5:
+                        case 6:
                             Surroundings.Add(new StaticBlok(surrTextures[SurroundingObjects.Furniture][2],
                                 new Vector2(x * 64, y * 16 - 40)));
                             break;
-                        case 6:
+                        case 7:
                             Surroundings.Add(new PlatformBlok(surrTextures[SurroundingObjects.Platform][0],
                                 new Vector2(x * 64, y * 16)));
                             break;

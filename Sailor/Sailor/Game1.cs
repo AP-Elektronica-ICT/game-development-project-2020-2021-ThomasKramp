@@ -16,14 +16,13 @@ namespace Sailor
         GraphicsDeviceManager _graphics;
         SpriteBatch _spriteBatch;
 
-        public static List<DynamicBlok> sailors;
+        DynamicBlok Player;
         Level DemoLevel;
         Camera2d camera;
 
         Dictionary<CharacterState, List<Texture2D>> PlayerTextures;
-        Dictionary<CharacterState, List<Texture2D>> CucumberTextures;
-        Dictionary<SurroundingObjects, List<Texture2D>> ForegroundTextures;
-        Dictionary<SurroundingObjects, List<Texture2D>> BackgroundTextures;
+        List<Dictionary<CharacterState, List<Texture2D>>> EnemyTextures;
+        List<Dictionary<SurroundingObjects, List<Texture2D>>> LevelTextures;
 
         public Game1()
         {
@@ -32,6 +31,8 @@ namespace Sailor
             IsMouseVisible = true;
             _graphics.PreferredBackBufferWidth = 1750;
             _graphics.PreferredBackBufferHeight = 750;
+            EnemyTextures = new List<Dictionary<CharacterState, List<Texture2D>>>();
+            LevelTextures = new List<Dictionary<SurroundingObjects, List<Texture2D>>>();
         }
 
         protected override void Initialize()
@@ -47,11 +48,11 @@ namespace Sailor
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             PlayerTextures = LoadTextures.LoadCharacterSprites("Sailor", Content);
-            CucumberTextures = LoadTextures.LoadCharacterSprites("Cucumber", Content);
+            EnemyTextures.Add(LoadTextures.LoadCharacterSprites("Cucumber", Content));
             InitializeGameObject();
 
-            ForegroundTextures = LoadTextures.LoadSurroundingsSprites("Foreground", Content);
-            BackgroundTextures = LoadTextures.LoadSurroundingsSprites("Background", Content);
+            LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Background", Content));
+            LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Foreground", Content));
             InitializeSurroundings();
 
             // TODO: use this.Content to load your game content here
@@ -59,17 +60,14 @@ namespace Sailor
 
         private void InitializeGameObject()
         {
-            sailors = new List<DynamicBlok>()
-            {
-                new Player(PlayerTextures, new KeyBoardReader()),
-                new Enemy(CucumberTextures)
-            };
+            Player = new Player(PlayerTextures, new KeyBoardReader());
         }
 
         private void InitializeSurroundings()
         {
-            DemoLevel = new Level(BackgroundTextures, ForegroundTextures);
-            DemoLevel.CreateWorld();
+            DemoLevel = new Level(LevelTextures, EnemyTextures);
+            DemoLevel.AddEnemies();
+            DemoLevel.CreateWorld(Player);
         }
 
         protected override void Update(GameTime gameTime)
@@ -78,14 +76,17 @@ namespace Sailor
                 Exit();
 
             // TODO: Add your update logic here
+            Player.Update(gameTime, DemoLevel.Surroundings);
 
-            foreach (var sailor in sailors)
-            {
-                sailor.Update(gameTime, DemoLevel.Surroundings);
-            }
-            camPos = Vector2.Subtract(sailors[0].Positie, new Vector2(
+            camPos = Vector2.Subtract(Player.Positie, new Vector2(
                 this.Window.ClientBounds.Width / 5,
                 7 * this.Window.ClientBounds.Height / 10));
+
+            foreach (var enemy in DemoLevel.Enemies)
+            {
+                enemy.Update(gameTime, DemoLevel.Surroundings);
+            }
+
             base.Update(gameTime);
         }
 
