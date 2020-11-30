@@ -12,16 +12,17 @@ namespace Sailor
 {
     public class Game1 : Game
     {
-        private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        GraphicsDeviceManager _graphics;
+        SpriteBatch _spriteBatch;
+
+        public static List<DynamicBlok> sailors;
+        public static Surroundings Surroundings;
+        Camera2d camera;
+
         Dictionary<CharacterState, List<Texture2D>> PlayerTextures;
         Dictionary<CharacterState, List<Texture2D>> CucumberTextures;
         Dictionary<SurroundingObjects, List<Texture2D>> ForegroundTextures;
         Dictionary<SurroundingObjects, List<Texture2D>> BackgroundTextures;
-        public static List<DynamicBlok> sailors;
-        public static Foreground Foreground;
-        Background background;
-        Camera2d camera;
 
         public Game1()
         {
@@ -66,10 +67,8 @@ namespace Sailor
 
         private void InitializeSurroundings()
         {
-            Game1.Foreground = new Foreground(ForegroundTextures);
-            Game1.Foreground.CreateWorld();
-            background = new Background(BackgroundTextures);
-            background.CreateWorld();
+            Game1.Surroundings = new Surroundings(BackgroundTextures, ForegroundTextures);
+            Game1.Surroundings.CreateWorld();
         }
 
         protected override void Update(GameTime gameTime)
@@ -84,7 +83,7 @@ namespace Sailor
                 sailor.Update(gameTime);
             }
             camPos = Vector2.Subtract(sailors[0].Positie, new Vector2(
-                3 * this.Window.ClientBounds.Width / 10,
+                this.Window.ClientBounds.Width / 5,
                 7 * this.Window.ClientBounds.Height / 10));
             base.Update(gameTime);
         }
@@ -105,10 +104,8 @@ namespace Sailor
             // TODO: Add your drawing code here
 
             _spriteBatch.Begin(transformMatrix: viewMatrix);
-            
-            background.DrawWorld(_spriteBatch);
 
-            Game1.Foreground.DrawWorld(_spriteBatch);
+            Game1.Surroundings.DrawWorld(_spriteBatch);
 
             _spriteBatch.End();
 

@@ -44,7 +44,7 @@ namespace Sailor.LevelDesign
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
            };
 
-        private StaticBlok[,] blokArray;
+        private DrawBlok[,] blokArray;
         public Dictionary<SurroundingObjects, List<Texture2D>> textures { get; set; }
 
         public Background(Dictionary<SurroundingObjects, List<Texture2D>> textures)
@@ -83,7 +83,6 @@ namespace Sailor.LevelDesign
                     }
                 }
             }
-
         }
     }
 }
