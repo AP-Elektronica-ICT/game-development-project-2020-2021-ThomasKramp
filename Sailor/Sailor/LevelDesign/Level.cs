@@ -126,7 +126,7 @@ namespace Sailor.LevelDesign
         };
 
         private List<DrawBlok> Background = new List<DrawBlok>();
-        public DrawBlok[,] Surroundings;
+        public List<DrawBlok> Surroundings = new List<DrawBlok>();
         //public List<DrawBlok> SurroundingsBlokList = new List<DrawBlok>();
 
         private Dictionary<SurroundingObjects, List<Texture2D>> backTextures;
@@ -168,7 +168,6 @@ namespace Sailor.LevelDesign
         private void CreateSurroundings()
         {
             int sailorsTeller = 0;
-            Surroundings = new DrawBlok[SurroundisArray.GetLength(0), SurroundisArray.GetLength(1)];
             Random r = new Random();
             for (int y = 0; y < SurroundisArray.GetLength(0); y++)
             {
@@ -177,30 +176,30 @@ namespace Sailor.LevelDesign
                     switch (SurroundisArray[y, x])
                     {
                         case 1:
-                            Surroundings[y, x] = new StaticBlok(surrTextures[(SurroundingObjects)(y % 2)]
+                            Surroundings.Add(new StaticBlok(surrTextures[(SurroundingObjects)(y % 2)]
                                 [r.Next(0, surrTextures[(SurroundingObjects)(y % 2)].Count)],
-                                new Vector2(x * 64, y * 16));
+                                new Vector2(x * 64, y * 16)));
                             break;
                         case 2:
-                            Surroundings[y, x] = Game1.sailors[sailorsTeller];
+                            Surroundings.Add(Game1.sailors[sailorsTeller]);
                             Game1.sailors[sailorsTeller].Positie = new Vector2(x * 64, y * 16 - 58);
                             sailorsTeller++;
                             break;
                         case 3:
-                            Surroundings[y, x] = new StaticBlok(surrTextures[SurroundingObjects.Furniture][0],
-                                new Vector2(x * 64, y * 16 - 28));
+                            Surroundings.Add(new StaticBlok(surrTextures[SurroundingObjects.Furniture][0],
+                                new Vector2(x * 64, y * 16 - 28)));
                             break;
                         case 4:
-                            Surroundings[y, x] = new StaticBlok(surrTextures[SurroundingObjects.Furniture][1],
-                                new Vector2(x * 64, y * 16 - 16));
+                            Surroundings.Add(new StaticBlok(surrTextures[SurroundingObjects.Furniture][1],
+                                new Vector2(x * 64, y * 16 - 16)));
                             break;
                         case 5:
-                            Surroundings[y, x] = new StaticBlok(surrTextures[SurroundingObjects.Furniture][2],
-                                new Vector2(x * 64, y * 16 - 40));
+                            Surroundings.Add(new StaticBlok(surrTextures[SurroundingObjects.Furniture][2],
+                                new Vector2(x * 64, y * 16 - 40)));
                             break;
                         case 6:
-                            Surroundings[y, x] = new PlatformBlok(surrTextures[SurroundingObjects.Platform][0],
-                                new Vector2(x * 64, y * 16));
+                            Surroundings.Add(new PlatformBlok(surrTextures[SurroundingObjects.Platform][0],
+                                new Vector2(x * 64, y * 16)));
                             break;
                         default:
                             break;
@@ -220,14 +219,11 @@ namespace Sailor.LevelDesign
             {
                 backItem.Draw(spritebatch);
             }
-            for (int x = 0; x < SurroundisArray.GetLength(0); x++)
+            foreach (var SurrItem in Surroundings)
             {
-                for (int y = 0; y < SurroundisArray.GetLength(1); y++)
+                if (SurrItem != null)
                 {
-                    if (Surroundings[x, y] != null)
-                    {
-                        Surroundings[x, y].Draw(spritebatch);
-                    }
+                    SurrItem.Draw(spritebatch);
                 }
             }
         }
