@@ -16,7 +16,7 @@ namespace Sailor
         SpriteBatch _spriteBatch;
 
         public static List<DynamicBlok> sailors;
-        public static Level DemoLevel;
+        Level DemoLevel;
         Camera2d camera;
 
         Dictionary<CharacterState, List<Texture2D>> PlayerTextures;
@@ -67,8 +67,8 @@ namespace Sailor
 
         private void InitializeSurroundings()
         {
-            Game1.DemoLevel = new Level(BackgroundTextures, ForegroundTextures);
-            Game1.DemoLevel.CreateWorld();
+            DemoLevel = new Level(BackgroundTextures, ForegroundTextures);
+            DemoLevel.CreateWorld();
         }
 
         protected override void Update(GameTime gameTime)
@@ -80,7 +80,7 @@ namespace Sailor
 
             foreach (var sailor in sailors)
             {
-                sailor.Update(gameTime);
+                sailor.Update(gameTime, DemoLevel.Surroundings);
             }
             camPos = Vector2.Subtract(sailors[0].Positie, new Vector2(
                 this.Window.ClientBounds.Width / 5,
@@ -105,7 +105,7 @@ namespace Sailor
 
             _spriteBatch.Begin(transformMatrix: viewMatrix);
 
-            Game1.DemoLevel.DrawWorld(_spriteBatch);
+            DemoLevel.DrawWorld(_spriteBatch);
 
             _spriteBatch.End();
 

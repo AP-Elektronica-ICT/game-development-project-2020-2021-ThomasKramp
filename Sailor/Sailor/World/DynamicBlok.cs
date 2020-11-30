@@ -51,11 +51,11 @@ namespace Sailor.World
             state = CharacterState.Idle;
         }
 
-        public virtual void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime, List<DrawBlok> Surroundings)
         {
-            attackCommands.Execute(this, richting);
-            jumpCommands.Execute(this, richting);
-            moveCommands.Execute(this, richting);
+            attackCommands.Execute(this, richting, Surroundings);
+            jumpCommands.Execute(this, richting, Surroundings);
+            moveCommands.Execute(this, richting, Surroundings);
 
             animatieEffect.Update(this, richting);
             animatieState.Update(this, richting);

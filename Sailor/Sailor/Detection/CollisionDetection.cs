@@ -9,9 +9,11 @@ namespace Sailor.Detection
 {
     class CollisionDetection
     {
-        public static bool LeftCollide(IGameObject player, Vector2 richting)
+        // Nodig om te kunnen bewegen
+        static int ExtraPixels = 10;
+        public static bool LeftCollide(IGameObject player, Vector2 richting, List<DrawBlok> Surroundings)
         {
-            foreach (var surrounding in Game1.DemoLevel.Surroundings)
+            foreach (var surrounding in Surroundings)
             {
                 if (surrounding != null)
                 {
@@ -22,8 +24,8 @@ namespace Sailor.Detection
                         )
                     {
                         // Kijkt naar de Y coordinaten
-                        if (player.Frame.Bottom + player.Positie.Y - 5 > surrounding.Positie.Y + surrounding.Frame.Top
-                        && player.Frame.Top + player.Positie.Y + 5 < surrounding.Positie.Y + surrounding.Frame.Bottom)
+                        if (player.Frame.Bottom + player.Positie.Y - ExtraPixels > surrounding.Positie.Y + surrounding.Frame.Top
+                        && player.Frame.Top + player.Positie.Y + ExtraPixels < surrounding.Positie.Y + surrounding.Frame.Bottom)
                         {
                             return true;
                         }
@@ -32,9 +34,9 @@ namespace Sailor.Detection
             }
             return false;
         }
-        public static bool RightCollide(IGameObject player, Vector2 richting)
+        public static bool RightCollide(IGameObject player, Vector2 richting, List<DrawBlok> Surroundings)
         {
-            foreach (var surrounding in Game1.DemoLevel.Surroundings)
+            foreach (var surrounding in Surroundings)
             {
                 // Ziet of blokken bestaan
                 if (surrounding != null)
@@ -46,8 +48,8 @@ namespace Sailor.Detection
                         )
                     {
                         // Kijkt naar de Y coordinaten
-                        if (player.Frame.Bottom + player.Positie.Y - 5 > surrounding.Positie.Y + surrounding.Frame.Top
-                        && player.Frame.Top + player.Positie.Y + 5 < surrounding.Positie.Y + surrounding.Frame.Bottom)
+                        if (player.Frame.Bottom + player.Positie.Y - ExtraPixels > surrounding.Positie.Y + surrounding.Frame.Top
+                        && player.Frame.Top + player.Positie.Y + ExtraPixels < surrounding.Positie.Y + surrounding.Frame.Bottom)
                         {
                             return true;
                         }
@@ -56,16 +58,16 @@ namespace Sailor.Detection
             }
             return false;
         }
-        public static bool TopCollide(IGameObject player, Vector2 richting)
+        public static bool TopCollide(IGameObject player, Vector2 richting, List<DrawBlok> Surroundings)
         {
-            foreach (var surrounding in Game1.DemoLevel.Surroundings)
+            foreach (var surrounding in Surroundings)
             {
                 if (surrounding != null)
                 {
                     if (surrounding is PlatformBlok) continue;
                     // Kijkt naar de X coordinaten
-                    if (player.Frame.Left + player.Positie.X + 5 < surrounding.Positie.X + surrounding.Frame.Right
-                        && player.Frame.Right + player.Positie.X - 5 > surrounding.Positie.X + surrounding.Frame.Left
+                    if (player.Frame.Left + player.Positie.X + ExtraPixels < surrounding.Positie.X + surrounding.Frame.Right
+                        && player.Frame.Right + player.Positie.X - ExtraPixels > surrounding.Positie.X + surrounding.Frame.Left
                         )
                     {
                         // Kijkt naar de Y coordinaten
@@ -79,16 +81,16 @@ namespace Sailor.Detection
             }
             return false;
         }
-        public static bool BottomCollide(IGameObject player, Vector2 richting)
+        public static bool BottomCollide(IGameObject player, Vector2 richting, List<DrawBlok> Surroundings)
         {
-            foreach (var surrounding in Game1.DemoLevel.Surroundings)
+            foreach (var surrounding in Surroundings)
             {
                 // Ziet of blokken bestaan
                 if (surrounding != null)
                 {
                     // Kijkt naar de X coordinaten
-                    if (player.Frame.Left + player.Positie.X + 5 < surrounding.Positie.X + surrounding.Frame.Right
-                        && player.Frame.Right + player.Positie.X - 5 > surrounding.Positie.X + surrounding.Frame.Left
+                    if (player.Frame.Left + player.Positie.X + ExtraPixels < surrounding.Positie.X + surrounding.Frame.Right
+                        && player.Frame.Right + player.Positie.X - ExtraPixels > surrounding.Positie.X + surrounding.Frame.Left
                         )
                     {
                         if (surrounding is PlatformBlok

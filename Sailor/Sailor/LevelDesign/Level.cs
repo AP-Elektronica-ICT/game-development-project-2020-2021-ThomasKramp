@@ -127,7 +127,7 @@ namespace Sailor.LevelDesign
 
         private List<DrawBlok> Background = new List<DrawBlok>();
         public List<DrawBlok> Surroundings = new List<DrawBlok>();
-        //public List<DrawBlok> SurroundingsBlokList = new List<DrawBlok>();
+        private List<DrawBlok> Foreground = new List<DrawBlok>();
 
         private Dictionary<SurroundingObjects, List<Texture2D>> backTextures;
         private Dictionary<SurroundingObjects, List<Texture2D>> surrTextures;

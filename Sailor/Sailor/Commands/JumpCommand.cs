@@ -2,6 +2,7 @@
 using Sailor.Detection;
 using Sailor.Interfaces;
 using Sailor.Interfaces.Commands;
+using Sailor.World;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,26 +17,26 @@ namespace Sailor.Commands
         {
             snelheid = new Vector2(0, 0);
         }
-        public void Execute(IGameObject transform, Vector2 richting)
+        public void Execute(IGameObject transform, Vector2 richting, List<DrawBlok> Surroundings)
         {
             IJumper tempJumper = (IJumper)transform;
 
             if (tempJumper.Jumped && !tempJumper.Falling)
             {
-                if (CollisionDetection.BottomCollide(transform, richting) && tempJumper.Ground)
+                if (CollisionDetection.BottomCollide(transform, richting, Surroundings) && tempJumper.Ground)
                 {
                     snelheid.Y = -15f;
                     tempJumper.Ground = false;
                 }
                 snelheid.Y /= 1.1f;
-                if (snelheid.Y > -1 || CollisionDetection.TopCollide(transform, richting))
+                if (snelheid.Y > -1 || CollisionDetection.TopCollide(transform, richting, Surroundings))
                 {
                     snelheid.Y = 0;
                     tempJumper.Jumped = false;
                     tempJumper.Falling = true;
                 }
             }
-            else if (CollisionDetection.BottomCollide(transform, richting))
+            else if (CollisionDetection.BottomCollide(transform, richting, Surroundings))
             {
                 //if (tempJumper.Falling) 
                 tempJumper.Ground = true;
