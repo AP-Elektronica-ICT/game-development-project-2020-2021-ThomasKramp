@@ -9,112 +9,100 @@ namespace Sailor.Detection
 {
     class CollisionDetection
     {
-        public static bool LeftCollide(IGameObject player, Vector2 richting)
+        // Nodig om te kunnen bewegen
+        static int ExtraPixels = 10;
+        public static bool LeftCollide(IGameObject player, Vector2 richting, List<DrawBlok> Surroundings)
         {
-            for (int x = 0; x < Game1.Foreground.blokArray.GetLength(0); x++)
+            foreach (var surrounding in Surroundings)
             {
-                for (int y = 0; y < Game1.Foreground.blokArray.GetLength(1); y++)
+                if (surrounding != null)
                 {
-                    // Ziet of blokken bestaan
-                    if (Game1.Foreground.blokArray[x, y] != null)
+                    if (surrounding is PlatformBlok) continue;
+                    // Kijkt naar de X coordinaten
+                    if (player.Frame.Left + player.Positie.X + richting.X < surrounding.Positie.X + surrounding.Frame.Right
+                        && player.Frame.Right + player.Positie.X > surrounding.Positie.X + surrounding.Frame.Right
+                        )
                     {
-                        if (Game1.Foreground.blokArray[x, y] is PlatformBlok) continue;
-                        // Kijkt naar de X coordinaten
-                        if (player.Frame.Left + player.Positie.X + richting.X < Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].Frame.Right
-                            && player.Frame.Right + player.Positie.X > Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].Frame.Right
-                            )
+                        // Kijkt naar de Y coordinaten
+                        if (player.Frame.Bottom + player.Positie.Y - ExtraPixels > surrounding.Positie.Y + surrounding.Frame.Top
+                        && player.Frame.Top + player.Positie.Y + ExtraPixels < surrounding.Positie.Y + surrounding.Frame.Bottom)
                         {
-                            // Kijkt naar de Y coordinaten
-                            if (player.Frame.Bottom + player.Positie.Y - 5 > Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Top
-                            && player.Frame.Top + player.Positie.Y + 5 < Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Bottom)
-                            {
-                                return true;
-                            }
+                            return true;
                         }
                     }
                 }
             }
             return false;
         }
-        public static bool RightCollide(IGameObject player, Vector2 richting)
+        public static bool RightCollide(IGameObject player, Vector2 richting, List<DrawBlok> Surroundings)
         {
-            for (int x = 0; x < Game1.Foreground.blokArray.GetLength(0); x++)
+            foreach (var surrounding in Surroundings)
             {
-                for (int y = 0; y < Game1.Foreground.blokArray.GetLength(1); y++)
+                // Ziet of blokken bestaan
+                if (surrounding != null)
                 {
-                    // Ziet of blokken bestaan
-                    if (Game1.Foreground.blokArray[x, y] != null)
+                    if (surrounding is PlatformBlok) continue;
+                    // Kijkt naar de X coordinaten
+                    if (player.Frame.Left + player.Positie.X < surrounding.Positie.X + surrounding.Frame.Left
+                        && player.Frame.Right + player.Positie.X + richting.X > surrounding.Positie.X + surrounding.Frame.Left
+                        )
                     {
-                        if (Game1.Foreground.blokArray[x, y] is PlatformBlok) continue;
-                        // Kijkt naar de X coordinaten
-                        if (player.Frame.Right + player.Positie.X + richting.X > Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].Frame.Left
-                            && player.Frame.Left + player.Positie.X < Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].Frame.Left
-                            )
+                        // Kijkt naar de Y coordinaten
+                        if (player.Frame.Bottom + player.Positie.Y - ExtraPixels > surrounding.Positie.Y + surrounding.Frame.Top
+                        && player.Frame.Top + player.Positie.Y + ExtraPixels < surrounding.Positie.Y + surrounding.Frame.Bottom)
                         {
-                            // Kijkt naar de Y coordinaten
-                            if (player.Frame.Bottom + player.Positie.Y - 5 > Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Top
-                            && player.Frame.Top + player.Positie.Y + 5 < Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Bottom)
-                            {
-                                return true;
-                            }
+                            return true;
                         }
                     }
                 }
             }
             return false;
         }
-        public static bool TopCollide(IGameObject player, Vector2 richting)
+        public static bool TopCollide(IGameObject player, Vector2 richting, List<DrawBlok> Surroundings)
         {
-            for (int x = 0; x < Game1.Foreground.blokArray.GetLength(0); x++)
+            foreach (var surrounding in Surroundings)
             {
-                for (int y = 0; y < Game1.Foreground.blokArray.GetLength(1); y++)
+                if (surrounding != null)
                 {
-                    // Ziet of blokken bestaan
-                    if (Game1.Foreground.blokArray[x, y] != null)
+                    if (surrounding is PlatformBlok) continue;
+                    // Kijkt naar de X coordinaten
+                    if (player.Frame.Left + player.Positie.X + ExtraPixels < surrounding.Positie.X + surrounding.Frame.Right
+                        && player.Frame.Right + player.Positie.X - ExtraPixels > surrounding.Positie.X + surrounding.Frame.Left
+                        )
                     {
-                        if (Game1.Foreground.blokArray[x, y] is PlatformBlok) continue;
-                        // Kijkt naar de X coordinaten
-                        if (player.Frame.Right + player.Positie.X - 5 > Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].Frame.Left
-                            && player.Frame.Left + player.Positie.X + 5 < Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].Frame.Right
-                            )
+                        // Kijkt naar de Y coordinaten
+                        if (player.Frame.Top + player.Positie.Y + richting.Y < surrounding.Positie.Y + surrounding.Frame.Bottom
+                        && player.Frame.Bottom + player.Positie.Y > surrounding.Positie.Y + surrounding.Frame.Bottom)
                         {
-                            // Kijkt naar de Y coordinaten
-                            if (player.Frame.Top + player.Positie.Y + richting.Y < Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Bottom
-                            && player.Frame.Bottom + player.Positie.Y > Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Bottom)
-                            {
-                                return true;
-                            }
+                            return true;
                         }
                     }
                 }
             }
             return false;
         }
-        public static bool BottomCollide(IGameObject player, Vector2 richting)
+        public static bool BottomCollide(IGameObject player, Vector2 richting, List<DrawBlok> Surroundings)
         {
-            for (int x = 0; x < Game1.Foreground.blokArray.GetLength(0); x++)
+            foreach (var surrounding in Surroundings)
             {
-                for (int y = 0; y < Game1.Foreground.blokArray.GetLength(1); y++)
+                // Ziet of blokken bestaan
+                if (surrounding != null)
                 {
-                    // Ziet of blokken bestaan
-                    if (Game1.Foreground.blokArray[x, y] != null)
+                    // Kijkt naar de X coordinaten
+                    if (player.Frame.Left + player.Positie.X + ExtraPixels < surrounding.Positie.X + surrounding.Frame.Right
+                        && player.Frame.Right + player.Positie.X - ExtraPixels > surrounding.Positie.X + surrounding.Frame.Left
+                        )
                     {
-                        // Kijkt naar de X coordinaten
-                        if (player.Frame.Right + player.Positie.X - 5 > Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].Frame.Left
-                            && player.Frame.Left + player.Positie.X + 5 < Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].Frame.Right
-                            )
+                        if (surrounding is PlatformBlok
+                            && player.Frame.Bottom + player.Positie.Y - richting.Y >= surrounding.Positie.Y + surrounding.Frame.Top)
                         {
-                            if (Game1.Foreground.blokArray[x, y] is PlatformBlok
-                                && player.Frame.Bottom + player.Positie.Y - richting.Y >= Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Top)
-                            {
-                                continue;
-                            }
-                            // Kijkt naar de Y coordinaten
-                            if (player.Frame.Top + player.Positie.Y < Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Top
-                            && player.Frame.Bottom + player.Positie.Y + richting.Y > Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Top)
-                            {
-                                return true;
-                            }
+                            continue;
+                        }
+                        // Kijkt naar de Y coordinaten
+                        if (player.Frame.Top + player.Positie.Y < surrounding.Positie.Y + surrounding.Frame.Top
+                        && player.Frame.Bottom + player.Positie.Y + richting.Y > surrounding.Positie.Y + surrounding.Frame.Top)
+                        {
+                            return true;
                         }
                     }
                 }

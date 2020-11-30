@@ -32,7 +32,7 @@ namespace Sailor.LoadSprites
                         }
                         catch (Exception)
                         {
-                            continue;
+                            break;
                             throw;
                         }
                     }
@@ -40,7 +40,7 @@ namespace Sailor.LoadSprites
                 }
                 catch (Exception)
                 {
-                    continue;
+                    break;
                     throw;
                 }
             }
@@ -71,7 +71,7 @@ namespace Sailor.LoadSprites
                         }
                         catch (Exception)
                         {
-                            continue;
+                            break;
                             throw;
                         }
                     }
@@ -79,7 +79,7 @@ namespace Sailor.LoadSprites
                 }
                 catch (Exception)
                 {
-                    continue;
+                    break;
                     throw;
                 }
             }
