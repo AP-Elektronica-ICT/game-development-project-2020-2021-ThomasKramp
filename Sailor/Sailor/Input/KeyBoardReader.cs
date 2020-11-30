@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Sailor.LoadSprites;
-using Sailor.World;
+using Sailor.World.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Text;

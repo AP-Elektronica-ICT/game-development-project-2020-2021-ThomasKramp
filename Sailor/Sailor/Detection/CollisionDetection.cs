@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Sailor.Interfaces;
 using Sailor.World;
+using Sailor.World.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Text;

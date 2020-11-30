@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sailor.Commands.Move;
-using Sailor.Detection;
 using Sailor.Input;
 using Sailor.LoadSprites;
+using Sailor.World.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Text;

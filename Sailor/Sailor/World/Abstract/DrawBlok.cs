@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sailor.World
+namespace Sailor.World.Abstract
 {
     public abstract class DrawBlok : IGameObject, IDrawObject
     {

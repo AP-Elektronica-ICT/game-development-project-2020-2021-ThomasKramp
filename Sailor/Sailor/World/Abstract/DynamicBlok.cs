@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sailor.Animation;
 using Sailor.Commands;
-using Sailor.Commands.Move;
 using Sailor.Interfaces;
 using Sailor.Interfaces.Animation;
 using Sailor.Interfaces.Commands;
@@ -11,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sailor.World
+namespace Sailor.World.Abstract
 {
     public abstract class DynamicBlok : DrawBlok, IChangeAble, IDrawEffect, IDrawState, IJumper, IAttacker
     {

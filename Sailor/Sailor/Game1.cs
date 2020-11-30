@@ -5,6 +5,7 @@ using Sailor.Input;
 using Sailor.LevelDesign;
 using Sailor.LoadSprites;
 using Sailor.World;
+using Sailor.World.Abstract;
 using System;
 using System.Collections.Generic;
 
