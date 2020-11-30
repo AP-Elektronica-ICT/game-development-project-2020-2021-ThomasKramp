@@ -16,7 +16,7 @@ namespace Sailor
         SpriteBatch _spriteBatch;
 
         public static List<DynamicBlok> sailors;
-        public static Surroundings Surroundings;
+        public static Level Surroundings;
         Camera2d camera;
 
         Dictionary<CharacterState, List<Texture2D>> PlayerTextures;
@@ -67,7 +67,7 @@ namespace Sailor
 
         private void InitializeSurroundings()
         {
-            Game1.Surroundings = new Surroundings(BackgroundTextures, ForegroundTextures);
+            Game1.Surroundings = new Level(BackgroundTextures, ForegroundTextures);
             Game1.Surroundings.CreateWorld();
         }
 
