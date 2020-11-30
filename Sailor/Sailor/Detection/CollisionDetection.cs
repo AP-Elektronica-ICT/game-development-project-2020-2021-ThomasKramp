@@ -47,8 +47,8 @@ namespace Sailor.Detection
                     {
                         if (Game1.Surroundings.Surroundings[x, y] is PlatformBlok) continue;
                         // Kijkt naar de X coordinaten
-                        if (player.Frame.Right + player.Positie.X + richting.X > Game1.Surroundings.Surroundings[x, y].Positie.X + Game1.Surroundings.Surroundings[x, y].Frame.Left
-                            && player.Frame.Left + player.Positie.X < Game1.Surroundings.Surroundings[x, y].Positie.X + Game1.Surroundings.Surroundings[x, y].Frame.Left
+                        if (player.Frame.Left + player.Positie.X < Game1.Surroundings.Surroundings[x, y].Positie.X + Game1.Surroundings.Surroundings[x, y].Frame.Left
+                            && player.Frame.Right + player.Positie.X + richting.X > Game1.Surroundings.Surroundings[x, y].Positie.X + Game1.Surroundings.Surroundings[x, y].Frame.Left
                             )
                         {
                             // Kijkt naar de Y coordinaten
@@ -74,8 +74,8 @@ namespace Sailor.Detection
                     {
                         if (Game1.Surroundings.Surroundings[x, y] is PlatformBlok) continue;
                         // Kijkt naar de X coordinaten
-                        if (player.Frame.Right + player.Positie.X - 5 > Game1.Surroundings.Surroundings[x, y].Positie.X + Game1.Surroundings.Surroundings[x, y].Frame.Left
-                            && player.Frame.Left + player.Positie.X + 5 < Game1.Surroundings.Surroundings[x, y].Positie.X + Game1.Surroundings.Surroundings[x, y].Frame.Right
+                        if (player.Frame.Left + player.Positie.X + 5 < Game1.Surroundings.Surroundings[x, y].Positie.X + Game1.Surroundings.Surroundings[x, y].Frame.Right
+                            && player.Frame.Right + player.Positie.X - 5 > Game1.Surroundings.Surroundings[x, y].Positie.X + Game1.Surroundings.Surroundings[x, y].Frame.Left
                             )
                         {
                             // Kijkt naar de Y coordinaten
@@ -100,8 +100,8 @@ namespace Sailor.Detection
                     if (Game1.Surroundings.Surroundings[x, y] != null)
                     {
                         // Kijkt naar de X coordinaten
-                        if (player.Frame.Right + player.Positie.X - 5 > Game1.Surroundings.Surroundings[x, y].Positie.X + Game1.Surroundings.Surroundings[x, y].Frame.Left
-                            && player.Frame.Left + player.Positie.X + 5 < Game1.Surroundings.Surroundings[x, y].Positie.X + Game1.Surroundings.Surroundings[x, y].Frame.Right
+                        if (player.Frame.Left + player.Positie.X + 5 < Game1.Surroundings.Surroundings[x, y].Positie.X + Game1.Surroundings.Surroundings[x, y].Frame.Right
+                            && player.Frame.Right + player.Positie.X - 5 > Game1.Surroundings.Surroundings[x, y].Positie.X + Game1.Surroundings.Surroundings[x, y].Frame.Left
                             )
                         {
                             if (Game1.Surroundings.Surroundings[x, y] is PlatformBlok
