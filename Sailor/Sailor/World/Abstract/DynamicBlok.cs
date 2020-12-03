@@ -55,6 +55,7 @@ namespace Sailor.World.Abstract
             attackCommands.Execute(this, richting, Surroundings);
             jumpCommands.Execute(this, richting, Surroundings);
             moveCommands.Execute(this, richting, Surroundings);
+            // BUG: Hier wordt de enemy.richting.X automatsch terug op 0.5f gezet
 
             animatieEffect.Update(this, richting);
             animatieState.Update(this, richting);

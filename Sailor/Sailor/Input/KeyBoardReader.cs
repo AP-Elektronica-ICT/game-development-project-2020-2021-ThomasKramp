@@ -24,8 +24,7 @@ namespace Sailor.Input
                 else richting.X = 0;
             } else richting.X = 0;
 
-            if (state.IsKeyDown(Keys.Space)) 
-                sailor.Jumped = true;
+            if (state.IsKeyDown(Keys.Space)) sailor.Jumped = true;
             if (state.IsKeyDown(Keys.A)) sailor.Attack = true;
             return richting;
         }

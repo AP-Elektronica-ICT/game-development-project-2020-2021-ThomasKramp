@@ -210,7 +210,7 @@ namespace Sailor.LevelDesign
                             player.Positie = new Vector2(x * 64, y * 16 - 58);
                             break;
                         case 3:
-                            if (Enemies.Count < enemyTeller)
+                            if (Enemies.Count > enemyTeller)
                             {
                                 Surroundings.Add(Enemies[enemyTeller]);
                                 Enemies[enemyTeller].Positie = new Vector2(x * 64, y * 16 - 58);

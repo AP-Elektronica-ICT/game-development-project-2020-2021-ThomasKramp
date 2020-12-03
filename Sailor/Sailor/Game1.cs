@@ -66,7 +66,7 @@ namespace Sailor
         private void InitializeSurroundings()
         {
             DemoLevel = new Level(LevelTextures, EnemyTextures);
-            //DemoLevel.AddEnemies();
+            DemoLevel.AddEnemies();
             DemoLevel.CreateWorld(Player);
         }
 

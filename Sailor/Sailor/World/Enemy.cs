@@ -15,7 +15,7 @@ namespace Sailor.World
         public Enemy(Dictionary<CharacterState, List<Texture2D>> textures) : base(textures)
         {
             // Moet weg, wanneer loop patroon geimplementeerd is
-            richting = new Vector2(0.5f, 1);
+            richting = new Vector2(-0.5f, 1);
             moveCommands = new EnemyMoveCommand();
             Levens = 2;
         }
