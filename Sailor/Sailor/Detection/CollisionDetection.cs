@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Sailor.Interfaces;
+using Sailor.World;
 using Sailor.World.Abstract;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,6 @@ namespace Sailor.Detection
                 // Ziet of blokken bestaan
                 if (Tile != null && Tile != player)
                 {
-                    // if (Tile is PlatformBlok) continue;
                     // !(Tile ligt te hoog)
                     if (!(Tile.Positie.Y + Tile.Frame.Top < player.Positie.Y + player.Frame.Top
                         && Tile.Positie.Y + Tile.Frame.Bottom < player.Positie.Y + player.Frame.Top)) {
@@ -51,7 +51,6 @@ namespace Sailor.Detection
                 // Ziet of blokken bestaan
                 if (Tile != null && Tile != player)
                 {
-                    // if (Tile is PlatformBlok) continue;
                     // !(Tile ligt te hoog)
                     if (!(Tile.Positie.Y + Tile.Frame.Top < player.Positie.Y + player.Frame.Top
                         && Tile.Positie.Y + Tile.Frame.Bottom < player.Positie.Y + player.Frame.Top)) {
@@ -83,7 +82,7 @@ namespace Sailor.Detection
                 // Ziet of blokken bestaan
                 if (Tile != null && Tile != player)
                 {
-                    // if (Tile is PlatformBlok) continue;
+                    if (Tile is PlatformBlok) continue;
                     // !(Tile ligt te ver links)
                     if (!(Tile.Positie.X + Tile.Frame.Left < player.Positie.X + player.Frame.Left
                         && Tile.Positie.X + Tile.Frame.Right < player.Positie.X + player.Frame.Left)) {

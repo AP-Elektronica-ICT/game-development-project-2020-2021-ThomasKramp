@@ -15,15 +15,18 @@ namespace Sailor.World
         public Enemy(Dictionary<CharacterState, List<Texture2D>> textures) : base(textures)
         {
             // Moet weg, wanneer loop patroon geimplementeerd is
-            richting = new Vector2(-0.5f, 1);
+            richting = new Vector2(1, 1);
             moveCommands = new EnemyMoveCommand();
             Levens = 2;
         }
 
-        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings)
+        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets)
         {
-            moveCommands.Execute(this, richting, Surroundings);
-            base.Update(gameTime, Surroundings);
+            if (CollisionDetection.LeftCollide(this, richting, Surroundings))
+                richting.X = 1;
+            else if (CollisionDetection.RightCollide(this, richting, Surroundings))
+                richting.X = -1;
+            base.Update(gameTime, Surroundings, Targets);
         }
     }
 }

@@ -12,11 +12,6 @@ namespace Sailor.Commands.Move
     {
         public override void Execute(IGameObject transform, Vector2 richting, List<DrawBlok> Surroundings)
         {
-            if (CollisionDetection.LeftCollide(transform, richting, Surroundings))
-                richting.X = 0.5f;
-            else if (CollisionDetection.RightCollide(transform, richting, Surroundings))
-                richting.X = -0.5f;
-
             base.Execute(transform, richting, Surroundings);
         }
     }

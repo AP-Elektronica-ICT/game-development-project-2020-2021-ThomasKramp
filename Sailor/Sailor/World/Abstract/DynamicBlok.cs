@@ -33,7 +33,7 @@ namespace Sailor.World.Abstract
         AnimatieState animatieState;
         protected IGameCommands moveCommands;
         IGameCommands jumpCommands;
-        IGameCommands attackCommands;
+        AttackCommand attackCommands;
 
         public DynamicBlok(Dictionary<CharacterState, List<Texture2D>> textures)
         {
@@ -50,12 +50,11 @@ namespace Sailor.World.Abstract
             state = CharacterState.Idle;
         }
 
-        public virtual void Update(GameTime gameTime, List<DrawBlok> Surroundings)
+        public virtual void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets)
         {
-            attackCommands.Execute(this, richting, Surroundings);
+            attackCommands.Execute(this, Targets);
             jumpCommands.Execute(this, richting, Surroundings);
             moveCommands.Execute(this, richting, Surroundings);
-            // BUG: Hier wordt de enemy.richting.X automatsch terug op 0.5f gezet
 
             animatieEffect.Update(this, richting);
             animatieState.Update(this, richting);

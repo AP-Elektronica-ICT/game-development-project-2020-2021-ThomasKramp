@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sailor.Interfaces.Animation;
+using Sailor.World.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,9 +14,13 @@ namespace Sailor.Animation
 
         public Animatie() { }
 
-        public void Update(IDrawObject drawable, List<Texture2D> Textures, GameTime gameTime)
+        public void Update(DynamicBlok drawable, List<Texture2D> Textures, GameTime gameTime)
         {
-            if (counter >= Textures.Count) counter = 0;
+            if (counter >= Textures.Count)
+            {
+                counter = 0;
+                drawable.Attack = false;
+            }
 
             drawable.CurrentTexture = Textures[counter];
 

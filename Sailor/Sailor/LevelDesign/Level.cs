@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sailor.Interfaces.Commands;
 using Sailor.LoadSprites;
 using Sailor.World;
 using Sailor.World.Abstract;
@@ -243,6 +244,22 @@ namespace Sailor.LevelDesign
         private void CreateForeground()
         {
             
+        }
+
+        List<IAttacker> deadBlocks;
+        public void RemoveDead(IAttacker Player)
+        {
+            deadBlocks = new List<IAttacker>();
+            if (Player.Levens <= 0) deadBlocks.Add(Player);
+            foreach (var enemy in Enemies)
+            {
+                if (enemy.Levens <= 0) deadBlocks.Add(enemy);
+            }
+            foreach (var dead in deadBlocks)
+            {
+                Surroundings.Remove((DrawBlok)dead);
+                if (dead != Player) Enemies.Remove((DynamicBlok)dead);
+            }
         }
 
         public void DrawWorld(SpriteBatch spritebatch)

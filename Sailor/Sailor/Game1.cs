@@ -76,7 +76,7 @@ namespace Sailor
                 Exit();
 
             // TODO: Add your update logic here
-            Player.Update(gameTime, DemoLevel.Surroundings);
+            Player.Update(gameTime, DemoLevel.Surroundings, DemoLevel.Enemies);
 
             camPos = Vector2.Subtract(Player.Positie, new Vector2(
                 this.Window.ClientBounds.Width / 5,
@@ -84,9 +84,9 @@ namespace Sailor
 
             foreach (var enemy in DemoLevel.Enemies)
             {
-                enemy.Update(gameTime, DemoLevel.Surroundings);
+                enemy.Update(gameTime, DemoLevel.Surroundings, new List<DynamicBlok>() { Player });
             }
-
+            DemoLevel.RemoveDead(Player);
             base.Update(gameTime);
         }
 

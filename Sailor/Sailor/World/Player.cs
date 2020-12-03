@@ -21,10 +21,10 @@ namespace Sailor.World
             Levens = 3;
         }
 
-        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings)
+        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets)
         {
             richting = inputReader.ReadInput(this);
-            base.Update(gameTime, Surroundings);
+            base.Update(gameTime, Surroundings, Targets);
         }
     }
 }
