@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Sailor.Detection;
 using Sailor.Interfaces;
 using Sailor.World.Abstract;
 using System;

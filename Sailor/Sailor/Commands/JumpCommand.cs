@@ -23,7 +23,7 @@ namespace Sailor.Commands
 
             if (tempJumper.Jumped && !tempJumper.Falling)
             {
-                if (CollisionDetection.BottomCollide(transform, richting, Surroundings) && tempJumper.Ground)
+                if (tempJumper.Ground)
                 {
                     snelheid.Y = -15f;
                     tempJumper.Ground = false;
@@ -38,13 +38,12 @@ namespace Sailor.Commands
             }
             else if (CollisionDetection.BottomCollide(transform, richting, Surroundings))
             {
-                //if (tempJumper.Falling) 
                 tempJumper.Ground = true;
                 tempJumper.Falling = false;
-                snelheid.Y = 0;
+                snelheid.Y = -0.25f;      
             }
-            else snelheid.Y += 0.1f;
-
+            else 
+                snelheid.Y += 0.1f;
             richting *= snelheid;
             transform.Positie += richting;
         }

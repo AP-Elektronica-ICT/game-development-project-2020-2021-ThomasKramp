@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Sailor.Interfaces;
-using Sailor.World;
 using Sailor.World.Abstract;
 using System;
 using System.Collections.Generic;
@@ -10,25 +9,32 @@ namespace Sailor.Detection
 {
     class CollisionDetection
     {
-        // Nodig om te kunnen bewegen
-        static int ExtraPixels = 10;
         public static bool LeftCollide(IGameObject player, Vector2 richting, List<DrawBlok> Surroundings)
         {
-            foreach (var surrounding in Surroundings)
+            // Top = 0      Bottom = ∞
+            // Links = 0    Rechts = ∞
+
+            foreach (var Tile in Surroundings)
             {
-                if (surrounding != null)
+                // Ziet of blokken bestaan
+                if (Tile != null && Tile != player)
                 {
-                    if (surrounding is PlatformBlok) continue;
-                    // Kijkt naar de X coordinaten
-                    if (player.Frame.Left + player.Positie.X + richting.X < surrounding.Positie.X + surrounding.Frame.Right
-                        && player.Frame.Right + player.Positie.X > surrounding.Positie.X + surrounding.Frame.Right
-                        )
-                    {
-                        // Kijkt naar de Y coordinaten
-                        if (player.Frame.Bottom + player.Positie.Y - ExtraPixels > surrounding.Positie.Y + surrounding.Frame.Top
-                        && player.Frame.Top + player.Positie.Y + ExtraPixels < surrounding.Positie.Y + surrounding.Frame.Bottom)
-                        {
-                            return true;
+                    // if (Tile is PlatformBlok) continue;
+                    // !(Tile ligt te hoog)
+                    if (!(Tile.Positie.Y + Tile.Frame.Top < player.Positie.Y + player.Frame.Top
+                        && Tile.Positie.Y + Tile.Frame.Bottom < player.Positie.Y + player.Frame.Top)) {
+                        // !(Tile ligt te laag)
+                        if (!(Tile.Positie.Y + Tile.Frame.Top > player.Positie.Y + player.Frame.Bottom
+                            && Tile.Positie.Y + Tile.Frame.Bottom > player.Positie.Y + player.Frame.Bottom)) {
+                            // !(Tile ligt te rechts)
+                            if (!(Tile.Positie.X + Tile.Frame.Left > player.Positie.X + player.Frame.Right
+                                && Tile.Positie.X + Tile.Frame.Right > player.Positie.X + player.Frame.Right)) {
+                                // Tile is links
+                                if (Tile.Positie.X + Tile.Frame.Right > player.Positie.X + player.Frame.Left + richting.X
+                                    && Tile.Positie.X + Tile.Frame.Right <= player.Positie.X + player.Frame.Center.X) {
+                                    return true;
+                                }
+                            }
                         }
                     }
                 }
@@ -37,22 +43,30 @@ namespace Sailor.Detection
         }
         public static bool RightCollide(IGameObject player, Vector2 richting, List<DrawBlok> Surroundings)
         {
-            foreach (var surrounding in Surroundings)
+            // Top = 0      Bottom = ∞
+            // Links = 0    Rechts = ∞
+
+            foreach (var Tile in Surroundings)
             {
                 // Ziet of blokken bestaan
-                if (surrounding != null)
+                if (Tile != null && Tile != player)
                 {
-                    if (surrounding is PlatformBlok) continue;
-                    // Kijkt naar de X coordinaten
-                    if (player.Frame.Left + player.Positie.X < surrounding.Positie.X + surrounding.Frame.Left
-                        && player.Frame.Right + player.Positie.X + richting.X > surrounding.Positie.X + surrounding.Frame.Left
-                        )
-                    {
-                        // Kijkt naar de Y coordinaten
-                        if (player.Frame.Bottom + player.Positie.Y - ExtraPixels > surrounding.Positie.Y + surrounding.Frame.Top
-                        && player.Frame.Top + player.Positie.Y + ExtraPixels < surrounding.Positie.Y + surrounding.Frame.Bottom)
-                        {
-                            return true;
+                    // if (Tile is PlatformBlok) continue;
+                    // !(Tile ligt te hoog)
+                    if (!(Tile.Positie.Y + Tile.Frame.Top < player.Positie.Y + player.Frame.Top
+                        && Tile.Positie.Y + Tile.Frame.Bottom < player.Positie.Y + player.Frame.Top)) {
+                        // !(Tile ligt te laag)
+                        if (!(Tile.Positie.Y + Tile.Frame.Top > player.Positie.Y + player.Frame.Bottom
+                            && Tile.Positie.Y + Tile.Frame.Bottom > player.Positie.Y + player.Frame.Bottom)) {
+                            // !(Tile ligt te links)
+                            if (!(Tile.Positie.X + Tile.Frame.Left < player.Positie.X + player.Frame.Left
+                                && Tile.Positie.X + Tile.Frame.Right < player.Positie.X + player.Frame.Left)) {
+                                // Tile is rechts
+                                if (Tile.Positie.X + Tile.Frame.Left < player.Positie.X + player.Frame.Right + richting.X
+                                    && Tile.Positie.X + Tile.Frame.Left >= player.Positie.X + player.Frame.Center.X) {
+                                    return true;
+                                }
+                            }
                         }
                     }
                 }
@@ -61,21 +75,30 @@ namespace Sailor.Detection
         }
         public static bool TopCollide(IGameObject player, Vector2 richting, List<DrawBlok> Surroundings)
         {
-            foreach (var surrounding in Surroundings)
+            // Links = 0    Rechts = ∞
+            // Top = 0      Bottom = ∞
+
+            foreach (var Tile in Surroundings)
             {
-                if (surrounding != null)
+                // Ziet of blokken bestaan
+                if (Tile != null && Tile != player)
                 {
-                    if (surrounding is PlatformBlok) continue;
-                    // Kijkt naar de X coordinaten
-                    if (player.Frame.Left + player.Positie.X + ExtraPixels < surrounding.Positie.X + surrounding.Frame.Right
-                        && player.Frame.Right + player.Positie.X - ExtraPixels > surrounding.Positie.X + surrounding.Frame.Left
-                        )
-                    {
-                        // Kijkt naar de Y coordinaten
-                        if (player.Frame.Top + player.Positie.Y + richting.Y < surrounding.Positie.Y + surrounding.Frame.Bottom
-                        && player.Frame.Bottom + player.Positie.Y > surrounding.Positie.Y + surrounding.Frame.Bottom)
-                        {
-                            return true;
+                    // if (Tile is PlatformBlok) continue;
+                    // !(Tile ligt te ver links)
+                    if (!(Tile.Positie.X + Tile.Frame.Left < player.Positie.X + player.Frame.Left
+                        && Tile.Positie.X + Tile.Frame.Right < player.Positie.X + player.Frame.Left)) {
+                        // !(Tile ligt te ver rechts)
+                        if (!(Tile.Positie.X + Tile.Frame.Left > player.Positie.X + player.Frame.Right
+                            && Tile.Positie.X + Tile.Frame.Right > player.Positie.X + player.Frame.Right)) {
+                            // !(Tile ligt laag)
+                            if (!(Tile.Positie.Y + Tile.Frame.Top > player.Positie.Y + player.Frame.Bottom
+                                && Tile.Positie.Y + Tile.Frame.Bottom > player.Positie.Y + player.Frame.Bottom)) {
+                                // Tile is boven
+                                if (Tile.Positie.Y + Tile.Frame.Bottom >= player.Positie.Y + player.Frame.Top + richting.Y
+                                    && Tile.Positie.Y + Tile.Frame.Bottom <= player.Positie.Y + player.Frame.Center.Y) {
+                                    return true;
+                                }
+                            }
                         }
                     }
                 }
@@ -84,26 +107,30 @@ namespace Sailor.Detection
         }
         public static bool BottomCollide(IGameObject player, Vector2 richting, List<DrawBlok> Surroundings)
         {
-            foreach (var surrounding in Surroundings)
+            // Links = 0    Rechts = ∞
+            // Top = 0      Bottom = ∞
+
+            foreach (var Tile in Surroundings)
             {
                 // Ziet of blokken bestaan
-                if (surrounding != null)
+                if (Tile != null && Tile != player)
                 {
-                    // Kijkt naar de X coordinaten
-                    if (player.Frame.Left + player.Positie.X + ExtraPixels < surrounding.Positie.X + surrounding.Frame.Right
-                        && player.Frame.Right + player.Positie.X - ExtraPixels > surrounding.Positie.X + surrounding.Frame.Left
-                        )
-                    {
-                        if (surrounding is PlatformBlok
-                            && player.Frame.Bottom + player.Positie.Y - richting.Y >= surrounding.Positie.Y + surrounding.Frame.Top)
-                        {
-                            continue;
-                        }
-                        // Kijkt naar de Y coordinaten
-                        if (player.Frame.Top + player.Positie.Y < surrounding.Positie.Y + surrounding.Frame.Top
-                        && player.Frame.Bottom + player.Positie.Y + richting.Y > surrounding.Positie.Y + surrounding.Frame.Top)
-                        {
-                            return true;
+                    // !(Tile ligt te ver links)
+                    if (!(Tile.Positie.X + Tile.Frame.Left < player.Positie.X + player.Frame.Left
+                        && Tile.Positie.X + Tile.Frame.Right < player.Positie.X + player.Frame.Left)) {
+                        // !(Tile ligt te ver rechts)
+                        if (!(Tile.Positie.X + Tile.Frame.Left > player.Positie.X + player.Frame.Right
+                            && Tile.Positie.X + Tile.Frame.Right > player.Positie.X + player.Frame.Right)) {
+                            // !(Tile ligt hoog)
+                            if (!(Tile.Positie.Y + Tile.Frame.Top < player.Positie.Y + player.Frame.Top
+                                && Tile.Positie.Y + Tile.Frame.Bottom < player.Positie.Y + player.Frame.Top)) {
+                                // Tile is beneden
+                                if (Tile.Positie.Y + Tile.Frame.Top <= player.Positie.Y + player.Frame.Bottom + richting.Y
+                                    && Tile.Positie.Y + Tile.Frame.Top >= player.Positie.Y + player.Frame.Center.Y)
+                                {
+                                    return true;
+                                }
+                            }
                         }
                     }
                 }
