@@ -55,7 +55,7 @@ namespace Sailor.LevelDesign
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
            };
-        private byte[,] SurroundisArray = new Byte[,]
+        private byte[,] SurroundingsArray = new Byte[,]
         {
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -195,11 +195,11 @@ namespace Sailor.LevelDesign
         {
             int enemyTeller = 0;
             Random r = new Random();
-            for (int y = 0; y < SurroundisArray.GetLength(0); y++)
+            for (int y = 0; y < SurroundingsArray.GetLength(0); y++)
             {
-                for (int x = 0; x < SurroundisArray.GetLength(1); x++)
+                for (int x = 0; x < SurroundingsArray.GetLength(1); x++)
                 {
-                    switch (SurroundisArray[y, x])
+                    switch (SurroundingsArray[y, x])
                     {
                         case 1:
                             Surroundings.Add(new StaticBlok(surrTextures[(SurroundingObjects)(y % 2)]

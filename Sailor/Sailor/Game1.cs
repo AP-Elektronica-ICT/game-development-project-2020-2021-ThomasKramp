@@ -48,9 +48,9 @@ namespace Sailor
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             PlayerTextures = LoadTextures.LoadCharacterSprites("Sailor", Content);
-            EnemyTextures.Add(LoadTextures.LoadCharacterSprites("Cucumber", Content));
             InitializeGameObject();
 
+            EnemyTextures.Add(LoadTextures.LoadCharacterSprites("Cucumber", Content));
             LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Background", Content));
             LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Foreground", Content));
             InitializeSurroundings();

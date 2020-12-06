@@ -38,7 +38,6 @@ namespace Sailor.Detection
                                 {
                                     target.Levens--;
                                     target.state = CharacterState.Idle;
-                                    return;
                                 }
                             }
                         }
@@ -74,7 +73,6 @@ namespace Sailor.Detection
                                 {
                                     target.Levens--;
                                     target.state = CharacterState.Idle;
-                                    return;
                                 }
                             }
                         }

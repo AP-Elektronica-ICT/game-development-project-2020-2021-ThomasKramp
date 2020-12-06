@@ -36,9 +36,7 @@ namespace Sailor.Animation
             {
                 counter++;
                 frameMovement = 0;
-            }
-
-            
+            }            
         }
     }
 }
