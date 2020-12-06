@@ -250,23 +250,15 @@ namespace Sailor.LevelDesign
         public void RemoveDead(IKillAble Player)
         {
             deadBlocks = new List<IKillAble>();
-            if (Player.Levens <= 0)
-            {
-                if(Player.Hit) Player.Dead = true;
-                deadBlocks.Add(Player);
-            }
+            if (Player.Levens <= 0) deadBlocks.Add(Player);
             foreach (var enemy in Enemies)
             {
-                if (enemy.Levens <= 0)
-                {
-                    if (enemy.Hit) 
-                        enemy.Dead = true;
-                    deadBlocks.Add(enemy);
-                }
+                if (enemy.Levens <= 0) deadBlocks.Add(enemy);
             }
             foreach (var dead in deadBlocks)
             {
-                if(dead.Dead && !dead.Hit)
+                if (dead.Hit) dead.Dead = true;
+                else if (dead.Dead)
                 {
                     Surroundings.Remove((DrawBlok)dead);
                     if (dead != Player) Enemies.Remove((DynamicBlok)dead);
