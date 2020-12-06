@@ -70,7 +70,7 @@ namespace Sailor.World.Abstract
         public virtual void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets)
         {
             #region Commands
-            if (!Hit)
+            if (!Hit && !Dead)
             {
                 attackCommands.Execute(this, Targets);
                 jumpCommands.Execute(this, richting, Surroundings);

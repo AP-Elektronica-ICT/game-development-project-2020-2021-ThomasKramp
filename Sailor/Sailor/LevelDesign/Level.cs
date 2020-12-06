@@ -252,14 +252,17 @@ namespace Sailor.LevelDesign
             deadBlocks = new List<IKillAble>();
             if (Player.Levens <= 0)
             {
-                Player.Dead = true;
+                if(Player.Hit) Player.Dead = true;
                 deadBlocks.Add(Player);
             }
             foreach (var enemy in Enemies)
             {
-                Player.Dead = true;
-                if (enemy.Levens <= 0) 
+                if (enemy.Levens <= 0)
+                {
+                    if (enemy.Hit) 
+                        enemy.Dead = true;
                     deadBlocks.Add(enemy);
+                }
             }
             foreach (var dead in deadBlocks)
             {
