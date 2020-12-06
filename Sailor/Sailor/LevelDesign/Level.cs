@@ -246,19 +246,28 @@ namespace Sailor.LevelDesign
             
         }
 
-        List<IAttacker> deadBlocks;
-        public void RemoveDead(IAttacker Player)
+        List<IKillAble> deadBlocks;
+        public void RemoveDead(IKillAble Player)
         {
-            deadBlocks = new List<IAttacker>();
-            if (Player.Levens <= 0) deadBlocks.Add(Player);
+            deadBlocks = new List<IKillAble>();
+            if (Player.Levens <= 0)
+            {
+                Player.Dead = true;
+                deadBlocks.Add(Player);
+            }
             foreach (var enemy in Enemies)
             {
-                if (enemy.Levens <= 0) deadBlocks.Add(enemy);
+                Player.Dead = true;
+                if (enemy.Levens <= 0) 
+                    deadBlocks.Add(enemy);
             }
             foreach (var dead in deadBlocks)
             {
-                Surroundings.Remove((DrawBlok)dead);
-                if (dead != Player) Enemies.Remove((DynamicBlok)dead);
+                if(dead.Dead && !dead.Hit)
+                {
+                    Surroundings.Remove((DrawBlok)dead);
+                    if (dead != Player) Enemies.Remove((DynamicBlok)dead);
+                }
             }
         }
 
