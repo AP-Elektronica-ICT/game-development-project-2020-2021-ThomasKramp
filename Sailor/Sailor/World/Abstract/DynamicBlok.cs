@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace Sailor.World.Abstract
 {
-    public abstract class DynamicBlok : DrawBlok, IChangeAble, IDrawEffect, IDrawState, IJumper, IPuncher, IThrower, IKillAble
+    public abstract class DynamicBlok : DrawBlok, IChangeAble, IDrawEffect, IDrawState, IJumper, IPuncher, IKillAble
     {
         public Dictionary<CharacterState, List<Texture2D>> Textures { get; set; }
 
@@ -25,7 +25,6 @@ namespace Sailor.World.Abstract
         public bool Falling { get; set; }
         public bool Ground { get; set; }
         public bool Punch { get; set; }
-        public bool Throw { get; set; }
         public bool Hit { get; set; }
         public bool Dead { get; set; }
         #endregion

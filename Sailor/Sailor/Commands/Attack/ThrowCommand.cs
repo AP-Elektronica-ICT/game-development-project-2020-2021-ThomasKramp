@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Sailor.Detection;
 using Sailor.Interfaces;
 using Sailor.Interfaces.Commands;
-using Sailor.World;
 using Sailor.World.Abstract;
 using Sailor.World.Attack;
 using System;
@@ -12,7 +11,7 @@ using System.Text;
 
 namespace Sailor.Commands.Attack
 {
-    class ThowCommand
+    class ThrowCommand
     {
         IGameObject AttackObject;
         bool lastAttack = false;
