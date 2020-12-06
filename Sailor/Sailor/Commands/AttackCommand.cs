@@ -14,7 +14,7 @@ namespace Sailor.Commands
     class AttackCommand
     {
         IGameObject PunchObject;
-        int punchWidth = 25;
+        int punchWidth = 50;
         int punchHeight = 10;
         bool lastAttack = false;
 

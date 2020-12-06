@@ -20,6 +20,7 @@ namespace Sailor.Animation
             {
                 counter = 0;
                 drawable.Attack = false;
+                drawable.Hit = false;
             }
 
             drawable.CurrentTexture = Textures[counter];

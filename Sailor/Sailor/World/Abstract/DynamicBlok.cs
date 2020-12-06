@@ -6,24 +6,41 @@ using Sailor.Interfaces;
 using Sailor.Interfaces.Animation;
 using Sailor.Interfaces.Commands;
 using Sailor.LoadSprites;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Sailor.World.Abstract
 {
-    public abstract class DynamicBlok : DrawBlok, IChangeAble, IDrawEffect, IDrawState, IJumper, IAttacker
+    public abstract class DynamicBlok : DrawBlok, IChangeAble, IDrawEffect, IDrawState, IJumper, IAttacker, IKillAble
     {
         public Dictionary<CharacterState, List<Texture2D>> Textures { get; set; }
 
+        #region AnimationVariables
         public SpriteEffects effect { get; set; }
         public CharacterState state { get; set; }
+        #endregion
 
+        #region StateVariables
         public bool Jumped { get; set; }
         public bool Falling { get; set; }
         public bool Ground { get; set; }
         public bool Attack { get; set; }
         public int Levens { get; set; }
+        public bool Hit { get; set; }
+        public bool Dead { get; set; }
+        #endregion
+
+        #region DrawVariables
+        // Extra variabelen voor de draw methode
+        //  A rotation of this sprite.
+        float BasicRotation = 0f;
+        // Center of the rotation. 0,0 by default.
+        Vector2 BasicOrigin = new Vector2(0, 0);
+        // A scaling of this sprite.
+        float BasicScale = 1f;
+        // A depth of the layer of this sprite.
+        float BasicLayerDepth = 0f;
+        #endregion
+
 
         protected Vector2 richting;
 
@@ -52,24 +69,21 @@ namespace Sailor.World.Abstract
 
         public virtual void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets)
         {
-            attackCommands.Execute(this, Targets);
-            jumpCommands.Execute(this, richting, Surroundings);
-            moveCommands.Execute(this, richting, Surroundings);
+            #region Commands
+            if (!Hit)
+            {
+                attackCommands.Execute(this, Targets);
+                jumpCommands.Execute(this, richting, Surroundings);
+                moveCommands.Execute(this, richting, Surroundings);
+            }
+            #endregion
 
+            #region Animatie
             animatieEffect.Update(this, richting);
             animatieState.Update(this, richting);
             animatie.Update(this, Textures[state], gameTime);
+            #endregion
         }
-
-        // Extra variabelen voor de draw methode
-        //  A rotation of this sprite.
-        float BasicRotation = 0f;
-        // Center of the rotation. 0,0 by default.
-        Vector2 BasicOrigin = new Vector2(0, 0);
-        // A scaling of this sprite.
-        float BasicScale = 1f;
-        // A depth of the layer of this sprite.
-        float BasicLayerDepth = 0f;
 
         public override void Draw(SpriteBatch spriteBatch)
         {

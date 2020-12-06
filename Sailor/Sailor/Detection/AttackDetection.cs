@@ -1,6 +1,4 @@
 ﻿using Sailor.Interfaces;
-using Sailor.Interfaces.Commands;
-using Sailor.LoadSprites;
 using Sailor.World.Abstract;
 using System;
 using System.Collections.Generic;
@@ -37,7 +35,7 @@ namespace Sailor.Detection
                                 if (target.Positie.X + target.Frame.Left < punchObject.Positie.X + punchObject.Frame.Right)
                                 {
                                     target.Levens--;
-                                    target.state = CharacterState.Idle;
+                                    target.Hit = true;
                                 }
                             }
                         }
@@ -72,7 +70,7 @@ namespace Sailor.Detection
                                 if (target.Positie.X + target.Frame.Right > punchObject.Positie.X + punchObject.Frame.Left)
                                 {
                                     target.Levens--;
-                                    target.state = CharacterState.Idle;
+                                    target.Hit = true;
                                 }
                             }
                         }

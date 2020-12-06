@@ -17,6 +17,7 @@ namespace Sailor.Animation
             if (transform.Jumped) transform.state = CharacterState.Jump;
             if (transform.Falling) transform.state = CharacterState.Fall;
             if (transform.Attack) transform.state = CharacterState.Attack;
+            if (transform.Hit) transform.state = CharacterState.Hit;
         }
     }
 }
