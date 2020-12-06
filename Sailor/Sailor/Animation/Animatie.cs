@@ -24,7 +24,7 @@ namespace Sailor.Animation
                 // Dit komt doordat de vorige state meer textures had (BV: Idle = 38)
                 // Counter staat op 27 en AttackTextures.Count = 9
                 // Dus er gebeurt een reset van animatie
-                if (drawable.state == CharacterState.Attack) drawable.Attack = false;
+                if (drawable.state == CharacterState.Attack) drawable.Punch = false;
                 if (drawable.state == CharacterState.Hit
                     || drawable.state == CharacterState.Dead) drawable.Hit = false;
             }

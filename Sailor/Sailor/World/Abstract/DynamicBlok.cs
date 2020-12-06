@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sailor.Animation;
 using Sailor.Commands;
+using Sailor.Commands.Attack;
 using Sailor.Interfaces;
 using Sailor.Interfaces.Animation;
 using Sailor.Interfaces.Commands;
@@ -10,7 +11,7 @@ using System.Collections.Generic;
 
 namespace Sailor.World.Abstract
 {
-    public abstract class DynamicBlok : DrawBlok, IChangeAble, IDrawEffect, IDrawState, IJumper, IAttacker, IKillAble
+    public abstract class DynamicBlok : DrawBlok, IChangeAble, IDrawEffect, IDrawState, IJumper, IPuncher, IThrower, IKillAble
     {
         public Dictionary<CharacterState, List<Texture2D>> Textures { get; set; }
 
@@ -23,11 +24,12 @@ namespace Sailor.World.Abstract
         public bool Jumped { get; set; }
         public bool Falling { get; set; }
         public bool Ground { get; set; }
-        public bool Attack { get; set; }
-        public int Levens { get; set; }
+        public bool Punch { get; set; }
+        public bool Throw { get; set; }
         public bool Hit { get; set; }
         public bool Dead { get; set; }
         #endregion
+        public int Levens { get; set; }
 
         #region DrawVariables
         // Extra variabelen voor de draw methode
@@ -50,7 +52,7 @@ namespace Sailor.World.Abstract
         AnimatieState animatieState;
         protected IGameCommands moveCommands;
         IGameCommands jumpCommands;
-        AttackCommand attackCommands;
+        PunchCommand punchCommands;
 
         public DynamicBlok(Dictionary<CharacterState, List<Texture2D>> textures)
         {
@@ -62,7 +64,7 @@ namespace Sailor.World.Abstract
             #endregion
             #region Commands
             jumpCommands = new JumpCommand();
-            attackCommands = new AttackCommand();
+            punchCommands = new PunchCommand();
             #endregion
             state = CharacterState.Idle;
         }
@@ -72,7 +74,7 @@ namespace Sailor.World.Abstract
             #region Commands
             if (!Hit && !Dead)
             {
-                attackCommands.Execute(this, Targets);
+                punchCommands.Execute(this, Targets);
                 jumpCommands.Execute(this, richting, Surroundings);
                 moveCommands.Execute(this, richting, Surroundings);
             }

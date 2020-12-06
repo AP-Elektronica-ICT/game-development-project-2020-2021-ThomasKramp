@@ -16,7 +16,7 @@ namespace Sailor.Input
         public Vector2 ReadInput(DynamicBlok sailor)
         {
             KeyboardState state = Keyboard.GetState();
-            if (!sailor.Attack)
+            if (!sailor.Punch)
             {
                 if (state.IsKeyDown(Keys.Left)) richting.X = -1;
                 else if (state.IsKeyDown(Keys.Right))
@@ -25,7 +25,7 @@ namespace Sailor.Input
             } else richting.X = 0;
 
             if (state.IsKeyDown(Keys.Space)) sailor.Jumped = true;
-            if (state.IsKeyDown(Keys.A)) sailor.Attack = true;
+            if (state.IsKeyDown(Keys.A)) sailor.Punch = true;
             return richting;
         }
     }

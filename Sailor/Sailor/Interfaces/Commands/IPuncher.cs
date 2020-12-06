@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Sailor.Interfaces.Commands
 {
-    interface IAttacker : IGameObject
+    interface IPuncher : IGameObject
     {
-        public bool Attack { get; set; }
+        public bool Punch { get; set; }
         public int Levens { get; set; }
         public SpriteEffects effect { get; set; }
     }
