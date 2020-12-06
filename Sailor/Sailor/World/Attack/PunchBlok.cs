@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sailor.World
+namespace Sailor.World.Attack
 {
     class PunchBlok : IGameObject
     {
