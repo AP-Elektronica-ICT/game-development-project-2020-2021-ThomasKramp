@@ -52,7 +52,7 @@ namespace Sailor
 
             EnemyTextures.Add(LoadTextures.LoadCharacterSprites("Cucumber", Content));
             LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Background", Content));
-            LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Foreground", Content));
+            LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Surroundings", Content));
             InitializeSurroundings();
 
             // TODO: use this.Content to load your game content here
