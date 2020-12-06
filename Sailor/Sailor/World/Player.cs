@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sailor.Commands.Move;
-using Sailor.Detection;
 using Sailor.Input;
 using Sailor.LoadSprites;
+using Sailor.World.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,10 +21,10 @@ namespace Sailor.World
             Levens = 3;
         }
 
-        public override void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets)
         {
             richting = inputReader.ReadInput(this);
-            base.Update(gameTime);
+            base.Update(gameTime, Surroundings, Targets);
         }
     }
 }

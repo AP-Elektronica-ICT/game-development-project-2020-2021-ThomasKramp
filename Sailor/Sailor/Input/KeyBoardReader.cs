@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Sailor.LoadSprites;
-using Sailor.World;
+using Sailor.World.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,7 +19,8 @@ namespace Sailor.Input
             if (!sailor.Attack)
             {
                 if (state.IsKeyDown(Keys.Left)) richting.X = -1;
-                else if (state.IsKeyDown(Keys.Right)) richting.X = 1;
+                else if (state.IsKeyDown(Keys.Right))
+                    richting.X = 1;
                 else richting.X = 0;
             } else richting.X = 0;
 

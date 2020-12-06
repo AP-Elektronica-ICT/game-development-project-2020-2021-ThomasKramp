@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sailor.Interfaces.Animation;
+using Sailor.LoadSprites;
+using Sailor.World.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,9 +15,19 @@ namespace Sailor.Animation
 
         public Animatie() { }
 
-        public void Update(IDrawObject drawable, List<Texture2D> Textures, GameTime gameTime)
+        public void Update(DynamicBlok drawable, List<Texture2D> Textures, GameTime gameTime)
         {
-            if (counter >= Textures.Count) counter = 0;
+            if (counter >= Textures.Count)
+            {
+                counter = 0;
+                // Reset de animatie terwijl hij nog moet afspelen
+                // Dit komt doordat de vorige state meer textures had (BV: Idle = 38)
+                // Counter staat op 27 en AttackTextures.Count = 9
+                // Dus er gebeurt een reset van animatie
+                if (drawable.state == CharacterState.Attack) drawable.Attack = false;
+                if (drawable.state == CharacterState.Hit
+                    || drawable.state == CharacterState.Dead) drawable.Hit = false;
+            }
 
             drawable.CurrentTexture = Textures[counter];
 
@@ -32,9 +43,7 @@ namespace Sailor.Animation
             {
                 counter++;
                 frameMovement = 0;
-            }
-
-            
+            }            
         }
     }
 }

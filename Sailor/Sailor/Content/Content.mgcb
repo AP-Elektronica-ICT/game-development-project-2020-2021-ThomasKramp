@@ -13,7 +13,7 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin Background/Tile/TileBG1.png
+#begin Background/Tile/Tile1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -23,9 +23,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Background/Tile/TileBG1.png
+/build:Background/Tile/Tile1.png
 
-#begin Background/Tile/TileBG2.png
+#begin Background/Tile/Tile2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -35,7 +35,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Background/Tile/TileBG2.png
+/build:Background/Tile/Tile2.png
 
 #begin Cucumber/Attack/Attack1.png
 /importer:TextureImporter
@@ -169,6 +169,126 @@
 /processorParam:TextureFormat=Color
 /build:Cucumber/Attack/Attack9.png
 
+#begin Cucumber/Dead/Dead1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cucumber/Dead/Dead1.png
+
+#begin Cucumber/Dead/Dead10.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cucumber/Dead/Dead10.png
+
+#begin Cucumber/Dead/Dead2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cucumber/Dead/Dead2.png
+
+#begin Cucumber/Dead/Dead3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cucumber/Dead/Dead3.png
+
+#begin Cucumber/Dead/Dead4.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cucumber/Dead/Dead4.png
+
+#begin Cucumber/Dead/Dead5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cucumber/Dead/Dead5.png
+
+#begin Cucumber/Dead/Dead6.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cucumber/Dead/Dead6.png
+
+#begin Cucumber/Dead/Dead7.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cucumber/Dead/Dead7.png
+
+#begin Cucumber/Dead/Dead8.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cucumber/Dead/Dead8.png
+
+#begin Cucumber/Dead/Dead9.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cucumber/Dead/Dead9.png
+
 #begin Cucumber/Fall/Fall1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -192,6 +312,102 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Cucumber/Fall/Fall2.png
+
+#begin Cucumber/Hit/Hit1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cucumber/Hit/Hit1.png
+
+#begin Cucumber/Hit/Hit2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cucumber/Hit/Hit2.png
+
+#begin Cucumber/Hit/Hit3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cucumber/Hit/Hit3.png
+
+#begin Cucumber/Hit/Hit4.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cucumber/Hit/Hit4.png
+
+#begin Cucumber/Hit/Hit5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cucumber/Hit/Hit5.png
+
+#begin Cucumber/Hit/Hit6.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cucumber/Hit/Hit6.png
+
+#begin Cucumber/Hit/Hit7.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cucumber/Hit/Hit7.png
+
+#begin Cucumber/Hit/Hit8.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cucumber/Hit/Hit8.png
 
 #begin Cucumber/Idle/Idle1.png
 /importer:TextureImporter
@@ -829,7 +1045,7 @@
 /processorParam:TextureFormat=Color
 /build:Cucumber/Run/Run9.png
 
-#begin Drunken Sailor/Attack/AttackDS1.png
+#begin Foreground/Furniture/Furniture1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -839,9 +1055,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Attack/AttackDS1.png
+/build:Foreground/Furniture/Furniture1.png
 
-#begin Drunken Sailor/Attack/AttackDS10.png
+#begin Foreground/Furniture/Furniture2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -851,9 +1067,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Attack/AttackDS10.png
+/build:Foreground/Furniture/Furniture2.png
 
-#begin Drunken Sailor/Attack/AttackDS11.png
+#begin Foreground/Furniture/Furniture3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -863,9 +1079,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Attack/AttackDS11.png
+/build:Foreground/Furniture/Furniture3.png
 
-#begin Drunken Sailor/Attack/AttackDS2.png
+#begin Foreground/Platform/Platform1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -875,9 +1091,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Attack/AttackDS2.png
+/build:Foreground/Platform/Platform1.png
 
-#begin Drunken Sailor/Attack/AttackDS3.png
+#begin Foreground/Platform/Platform2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -887,9 +1103,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Attack/AttackDS3.png
+/build:Foreground/Platform/Platform2.png
 
-#begin Drunken Sailor/Attack/AttackDS4.png
+#begin Foreground/RevTile/RevTile1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -899,9 +1115,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Attack/AttackDS4.png
+/build:Foreground/RevTile/RevTile1.png
 
-#begin Drunken Sailor/Attack/AttackDS5.png
+#begin Foreground/RevTile/RevTile2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -911,9 +1127,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Attack/AttackDS5.png
+/build:Foreground/RevTile/RevTile2.png
 
-#begin Drunken Sailor/Attack/AttackDS6.png
+#begin Foreground/RevTile/RevTile3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -923,9 +1139,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Attack/AttackDS6.png
+/build:Foreground/RevTile/RevTile3.png
 
-#begin Drunken Sailor/Attack/AttackDS7.png
+#begin Foreground/Tile/Tile1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -935,9 +1151,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Attack/AttackDS7.png
+/build:Foreground/Tile/Tile1.png
 
-#begin Drunken Sailor/Attack/AttackDS8.png
+#begin Foreground/Tile/Tile2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -947,9 +1163,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Attack/AttackDS8.png
+/build:Foreground/Tile/Tile2.png
 
-#begin Drunken Sailor/Attack/AttackDS9.png
+#begin Foreground/Tile/Tile3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -959,9 +1175,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Attack/AttackDS9.png
+/build:Foreground/Tile/Tile3.png
 
-#begin Drunken Sailor/Fall/FallDS1.png
+#begin Sailor/Attack/Attack1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -971,9 +1187,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Fall/FallDS1.png
+/build:Sailor/Attack/Attack1.png
 
-#begin Drunken Sailor/Fall/FallDS2.png
+#begin Sailor/Attack/Attack10.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -983,9 +1199,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Fall/FallDS2.png
+/build:Sailor/Attack/Attack10.png
 
-#begin Drunken Sailor/Idle/IdleDS1.png
+#begin Sailor/Attack/Attack11.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -995,9 +1211,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS1.png
+/build:Sailor/Attack/Attack11.png
 
-#begin Drunken Sailor/Idle/IdleDS10.png
+#begin Sailor/Attack/Attack2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1007,9 +1223,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS10.png
+/build:Sailor/Attack/Attack2.png
 
-#begin Drunken Sailor/Idle/IdleDS11.png
+#begin Sailor/Attack/Attack3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1019,9 +1235,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS11.png
+/build:Sailor/Attack/Attack3.png
 
-#begin Drunken Sailor/Idle/IdleDS12.png
+#begin Sailor/Attack/Attack4.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1031,9 +1247,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS12.png
+/build:Sailor/Attack/Attack4.png
 
-#begin Drunken Sailor/Idle/IdleDS13.png
+#begin Sailor/Attack/Attack5.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1043,9 +1259,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS13.png
+/build:Sailor/Attack/Attack5.png
 
-#begin Drunken Sailor/Idle/IdleDS14.png
+#begin Sailor/Attack/Attack6.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1055,9 +1271,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS14.png
+/build:Sailor/Attack/Attack6.png
 
-#begin Drunken Sailor/Idle/IdleDS15.png
+#begin Sailor/Attack/Attack7.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1067,9 +1283,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS15.png
+/build:Sailor/Attack/Attack7.png
 
-#begin Drunken Sailor/Idle/IdleDS16.png
+#begin Sailor/Attack/Attack8.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1079,9 +1295,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS16.png
+/build:Sailor/Attack/Attack8.png
 
-#begin Drunken Sailor/Idle/IdleDS17.png
+#begin Sailor/Attack/Attack9.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1091,9 +1307,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS17.png
+/build:Sailor/Attack/Attack9.png
 
-#begin Drunken Sailor/Idle/IdleDS18.png
+#begin Sailor/Dead/Dead1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1103,9 +1319,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS18.png
+/build:Sailor/Dead/Dead1.png
 
-#begin Drunken Sailor/Idle/IdleDS19.png
+#begin Sailor/Dead/Dead10.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1115,9 +1331,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS19.png
+/build:Sailor/Dead/Dead10.png
 
-#begin Drunken Sailor/Idle/IdleDS2.png
+#begin Sailor/Dead/Dead2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1127,9 +1343,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS2.png
+/build:Sailor/Dead/Dead2.png
 
-#begin Drunken Sailor/Idle/IdleDS20.png
+#begin Sailor/Dead/Dead3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1139,9 +1355,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS20.png
+/build:Sailor/Dead/Dead3.png
 
-#begin Drunken Sailor/Idle/IdleDS21.png
+#begin Sailor/Dead/Dead4.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1151,9 +1367,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS21.png
+/build:Sailor/Dead/Dead4.png
 
-#begin Drunken Sailor/Idle/IdleDS22.png
+#begin Sailor/Dead/Dead5.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1163,9 +1379,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS22.png
+/build:Sailor/Dead/Dead5.png
 
-#begin Drunken Sailor/Idle/IdleDS23.png
+#begin Sailor/Dead/Dead6.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1175,9 +1391,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS23.png
+/build:Sailor/Dead/Dead6.png
 
-#begin Drunken Sailor/Idle/IdleDS24.png
+#begin Sailor/Dead/Dead7.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1187,9 +1403,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS24.png
+/build:Sailor/Dead/Dead7.png
 
-#begin Drunken Sailor/Idle/IdleDS25.png
+#begin Sailor/Dead/Dead8.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1199,9 +1415,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS25.png
+/build:Sailor/Dead/Dead8.png
 
-#begin Drunken Sailor/Idle/IdleDS26.png
+#begin Sailor/Dead/Dead9.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1211,9 +1427,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS26.png
+/build:Sailor/Dead/Dead9.png
 
-#begin Drunken Sailor/Idle/IdleDS27.png
+#begin Sailor/Fall/Fall1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1223,9 +1439,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS27.png
+/build:Sailor/Fall/Fall1.png
 
-#begin Drunken Sailor/Idle/IdleDS28.png
+#begin Sailor/Fall/Fall2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1235,9 +1451,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS28.png
+/build:Sailor/Fall/Fall2.png
 
-#begin Drunken Sailor/Idle/IdleDS29.png
+#begin Sailor/Hit/Hit1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1247,9 +1463,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS29.png
+/build:Sailor/Hit/Hit1.png
 
-#begin Drunken Sailor/Idle/IdleDS3.png
+#begin Sailor/Hit/Hit2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1259,9 +1475,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS3.png
+/build:Sailor/Hit/Hit2.png
 
-#begin Drunken Sailor/Idle/IdleDS30.png
+#begin Sailor/Hit/Hit3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1271,9 +1487,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS30.png
+/build:Sailor/Hit/Hit3.png
 
-#begin Drunken Sailor/Idle/IdleDS31.png
+#begin Sailor/Hit/Hit4.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1283,9 +1499,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS31.png
+/build:Sailor/Hit/Hit4.png
 
-#begin Drunken Sailor/Idle/IdleDS32.png
+#begin Sailor/Hit/Hit5.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1295,9 +1511,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS32.png
+/build:Sailor/Hit/Hit5.png
 
-#begin Drunken Sailor/Idle/IdleDS33.png
+#begin Sailor/Hit/Hit6.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1307,9 +1523,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS33.png
+/build:Sailor/Hit/Hit6.png
 
-#begin Drunken Sailor/Idle/IdleDS34.png
+#begin Sailor/Hit/Hit7.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1319,9 +1535,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS34.png
+/build:Sailor/Hit/Hit7.png
 
-#begin Drunken Sailor/Idle/IdleDS35.png
+#begin Sailor/Hit/Hit8.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1331,9 +1547,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS35.png
+/build:Sailor/Hit/Hit8.png
 
-#begin Drunken Sailor/Idle/IdleDS36.png
+#begin Sailor/Idle/Idle1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1343,9 +1559,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS36.png
+/build:Sailor/Idle/Idle1.png
 
-#begin Drunken Sailor/Idle/IdleDS37.png
+#begin Sailor/Idle/Idle10.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1355,9 +1571,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS37.png
+/build:Sailor/Idle/Idle10.png
 
-#begin Drunken Sailor/Idle/IdleDS38.png
+#begin Sailor/Idle/Idle11.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1367,9 +1583,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS38.png
+/build:Sailor/Idle/Idle11.png
 
-#begin Drunken Sailor/Idle/IdleDS4.png
+#begin Sailor/Idle/Idle12.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1379,9 +1595,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS4.png
+/build:Sailor/Idle/Idle12.png
 
-#begin Drunken Sailor/Idle/IdleDS5.png
+#begin Sailor/Idle/Idle13.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1391,9 +1607,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS5.png
+/build:Sailor/Idle/Idle13.png
 
-#begin Drunken Sailor/Idle/IdleDS6.png
+#begin Sailor/Idle/Idle14.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1403,9 +1619,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS6.png
+/build:Sailor/Idle/Idle14.png
 
-#begin Drunken Sailor/Idle/IdleDS7.png
+#begin Sailor/Idle/Idle15.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1415,9 +1631,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS7.png
+/build:Sailor/Idle/Idle15.png
 
-#begin Drunken Sailor/Idle/IdleDS8.png
+#begin Sailor/Idle/Idle16.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1427,9 +1643,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS8.png
+/build:Sailor/Idle/Idle16.png
 
-#begin Drunken Sailor/Idle/IdleDS9.png
+#begin Sailor/Idle/Idle17.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1439,9 +1655,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Idle/IdleDS9.png
+/build:Sailor/Idle/Idle17.png
 
-#begin Drunken Sailor/Jump/JumpDS1.png
+#begin Sailor/Idle/Idle18.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1451,9 +1667,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Jump/JumpDS1.png
+/build:Sailor/Idle/Idle18.png
 
-#begin Drunken Sailor/Jump/JumpDS2.png
+#begin Sailor/Idle/Idle19.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1463,9 +1679,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Jump/JumpDS2.png
+/build:Sailor/Idle/Idle19.png
 
-#begin Drunken Sailor/Jump/JumpDS3.png
+#begin Sailor/Idle/Idle2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1475,9 +1691,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Jump/JumpDS3.png
+/build:Sailor/Idle/Idle2.png
 
-#begin Drunken Sailor/Jump/JumpDS4.png
+#begin Sailor/Idle/Idle20.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1487,9 +1703,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Jump/JumpDS4.png
+/build:Sailor/Idle/Idle20.png
 
-#begin Drunken Sailor/Jump/JumpDS5.png
+#begin Sailor/Idle/Idle21.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1499,9 +1715,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Jump/JumpDS5.png
+/build:Sailor/Idle/Idle21.png
 
-#begin Drunken Sailor/Run/RunDS1.png
+#begin Sailor/Idle/Idle22.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1511,9 +1727,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Run/RunDS1.png
+/build:Sailor/Idle/Idle22.png
 
-#begin Drunken Sailor/Run/RunDS10.png
+#begin Sailor/Idle/Idle23.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1523,9 +1739,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Run/RunDS10.png
+/build:Sailor/Idle/Idle23.png
 
-#begin Drunken Sailor/Run/RunDS11.png
+#begin Sailor/Idle/Idle24.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1535,9 +1751,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Run/RunDS11.png
+/build:Sailor/Idle/Idle24.png
 
-#begin Drunken Sailor/Run/RunDS12.png
+#begin Sailor/Idle/Idle25.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1547,9 +1763,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Run/RunDS12.png
+/build:Sailor/Idle/Idle25.png
 
-#begin Drunken Sailor/Run/RunDS13.png
+#begin Sailor/Idle/Idle26.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1559,9 +1775,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Run/RunDS13.png
+/build:Sailor/Idle/Idle26.png
 
-#begin Drunken Sailor/Run/RunDS14.png
+#begin Sailor/Idle/Idle27.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1571,9 +1787,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Run/RunDS14.png
+/build:Sailor/Idle/Idle27.png
 
-#begin Drunken Sailor/Run/RunDS15.png
+#begin Sailor/Idle/Idle28.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1583,9 +1799,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Run/RunDS15.png
+/build:Sailor/Idle/Idle28.png
 
-#begin Drunken Sailor/Run/RunDS16.png
+#begin Sailor/Idle/Idle29.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1595,9 +1811,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Run/RunDS16.png
+/build:Sailor/Idle/Idle29.png
 
-#begin Drunken Sailor/Run/RunDS2.png
+#begin Sailor/Idle/Idle3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1607,9 +1823,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Run/RunDS2.png
+/build:Sailor/Idle/Idle3.png
 
-#begin Drunken Sailor/Run/RunDS3.png
+#begin Sailor/Idle/Idle30.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1619,9 +1835,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Run/RunDS3.png
+/build:Sailor/Idle/Idle30.png
 
-#begin Drunken Sailor/Run/RunDS4.png
+#begin Sailor/Idle/Idle31.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1631,9 +1847,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Run/RunDS4.png
+/build:Sailor/Idle/Idle31.png
 
-#begin Drunken Sailor/Run/RunDS5.png
+#begin Sailor/Idle/Idle32.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1643,9 +1859,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Run/RunDS5.png
+/build:Sailor/Idle/Idle32.png
 
-#begin Drunken Sailor/Run/RunDS6.png
+#begin Sailor/Idle/Idle33.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1655,9 +1871,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Run/RunDS6.png
+/build:Sailor/Idle/Idle33.png
 
-#begin Drunken Sailor/Run/RunDS7.png
+#begin Sailor/Idle/Idle34.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1667,9 +1883,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Run/RunDS7.png
+/build:Sailor/Idle/Idle34.png
 
-#begin Drunken Sailor/Run/RunDS8.png
+#begin Sailor/Idle/Idle35.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1679,9 +1895,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Run/RunDS8.png
+/build:Sailor/Idle/Idle35.png
 
-#begin Drunken Sailor/Run/RunDS9.png
+#begin Sailor/Idle/Idle36.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1691,9 +1907,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Drunken Sailor/Run/RunDS9.png
+/build:Sailor/Idle/Idle36.png
 
-#begin Foreground/Furniture/FurnitureFG1.png
+#begin Sailor/Idle/Idle37.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1703,9 +1919,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Foreground/Furniture/FurnitureFG1.png
+/build:Sailor/Idle/Idle37.png
 
-#begin Foreground/Furniture/FurnitureFG2.png
+#begin Sailor/Idle/Idle38.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1715,9 +1931,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Foreground/Furniture/FurnitureFG2.png
+/build:Sailor/Idle/Idle38.png
 
-#begin Foreground/Furniture/FurnitureFG3.png
+#begin Sailor/Idle/Idle4.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1727,9 +1943,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Foreground/Furniture/FurnitureFG3.png
+/build:Sailor/Idle/Idle4.png
 
-#begin Foreground/Platform/PlatformFG1.png
+#begin Sailor/Idle/Idle5.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1739,9 +1955,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Foreground/Platform/PlatformFG1.png
+/build:Sailor/Idle/Idle5.png
 
-#begin Foreground/Platform/PlatformFG2.png
+#begin Sailor/Idle/Idle6.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1751,9 +1967,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Foreground/Platform/PlatformFG2.png
+/build:Sailor/Idle/Idle6.png
 
-#begin Foreground/RevTile/RevTileFG1.png
+#begin Sailor/Idle/Idle7.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1763,9 +1979,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Foreground/RevTile/RevTileFG1.png
+/build:Sailor/Idle/Idle7.png
 
-#begin Foreground/RevTile/RevTileFG2.png
+#begin Sailor/Idle/Idle8.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1775,9 +1991,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Foreground/RevTile/RevTileFG2.png
+/build:Sailor/Idle/Idle8.png
 
-#begin Foreground/RevTile/RevTileFG3.png
+#begin Sailor/Idle/Idle9.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1787,9 +2003,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Foreground/RevTile/RevTileFG3.png
+/build:Sailor/Idle/Idle9.png
 
-#begin Foreground/Tile/TileFG1.png
+#begin Sailor/Jump/Jump1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1799,9 +2015,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Foreground/Tile/TileFG1.png
+/build:Sailor/Jump/Jump1.png
 
-#begin Foreground/Tile/TileFG2.png
+#begin Sailor/Jump/Jump2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1811,9 +2027,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Foreground/Tile/TileFG2.png
+/build:Sailor/Jump/Jump2.png
 
-#begin Foreground/Tile/TileFG3.png
+#begin Sailor/Jump/Jump3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1823,5 +2039,221 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Foreground/Tile/TileFG3.png
+/build:Sailor/Jump/Jump3.png
+
+#begin Sailor/Jump/Jump4.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sailor/Jump/Jump4.png
+
+#begin Sailor/Jump/Jump5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sailor/Jump/Jump5.png
+
+#begin Sailor/Run/Run1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sailor/Run/Run1.png
+
+#begin Sailor/Run/Run10.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sailor/Run/Run10.png
+
+#begin Sailor/Run/Run11.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sailor/Run/Run11.png
+
+#begin Sailor/Run/Run12.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sailor/Run/Run12.png
+
+#begin Sailor/Run/Run13.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sailor/Run/Run13.png
+
+#begin Sailor/Run/Run14.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sailor/Run/Run14.png
+
+#begin Sailor/Run/Run15.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sailor/Run/Run15.png
+
+#begin Sailor/Run/Run16.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sailor/Run/Run16.png
+
+#begin Sailor/Run/Run2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sailor/Run/Run2.png
+
+#begin Sailor/Run/Run3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sailor/Run/Run3.png
+
+#begin Sailor/Run/Run4.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sailor/Run/Run4.png
+
+#begin Sailor/Run/Run5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sailor/Run/Run5.png
+
+#begin Sailor/Run/Run6.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sailor/Run/Run6.png
+
+#begin Sailor/Run/Run7.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sailor/Run/Run7.png
+
+#begin Sailor/Run/Run8.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sailor/Run/Run8.png
+
+#begin Sailor/Run/Run9.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sailor/Run/Run9.png
 

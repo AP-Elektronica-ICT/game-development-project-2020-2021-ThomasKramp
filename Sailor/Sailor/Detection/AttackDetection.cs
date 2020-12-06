@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Sailor.Interfaces;
+﻿using Sailor.Interfaces;
+using Sailor.World.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,35 +8,75 @@ namespace Sailor.Detection
 {
     class AttackDetection
     {
-        public static bool LeftCollide(IGameObject player, Vector2 richting)
+        public static void LeftCollide(IGameObject punchObject, List<DynamicBlok> Targets)
         {
-            return false;
-        }
-        public static bool RightCollide(IGameObject player, Vector2 richting)
-        {
-            for (int x = 0; x < Game1.Foreground.blokArray.GetLength(0); x++)
+            // Top = 0      Bottom = ∞
+            // Links = 0    Rechts = ∞
+
+            foreach (var target in Targets)
             {
-                for (int y = 0; y < Game1.Foreground.blokArray.GetLength(1); y++)
+                // Ziet of blokken bestaan
+                if (target != null)
                 {
-                    // Ziet of blokken bestaan
-                    if (Game1.Foreground.blokArray[x, y] != null)
+                    // if (Tile is PlatformBlok) continue;
+                    // !(Tile ligt te hoog)
+                    if (!(target.Positie.Y + target.Frame.Top < punchObject.Positie.Y + punchObject.Frame.Top
+                        && target.Positie.Y + target.Frame.Bottom < punchObject.Positie.Y + punchObject.Frame.Top))
                     {
-                        // Kijkt naar de X coordinaten
-                        if (player.Frame.Right + player.Positie.X + richting.X > Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].Frame.Left
-                            && player.Frame.Left + player.Positie.X < Game1.Foreground.blokArray[x, y].Positie.X + Game1.Foreground.blokArray[x, y].Frame.Left
-                            )
+                        // !(Tile ligt te laag)
+                        if (!(target.Positie.Y + target.Frame.Top > punchObject.Positie.Y + punchObject.Frame.Bottom
+                            && target.Positie.Y + target.Frame.Bottom > punchObject.Positie.Y + punchObject.Frame.Bottom))
                         {
-                            // Kijkt naar de Y coordinaten
-                            if (player.Frame.Bottom + player.Positie.Y - 5 > Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Top
-                            && player.Frame.Top + player.Positie.Y + 5 < Game1.Foreground.blokArray[x, y].Positie.Y + Game1.Foreground.blokArray[x, y].Frame.Bottom)
+                            // !(Tile ligt te rechts)
+                            if (!(target.Positie.X + target.Frame.Left < punchObject.Positie.X + punchObject.Frame.Right
+                                && target.Positie.X + target.Frame.Right < punchObject.Positie.X + punchObject.Frame.Right))
                             {
-                                return true;
+                                // Tile is links
+                                if (target.Positie.X + target.Frame.Left < punchObject.Positie.X + punchObject.Frame.Right)
+                                {
+                                    target.Levens--;
+                                    target.Hit = true;
+                                }
                             }
                         }
                     }
                 }
             }
-            return false;
+        }
+        public static void RightCollide(IGameObject punchObject, List<DynamicBlok> Targets)
+        {
+            // Top = 0      Bottom = ∞
+            // Links = 0    Rechts = ∞
+
+            foreach (var target in Targets)
+            {
+                // Ziet of blokken bestaan
+                if (target != null)
+                {
+                    // if (Tile is PlatformBlok) continue;
+                    // !(Tile ligt te hoog)
+                    if (!(target.Positie.Y + target.Frame.Top < punchObject.Positie.Y + punchObject.Frame.Top
+                        && target.Positie.Y + target.Frame.Bottom < punchObject.Positie.Y + punchObject.Frame.Top))
+                    {
+                        // !(Tile ligt te laag)
+                        if (!(target.Positie.Y + target.Frame.Top > punchObject.Positie.Y + punchObject.Frame.Bottom
+                            && target.Positie.Y + target.Frame.Bottom > punchObject.Positie.Y + punchObject.Frame.Bottom))
+                        {
+                            // !(Tile ligt te links)
+                            if (!(target.Positie.X + target.Frame.Left > punchObject.Positie.X + punchObject.Frame.Left
+                                && target.Positie.X + target.Frame.Right > punchObject.Positie.X + punchObject.Frame.Left))
+                            {
+                                // Tile is rechts
+                                if (target.Positie.X + target.Frame.Right > punchObject.Positie.X + punchObject.Frame.Left)
+                                {
+                                    target.Levens--;
+                                    target.Hit = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
