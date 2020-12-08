@@ -2257,3 +2257,9 @@
 /processorParam:TextureFormat=Color
 /build:Surroundings/Tile/Tile3.png
 
+#begin The Rocky Road To Dublin.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:The Rocky Road To Dublin.mp3
+

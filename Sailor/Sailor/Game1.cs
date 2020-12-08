@@ -1,12 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using Sailor.Input;
 using Sailor.LevelDesign;
 using Sailor.LoadSprites;
 using Sailor.World;
 using Sailor.World.Abstract;
-using System;
 using System.Collections.Generic;
 
 namespace Sailor
@@ -23,6 +23,8 @@ namespace Sailor
         Dictionary<CharacterState, List<Texture2D>> PlayerTextures;
         List<Dictionary<CharacterState, List<Texture2D>>> EnemyTextures;
         List<Dictionary<SurroundingObjects, List<Texture2D>>> LevelTextures;
+
+        Song song;
 
         public Game1()
         {
@@ -54,6 +56,11 @@ namespace Sailor
             LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Background", Content));
             LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Surroundings", Content));
             InitializeSurroundings();
+
+            // this.song = Content.Load<Song>("The Rocky Road To Dublin");
+            // MediaPlayer.Play(song);
+            //  Uncomment the following line will also loop the song
+            //  MediaPlayer.IsRepeating = true;
 
             // TODO: use this.Content to load your game content here
         }
