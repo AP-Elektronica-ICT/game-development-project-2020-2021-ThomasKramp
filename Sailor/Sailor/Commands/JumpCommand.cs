@@ -45,13 +45,11 @@ namespace Sailor.Commands
                     // betekent het dat er Right of Left Collsion is
                     // en geen eigenlijke Bottom Collision
                     snelheid.Y = 0f;
-                }
-                else
-                {
+                } else {
                     snelheid.Y = -0.25f;
                     grounded = true;
+                    tempJumper.Falling = false;
                 }
-                tempJumper.Falling = false;
             }
             else
             {

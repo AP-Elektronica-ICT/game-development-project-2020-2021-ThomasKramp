@@ -96,7 +96,7 @@ namespace Sailor.Detection
                                 && Tile.Positie.Y + Tile.Frame.Bottom > player.Positie.Y + player.Frame.Bottom)) {
                                 // Tile is boven
                                 if (Tile.Positie.Y + Tile.Frame.Bottom >= player.Positie.Y + player.Frame.Top + richting.Y
-                                    && Tile.Positie.Y + Tile.Frame.Bottom <= player.Positie.Y + player.Frame.Center.Y) {
+                                    && Tile.Positie.Y + Tile.Frame.Top <= player.Positie.Y + player.Frame.Top) {
                                     return true;
                                 }
                             }
@@ -127,7 +127,7 @@ namespace Sailor.Detection
                                 && Tile.Positie.Y + Tile.Frame.Bottom < player.Positie.Y + player.Frame.Top)) {
                                 // Tile is beneden
                                 if (Tile.Positie.Y + Tile.Frame.Top <= player.Positie.Y + player.Frame.Bottom + richting.Y
-                                    && Tile.Positie.Y + Tile.Frame.Top >= player.Positie.Y + player.Frame.Center.Y)
+                                    && Tile.Positie.Y + Tile.Frame.Bottom >= player.Positie.Y + player.Frame.Bottom)
                                 {
                                     return true;
                                 }
