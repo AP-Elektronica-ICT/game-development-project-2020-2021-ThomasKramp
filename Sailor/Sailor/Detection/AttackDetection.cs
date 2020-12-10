@@ -8,7 +8,7 @@ namespace Sailor.Detection
 {
     class AttackDetection
     {
-        public static void LeftCollide(IGameObject punchObject, List<DynamicBlok> Targets)
+        public static void LeftCollide(IGameObject attackObject, List<DynamicBlok> Targets)
         {
             // Top = 0      Bottom = ∞
             // Links = 0    Rechts = ∞
@@ -20,19 +20,19 @@ namespace Sailor.Detection
                 {
                     // if (Tile is PlatformBlok) continue;
                     // !(Tile ligt te hoog)
-                    if (!(target.Positie.Y + target.Frame.Top < punchObject.Positie.Y + punchObject.Frame.Top
-                        && target.Positie.Y + target.Frame.Bottom < punchObject.Positie.Y + punchObject.Frame.Top))
+                    if (!(target.Positie.Y + target.Frame.Top < attackObject.Positie.Y + attackObject.Frame.Top
+                        && target.Positie.Y + target.Frame.Bottom < attackObject.Positie.Y + attackObject.Frame.Top))
                     {
                         // !(Tile ligt te laag)
-                        if (!(target.Positie.Y + target.Frame.Top > punchObject.Positie.Y + punchObject.Frame.Bottom
-                            && target.Positie.Y + target.Frame.Bottom > punchObject.Positie.Y + punchObject.Frame.Bottom))
+                        if (!(target.Positie.Y + target.Frame.Top > attackObject.Positie.Y + attackObject.Frame.Bottom
+                            && target.Positie.Y + target.Frame.Bottom > attackObject.Positie.Y + attackObject.Frame.Bottom))
                         {
                             // !(Tile ligt te rechts)
-                            if (!(target.Positie.X + target.Frame.Left < punchObject.Positie.X + punchObject.Frame.Right
-                                && target.Positie.X + target.Frame.Right < punchObject.Positie.X + punchObject.Frame.Right))
+                            if (!(target.Positie.X + target.Frame.Left < attackObject.Positie.X + attackObject.Frame.Right
+                                && target.Positie.X + target.Frame.Right < attackObject.Positie.X + attackObject.Frame.Right))
                             {
                                 // Tile is links
-                                if (target.Positie.X + target.Frame.Left < punchObject.Positie.X + punchObject.Frame.Right)
+                                if (target.Positie.X + target.Frame.Left < attackObject.Positie.X + attackObject.Frame.Right)
                                 {
                                     target.Levens--;
                                     target.Hit = true;
@@ -43,7 +43,7 @@ namespace Sailor.Detection
                 }
             }
         }
-        public static void RightCollide(IGameObject punchObject, List<DynamicBlok> Targets)
+        public static void RightCollide(IGameObject attackObject, List<DynamicBlok> Targets)
         {
             // Top = 0      Bottom = ∞
             // Links = 0    Rechts = ∞
@@ -55,19 +55,19 @@ namespace Sailor.Detection
                 {
                     // if (Tile is PlatformBlok) continue;
                     // !(Tile ligt te hoog)
-                    if (!(target.Positie.Y + target.Frame.Top < punchObject.Positie.Y + punchObject.Frame.Top
-                        && target.Positie.Y + target.Frame.Bottom < punchObject.Positie.Y + punchObject.Frame.Top))
+                    if (!(target.Positie.Y + target.Frame.Top < attackObject.Positie.Y + attackObject.Frame.Top
+                        && target.Positie.Y + target.Frame.Bottom < attackObject.Positie.Y + attackObject.Frame.Top))
                     {
                         // !(Tile ligt te laag)
-                        if (!(target.Positie.Y + target.Frame.Top > punchObject.Positie.Y + punchObject.Frame.Bottom
-                            && target.Positie.Y + target.Frame.Bottom > punchObject.Positie.Y + punchObject.Frame.Bottom))
+                        if (!(target.Positie.Y + target.Frame.Top > attackObject.Positie.Y + attackObject.Frame.Bottom
+                            && target.Positie.Y + target.Frame.Bottom > attackObject.Positie.Y + attackObject.Frame.Bottom))
                         {
                             // !(Tile ligt te links)
-                            if (!(target.Positie.X + target.Frame.Left > punchObject.Positie.X + punchObject.Frame.Left
-                                && target.Positie.X + target.Frame.Right > punchObject.Positie.X + punchObject.Frame.Left))
+                            if (!(target.Positie.X + target.Frame.Left > attackObject.Positie.X + attackObject.Frame.Left
+                                && target.Positie.X + target.Frame.Right > attackObject.Positie.X + attackObject.Frame.Left))
                             {
                                 // Tile is rechts
-                                if (target.Positie.X + target.Frame.Right > punchObject.Positie.X + punchObject.Frame.Left)
+                                if (target.Positie.X + target.Frame.Right > attackObject.Positie.X + attackObject.Frame.Left)
                                 {
                                     target.Levens--;
                                     target.Hit = true;

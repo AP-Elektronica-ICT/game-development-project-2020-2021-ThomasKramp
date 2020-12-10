@@ -15,8 +15,7 @@ namespace Sailor.Commands.Attack
     {
         IGameObject AttackObject;
         bool lastAttack = false;
-        int punchWidth = 75;
-        int punchHeight = 10;
+        Random random = new Random();
 
         public void Execute(IThrower Attacker, List<DynamicBlok> Targets)
         {
@@ -27,7 +26,8 @@ namespace Sailor.Commands.Attack
                     // Moet een texture aan toegevoegd worden
                     AttackObject = new ThrowBlok(null, new Vector2(
                         Attacker.Positie.X + Attacker.Frame.Center.X,
-                        Attacker.Positie.Y + Attacker.Frame.Center.Y));
+                        Attacker.Positie.Y + Attacker.Frame.Center.Y),
+                        Attacker.effect);
 
                     AttackDetection.LeftCollide(AttackObject, Targets);
                 }
@@ -35,7 +35,8 @@ namespace Sailor.Commands.Attack
                 {
                     AttackObject = new ThrowBlok(null, new Vector2(
                         Attacker.Positie.X + Attacker.Frame.Center.X,
-                        Attacker.Positie.Y + Attacker.Frame.Center.Y));
+                        Attacker.Positie.Y + Attacker.Frame.Center.Y),
+                        Attacker.effect);
 
                     AttackDetection.LeftCollide(AttackObject, Targets);
                 }

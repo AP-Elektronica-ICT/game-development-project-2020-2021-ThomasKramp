@@ -11,12 +11,11 @@ using System.Collections.Generic;
 
 namespace Sailor.World.Abstract
 {
-    public abstract class DynamicBlok : DrawBlok, IChangeAble, IDrawEffect, IDrawState, IJumper, IPuncher, IKillAble
+    public abstract class DynamicBlok : SpecialDrawBlok, IChangeAble, IDrawState, IJumper, IPuncher, IKillAble
     {
         public Dictionary<CharacterState, List<Texture2D>> Textures { get; set; }
 
         #region AnimationVariables
-        public SpriteEffects effect { get; set; }
         public CharacterState state { get; set; }
         #endregion
 
@@ -28,21 +27,6 @@ namespace Sailor.World.Abstract
         public bool Dead { get; set; }
         #endregion
         public int Levens { get; set; }
-
-        #region DrawVariables
-        // Extra variabelen voor de draw methode
-        //  A rotation of this sprite.
-        float BasicRotation = 0f;
-        // Center of the rotation. 0,0 by default.
-        Vector2 BasicOrigin = new Vector2(0, 0);
-        // A scaling of this sprite.
-        float BasicScale = 1f;
-        // A depth of the layer of this sprite.
-        float BasicLayerDepth = 0f;
-        #endregion
-
-
-        protected Vector2 richting;
 
         // Moet nog weggehaald worden
         Animatie animatie;
@@ -67,7 +51,7 @@ namespace Sailor.World.Abstract
             state = CharacterState.Idle;
         }
 
-        public virtual void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets)
+        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets)
         {
             #region Commands
             if (!Hit && !Dead)
@@ -83,11 +67,8 @@ namespace Sailor.World.Abstract
             animatieState.Update(this, richting);
             animatie.Update(this, Textures[state], gameTime);
             #endregion
-        }
 
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(CurrentTexture, Positie, Frame, Color.White, BasicRotation, BasicOrigin, BasicScale, effect, BasicLayerDepth);
+            base.Update(gameTime, Surroundings, Targets);
         }
     }
 }
