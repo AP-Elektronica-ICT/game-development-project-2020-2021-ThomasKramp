@@ -30,7 +30,7 @@ namespace Sailor.World
         {
             richting = inputReader.ReadInput(this);
             //if (!Hit && !Dead) throwCommand.Execute(this, Targets);
-                base.Update(gameTime, Surroundings, Targets);
+            base.Update(gameTime, Surroundings, Targets);
         }
     }
 }

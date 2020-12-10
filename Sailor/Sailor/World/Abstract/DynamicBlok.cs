@@ -23,7 +23,6 @@ namespace Sailor.World.Abstract
         #region StateVariables
         public bool Jumped { get; set; }
         public bool Falling { get; set; }
-        public bool Ground { get; set; }
         public bool Punch { get; set; }
         public bool Hit { get; set; }
         public bool Dead { get; set; }

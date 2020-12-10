@@ -8,6 +8,5 @@ namespace Sailor.Interfaces.Commands
     {
         public bool Jumped { get; set; }
         public bool Falling { get; set; }
-        public bool Ground { get; set; }
     }
 }

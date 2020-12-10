@@ -19,15 +19,15 @@ namespace Sailor.World.Attack
         #region DrawVariables
         // Extra variabelen voor de draw methode
         //  A rotation of this sprite.
-        float BasicRotation = 0f;
+        protected float BasicRotation = 0f;
         // Center of the rotation. 0,0 by default.
-        Vector2 BasicOrigin = new Vector2(0, 0);
+        protected Vector2 BasicOrigin = new Vector2(0, 0);
         // A scaling of this sprite.
-        float BasicScale = 1f;
+        protected float BasicScale = 1f;
         // An effect of this sprite
-        SpriteEffects BasicEffect = SpriteEffects.None;
+        protected SpriteEffects BasicEffect = SpriteEffects.None;
         // A depth of the layer of this sprite.
-        float BasicLayerDepth = 0f;
+        protected float BasicLayerDepth = 0f;
         #endregion
 
         public override void Draw(SpriteBatch spriteBatch)
