@@ -39,12 +39,26 @@ namespace Sailor.Commands
             }
             else if (CollisionDetection.BottomCollide(transform, richting, Surroundings))
             {
-                grounded = true;
+                if (CollisionDetection.TopCollide(transform, richting, Surroundings))
+                {
+                    // Indien het spel in deze lus komt
+                    // betekent het dat er Right of Left Collsion is
+                    // en geen eigenlijke Bottom Collision
+                    snelheid.Y = 0f;
+                }
+                else
+                {
+                    snelheid.Y = -0.25f;
+                    grounded = true;
+                }
                 tempJumper.Falling = false;
-                snelheid.Y = -0.25f;      
             }
-            else 
+            else
+            {
                 snelheid.Y += 0.1f;
+                grounded = false;
+                tempJumper.Jumped = false;
+            }
             richting *= snelheid;
             transform.Positie += richting;
         }
