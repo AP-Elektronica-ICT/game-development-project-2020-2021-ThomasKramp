@@ -29,7 +29,10 @@ namespace Sailor.Commands.Attack
                         Attacker.Positie.Y + Attacker.Frame.Center.Y),
                         new Rectangle(0, 0, punchWidth, punchHeight));
 
-                    AttackDetection.LeftCollide(AttackObject, Vector2.Zero, Targets);
+                    for (int i = 0; i < 3; i++)
+                    {
+                        AttackDetection.LeftCollide(AttackObject, Vector2.Zero, Targets);
+                    }
                 }
                 else if (Attacker.effect == SpriteEffects.FlipHorizontally)
                 {
@@ -38,7 +41,10 @@ namespace Sailor.Commands.Attack
                         Attacker.Positie.Y + Attacker.Frame.Center.Y),
                         new Rectangle(0, 0, -punchWidth, punchHeight));
 
-                    AttackDetection.LeftCollide(AttackObject, Vector2.Zero, Targets);
+                    for (int i = 0; i < 3; i++)
+                    {
+                        AttackDetection.LeftCollide(AttackObject, Vector2.Zero, Targets);
+                    }
                 }
             }
             lastAttack = Attacker.Punch;
