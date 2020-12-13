@@ -25,17 +25,24 @@ namespace Sailor.World.Attack
 
         public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets, List<SpecialDrawBlok> Thowables)
         {
-            if (effect == SpriteEffects.None) richting.X = 3;
-            else if (effect == SpriteEffects.FlipHorizontally) richting.X = -3;
-            BasicRotation += 0.5f;
+            if (effect == SpriteEffects.None)
+            {
+                richting.X = 5;
+                BasicRotation += 0.5f;
+            }
+            else if (effect == SpriteEffects.FlipHorizontally)
+            {
+                richting.X = -5;
+                BasicRotation -= 0.5f;
+            }
             if (CollisionDetection.LeftCollide(this, richting, Surroundings))
             {
-                AttackDetection.RightCollide(this, Targets);
+                AttackDetection.RightCollide(this, richting, Targets);
                 Surroundings.Remove(this);
                 Hit = true;
             } else if (CollisionDetection.RightCollide(this, richting, Surroundings))
             {
-                AttackDetection.LeftCollide(this, Targets);
+                AttackDetection.LeftCollide(this, richting, Targets);
                 Surroundings.Remove(this);
                 Hit = true;
             }

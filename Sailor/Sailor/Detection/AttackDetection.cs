@@ -1,4 +1,5 @@
-﻿using Sailor.Interfaces;
+﻿using Microsoft.Xna.Framework;
+using Sailor.Interfaces;
 using Sailor.World.Abstract;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ namespace Sailor.Detection
 {
     class AttackDetection
     {
-        public static void LeftCollide(IGameObject attackObject, List<DynamicBlok> Targets)
+        public static void LeftCollide(IGameObject attackObject, Vector2 richting, List<DynamicBlok> Targets)
         {
             // Top = 0      Bottom = ∞
             // Links = 0    Rechts = ∞
@@ -32,7 +33,7 @@ namespace Sailor.Detection
                                 && target.Positie.X + target.Frame.Right < attackObject.Positie.X + attackObject.Frame.Right))
                             {
                                 // Tile is links
-                                if (target.Positie.X + target.Frame.Left < attackObject.Positie.X + attackObject.Frame.Right)
+                                if (target.Positie.X + target.Frame.Left < attackObject.Positie.X + attackObject.Frame.Right + richting.X)
                                 {
                                     target.Levens--;
                                     target.Hit = true;
@@ -43,7 +44,7 @@ namespace Sailor.Detection
                 }
             }
         }
-        public static void RightCollide(IGameObject attackObject, List<DynamicBlok> Targets)
+        public static void RightCollide(IGameObject attackObject, Vector2 richting, List<DynamicBlok> Targets)
         {
             // Top = 0      Bottom = ∞
             // Links = 0    Rechts = ∞
@@ -67,7 +68,7 @@ namespace Sailor.Detection
                                 && target.Positie.X + target.Frame.Right > attackObject.Positie.X + attackObject.Frame.Left))
                             {
                                 // Tile is rechts
-                                if (target.Positie.X + target.Frame.Right > attackObject.Positie.X + attackObject.Frame.Left)
+                                if (target.Positie.X + target.Frame.Right > attackObject.Positie.X + attackObject.Frame.Left + richting.X)
                                 {
                                     target.Levens--;
                                     target.Hit = true;

@@ -1,7 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sailor.Detection;
-using Sailor.Interfaces;
 using Sailor.Interfaces.Commands;
 using Sailor.World.Abstract;
 using Sailor.World.Attack;
