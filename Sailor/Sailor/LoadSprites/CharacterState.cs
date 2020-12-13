@@ -12,6 +12,6 @@ namespace Sailor.LoadSprites
         Jump,
         Fall,
         Hit,
-        Dead
+        Dead,
     }
 }

@@ -20,13 +20,13 @@ namespace Sailor.World
             Levens = 2;
         }
 
-        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets)
+        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets, List<SpecialDrawBlok> Thowables)
         {
             if (CollisionDetection.LeftCollide(this, richting, Surroundings))
                 richting.X = 1;
             else if (CollisionDetection.RightCollide(this, richting, Surroundings))
                 richting.X = -1;
-            base.Update(gameTime, Surroundings, Targets);
+            base.Update(gameTime, Surroundings, Targets, Thowables);
         }
     }
 }

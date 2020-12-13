@@ -1,12 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using Sailor.Input;
 using Sailor.LevelDesign;
 using Sailor.LoadSprites;
 using Sailor.World;
 using Sailor.World.Abstract;
-using System;
+using Sailor.World.Attack;
 using System.Collections.Generic;
 
 namespace Sailor
@@ -23,6 +24,9 @@ namespace Sailor
         Dictionary<CharacterState, List<Texture2D>> PlayerTextures;
         List<Dictionary<CharacterState, List<Texture2D>>> EnemyTextures;
         List<Dictionary<SurroundingObjects, List<Texture2D>>> LevelTextures;
+        public static List<Texture2D> BottleTextures;
+
+        Song song;
 
         public Game1()
         {
@@ -47,6 +51,8 @@ namespace Sailor
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            BottleTextures = LoadTextures.LoadAttakObjectsSprites("Bottle", Content);
+
             PlayerTextures = LoadTextures.LoadCharacterSprites("Sailor", Content);
             InitializeGameObject();
 
@@ -54,6 +60,11 @@ namespace Sailor
             LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Background", Content));
             LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Surroundings", Content));
             InitializeSurroundings();
+
+            // this.song = Content.Load<Song>("The Rocky Road To Dublin");
+            // MediaPlayer.Play(song);
+            //  Uncomment the following line will also loop the song
+            //  MediaPlayer.IsRepeating = true;
 
             // TODO: use this.Content to load your game content here
         }
@@ -76,17 +87,22 @@ namespace Sailor
                 Exit();
 
             // TODO: Add your update logic here
-            Player.Update(gameTime, DemoLevel.Surroundings, DemoLevel.Enemies);
+            Player.Update(gameTime, DemoLevel.Surroundings, DemoLevel.Enemies, DemoLevel.ThrowAbles);
 
             camPos = Vector2.Subtract(Player.Positie, new Vector2(
                 this.Window.ClientBounds.Width / 5,
                 7 * this.Window.ClientBounds.Height / 10));
 
+            foreach (var bottle in DemoLevel.ThrowAbles)
+            {
+                bottle.Update(gameTime, DemoLevel.Surroundings, DemoLevel.Enemies, DemoLevel.ThrowAbles);
+            }
             foreach (var enemy in DemoLevel.Enemies)
             {
-                enemy.Update(gameTime, DemoLevel.Surroundings, new List<DynamicBlok>() { Player });
+                enemy.Update(gameTime, DemoLevel.Surroundings, new List<DynamicBlok>() { Player }, DemoLevel.ThrowAbles);
             }
             DemoLevel.RemoveDead(Player);
+            DemoLevel.RemoveSpecialBloks();
             base.Update(gameTime);
         }
 

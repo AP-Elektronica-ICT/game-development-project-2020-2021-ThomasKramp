@@ -12,6 +12,7 @@ namespace Sailor.Commands
     class JumpCommand : IGameCommands
     {
         private Vector2 snelheid;
+        private bool grounded = false;
 
         public JumpCommand()
         {
@@ -23,10 +24,10 @@ namespace Sailor.Commands
 
             if (tempJumper.Jumped && !tempJumper.Falling)
             {
-                if (tempJumper.Ground)
+                if (grounded)
                 {
                     snelheid.Y = -15f;
-                    tempJumper.Ground = false;
+                    grounded = false;
                 }
                 snelheid.Y /= 1.1f;
                 if (snelheid.Y > -1 || CollisionDetection.TopCollide(transform, richting, Surroundings))
@@ -38,12 +39,24 @@ namespace Sailor.Commands
             }
             else if (CollisionDetection.BottomCollide(transform, richting, Surroundings))
             {
-                tempJumper.Ground = true;
-                tempJumper.Falling = false;
-                snelheid.Y = -0.25f;      
+                if (CollisionDetection.TopCollide(transform, richting, Surroundings))
+                {
+                    // Indien het spel in deze lus komt
+                    // betekent het dat er Right of Left Collsion is
+                    // en geen eigenlijke Bottom Collision
+                    snelheid.Y = 0f;
+                } else {
+                    snelheid.Y = -0.25f;
+                    grounded = true;
+                    tempJumper.Falling = false;
+                }
             }
-            else 
+            else
+            {
                 snelheid.Y += 0.1f;
+                grounded = false;
+                tempJumper.Jumped = false;
+            }
             richting *= snelheid;
             transform.Positie += richting;
         }
