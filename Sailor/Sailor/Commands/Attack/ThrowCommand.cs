@@ -13,32 +13,30 @@ namespace Sailor.Commands.Attack
 {
     class ThrowCommand
     {
-        IGameObject AttackObject;
         bool lastAttack = false;
-        Random random = new Random();
 
-        public void Execute(IThrower Attacker, List<DynamicBlok> Targets)
+        public void Execute(IThrower Attacker, List<DrawBlok> Surroundings, List<SpecialDrawBlok> ThrowAbles)
         {
             if (Attacker.Throw && !lastAttack)
             {
-                if (Attacker.effect == SpriteEffects.None)
-                {
-                    // Moet een texture aan toegevoegd worden
-                    AttackObject = new ThrowBlok(null, new Vector2(
-                        Attacker.Positie.X + Attacker.Frame.Center.X,
+                // Gooit naar rechts
+                if (Attacker.effect == SpriteEffects.None) { 
+                    SpecialDrawBlok temp = new ThrowBlok(new Vector2(
+                        Attacker.Positie.X + Attacker.Frame.Right,
                         Attacker.Positie.Y + Attacker.Frame.Center.Y),
                         Attacker.effect);
-
-                    AttackDetection.LeftCollide(AttackObject, Targets);
+                    Surroundings.Add(temp);
+                    ThrowAbles.Add(temp);
                 }
+                // Gooit naar links
                 else if (Attacker.effect == SpriteEffects.FlipHorizontally)
                 {
-                    AttackObject = new ThrowBlok(null, new Vector2(
-                        Attacker.Positie.X + Attacker.Frame.Center.X,
+                    SpecialDrawBlok temp = new ThrowBlok(new Vector2(
+                        Attacker.Positie.X + Attacker.Frame.Left - 16,
                         Attacker.Positie.Y + Attacker.Frame.Center.Y),
                         Attacker.effect);
-
-                    AttackDetection.LeftCollide(AttackObject, Targets);
+                    Surroundings.Add(temp);
+                    ThrowAbles.Add(temp);
                 }
             }
             lastAttack = Attacker.Throw;

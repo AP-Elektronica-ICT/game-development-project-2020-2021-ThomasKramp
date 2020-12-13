@@ -32,6 +32,7 @@ namespace Sailor.Animation
                 counter = 0;
                 drawable.Punch = false;
                 drawable.Hit = false;
+                drawable.Throw = false;
             }
 
             drawable.CurrentTexture = Textures[counter];

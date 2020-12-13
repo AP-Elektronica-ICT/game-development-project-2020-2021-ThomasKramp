@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Sailor.Commands.Move
 {
-    abstract class MoveCommand : IGameCommands
+    class MoveCommand : IGameCommands
     {
         public Vector2 snelheid;
         public MoveCommand()

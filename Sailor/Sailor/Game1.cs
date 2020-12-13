@@ -7,6 +7,7 @@ using Sailor.LevelDesign;
 using Sailor.LoadSprites;
 using Sailor.World;
 using Sailor.World.Abstract;
+using Sailor.World.Attack;
 using System.Collections.Generic;
 
 namespace Sailor
@@ -23,6 +24,7 @@ namespace Sailor
         Dictionary<CharacterState, List<Texture2D>> PlayerTextures;
         List<Dictionary<CharacterState, List<Texture2D>>> EnemyTextures;
         List<Dictionary<SurroundingObjects, List<Texture2D>>> LevelTextures;
+        public static List<Texture2D> BottleTextures;
 
         Song song;
 
@@ -48,6 +50,8 @@ namespace Sailor
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            BottleTextures = LoadTextures.LoadAttakObjectsSprites("Bottle", Content);
 
             PlayerTextures = LoadTextures.LoadCharacterSprites("Sailor", Content);
             InitializeGameObject();
@@ -83,17 +87,22 @@ namespace Sailor
                 Exit();
 
             // TODO: Add your update logic here
-            Player.Update(gameTime, DemoLevel.Surroundings, DemoLevel.Enemies);
+            Player.Update(gameTime, DemoLevel.Surroundings, DemoLevel.Enemies, DemoLevel.ThrowAbles);
 
             camPos = Vector2.Subtract(Player.Positie, new Vector2(
                 this.Window.ClientBounds.Width / 5,
                 7 * this.Window.ClientBounds.Height / 10));
 
+            foreach (var bottle in DemoLevel.ThrowAbles)
+            {
+                bottle.Update(gameTime, DemoLevel.Surroundings, DemoLevel.Enemies, DemoLevel.ThrowAbles);
+            }
             foreach (var enemy in DemoLevel.Enemies)
             {
-                enemy.Update(gameTime, DemoLevel.Surroundings, new List<DynamicBlok>() { Player });
+                enemy.Update(gameTime, DemoLevel.Surroundings, new List<DynamicBlok>() { Player }, DemoLevel.ThrowAbles);
             }
             DemoLevel.RemoveDead(Player);
+            DemoLevel.RemoveSpecialBloks();
             base.Update(gameTime);
         }
 

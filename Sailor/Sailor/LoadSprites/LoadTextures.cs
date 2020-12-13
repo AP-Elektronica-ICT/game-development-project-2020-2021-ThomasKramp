@@ -85,5 +85,23 @@ namespace Sailor.LoadSprites
             }
             return textureDic;
         }
+        public static List<Texture2D> LoadAttakObjectsSprites(String Directory, ContentManager Content)
+        {
+            System.IO.DirectoryInfo directory = new System.IO.DirectoryInfo($"Content\\{Directory}");
+            List<Texture2D> tempList = new List<Texture2D>();
+            for (int j = 0; j < directory.GetFiles().Length; j++)
+            {
+                try
+                {
+                    tempList.Add(Content.Load<Texture2D>($"{Directory}\\{Directory + (j + 1).ToString()}"));
+                }
+                catch (Exception)
+                {
+                    break;
+                    throw;
+                }
+            }
+            return tempList;
+        }
     }
 }

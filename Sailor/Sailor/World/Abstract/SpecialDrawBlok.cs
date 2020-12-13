@@ -10,6 +10,7 @@ namespace Sailor.World.Abstract
     public abstract class SpecialDrawBlok : DrawBlok, IDrawEffect
     {
         public SpriteEffects effect { get; set; }
+        public bool Hit { get; set; }
 
         protected Vector2 richting;
 
@@ -25,7 +26,7 @@ namespace Sailor.World.Abstract
         protected float BasicLayerDepth = 0f;
         #endregion
 
-        public virtual void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets) { }
+        public virtual void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets, List<SpecialDrawBlok> Thowables) { }
 
         public override void Draw(SpriteBatch spriteBatch)
         {

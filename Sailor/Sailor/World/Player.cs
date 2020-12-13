@@ -12,10 +12,9 @@ using System.Text;
 
 namespace Sailor.World
 {
-    class Player : DynamicBlok, IThrower
+    public class Player : DynamicBlok
     {
         private IInputReader inputReader;
-        public bool Throw { get; set; }
         ThrowCommand throwCommand;
 
         public Player(Dictionary<CharacterState, List<Texture2D>> textures, IInputReader reader) : base(textures)
@@ -26,11 +25,11 @@ namespace Sailor.World
             Levens = 3;
         }
 
-        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets)
+        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets, List<SpecialDrawBlok> Thowables)
         {
             richting = inputReader.ReadInput(this);
-            //if (!Hit && !Dead) throwCommand.Execute(this, Targets);
-            base.Update(gameTime, Surroundings, Targets);
+            if (!Hit && !Dead) throwCommand.Execute(this, Surroundings, Thowables);
+            base.Update(gameTime, Surroundings, Targets, Thowables);
         }
     }
 }

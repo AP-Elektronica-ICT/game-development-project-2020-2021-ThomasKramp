@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace Sailor.World.Abstract
 {
-    public abstract class DynamicBlok : SpecialDrawBlok, IChangeAble, IDrawState, IJumper, IPuncher, IKillAble
+    public abstract class DynamicBlok : SpecialDrawBlok, IChangeAble, IDrawState, IJumper, IPuncher, IThrower, IKillAble
     {
         public Dictionary<CharacterState, List<Texture2D>> Textures { get; set; }
 
@@ -23,7 +23,7 @@ namespace Sailor.World.Abstract
         public bool Jumped { get; set; }
         public bool Falling { get; set; }
         public bool Punch { get; set; }
-        public bool Hit { get; set; }
+        public bool Throw { get; set; }
         public bool Dead { get; set; }
         #endregion
         public int Levens { get; set; }
@@ -51,7 +51,7 @@ namespace Sailor.World.Abstract
             state = CharacterState.Idle;
         }
 
-        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets)
+        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets, List<SpecialDrawBlok> Thowables)
         {
             #region Commands
             if (!Hit && !Dead)
@@ -68,7 +68,7 @@ namespace Sailor.World.Abstract
             animatie.Update(this, Textures[state], gameTime);
             #endregion
 
-            base.Update(gameTime, Surroundings, Targets);
+            base.Update(gameTime, Surroundings, Targets, Thowables);
         }
     }
 }

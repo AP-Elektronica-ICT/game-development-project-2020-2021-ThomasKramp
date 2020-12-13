@@ -22,6 +22,19 @@ namespace Sailor.LevelDesign
          * Platform = 7
          */
 
+        private byte[,] TestArray = new Byte[,]
+        {
+            {1,1,1,1,1,1},
+            {1,0,0,0,0,1},
+            {1,0,0,0,0,1},
+            {1,0,0,0,0,1},
+            {1,0,0,0,0,1},
+            {1,0,0,0,0,1},
+            {1,0,0,0,0,1},
+            {1,3,0,2,0,1},
+            {1,0,0,0,0,1},
+            {1,1,1,1,1,1},
+        };
         private byte[,] BackgroundArray = new Byte[,]
            {
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -120,7 +133,7 @@ namespace Sailor.LevelDesign
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,2,0,0,0,0,0,0,0,0,5,0,0,3,0,0,1},
+            {1,0,2,0,0,0,0,0,0,0,0,0,0,0,3,0,0,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
         };
@@ -164,19 +177,6 @@ namespace Sailor.LevelDesign
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
         };
-        private byte[,] TestArray = new Byte[,]
-        {
-            {1,1,1,1,1,1},
-            {1,0,0,0,0,1},
-            {1,0,0,0,0,1},
-            {1,0,0,0,0,1},
-            {1,0,0,0,0,1},
-            {1,0,0,0,0,1},
-            {1,0,0,0,0,1},
-            {1,3,0,2,0,1},
-            {1,0,0,0,0,1},
-            {1,1,1,1,1,1},
-        };
 
         private List<DrawBlok> Background = new List<DrawBlok>();
         public List<DrawBlok> Surroundings = new List<DrawBlok>();
@@ -188,6 +188,7 @@ namespace Sailor.LevelDesign
         private List<Dictionary<CharacterState, List<Texture2D>>> enemyTexures;
 
         public List<DynamicBlok> Enemies = new List<DynamicBlok>();
+        public List<SpecialDrawBlok> ThrowAbles = new List<SpecialDrawBlok>();
 
         public Level(List<Dictionary<SurroundingObjects, List<Texture2D>>> LevelTexures,
             List<Dictionary<CharacterState, List<Texture2D>>> EnemyTexures)
@@ -286,10 +287,9 @@ namespace Sailor.LevelDesign
             
         }
 
-        List<IKillAble> deadBlocks;
         public void RemoveDead(IKillAble Player)
         {
-            deadBlocks = new List<IKillAble>();
+            List<IKillAble> deadBlocks = new List<IKillAble>();
             if (Player.Levens <= 0) deadBlocks.Add(Player);
             foreach (var enemy in Enemies)
             {
@@ -303,6 +303,18 @@ namespace Sailor.LevelDesign
                     Surroundings.Remove((DrawBlok)dead);
                     if (dead != Player) Enemies.Remove((DynamicBlok)dead);
                 }
+            }
+        }
+        public void RemoveSpecialBloks()
+        {
+            List<SpecialDrawBlok> specialBloks = new List<SpecialDrawBlok>();
+            foreach (var bottle in ThrowAbles)
+            {
+                if (bottle.Hit) specialBloks.Add(bottle);
+            }
+            foreach (var dead in specialBloks)
+            {
+                if (dead.Hit) ThrowAbles.Remove(dead);
             }
         }
 

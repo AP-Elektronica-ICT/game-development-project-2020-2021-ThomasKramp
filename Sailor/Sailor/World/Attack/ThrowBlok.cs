@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sailor.Commands.Move;
 using Sailor.Detection;
 using Sailor.World.Abstract;
 using System;
@@ -10,29 +11,36 @@ namespace Sailor.World.Attack
 {
     class ThrowBlok : SpecialDrawBlok
     {
-        public ThrowBlok(Texture2D blokTexture, Vector2 positie, SpriteEffects effect)
+        MoveCommand moveCommand;
+        public ThrowBlok(Vector2 positie, SpriteEffects effect)
         {
-            CurrentTexture = blokTexture;
+            Random random = new Random();
+            CurrentTexture = Game1.BottleTextures[random.Next(0, 3)];
             this.Positie = positie;
             Frame = new Rectangle(0, 0, CurrentTexture.Width, CurrentTexture.Height);
             this.effect = effect;
+            moveCommand = new MoveCommand();
+            BasicOrigin = new Vector2(Frame.Center.X, Frame.Center.Y);
         }
 
-        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets)
+        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets, List<SpecialDrawBlok> Thowables)
         {
-            if (effect == SpriteEffects.None) richting.X = 1;
-            else if (effect == SpriteEffects.FlipHorizontally) richting.X = -1;
-            BasicRotation++;
+            if (effect == SpriteEffects.None) richting.X = 3;
+            else if (effect == SpriteEffects.FlipHorizontally) richting.X = -3;
+            BasicRotation += 0.5f;
             if (CollisionDetection.LeftCollide(this, richting, Surroundings))
-            {
-                AttackDetection.LeftCollide(this, Targets);
-                Surroundings.Remove(this);
-            } else if (CollisionDetection.RightCollide(this, richting, Surroundings))
             {
                 AttackDetection.RightCollide(this, Targets);
                 Surroundings.Remove(this);
+                Hit = true;
+            } else if (CollisionDetection.RightCollide(this, richting, Surroundings))
+            {
+                AttackDetection.LeftCollide(this, Targets);
+                Surroundings.Remove(this);
+                Hit = true;
             }
-            base.Update(gameTime, Surroundings, Targets);
+            Positie += richting;
+            base.Update(gameTime, Surroundings, Targets, Thowables);
         }
     }
 }
