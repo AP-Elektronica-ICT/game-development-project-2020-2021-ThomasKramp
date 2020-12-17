@@ -292,8 +292,8 @@ namespace Sailor.LevelDesign
         private Dictionary<SurroundingObjects, List<Texture2D>> foreTextures;
         private List<Dictionary<CharacterState, List<Texture2D>>> enemyTexures;
 
-        public List<DynamicBlok> Enemies = new List<DynamicBlok>();
-        public List<SpecialDrawBlok> ThrowAbles = new List<SpecialDrawBlok>();
+        public List<CharacterBlok> Enemies = new List<CharacterBlok>();
+        public List<DynamicBlok> ThrowAbles = new List<DynamicBlok>();
 
         public Level(List<Dictionary<SurroundingObjects, List<Texture2D>>> LevelTexures,
             List<Dictionary<CharacterState, List<Texture2D>>> EnemyTexures)
@@ -406,13 +406,13 @@ namespace Sailor.LevelDesign
                 else if (dead.Dead)
                 {
                     Surroundings.Remove((DrawBlok)dead);
-                    if (dead != Player) Enemies.Remove((DynamicBlok)dead);
+                    if (dead != Player) Enemies.Remove((CharacterBlok)dead);
                 }
             }
         }
         public void RemoveSpecialBloks()
         {
-            List<SpecialDrawBlok> specialBloks = new List<SpecialDrawBlok>();
+            List<DynamicBlok> specialBloks = new List<DynamicBlok>();
             foreach (var bottle in ThrowAbles)
             {
                 if (bottle.Hit) specialBloks.Add(bottle);

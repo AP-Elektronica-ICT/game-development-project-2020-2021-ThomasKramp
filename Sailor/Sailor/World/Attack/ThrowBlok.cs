@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Sailor.World.Attack
 {
-    class ThrowBlok : SpecialDrawBlok
+    class ThrowBlok : DynamicBlok
     {
         MoveCommand moveCommand;
         public ThrowBlok(Vector2 positie, SpriteEffects effect)
@@ -19,11 +19,11 @@ namespace Sailor.World.Attack
             this.Positie = positie;
             Frame = new Rectangle(0, 0, CurrentTexture.Width, CurrentTexture.Height);
             this.effect = effect;
-            moveCommand = new MoveCommand();
+            //moveCommand = new ThrowBlokMoveCommand();
             BasicOrigin = new Vector2(Frame.Center.X, Frame.Center.Y);
         }
 
-        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets, List<SpecialDrawBlok> Thowables)
+        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables)
         {
             if (effect == SpriteEffects.None)
             {

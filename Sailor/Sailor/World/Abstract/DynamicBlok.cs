@@ -1,74 +1,40 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sailor.Animation;
-using Sailor.Commands;
-using Sailor.Commands.Attack;
-using Sailor.Interfaces;
+using Sailor.Commands.Move;
 using Sailor.Interfaces.Animation;
-using Sailor.Interfaces.Commands;
-using Sailor.LoadSprites;
+using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Sailor.World.Abstract
 {
-    public abstract class DynamicBlok : SpecialDrawBlok, IChangeAble, IDrawState, IJumper, IPuncher, IThrower, IKillAble
+    public abstract class DynamicBlok : DrawBlok, IDrawEffect
     {
-        public Dictionary<CharacterState, List<Texture2D>> Textures { get; set; }
+        public SpriteEffects effect { get; set; }
+        public bool Hit { get; set; }
 
-        #region AnimationVariables
-        public CharacterState state { get; set; }
+        protected Vector2 richting;
+        protected MoveCommand moveCommands;
+
+        #region DrawVariables
+        // Extra variabelen voor de draw methode
+        //  A rotation of this sprite.
+        protected float BasicRotation = 0f;
+        // Center of the rotation. 0,0 by default.
+        protected Vector2 BasicOrigin = new Vector2(0, 0);
+        // A scaling of this sprite.
+        protected float BasicScale = 1f;
+        // A depth of the layer of this sprite.
+        protected float BasicLayerDepth = 0f;
         #endregion
 
-        #region StateVariables
-        public bool Jumped { get; set; }
-        public bool Falling { get; set; }
-        public bool Punch { get; set; }
-        public bool Throw { get; set; }
-        public bool Dead { get; set; }
-        #endregion
-        public int Levens { get; set; }
-
-        // Moet nog weggehaald worden
-        Animatie animatie;
-        AnimatieEffect animatieEffect;
-        AnimatieState animatieState;
-        protected IGameCommands moveCommands;
-        IGameCommands jumpCommands;
-        PunchCommand punchCommands;
-
-        public DynamicBlok(Dictionary<CharacterState, List<Texture2D>> textures)
-        {
-            Textures = textures;
-            #region Animatie
-            animatie = new Animatie();
-            animatieEffect = new AnimatieEffect();
-            animatieState = new AnimatieState();
-            #endregion
-            #region Commands
-            jumpCommands = new JumpCommand();
-            punchCommands = new PunchCommand();
-            #endregion
-            state = CharacterState.Idle;
+        public virtual void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables) {
+            moveCommands.Execute(this, richting, Surroundings);
         }
 
-        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<DynamicBlok> Targets, List<SpecialDrawBlok> Thowables)
+        public override void Draw(SpriteBatch spriteBatch)
         {
-            #region Commands
-            if (!Hit && !Dead)
-            {
-                punchCommands.Execute(this, Targets);
-                jumpCommands.Execute(this, richting, Surroundings);
-                moveCommands.Execute(this, richting, Surroundings);
-            }
-            #endregion
-
-            #region Animatie
-            animatieEffect.Update(this, richting);
-            animatieState.Update(this, richting);
-            animatie.Update(this, Textures[state], gameTime);
-            #endregion
-
-            base.Update(gameTime, Surroundings, Targets, Thowables);
+            spriteBatch.Draw(CurrentTexture, Positie, Frame, Color.White, BasicRotation, BasicOrigin, BasicScale, effect, BasicLayerDepth);
         }
     }
 }

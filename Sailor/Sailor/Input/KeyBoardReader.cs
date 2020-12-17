@@ -13,7 +13,7 @@ namespace Sailor.Input
         public static CharacterState cState = CharacterState.Idle;
         Vector2 richting = new Vector2(0, 1);
 
-        public Vector2 ReadInput(DynamicBlok sailor)
+        public Vector2 ReadInput(CharacterBlok sailor)
         {
             KeyboardState state = Keyboard.GetState();
             if (!sailor.Punch && !sailor.Throw)

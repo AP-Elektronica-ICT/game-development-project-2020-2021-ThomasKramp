@@ -15,7 +15,7 @@ namespace Sailor.Animation
 
         public Animatie() { }
 
-        public void Update(DynamicBlok drawable, List<Texture2D> Textures, GameTime gameTime)
+        public void Update(CharacterBlok drawable, List<Texture2D> Textures, GameTime gameTime)
         {
             if (Textures.Count != prevTecturesCount)
             {

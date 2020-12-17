@@ -8,21 +8,16 @@ using System.Text;
 
 namespace Sailor.Commands.Move
 {
-    class MoveCommand : IGameCommands
+    public abstract class MoveCommand
     {
-        public Vector2 snelheid;
-        public MoveCommand()
+        protected Vector2 snelheid;
+        protected Vector2 verplaatsing;
+
+        public MoveCommand(Vector2 snelheid)
         {
-            snelheid = new Vector2(3, 0);
+            this.snelheid = snelheid;
         }
-        public virtual void Execute(IGameObject transform, Vector2 richting, List<DrawBlok> Surroundings)
-        {
-            if (CollisionDetection.LeftCollide(transform, richting, Surroundings))
-                richting.X = 0.037f;
-            else if (CollisionDetection.RightCollide(transform, richting, Surroundings))
-                richting.X = -0.037f;
-            richting *= snelheid;
-            transform.Positie += richting;
-        }
+
+        public abstract Vector2 Execute(IGameObject transform, Vector2 richting, List<DrawBlok> Surroundings);
     }
 }

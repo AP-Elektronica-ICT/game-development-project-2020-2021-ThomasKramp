@@ -9,7 +9,7 @@ namespace Sailor.Detection
 {
     class AttackDetection
     {
-        public static void LeftCollide(IGameObject attackObject, Vector2 richting, List<DynamicBlok> Targets)
+        public static void LeftCollide(IGameObject attackObject, Vector2 richting, List<CharacterBlok> Targets)
         {
             // Top = 0      Bottom = ∞
             // Links = 0    Rechts = ∞
@@ -44,7 +44,7 @@ namespace Sailor.Detection
                 }
             }
         }
-        public static void RightCollide(IGameObject attackObject, Vector2 richting, List<DynamicBlok> Targets)
+        public static void RightCollide(IGameObject attackObject, Vector2 richting, List<CharacterBlok> Targets)
         {
             // Top = 0      Bottom = ∞
             // Links = 0    Rechts = ∞

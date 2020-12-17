@@ -13,13 +13,13 @@ namespace Sailor.Commands.Attack
     {
         bool lastAttack = false;
 
-        public void Execute(IThrower Attacker, List<DrawBlok> Surroundings, List<SpecialDrawBlok> ThrowAbles)
+        public void Execute(IThrower Attacker, List<DrawBlok> Surroundings, List<DynamicBlok> ThrowAbles)
         {
             if (Attacker.Throw && !lastAttack)
             {
                 // Gooit naar rechts
                 if (Attacker.effect == SpriteEffects.None) { 
-                    SpecialDrawBlok temp = new ThrowBlok(new Vector2(
+                    DynamicBlok temp = new ThrowBlok(new Vector2(
                         Attacker.Positie.X + Attacker.Frame.Right,
                         Attacker.Positie.Y + Attacker.Frame.Center.Y),
                         Attacker.effect);
@@ -29,7 +29,7 @@ namespace Sailor.Commands.Attack
                 // Gooit naar links
                 else if (Attacker.effect == SpriteEffects.FlipHorizontally)
                 {
-                    SpecialDrawBlok temp = new ThrowBlok(new Vector2(
+                    DynamicBlok temp = new ThrowBlok(new Vector2(
                         Attacker.Positie.X + Attacker.Frame.Left - 16,
                         Attacker.Positie.Y + Attacker.Frame.Center.Y),
                         Attacker.effect);

@@ -17,7 +17,7 @@ namespace Sailor
         GraphicsDeviceManager _graphics;
         SpriteBatch _spriteBatch;
 
-        DynamicBlok Player;
+        CharacterBlok Player;
         Level DemoLevel;
         Camera2d camera;
 
@@ -102,7 +102,7 @@ namespace Sailor
             }
             foreach (var enemy in DemoLevel.Enemies)
             {
-                enemy.Update(gameTime, DemoLevel.Surroundings, new List<DynamicBlok>() { Player }, DemoLevel.ThrowAbles);
+                enemy.Update(gameTime, DemoLevel.Surroundings, new List<CharacterBlok>() { Player }, DemoLevel.ThrowAbles);
             }
             DemoLevel.RemoveDead(Player);
             DemoLevel.RemoveSpecialBloks();

@@ -18,7 +18,7 @@ namespace Sailor.Commands.Attack
         int punchWidth = 75;
         int punchHeight = 10;
 
-        public void Execute(IPuncher Attacker, List<DynamicBlok> Targets)
+        public void Execute(IPuncher Attacker, List<CharacterBlok> Targets)
         {
             if (Attacker.Punch && !lastAttack)
             {

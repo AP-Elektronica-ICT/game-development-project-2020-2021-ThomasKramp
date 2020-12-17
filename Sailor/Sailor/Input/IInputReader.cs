@@ -8,6 +8,6 @@ namespace Sailor.Input
 {
     public interface IInputReader
     {
-        Vector2 ReadInput(DynamicBlok sailor);
+        Vector2 ReadInput(CharacterBlok sailor);
     }
 }

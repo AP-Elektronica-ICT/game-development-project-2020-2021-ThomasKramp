@@ -9,7 +9,7 @@ namespace Sailor.Animation
 {
     class AnimatieState
     {
-        public virtual void Update(DynamicBlok transform, Vector2 richting)
+        public virtual void Update(CharacterBlok transform, Vector2 richting)
         {
             if (richting.X != 0) transform.state = CharacterState.Run;
             else transform.state = CharacterState.Idle;
