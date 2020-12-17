@@ -17,11 +17,9 @@ namespace Sailor.Commands.Move
         public override Vector2 Execute(IGameObject transform, Vector2 richting, List<DrawBlok> Surroundings)
         {
             verplaatsing = richting * snelheid;
-            if (CollisionDetection.LeftCollide(transform, verplaatsing, Surroundings))
-                richting.X = 1;
-            else if (CollisionDetection.RightCollide(transform, verplaatsing, Surroundings))
-                richting.X = -1;
-            //richting *= snelheid;
+            if (CollisionDetection.LeftCollide(transform, verplaatsing, Surroundings)
+                || CollisionDetection.RightCollide(transform, verplaatsing, Surroundings))
+                richting.X *= -1;
             transform.Positie += verplaatsing;
             return richting;
         }
