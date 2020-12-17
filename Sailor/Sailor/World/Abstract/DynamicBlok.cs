@@ -14,7 +14,7 @@ namespace Sailor.World.Abstract
         public bool Hit { get; set; }
 
         protected Vector2 richting;
-        protected MoveCommand moveCommands;
+        protected MoveCommand moveCommand;
 
         #region DrawVariables
         // Extra variabelen voor de draw methode
@@ -29,7 +29,7 @@ namespace Sailor.World.Abstract
         #endregion
 
         public virtual void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables) {
-            moveCommands.Execute(this, richting, Surroundings);
+            richting = moveCommand.Execute(this, richting, Surroundings);
         }
 
         public override void Draw(SpriteBatch spriteBatch)

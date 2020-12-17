@@ -20,7 +20,7 @@ namespace Sailor.World
         public Player(Dictionary<CharacterState, List<Texture2D>> textures, IInputReader reader) : base(textures)
         {
             inputReader = reader;
-            moveCommands = new PlayerMoveCommand(new Vector2(3, 0));
+            moveCommand = new PlayerMoveCommand(new Vector2(3, 0));
             throwCommand = new ThrowCommand();
             Levens = 3;
         }

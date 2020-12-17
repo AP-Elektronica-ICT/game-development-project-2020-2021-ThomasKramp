@@ -11,7 +11,6 @@ namespace Sailor.World.Attack
 {
     class ThrowBlok : DynamicBlok
     {
-        MoveCommand moveCommand;
         public ThrowBlok(Vector2 positie, SpriteEffects effect)
         {
             Random random = new Random();
@@ -19,22 +18,16 @@ namespace Sailor.World.Attack
             this.Positie = positie;
             Frame = new Rectangle(0, 0, CurrentTexture.Width, CurrentTexture.Height);
             this.effect = effect;
-            //moveCommand = new ThrowBlokMoveCommand();
+            moveCommand = new ThrowBlokMoveCommand(new Vector2(5, 0));
             BasicOrigin = new Vector2(Frame.Center.X, Frame.Center.Y);
+            if (effect == SpriteEffects.None) richting.X = 1;
+            else if (effect == SpriteEffects.FlipHorizontally) richting.X = -1;
         }
 
         public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables)
         {
-            if (effect == SpriteEffects.None)
-            {
-                richting.X = 5;
-                BasicRotation += 0.5f;
-            }
-            else if (effect == SpriteEffects.FlipHorizontally)
-            {
-                richting.X = -5;
-                BasicRotation -= 0.5f;
-            }
+            if (effect == SpriteEffects.None) BasicRotation += 0.5f;
+            else if (effect == SpriteEffects.FlipHorizontally) BasicRotation -= 0.5f;
             if (CollisionDetection.LeftCollide(this, richting, Surroundings))
             {
                 AttackDetection.RightCollide(this, richting, Targets);
@@ -46,7 +39,6 @@ namespace Sailor.World.Attack
                 Surroundings.Remove(this);
                 Hit = true;
             }
-            Positie += richting;
             base.Update(gameTime, Surroundings, Targets, Thowables);
         }
     }
