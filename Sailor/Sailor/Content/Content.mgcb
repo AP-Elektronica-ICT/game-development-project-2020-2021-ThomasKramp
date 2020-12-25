@@ -2161,7 +2161,7 @@
 /processorParam:TextureFormat=Color
 /build:Sailor/Run/Run9.png
 
-#begin Surroundings/Extra/Extra1.png
+#begin Surroundings/Object/Object1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -2171,9 +2171,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Surroundings/Extra/Extra1.png
+/build:Surroundings/Object/Object1.png
 
-#begin Surroundings/Extra/Extra2.png
+#begin Surroundings/Object/Object2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -2183,9 +2183,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Surroundings/Extra/Extra2.png
+/build:Surroundings/Object/Object2.png
 
-#begin Surroundings/Extra/Extra3.png
+#begin Surroundings/Object/Object3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -2195,9 +2195,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Surroundings/Extra/Extra3.png
+/build:Surroundings/Object/Object3.png
 
-#begin Surroundings/Interactible/Interactible1.png
+#begin Surroundings/Object/Object4.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -2207,9 +2207,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Surroundings/Interactible/Interactible1.png
+/build:Surroundings/Object/Object4.png
 
-#begin Surroundings/Interactible/Interactible2.png
+#begin Surroundings/Platform/Platform1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -2219,7 +2219,19 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Surroundings/Interactible/Interactible2.png
+/build:Surroundings/Platform/Platform1.png
+
+#begin Surroundings/Platform/Platform2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Surroundings/Platform/Platform2.png
 
 #begin Surroundings/Tile/Tile1.png
 /importer:TextureImporter

@@ -362,23 +362,23 @@ namespace Sailor.LevelDesign
                             }
                             break;
                         case 4:
-                            Surroundings.Add(new StaticBlok(surrTextures[SurroundingObjects.Extra][0],
+                            Surroundings.Add(new StaticBlok(surrTextures[SurroundingObjects.Object][0],
                                 new Vector2(x * 64 + 11, y * 16 - 28)));
                             break;
                         case 5:
-                            Surroundings.Add(new StaticBlok(surrTextures[SurroundingObjects.Extra][1],
+                            Surroundings.Add(new StaticBlok(surrTextures[SurroundingObjects.Object][1],
                                 new Vector2(x * 64, y * 16 - 16)));
                             break;
                         case 6:
-                            Surroundings.Add(new StaticBlok(surrTextures[SurroundingObjects.Extra][2],
+                            Surroundings.Add(new StaticBlok(surrTextures[SurroundingObjects.Object][2],
                                 new Vector2(x * 64, y * 16 - 40)));
                             break;
                         case 7:
-                            Surroundings.Add(new PlatformBlok(surrTextures[SurroundingObjects.Interactible][0],
+                            Surroundings.Add(new PlatformBlok(surrTextures[SurroundingObjects.Platform][0],
                                 new Vector2(x * 64, y * 16)));
                             break;
                         case 8:
-                            Surroundings.Add(new PlatformBlok(surrTextures[SurroundingObjects.Interactible][1],
+                            Surroundings.Add(new PlatformBlok(surrTextures[SurroundingObjects.Platform][1],
                                 new Vector2(x * 64, y * 16)));
                             break;
                         default:
