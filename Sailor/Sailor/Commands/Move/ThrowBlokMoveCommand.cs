@@ -13,10 +13,10 @@ namespace Sailor.Commands.Move
         {
         }
 
-        public override Vector2 Execute(IGameObject transform, Vector2 richting, List<DrawBlok> Surroundings)
+        public override Vector2 Execute(IGameObject mover, Vector2 richting, List<DrawBlok> Surroundings)
         {
             verplaatsing = richting * snelheid;
-            transform.Positie += verplaatsing;
+            mover.Positie += verplaatsing;
             return richting;
         }
     }

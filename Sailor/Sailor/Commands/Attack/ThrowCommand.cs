@@ -13,31 +13,31 @@ namespace Sailor.Commands.Attack
     {
         bool lastAttack = false;
 
-        public void Execute(IThrower Attacker, List<DrawBlok> Surroundings, List<DynamicBlok> ThrowAbles)
+        public void Execute(IThrower attacker, List<DrawBlok> Surroundings, List<DynamicBlok> ThrowAbles)
         {
-            if (Attacker.Throw && !lastAttack)
+            if (attacker.Throw && !lastAttack)
             {
                 // Gooit naar rechts
-                if (Attacker.effect == SpriteEffects.None) { 
+                if (attacker.effect == SpriteEffects.None) { 
                     DynamicBlok temp = new ThrowBlok(new Vector2(
-                        Attacker.Positie.X + Attacker.Frame.Right,
-                        Attacker.Positie.Y + Attacker.Frame.Center.Y),
-                        Attacker.effect);
+                        attacker.Positie.X + attacker.Frame.Right,
+                        attacker.Positie.Y + attacker.Frame.Center.Y),
+                        attacker.effect);
                     Surroundings.Add(temp);
                     ThrowAbles.Add(temp);
                 }
                 // Gooit naar links
-                else if (Attacker.effect == SpriteEffects.FlipHorizontally)
+                else if (attacker.effect == SpriteEffects.FlipHorizontally)
                 {
                     DynamicBlok temp = new ThrowBlok(new Vector2(
-                        Attacker.Positie.X + Attacker.Frame.Left - 16,
-                        Attacker.Positie.Y + Attacker.Frame.Center.Y),
-                        Attacker.effect);
+                        attacker.Positie.X + attacker.Frame.Left - 16,
+                        attacker.Positie.Y + attacker.Frame.Center.Y),
+                        attacker.effect);
                     Surroundings.Add(temp);
                     ThrowAbles.Add(temp);
                 }
             }
-            lastAttack = Attacker.Throw;
+            lastAttack = attacker.Throw;
         }
     }
 }

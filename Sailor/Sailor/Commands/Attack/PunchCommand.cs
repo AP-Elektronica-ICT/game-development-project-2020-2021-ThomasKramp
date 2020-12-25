@@ -18,15 +18,15 @@ namespace Sailor.Commands.Attack
         int punchWidth = 75;
         int punchHeight = 10;
 
-        public void Execute(IPuncher Attacker, List<CharacterBlok> Targets)
+        public void Execute(IPuncher attacker, List<CharacterBlok> Targets)
         {
-            if (Attacker.Punch && !lastAttack)
+            if (attacker.Punch && !lastAttack)
             {
-                if (Attacker.effect == SpriteEffects.None)
+                if (attacker.effect == SpriteEffects.None)
                 {
                     AttackObject = new PunchBlok(new Vector2(
-                        Attacker.Positie.X + Attacker.Frame.Center.X,
-                        Attacker.Positie.Y + Attacker.Frame.Center.Y),
+                        attacker.Positie.X + attacker.Frame.Center.X,
+                        attacker.Positie.Y + attacker.Frame.Center.Y),
                         new Rectangle(0, 0, punchWidth, punchHeight));
 
                     for (int i = 0; i < 3; i++)
@@ -34,11 +34,11 @@ namespace Sailor.Commands.Attack
                         AttackDetection.LeftCollide(AttackObject, Vector2.Zero, Targets);
                     }
                 }
-                else if (Attacker.effect == SpriteEffects.FlipHorizontally)
+                else if (attacker.effect == SpriteEffects.FlipHorizontally)
                 {
                     AttackObject = new PunchBlok(new Vector2(
-                        Attacker.Positie.X + Attacker.Frame.Center.X,
-                        Attacker.Positie.Y + Attacker.Frame.Center.Y),
+                        attacker.Positie.X + attacker.Frame.Center.X,
+                        attacker.Positie.Y + attacker.Frame.Center.Y),
                         new Rectangle(0, 0, -punchWidth, punchHeight));
 
                     for (int i = 0; i < 3; i++)
@@ -47,7 +47,7 @@ namespace Sailor.Commands.Attack
                     }
                 }
             }
-            lastAttack = Attacker.Punch;
+            lastAttack = attacker.Punch;
         }
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Sailor.Animation;
 using Sailor.Commands;
 using Sailor.Commands.Attack;
-using Sailor.Commands.Move;
+using Sailor.Commands.Jump;
 using Sailor.Interfaces;
 using Sailor.Interfaces.Animation;
 using Sailor.Interfaces.Commands;
@@ -33,7 +33,7 @@ namespace Sailor.World.Abstract
         Animatie animatie;
         AnimatieEffect animatieEffect;
         AnimatieState animatieState;
-        IGameCommands jumpCommands;
+        JumpCommand jumpCommands;
         PunchCommand punchCommands;
 
         public CharacterBlok(Dictionary<CharacterState, List<Texture2D>> textures)

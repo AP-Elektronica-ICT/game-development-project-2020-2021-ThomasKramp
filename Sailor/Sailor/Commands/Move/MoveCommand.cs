@@ -18,6 +18,6 @@ namespace Sailor.Commands.Move
             this.snelheid = snelheid;
         }
 
-        public abstract Vector2 Execute(IGameObject transform, Vector2 richting, List<DrawBlok> Surroundings);
+        public abstract Vector2 Execute(IGameObject mover, Vector2 richting, List<DrawBlok> Surroundings);
     }
 }

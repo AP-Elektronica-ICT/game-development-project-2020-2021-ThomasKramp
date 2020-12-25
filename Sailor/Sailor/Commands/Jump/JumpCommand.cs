@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Sailor.Commands
 {
-    class JumpCommand : IGameCommands
+    class JumpCommand
     {
         private Vector2 snelheid;
         private bool grounded = false;
@@ -18,11 +18,9 @@ namespace Sailor.Commands
         {
             snelheid = new Vector2(0, 0);
         }
-        public void Execute(IGameObject transform, Vector2 richting, List<DrawBlok> Surroundings)
+        public void Execute(IJumper jumper, Vector2 richting, List<DrawBlok> Surroundings)
         {
-            IJumper tempJumper = (IJumper)transform;
-
-            if (tempJumper.Jumped && !tempJumper.Falling)
+            if (jumper.Jumped && !jumper.Falling)
             {
                 if (grounded)
                 {
@@ -30,16 +28,16 @@ namespace Sailor.Commands
                     grounded = false;
                 }
                 snelheid.Y /= 1.1f;
-                if (snelheid.Y > -1 || CollisionDetection.TopCollide(transform, richting, Surroundings))
+                if (snelheid.Y > -1 || CollisionDetection.TopCollide(jumper, richting, Surroundings))
                 {
                     snelheid.Y = 0;
-                    tempJumper.Jumped = false;
-                    tempJumper.Falling = true;
+                    jumper.Jumped = false;
+                    jumper.Falling = true;
                 }
             }
-            else if (CollisionDetection.BottomCollide(transform, richting, Surroundings))
+            else if (CollisionDetection.BottomCollide(jumper, richting, Surroundings))
             {
-                if (CollisionDetection.TopCollide(transform, richting, Surroundings))
+                if (CollisionDetection.TopCollide(jumper, richting, Surroundings))
                 {
                     // Indien het spel in deze lus komt
                     // betekent het dat er Right of Left Collsion is
@@ -48,17 +46,17 @@ namespace Sailor.Commands
                 } else {
                     snelheid.Y = -0.25f;
                     grounded = true;
-                    tempJumper.Falling = false;
+                    jumper.Falling = false;
                 }
             }
             else
             {
                 snelheid.Y += 0.1f;
                 grounded = false;
-                tempJumper.Jumped = false;
+                jumper.Jumped = false;
             }
             richting *= snelheid;
-            transform.Positie += richting;
+            jumper.Positie += richting;
         }
     }
 }

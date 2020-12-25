@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sailor.Commands
+namespace Sailor.Commands.Jump
 {
     public interface IGameCommands
     {
