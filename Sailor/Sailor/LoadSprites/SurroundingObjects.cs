@@ -7,8 +7,7 @@ namespace Sailor.LoadSprites
     public enum SurroundingObjects
     {
         Tile = 0,
-        RevTile,
         Interactible,
-        Extra
+        Extra,
     }
 }

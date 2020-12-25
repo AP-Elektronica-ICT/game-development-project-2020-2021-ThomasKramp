@@ -344,8 +344,9 @@ namespace Sailor.LevelDesign
                     switch (SurroundingsArray[y, x])
                     {
                         case 1:
-                            Surroundings.Add(new StaticBlok(surrTextures[(SurroundingObjects)(y % 2)]
-                                [r.Next(0, surrTextures[(SurroundingObjects)(y % 2)].Count)],
+                            int realCount = (surrTextures[SurroundingObjects.Tile].Count) / 2;
+                            Surroundings.Add(new StaticBlok(surrTextures[SurroundingObjects.Tile]
+                                [r.Next(0, realCount) + realCount * (y % 2)],
                                 new Vector2(x * 64, y * 16)));
                             break;
                         case 2:
