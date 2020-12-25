@@ -411,11 +411,6 @@ C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-20
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Sailor\Hit\Hit6.xnb
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Sailor\Hit\Hit7.xnb
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Sailor\Hit\Hit8.xnb
-C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Surroundings\Furniture\Furniture1.xnb
-C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Surroundings\Furniture\Furniture2.xnb
-C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Surroundings\Furniture\Furniture3.xnb
-C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Surroundings\Platform\Platform1.xnb
-C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Surroundings\Platform\Platform2.xnb
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Surroundings\RevTile\RevTile1.xnb
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Surroundings\RevTile\RevTile2.xnb
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Surroundings\RevTile\RevTile3.xnb
@@ -427,3 +422,8 @@ C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-20
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Bottle\Bottle1.xnb
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Bottle\Bottle2.xnb
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Bottle\Bottle3.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Surroundings\Extra\Extra1.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Surroundings\Extra\Extra2.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Surroundings\Extra\Extra3.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Surroundings\Interactible\Interactible1.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Surroundings\Interactible\Interactible2.xnb
