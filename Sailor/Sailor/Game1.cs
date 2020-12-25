@@ -2,11 +2,14 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Sailor.Detection;
 using Sailor.Input;
+using Sailor.Interfaces;
 using Sailor.LevelDesign;
 using Sailor.LoadSprites;
 using Sailor.World;
 using Sailor.World.Abstract;
+using System;
 using System.Collections.Generic;
 
 namespace Sailor
@@ -25,6 +28,7 @@ namespace Sailor
         List<Dictionary<SurroundingObjects, List<Texture2D>>> LevelTextures;
         Dictionary<DoorState, List<Texture2D>> DoorTextures;
         public static List<Texture2D> BottleTextures;
+        public static bool ChangeMaps = false;
 
         Song song;
 
@@ -105,9 +109,30 @@ namespace Sailor
             {
                 enemy.Update(gameTime, DemoLevel.Surroundings, new List<CharacterBlok>() { Player }, DemoLevel.ThrowAbles);
             }
+
+            ChangeLevel(DemoLevel.Doors, Player);
+
             DemoLevel.RemoveDead(Player);
             DemoLevel.RemoveSpecialBloks();
             base.Update(gameTime);
+        }
+
+        private void ChangeLevel(List<DoorBlok> doors, IGameObject player)
+        {
+            if (ChangeMaps)
+            {
+                foreach (var door in doors)
+                {
+                    if (PlayerDetection.StandsWithin(door, player))
+                    {
+                        if (door == doors[0]) 
+                            player.Positie = doors[1].Positie;
+                        else if (door == doors[1]) 
+                            player.Positie = doors[0].Positie;
+                    }
+                }
+                ChangeMaps = false;
+            }
         }
 
         float rotation = 0;
