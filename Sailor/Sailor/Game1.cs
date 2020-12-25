@@ -6,6 +6,7 @@ using Sailor.Detection;
 using Sailor.Input;
 using Sailor.Interfaces;
 using Sailor.LevelDesign;
+using Sailor.LevelDesign.Schematics;
 using Sailor.LoadSprites;
 using Sailor.World;
 using Sailor.World.Abstract;
@@ -20,14 +21,18 @@ namespace Sailor
         SpriteBatch _spriteBatch;
 
         CharacterBlok Player;
-        Level DemoLevel;
+        Level FirstLevel;
+        Level SecondLevel;
         Camera2d camera;
 
+        #region Textures
         Dictionary<CharacterState, List<Texture2D>> PlayerTextures;
         List<Dictionary<CharacterState, List<Texture2D>>> EnemyTextures;
         List<Dictionary<SurroundingObjects, List<Texture2D>>> LevelTextures;
         Dictionary<DoorState, List<Texture2D>> DoorTextures;
         public static List<Texture2D> BottleTextures;
+        #endregion
+
         public static bool ChangeMaps = false;
 
         Song song;
@@ -81,8 +86,8 @@ namespace Sailor
 
         private void InitializeSurroundings()
         {
-            DemoLevel = new Level(LevelTextures, EnemyTextures, DoorTextures);
-            DemoLevel.CreateWorld(Player);
+            FirstLevel = new Level(new FirstSchematic(), LevelTextures, EnemyTextures, DoorTextures);
+            FirstLevel.CreateWorld(Player);
         }
 
         protected override void Update(GameTime gameTime)
@@ -91,29 +96,29 @@ namespace Sailor
                 Exit();
 
             // TODO: Add your update logic here
-            Player.Update(gameTime, DemoLevel.Surroundings, DemoLevel.Enemies, DemoLevel.ThrowAbles);
+            Player.Update(gameTime, FirstLevel.Surroundings, FirstLevel.Enemies, FirstLevel.ThrowAbles);
 
             camPos = Vector2.Subtract(Player.Positie, new Vector2(
                 this.Window.ClientBounds.Width / 5,
                 7 * this.Window.ClientBounds.Height / 10));
 
-            foreach (var door in DemoLevel.Doors)
+            foreach (var door in FirstLevel.Doors)
             {
                 door.Update(gameTime, Player);
             }
-            foreach (var bottle in DemoLevel.ThrowAbles)
+            foreach (var bottle in FirstLevel.ThrowAbles)
             {
-                bottle.Update(gameTime, DemoLevel.Surroundings, DemoLevel.Enemies, DemoLevel.ThrowAbles);
+                bottle.Update(gameTime, FirstLevel.Surroundings, FirstLevel.Enemies, FirstLevel.ThrowAbles);
             }
-            foreach (var enemy in DemoLevel.Enemies)
+            foreach (var enemy in FirstLevel.Enemies)
             {
-                enemy.Update(gameTime, DemoLevel.Surroundings, new List<CharacterBlok>() { Player }, DemoLevel.ThrowAbles);
+                enemy.Update(gameTime, FirstLevel.Surroundings, new List<CharacterBlok>() { Player }, FirstLevel.ThrowAbles);
             }
 
-            ChangeLevel(DemoLevel.Doors, Player);
+            ChangeLevel(FirstLevel.Doors, Player);
 
-            DemoLevel.RemoveDead(Player);
-            DemoLevel.RemoveSpecialBloks();
+            FirstLevel.RemoveDead(Player);
+            FirstLevel.RemoveSpecialBloks();
             base.Update(gameTime);
         }
 
@@ -159,7 +164,7 @@ namespace Sailor
 
             _spriteBatch.Begin(transformMatrix: viewMatrix);
 
-            DemoLevel.DrawWorld(_spriteBatch);
+            FirstLevel.DrawWorld(_spriteBatch);
 
             _spriteBatch.End();
 
