@@ -366,11 +366,11 @@ namespace Sailor.LevelDesign
                                 new Vector2(x * 64, y * 16 - 40)));
                             break;
                         case 7:
-                            Surroundings.Add(new PlatformBlok(surrTextures[SurroundingObjects.Platform][0],
+                            Surroundings.Add(new PassableBlok(surrTextures[SurroundingObjects.Platform][0],
                                 new Vector2(x * 64, y * 16)));
                             break;
                         case 8:
-                            Surroundings.Add(new PlatformBlok(surrTextures[SurroundingObjects.Platform][1],
+                            Surroundings.Add(new PassableBlok(surrTextures[SurroundingObjects.Platform][1],
                                 new Vector2(x * 64, y * 16)));
                             break;
                         default:
