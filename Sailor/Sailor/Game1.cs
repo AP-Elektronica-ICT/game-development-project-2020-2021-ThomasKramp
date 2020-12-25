@@ -21,6 +21,7 @@ namespace Sailor
         SpriteBatch _spriteBatch;
 
         CharacterBlok Player;
+        Level CurrentLevel;
         Level FirstLevel;
         Level SecondLevel;
         Camera2d camera;
@@ -88,6 +89,9 @@ namespace Sailor
         {
             FirstLevel = new Level(new FirstSchematic(), LevelTextures, EnemyTextures, DoorTextures);
             FirstLevel.CreateWorld(Player);
+            SecondLevel = new Level(new SecondSchematic(), LevelTextures, EnemyTextures, DoorTextures);
+            SecondLevel.CreateWorld(Player);
+            CurrentLevel = FirstLevel;
         }
 
         protected override void Update(GameTime gameTime)
@@ -96,29 +100,29 @@ namespace Sailor
                 Exit();
 
             // TODO: Add your update logic here
-            Player.Update(gameTime, FirstLevel.Surroundings, FirstLevel.Enemies, FirstLevel.ThrowAbles);
+            Player.Update(gameTime, CurrentLevel.Surroundings, CurrentLevel.Enemies, CurrentLevel.ThrowAbles);
 
             camPos = Vector2.Subtract(Player.Positie, new Vector2(
                 this.Window.ClientBounds.Width / 5,
                 7 * this.Window.ClientBounds.Height / 10));
 
-            foreach (var door in FirstLevel.Doors)
+            foreach (var door in CurrentLevel.Doors)
             {
                 door.Update(gameTime, Player);
             }
-            foreach (var bottle in FirstLevel.ThrowAbles)
+            foreach (var bottle in CurrentLevel.ThrowAbles)
             {
-                bottle.Update(gameTime, FirstLevel.Surroundings, FirstLevel.Enemies, FirstLevel.ThrowAbles);
+                bottle.Update(gameTime, CurrentLevel.Surroundings, CurrentLevel.Enemies, CurrentLevel.ThrowAbles);
             }
-            foreach (var enemy in FirstLevel.Enemies)
+            foreach (var enemy in CurrentLevel.Enemies)
             {
-                enemy.Update(gameTime, FirstLevel.Surroundings, new List<CharacterBlok>() { Player }, FirstLevel.ThrowAbles);
+                enemy.Update(gameTime, CurrentLevel.Surroundings, new List<CharacterBlok>() { Player }, CurrentLevel.ThrowAbles);
             }
 
-            ChangeLevel(FirstLevel.Doors, Player);
+            CurrentLevel.RemoveDead(Player);
+            CurrentLevel.RemoveSpecialBloks();
 
-            FirstLevel.RemoveDead(Player);
-            FirstLevel.RemoveSpecialBloks();
+            ChangeLevel(CurrentLevel.Doors, Player);
             base.Update(gameTime);
         }
 
@@ -134,12 +138,18 @@ namespace Sailor
                     {
                         if (door == doors[0])
                         {
-                            player.Positie = doors[1].Positie;
+                            player.Positie = SecondLevel.Doors[1].Positie;
+                            CurrentLevel.Surroundings.Remove(Player);
+                            CurrentLevel = SecondLevel;
+                            CurrentLevel.Surroundings.Add(Player);
                             break;
                         }
                         else if (door == doors[1])
                         {
-                            player.Positie = doors[0].Positie;
+                            player.Positie = SecondLevel.Doors[0].Positie;
+                            CurrentLevel.Surroundings.Remove(Player);
+                            CurrentLevel = SecondLevel;
+                            CurrentLevel.Surroundings.Add(Player);
                             break;
                         }
                     }
@@ -164,7 +174,7 @@ namespace Sailor
 
             _spriteBatch.Begin(transformMatrix: viewMatrix);
 
-            FirstLevel.DrawWorld(_spriteBatch);
+            CurrentLevel.DrawWorld(_spriteBatch);
 
             _spriteBatch.End();
 
