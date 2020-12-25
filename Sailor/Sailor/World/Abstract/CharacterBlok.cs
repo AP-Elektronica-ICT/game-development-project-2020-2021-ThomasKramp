@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sailor.Animation;
+using Sailor.Animation.MoveAble;
 using Sailor.Commands;
 using Sailor.Commands.Attack;
-using Sailor.Commands.Jump;
 using Sailor.Interfaces;
 using Sailor.Interfaces.Animation;
 using Sailor.Interfaces.Commands;
@@ -31,8 +31,8 @@ namespace Sailor.World.Abstract
 
         // Moet nog weggehaald worden
         Animatie animatie;
-        AnimatieEffect animatieEffect;
-        AnimatieState animatieState;
+        MoveAbleEffectAnimatie animatieEffect;
+        MoveAbleStateAnimatie animatieState;
         JumpCommand jumpCommands;
         PunchCommand punchCommands;
 
@@ -41,8 +41,8 @@ namespace Sailor.World.Abstract
             Textures = textures;
             #region Animatie
             animatie = new Animatie();
-            animatieEffect = new AnimatieEffect();
-            animatieState = new AnimatieState();
+            animatieEffect = new MoveAbleEffectAnimatie();
+            animatieState = new MoveAbleStateAnimatie();
             #endregion
             #region Commands
             jumpCommands = new JumpCommand();

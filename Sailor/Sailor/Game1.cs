@@ -23,6 +23,7 @@ namespace Sailor
         Dictionary<CharacterState, List<Texture2D>> PlayerTextures;
         List<Dictionary<CharacterState, List<Texture2D>>> EnemyTextures;
         List<Dictionary<SurroundingObjects, List<Texture2D>>> LevelTextures;
+        Dictionary<DoorState, List<Texture2D>> DoorTextures;
         public static List<Texture2D> BottleTextures;
 
         Song song;
@@ -58,6 +59,7 @@ namespace Sailor
             EnemyTextures.Add(LoadTextures.LoadCharacterSprites("Cucumber", Content));
             LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Background", Content));
             LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Surroundings", Content));
+            DoorTextures = LoadTextures.LoadDoorSprites("Door", Content);
             InitializeSurroundings();
 
             // this.song = Content.Load<Song>("The Rocky Road To Dublin");

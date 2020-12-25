@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sailor.Animation
+namespace Sailor.Animation.MoveAble
 {
-    class AnimatieEffect
+    class MoveAbleEffectAnimatie
     {
         public void Update(IDrawEffect transform, Vector2 richting)
         {

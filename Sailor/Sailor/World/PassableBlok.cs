@@ -19,7 +19,6 @@ namespace Sailor.World
             PassLeft = true;
             PassRight = true;
             PassTop = true;
-            PassBottom = false;
         }
     }
 }

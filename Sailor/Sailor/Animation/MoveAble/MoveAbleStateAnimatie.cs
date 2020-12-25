@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sailor.Animation
+namespace Sailor.Animation.MoveAble
 {
-    class AnimatieState
+    class MoveAbleStateAnimatie
     {
         public virtual void Update(CharacterBlok transform, Vector2 richting)
         {
