@@ -7,7 +7,6 @@ using Sailor.LevelDesign;
 using Sailor.LoadSprites;
 using Sailor.World;
 using Sailor.World.Abstract;
-using Sailor.World.Attack;
 using System.Collections.Generic;
 
 namespace Sailor
@@ -77,10 +76,6 @@ namespace Sailor
         private void InitializeSurroundings()
         {
             DemoLevel = new Level(LevelTextures, EnemyTextures);
-            for (int i = 0; i < 5; i++)
-            {
-                DemoLevel.AddEnemies();
-            }
             DemoLevel.CreateWorld(Player);
         }
 

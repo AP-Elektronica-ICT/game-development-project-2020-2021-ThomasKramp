@@ -303,11 +303,6 @@ namespace Sailor.LevelDesign
             this.enemyTexures = EnemyTexures;
         }
 
-        public void AddEnemies()
-        {
-            Enemies.Add(new Enemy(enemyTexures[0]));
-        }
-
         public void CreateWorld(DrawBlok player)
         {
             CreateBackGround();
@@ -335,7 +330,6 @@ namespace Sailor.LevelDesign
 
         private void CreateSurroundings(DrawBlok player)
         {
-            int enemyTeller = 0;
             Random r = new Random();
             for (int y = 0; y < SurroundingsArray.GetLength(0); y++)
             {
@@ -354,12 +348,10 @@ namespace Sailor.LevelDesign
                             player.Positie = new Vector2(x * 64, y * 16 - 58);
                             break;
                         case 3:
-                            if (Enemies.Count > enemyTeller)
-                            {
-                                Surroundings.Add(Enemies[enemyTeller]);
-                                Enemies[enemyTeller].Positie = new Vector2(x * 64, y * 16 - 58);
-                                enemyTeller++;
-                            }
+                            Enemy newEnemy = new Enemy(enemyTexures[0]);
+                            Enemies.Add(newEnemy);
+                            Surroundings.Add(newEnemy);
+                            newEnemy.Positie = new Vector2(x * 64, y * 16 - 58);
                             break;
                         case 4:
                             Surroundings.Add(new StaticBlok(surrTextures[SurroundingObjects.Object][0],
