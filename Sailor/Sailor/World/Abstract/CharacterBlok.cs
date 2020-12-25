@@ -30,7 +30,7 @@ namespace Sailor.World.Abstract
         public int Levens { get; set; }
 
         // Moet nog weggehaald worden
-        Animatie animatie;
+        MoveAbleAnimatie animatie;
         MoveAbleEffectAnimatie animatieEffect;
         MoveAbleStateAnimatie animatieState;
         JumpCommand jumpCommands;
@@ -40,7 +40,7 @@ namespace Sailor.World.Abstract
         {
             Textures = textures;
             #region Animatie
-            animatie = new Animatie();
+            animatie = new MoveAbleAnimatie();
             animatieEffect = new MoveAbleEffectAnimatie();
             animatieState = new MoveAbleStateAnimatie();
             #endregion

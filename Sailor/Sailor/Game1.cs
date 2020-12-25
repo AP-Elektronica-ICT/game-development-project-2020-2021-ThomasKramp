@@ -77,7 +77,7 @@ namespace Sailor
 
         private void InitializeSurroundings()
         {
-            DemoLevel = new Level(LevelTextures, EnemyTextures);
+            DemoLevel = new Level(LevelTextures, EnemyTextures, DoorTextures);
             DemoLevel.CreateWorld(Player);
         }
 
@@ -93,6 +93,10 @@ namespace Sailor
                 this.Window.ClientBounds.Width / 5,
                 7 * this.Window.ClientBounds.Height / 10));
 
+            foreach (var door in DemoLevel.Doors)
+            {
+                door.Update(gameTime, Player);
+            }
             foreach (var bottle in DemoLevel.ThrowAbles)
             {
                 bottle.Update(gameTime, DemoLevel.Surroundings, DemoLevel.Enemies, DemoLevel.ThrowAbles);

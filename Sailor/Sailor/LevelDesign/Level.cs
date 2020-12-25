@@ -238,7 +238,7 @@ namespace Sailor.LevelDesign
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {1,6,2,0,0,0,0,0,0,0,0,0,0,6,5,0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,3,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {1,0,9,0,2,0,0,0,0,0,0,0,0,6,5,0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,3,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
         };
@@ -291,16 +291,19 @@ namespace Sailor.LevelDesign
         private Dictionary<SurroundingObjects, List<Texture2D>> surrTextures;
         private Dictionary<SurroundingObjects, List<Texture2D>> foreTextures;
         private List<Dictionary<CharacterState, List<Texture2D>>> enemyTexures;
+        private Dictionary<DoorState, List<Texture2D>> doorTexures;
 
         public List<CharacterBlok> Enemies = new List<CharacterBlok>();
         public List<DynamicBlok> ThrowAbles = new List<DynamicBlok>();
+        public List<DoorBlok> Doors = new List<DoorBlok>();
 
         public Level(List<Dictionary<SurroundingObjects, List<Texture2D>>> LevelTexures,
-            List<Dictionary<CharacterState, List<Texture2D>>> EnemyTexures)
-        {
+            List<Dictionary<CharacterState, List<Texture2D>>> EnemyTexures,
+            Dictionary<DoorState, List<Texture2D>> DoorTextures) {
             this.backTextures = LevelTexures[0];
             this.surrTextures = LevelTexures[1];
             this.enemyTexures = EnemyTexures;
+            doorTexures = DoorTextures;
         }
 
         public void CreateWorld(DrawBlok player)
@@ -372,6 +375,11 @@ namespace Sailor.LevelDesign
                         case 8:
                             Surroundings.Add(new PassableBlok(surrTextures[SurroundingObjects.Platform][1],
                                 new Vector2(x * 64, y * 16)));
+                            break;
+                        case 9:
+                            DoorBlok newDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80));
+                            Doors.Add(newDoor);
+                            Surroundings.Add(newDoor);
                             break;
                         default:
                             break;

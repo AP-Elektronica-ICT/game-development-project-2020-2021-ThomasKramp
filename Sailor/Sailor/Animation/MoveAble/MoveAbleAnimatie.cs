@@ -5,15 +5,15 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sailor.Animation
+namespace Sailor.Animation.MoveAble
 {
-    class Animatie
+    class MoveAbleAnimatie
     {
         private int counter = 0;
         private double frameMovement = 0;
         private int prevTecturesCount = 0;
 
-        public Animatie() { }
+        public MoveAbleAnimatie() { }
 
         public void Update(CharacterBlok drawable, List<Texture2D> Textures, GameTime gameTime)
         {
