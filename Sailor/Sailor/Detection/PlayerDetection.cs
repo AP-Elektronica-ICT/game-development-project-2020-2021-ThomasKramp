@@ -26,5 +26,33 @@ namespace Sailor.Detection
             }
             return 0;
         }
+        public static bool StandsWithin(IGameObject searcher, IGameObject player)
+        {
+            // Links = 0    Rechts = ∞
+            // Top = 0      Bottom = ∞
+
+            // !(Tile ligt te ver links)
+            if (!(player.Positie.X + player.Frame.Left < searcher.Positie.X + searcher.Frame.Left
+                && player.Positie.X + player.Frame.Right < searcher.Positie.X + searcher.Frame.Left))
+            {
+                // !(Tile ligt te ver rechts)
+                if (!(player.Positie.X + player.Frame.Left > searcher.Positie.X + searcher.Frame.Right
+                    && player.Positie.X + player.Frame.Right > searcher.Positie.X + searcher.Frame.Right))
+                {
+                    // !(Tile ligt te hoog)
+                    if (!(player.Positie.Y + player.Frame.Top < searcher.Positie.Y + searcher.Frame.Top
+                        && player.Positie.Y + player.Frame.Bottom < searcher.Positie.Y + searcher.Frame.Top))
+                    {
+                        // !(Tile ligt te laag)
+                        if (!(player.Positie.Y + player.Frame.Top > searcher.Positie.Y + searcher.Frame.Bottom
+                            && player.Positie.Y + player.Frame.Bottom > searcher.Positie.Y + searcher.Frame.Bottom))
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
     }
 }

@@ -19,7 +19,6 @@ namespace Sailor.Detection
                 // Ziet of blokken bestaan
                 if (target != null)
                 {
-                    // if (Tile is PlatformBlok) continue;
                     // !(Tile ligt te hoog)
                     if (!(target.Positie.Y + target.Frame.Top < attackObject.Positie.Y + attackObject.Frame.Top
                         && target.Positie.Y + target.Frame.Bottom < attackObject.Positie.Y + attackObject.Frame.Top))
@@ -54,7 +53,6 @@ namespace Sailor.Detection
                 // Ziet of blokken bestaan
                 if (target != null)
                 {
-                    // if (Tile is PlatformBlok) continue;
                     // !(Tile ligt te hoog)
                     if (!(target.Positie.Y + target.Frame.Top < attackObject.Positie.Y + attackObject.Frame.Top
                         && target.Positie.Y + target.Frame.Bottom < attackObject.Positie.Y + attackObject.Frame.Top))
