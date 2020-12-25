@@ -121,17 +121,24 @@ namespace Sailor
         {
             if (ChangeMaps)
             {
+                ChangeMaps = false;
+                System.Threading.Thread.Sleep(100);
                 foreach (var door in doors)
                 {
                     if (PlayerDetection.StandsWithin(door, player))
                     {
-                        if (door == doors[0]) 
+                        if (door == doors[0])
+                        {
                             player.Positie = doors[1].Positie;
-                        else if (door == doors[1]) 
+                            break;
+                        }
+                        else if (door == doors[1])
+                        {
                             player.Positie = doors[0].Positie;
+                            break;
+                        }
                     }
                 }
-                ChangeMaps = false;
             }
         }
 
