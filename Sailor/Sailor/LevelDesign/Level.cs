@@ -12,8 +12,6 @@ namespace Sailor.LevelDesign
 {
     class Level
     {
-        private BaseSchematic schematic;
-
         private List<DrawBlok> Background = new List<DrawBlok>();
         public List<DrawBlok> Surroundings = new List<DrawBlok>();
         private List<DrawBlok> Foreground = new List<DrawBlok>();
@@ -28,32 +26,30 @@ namespace Sailor.LevelDesign
         public List<DynamicBlok> ThrowAbles = new List<DynamicBlok>();
         public List<DoorBlok> Doors = new List<DoorBlok>();
 
-        public Level(BaseSchematic schematic,
-            List<Dictionary<SurroundingObjects, List<Texture2D>>> LevelTexures,
+        public Level(List<Dictionary<SurroundingObjects, List<Texture2D>>> LevelTexures,
             List<Dictionary<CharacterState, List<Texture2D>>> EnemyTexures,
             Dictionary<DoorState, List<Texture2D>> DoorTextures) {
-            this.schematic = schematic;
             this.backTextures = LevelTexures[0];
             this.surrTextures = LevelTexures[1];
             this.enemyTexures = EnemyTexures;
             doorTexures = DoorTextures;
         }
 
-        public void CreateWorld(DrawBlok player)
+        public void CreateWorld(DrawBlok player, BaseSchematic schematic)
         {
-            CreateBackGround();
-            CreateSurroundings(player);
-            CreateForeground();
+            CreateBackGround(schematic.BackgroundArray);
+            CreateSurroundings(schematic.SurroundingsArray, player);
+            CreateForeground(schematic.ForegroundArray);
         }
 
-        private void CreateBackGround()
+        private void CreateBackGround(byte[,] BackgroundArray)
         {
             Random r = new Random();
-            for (int y = 0; y < schematic.BackgroundArray.GetLength(0); y++)
+            for (int y = 0; y < BackgroundArray.GetLength(0); y++)
             {
-                for (int x = 0; x < schematic.BackgroundArray.GetLength(1); x++)
+                for (int x = 0; x < BackgroundArray.GetLength(1); x++)
                 {
-                    if (schematic.BackgroundArray[y, x] == 1)
+                    if (BackgroundArray[y, x] == 1)
                     {
                         // X en Y zijn geinverteerd in de array[hoogte, breedte]
                         Background.Add(new StaticBlok(backTextures[SurroundingObjects.Tile]
@@ -64,14 +60,14 @@ namespace Sailor.LevelDesign
             }
         }
 
-        private void CreateSurroundings(DrawBlok player)
+        private void CreateSurroundings(byte[,] SurroundingsArray, DrawBlok player)
         {
             Random r = new Random();
-            for (int y = 0; y < schematic.SurroundingsArray.GetLength(0); y++)
+            for (int y = 0; y < SurroundingsArray.GetLength(0); y++)
             {
-                for (int x = 0; x < schematic.SurroundingsArray.GetLength(1); x++)
+                for (int x = 0; x < SurroundingsArray.GetLength(1); x++)
                 {
-                    switch (schematic.SurroundingsArray[y, x])
+                    switch (SurroundingsArray[y, x])
                     {
                         case 1:
                             int realCount = (surrTextures[SurroundingObjects.Tile].Count) / 2;
@@ -125,7 +121,7 @@ namespace Sailor.LevelDesign
             }
         }
 
-        private void CreateForeground()
+        private void CreateForeground(byte[,] ForegroundArray)
         {
             
         }
