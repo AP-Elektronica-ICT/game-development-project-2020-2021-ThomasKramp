@@ -87,7 +87,7 @@ namespace Sailor
 
         private void InitializeSurroundings()
         {
-            FirstLevel = new Level(new FirstSchematic(), LevelTextures, EnemyTextures, DoorTextures);
+            FirstLevel = new Level(new SecondSchematic(), LevelTextures, EnemyTextures, DoorTextures);
             FirstLevel.CreateWorld(Player);
             SecondLevel = new Level(new SecondSchematic(), LevelTextures, EnemyTextures, DoorTextures);
             SecondLevel.CreateWorld(Player);
