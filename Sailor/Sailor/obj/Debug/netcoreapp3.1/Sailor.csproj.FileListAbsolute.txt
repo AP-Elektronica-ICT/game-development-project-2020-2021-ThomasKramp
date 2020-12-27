@@ -460,3 +460,5 @@ C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-20
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Foreground\Tile\Tile5.xnb
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Foreground\Tile\Tile6.xnb
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\GameOver\Game Over.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\GameOver\GameOver1.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Foreground\Tile\Tile7.xnb

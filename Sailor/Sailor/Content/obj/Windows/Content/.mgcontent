@@ -111,7 +111,8 @@
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Foreground/Tile/Tile4.png</File>
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Foreground/Tile/Tile5.png</File>
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Foreground/Tile/Tile6.png</File>
-    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/GameOver/Game Over.png</File>
+    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Foreground/Tile/Tile7.png</File>
+    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/GameOver/GameOver1.png</File>
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Sailor/Attack/Attack1.png</File>
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Sailor/Attack/Attack10.png</File>
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Sailor/Attack/Attack11.png</File>
@@ -216,6 +217,7 @@
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Surroundings/Tile/Tile6.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

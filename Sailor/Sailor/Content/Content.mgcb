@@ -1297,7 +1297,7 @@
 /processorParam:TextureFormat=Color
 /build:Foreground/Tile/Tile6.png
 
-#begin GameOver/Game Over.png
+#begin Foreground/Tile/Tile7.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1307,7 +1307,19 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:GameOver/Game Over.png
+/build:Foreground/Tile/Tile7.png
+
+#begin GameOver/GameOver1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:GameOver/GameOver1.png
 
 #begin Sailor/Attack/Attack1.png
 /importer:TextureImporter

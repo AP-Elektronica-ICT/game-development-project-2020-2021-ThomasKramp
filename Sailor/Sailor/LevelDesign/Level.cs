@@ -174,6 +174,10 @@ namespace Sailor.LevelDesign
                             Foreground.Add(new StaticBlok(foreTextures[SurroundingObjects.Tile][5],
                                 new Vector2(x * 64, y * 16)));
                             break;
+                        case 16:
+                            Foreground.Add(new StaticBlok(foreTextures[SurroundingObjects.Tile][6],
+                                new Vector2(x * 64, y * 16)));
+                            break;
                         default:
                             break;
                     }
