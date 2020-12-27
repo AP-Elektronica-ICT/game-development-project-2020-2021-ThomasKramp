@@ -22,8 +22,7 @@ namespace Sailor
 
         CharacterBlok Player;
         ILevel CurrentLevel;
-        ILevel FirstLevel;
-        ILevel SecondLevel;
+        List<ILevel> Levels;
         Camera2d camera;
 
         #region Textures
@@ -45,6 +44,8 @@ namespace Sailor
             IsMouseVisible = true;
             _graphics.PreferredBackBufferWidth = 1750;
             _graphics.PreferredBackBufferHeight = 750;
+
+            Levels = new List<ILevel>();
             EnemyTextures = new List<Dictionary<CharacterState, List<Texture2D>>>();
             LevelTextures = new List<Dictionary<SurroundingObjects, List<Texture2D>>>();
         }
@@ -87,11 +88,20 @@ namespace Sailor
 
         private void InitializeSurroundings()
         {
-            FirstLevel = new Level(LevelTextures, EnemyTextures, DoorTextures);
-            FirstLevel.CreateWorld(Player, new FirstSchematic());
-            SecondLevel = new Level(LevelTextures, EnemyTextures, DoorTextures);
-            SecondLevel.CreateWorld(Player, new SecondSchematic());
-            CurrentLevel = FirstLevel;
+            List<BaseSchematic> Schematics = new List<BaseSchematic>()
+            {
+                new FirstSchematic(),
+                new SecondSchematic()
+            };
+            for (int i = 0; i < 2; i++)
+            {
+                Levels.Add(new Level(LevelTextures, EnemyTextures, DoorTextures));
+            }
+            foreach (var level in Levels)
+            {
+                level.CreateWorld(Player, Schematics[Levels.IndexOf(level)]);
+            }
+            CurrentLevel = Levels[0];
         }
 
         protected override void Update(GameTime gameTime)
@@ -136,22 +146,23 @@ namespace Sailor
                 {
                     if (PlayerDetection.StandsWithin(door, player))
                     {
-                        if (door == doors[0])
-                        {
-                            player.Positie = SecondLevel.Doors[1].Positie;
-                            CurrentLevel.Surroundings.Remove(Player);
-                            CurrentLevel = SecondLevel;
-                            CurrentLevel.Surroundings.Add(Player);
-                            break;
-                        }
-                        else if (door == doors[1])
-                        {
-                            player.Positie = SecondLevel.Doors[0].Positie;
-                            CurrentLevel.Surroundings.Remove(Player);
-                            CurrentLevel = SecondLevel;
-                            CurrentLevel.Surroundings.Add(Player);
-                            break;
-                        }
+
+                        //if (door == doors[0])
+                        //{
+                        //    player.Positie = SecondLevel.Doors[1].Positie;
+                        //    CurrentLevel.Surroundings.Remove(Player);
+                        //    CurrentLevel = SecondLevel;
+                        //    CurrentLevel.Surroundings.Add(Player);
+                        //    break;
+                        //}
+                        //else if (door == doors[1])
+                        //{
+                        //    player.Positie = SecondLevel.Doors[0].Positie;
+                        //    CurrentLevel.Surroundings.Remove(Player);
+                        //    CurrentLevel = SecondLevel;
+                        //    CurrentLevel.Surroundings.Add(Player);
+                        //    break;
+                        //}
                     }
                 }
             }
