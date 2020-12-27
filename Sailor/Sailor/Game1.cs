@@ -99,8 +99,9 @@ namespace Sailor
 
         private void InitializeSurroundings()
         {
-            List<BaseSchematic> Schematics = new List<BaseSchematic>()
+            List<Schematic> Schematics = new List<Schematic>()
             {
+                new TutorialSchematic(),
                 new StartSchematic(),
                 new FirstSchematic(),
                 new SecondSchematic()

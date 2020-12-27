@@ -38,7 +38,7 @@ namespace Sailor.LevelDesign
             this.signTextures = signTextures;
         }
 
-        public void CreateWorld(DrawBlok player, BaseSchematic schematic)
+        public void CreateWorld(DrawBlok player, Schematic schematic)
         {
             CreateBackGround(schematic.BackgroundArray);
             CreateSurroundings(schematic.SurroundingsArray, player);

@@ -15,7 +15,7 @@ namespace Sailor.LevelDesign
         public List<CharacterBlok> Enemies { get; set; }
         public List<DynamicBlok> ThrowAbles { get; set; }
         public List<DoorBlok> Doors { get; set; }
-        public void CreateWorld(DrawBlok player, BaseSchematic schematic);
+        public void CreateWorld(DrawBlok player, Schematic schematic);
         public void RemoveDead(IKillAble Player);
         public void RemoveSpecialBloks();
         public void DrawWorld(SpriteBatch spritebatch);

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Sailor.LevelDesign.Schematics
 {
-    abstract class BaseSchematic
+    abstract class Schematic
     {
         /* Texture number:
          * Nothing = 0

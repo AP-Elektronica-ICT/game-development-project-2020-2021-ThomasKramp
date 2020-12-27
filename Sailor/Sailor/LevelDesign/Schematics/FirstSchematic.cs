@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Sailor.LevelDesign.Schematics
 {
-    class FirstSchematic : BaseSchematic
+    class FirstSchematic : Schematic
     {
         /* Surroundings number:
          * Nothing = 0
