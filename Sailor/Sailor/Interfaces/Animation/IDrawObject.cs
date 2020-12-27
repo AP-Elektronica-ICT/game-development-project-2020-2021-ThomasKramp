@@ -9,6 +9,5 @@ namespace Sailor.Interfaces.Animation
     interface IDrawObject
     {
         public Texture2D CurrentTexture { get; set; }
-        public Rectangle Frame { get; set; }
     }
 }

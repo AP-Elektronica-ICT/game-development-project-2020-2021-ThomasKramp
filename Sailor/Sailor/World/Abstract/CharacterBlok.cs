@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sailor.Animation;
+using Sailor.Animation.MoveAble;
 using Sailor.Commands;
 using Sailor.Commands.Attack;
-using Sailor.Commands.Jump;
+using Sailor.Detection;
 using Sailor.Interfaces;
 using Sailor.Interfaces.Animation;
 using Sailor.Interfaces.Commands;
@@ -12,7 +12,7 @@ using System.Collections.Generic;
 
 namespace Sailor.World.Abstract
 {
-    public abstract class CharacterBlok : DynamicBlok, IChangeAble, IDrawState, IJumper, IPuncher, IThrower, IKillAble
+    public abstract class CharacterBlok : DynamicBlok, IChangeAble, IDrawState, IJumper, IPuncher, IThrower, IKillAble, IDeathFall
     {
         public Dictionary<CharacterState, List<Texture2D>> Textures { get; set; }
 
@@ -30,9 +30,9 @@ namespace Sailor.World.Abstract
         public int Levens { get; set; }
 
         // Moet nog weggehaald worden
-        Animatie animatie;
-        AnimatieEffect animatieEffect;
-        AnimatieState animatieState;
+        MoveAbleAnimatie animatie;
+        MoveAbleEffectAnimatie animatieEffect;
+        MoveAbleStateAnimatie animatieState;
         JumpCommand jumpCommands;
         PunchCommand punchCommands;
 
@@ -40,9 +40,9 @@ namespace Sailor.World.Abstract
         {
             Textures = textures;
             #region Animatie
-            animatie = new Animatie();
-            animatieEffect = new AnimatieEffect();
-            animatieState = new AnimatieState();
+            animatie = new MoveAbleAnimatie();
+            animatieEffect = new MoveAbleEffectAnimatie();
+            animatieState = new MoveAbleStateAnimatie();
             #endregion
             #region Commands
             jumpCommands = new JumpCommand();
@@ -51,14 +51,16 @@ namespace Sailor.World.Abstract
             state = CharacterState.Idle;
         }
 
-        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables)
+        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables, IGameObject LowestTile)
         {
+
             #region Commands
             if (!Hit && !Dead)
             {
                 punchCommands.Execute(this, Targets);
                 jumpCommands.Execute(this, richting, Surroundings);
-                base.Update(gameTime, Surroundings, Targets, Thowables);
+                EndlessFallDetection.FallingToDeath(LowestTile, this);
+                base.Update(gameTime, Surroundings, Targets, Thowables, LowestTile);
             }
             #endregion
 

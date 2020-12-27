@@ -46,7 +46,6 @@ namespace Sailor.LoadSprites
             }
             return textureDic;
         }
-
         public static Dictionary<CharacterState, List<Texture2D>> LoadCharacterSprites(String Directory, ContentManager Content)
         {
             Dictionary<CharacterState, List<Texture2D>> textureDic = new Dictionary<CharacterState, List<Texture2D>>(); ;
@@ -85,7 +84,7 @@ namespace Sailor.LoadSprites
             }
             return textureDic;
         }
-        public static List<Texture2D> LoadAttakObjectsSprites(String Directory, ContentManager Content)
+        public static List<Texture2D> LoadSingleObjectsSprites(String Directory, ContentManager Content)
         {
             System.IO.DirectoryInfo directory = new System.IO.DirectoryInfo($"Content\\{Directory}");
             List<Texture2D> tempList = new List<Texture2D>();
@@ -102,6 +101,44 @@ namespace Sailor.LoadSprites
                 }
             }
             return tempList;
+        }
+        public static Dictionary<DoorState, List<Texture2D>> LoadDoorSprites(String Directory, ContentManager Content)
+        {
+            Dictionary<DoorState, List<Texture2D>> textureDic = new Dictionary<DoorState, List<Texture2D>>(); ;
+
+            System.IO.DirectoryInfo directory = new System.IO.DirectoryInfo($"Content\\{Directory}");
+            List<Texture2D> tempList;
+            //int lengte = directory.GetDirectories().Length;
+            for (int i = 0; i < directory.GetDirectories().Length; i++)
+            {
+                try
+                {
+                    tempList = new List<Texture2D>();
+                    DoorState enumType = (DoorState)i;
+                    System.IO.DirectoryInfo subDirectory = new System.IO.DirectoryInfo($"Content\\{Directory}\\{enumType.ToString()}");
+
+                    //int lengte = subDirectory.GetFiles().Length;
+                    for (int j = 0; j < subDirectory.GetFiles().Length; j++)
+                    {
+                        try
+                        {
+                            tempList.Add(Content.Load<Texture2D>($"{Directory}\\{enumType.ToString()}\\{enumType.ToString() + (j + 1).ToString()}"));
+                        }
+                        catch (Exception)
+                        {
+                            break;
+                            throw;
+                        }
+                    }
+                    textureDic.Add(enumType, tempList);
+                }
+                catch (Exception)
+                {
+                    break;
+                    throw;
+                }
+            }
+            return textureDic;
         }
     }
 }

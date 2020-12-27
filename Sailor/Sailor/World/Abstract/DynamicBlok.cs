@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sailor.Commands.Move;
+using Sailor.Interfaces;
 using Sailor.Interfaces.Animation;
 using System;
 using System.Collections.Generic;
@@ -28,13 +29,21 @@ namespace Sailor.World.Abstract
         protected float BasicLayerDepth = 0f;
         #endregion
 
-        public virtual void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables) {
+        public virtual void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables, IGameObject LowestTile) {
             richting = moveCommand.Execute(this, richting, Surroundings);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(CurrentTexture, Positie, Frame, Color.White, BasicRotation, BasicOrigin, BasicScale, effect, BasicLayerDepth);
+            // Deze Try Catch is tegen het crashen van het spel.
+            // Indien er van level verandert wordt, wordt de currentTexture van de Player op "null" gezet.
+            // Na die ene keer werkt de game zoals het terug hoort (inculsief currentTexture).
+            try
+            {
+                spriteBatch.Draw(CurrentTexture, Positie, Frame, Color.White, BasicRotation, BasicOrigin, BasicScale, effect, BasicLayerDepth);
+            }
+            catch (Exception)
+            { }
         }
     }
 }
