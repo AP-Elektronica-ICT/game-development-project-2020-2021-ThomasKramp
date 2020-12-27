@@ -101,8 +101,8 @@ namespace Sailor
         {
             List<Schematic> Schematics = new List<Schematic>()
             {
-                new TutorialSchematic(),
                 new StartSchematic(),
+                new TutorialSchematic(),
                 new FirstSchematic(),
                 new SecondSchematic()
             };
@@ -114,7 +114,7 @@ namespace Sailor
             {
                 level.CreateWorld(Player, Schematics[Levels.IndexOf(level)]);
             }
-            CurrentLevel = Levels[0];
+            CurrentLevel = Levels[1];
         }
         #endregion
 
