@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sailor.Detection;
+using Sailor.Interfaces;
 using Sailor.Interfaces.Commands;
 using Sailor.LevelDesign.Schematics;
 using Sailor.LoadSprites;
@@ -21,25 +23,29 @@ namespace Sailor.LevelDesign
         private Dictionary<SurroundingObjects, List<Texture2D>> foreTextures;
         private List<Dictionary<CharacterState, List<Texture2D>>> enemyTexures;
         private Dictionary<DoorState, List<Texture2D>> doorTexures;
+        private List<Texture2D> signTextures;
 
         public List<CharacterBlok> Enemies { get; set; } = new List<CharacterBlok>();
         public List<DynamicBlok> ThrowAbles { get; set; } = new List<DynamicBlok>();
         public List<DoorBlok> Doors { get; set; } = new List<DoorBlok>();
+        public IGameObject LowestTile { get; set; }
 
         public Level(List<Dictionary<SurroundingObjects, List<Texture2D>>> LevelTexures,
             List<Dictionary<CharacterState, List<Texture2D>>> EnemyTexures,
             Dictionary<DoorState, List<Texture2D>> DoorTextures) {
             this.backTextures = LevelTexures[0];
             this.surrTextures = LevelTexures[1];
+            this.foreTextures = LevelTexures[2];
             this.enemyTexures = EnemyTexures;
-            doorTexures = DoorTextures;
+            this.doorTexures = DoorTextures;
         }
 
-        public void CreateWorld(DrawBlok player, BaseSchematic schematic)
+        public void CreateWorld(DrawBlok player, Schematic schematic)
         {
             CreateBackGround(schematic.BackgroundArray);
             CreateSurroundings(schematic.SurroundingsArray, player);
             CreateForeground(schematic.ForegroundArray);
+            LowestTile = EndlessFallDetection.GetLowestTile(Surroundings);
         }
 
         private void CreateBackGround(byte[,] BackgroundArray)
@@ -49,12 +55,16 @@ namespace Sailor.LevelDesign
             {
                 for (int x = 0; x < BackgroundArray.GetLength(1); x++)
                 {
-                    if (BackgroundArray[y, x] == 1)
+                    // X en Y zijn geinverteerd in de array[hoogte, breedte]
+                    switch (BackgroundArray[y, x])
                     {
-                        // X en Y zijn geinverteerd in de array[hoogte, breedte]
-                        Background.Add(new StaticBlok(backTextures[SurroundingObjects.Tile]
-                            [r.Next(0, backTextures[SurroundingObjects.Tile].Count)],
-                            new Vector2((x * 64) + ((y % 2) * 32), y * 16)));
+                        case 1:
+                            Background.Add(new StaticBlok(backTextures[SurroundingObjects.Tile]
+                                [r.Next(0, backTextures[SurroundingObjects.Tile].Count)],
+                                new Vector2((x * 64) + ((y % 2) * 32), y * 16)));
+                            break;
+                        default:
+                            break;
                     }
                 }
             }
@@ -109,21 +119,6 @@ namespace Sailor.LevelDesign
                             Surroundings.Add(new PassableBlok(surrTextures[SurroundingObjects.Platform][1],
                                 new Vector2(x * 64, y * 16)));
                             break;
-                        case 10:
-                            DoorBlok NextDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.Next);
-                            Doors.Add(NextDoor);
-                            Surroundings.Add(NextDoor);
-                            break;
-                        case 11:
-                            DoorBlok PrevDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.Previous);
-                            Doors.Add(PrevDoor);
-                            Surroundings.Add(PrevDoor);
-                            break;
-                        case 12:
-                            DoorBlok EndDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.End);
-                            Doors.Add(EndDoor);
-                            Surroundings.Add(EndDoor);
-                            break;
                         default:
                             break;
                     }
@@ -133,7 +128,62 @@ namespace Sailor.LevelDesign
 
         private void CreateForeground(byte[,] ForegroundArray)
         {
-            
+            for (int y = 0; y < ForegroundArray.GetLength(0); y++)
+            {
+                for (int x = 0; x < ForegroundArray.GetLength(1); x++)
+                {
+                    // X en Y zijn geinverteerd in de array[hoogte, breedte]
+                    switch (ForegroundArray[y, x])
+                    {
+                        case 1:
+                            DoorBlok NextDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.Next);
+                            Doors.Add(NextDoor);
+                            Foreground.Add(NextDoor);
+                            break;
+                        case 2:
+                            DoorBlok PrevDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.Previous);
+                            Doors.Add(PrevDoor);
+                            Foreground.Add(PrevDoor);
+                            break;
+                        case 3:
+                            DoorBlok EndDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.End);
+                            Doors.Add(EndDoor);
+                            Foreground.Add(EndDoor);
+                            break;
+                        case 10:
+                            Foreground.Add(new StaticBlok(foreTextures[SurroundingObjects.Tile][0],
+                                new Vector2(x * 64, y * 16)));
+                            break;
+                        case 11:
+                            Foreground.Add(new StaticBlok(foreTextures[SurroundingObjects.Tile][1],
+                                new Vector2(x * 64, y * 16)));
+                            break;
+                        case 12:
+                            Foreground.Add(new StaticBlok(foreTextures[SurroundingObjects.Tile][2],
+                                new Vector2(x * 64, y * 16)));
+                            break;
+                        case 13:
+                            Foreground.Add(new StaticBlok(foreTextures[SurroundingObjects.Tile][3],
+                                new Vector2(x * 64, y * 16)));
+                            break;
+                        case 14:
+                            Foreground.Add(new StaticBlok(foreTextures[SurroundingObjects.Tile][4],
+                                new Vector2(x * 64, y * 16)));
+                            break;
+                        case 15:
+                            Foreground.Add(new StaticBlok(foreTextures[SurroundingObjects.Tile][5],
+                                new Vector2(x * 64, y * 16)));
+                            break;
+                        case 16:
+                            Foreground.Add(new StaticBlok(foreTextures[SurroundingObjects.Tile][6],
+                                new Vector2(x * 64, y * 16)));
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+                        
         }
 
         public void RemoveDead(IKillAble Player)
@@ -173,11 +223,15 @@ namespace Sailor.LevelDesign
             {
                 backItem.Draw(spritebatch);
             }
-            foreach (var SurrItem in Surroundings)
+            foreach (var foreItem in Foreground)
             {
-                if (SurrItem != null)
+                foreItem.Draw(spritebatch);
+            }
+            foreach (var surrItem in Surroundings)
+            {
+                if (surrItem != null)
                 {
-                    SurrItem.Draw(spritebatch);
+                    surrItem.Draw(spritebatch);
                 }
             }
         }

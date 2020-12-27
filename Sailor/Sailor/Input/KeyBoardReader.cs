@@ -31,8 +31,6 @@ namespace Sailor.Input
                 sailor.Punch = true;
             if (state.IsKeyDown(Keys.Q))
                 sailor.Throw = true;
-            if (state.IsKeyDown(Keys.Enter))
-                Game1.ChangeMaps = true;
             return richting;
         }
     }

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Sailor.Commands.Attack;
 using Sailor.Commands.Move;
 using Sailor.Input;
+using Sailor.Interfaces;
 using Sailor.Interfaces.Commands;
 using Sailor.LoadSprites;
 using Sailor.World.Abstract;
@@ -25,11 +26,11 @@ namespace Sailor.World
             Levens = 3;
         }
 
-        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables)
+        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables, IGameObject LowestTile)
         {
             richting = inputReader.ReadInput(this);
             if (!Hit && !Dead) throwCommand.Execute(this, Surroundings, Thowables);
-            base.Update(gameTime, Surroundings, Targets, Thowables);
+            base.Update(gameTime, Surroundings, Targets, Thowables, LowestTile);
         }
     }
 }

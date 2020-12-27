@@ -21,21 +21,20 @@ namespace Sailor
         SpriteBatch _spriteBatch;
 
         CharacterBlok Player;
+        DrawBlok GameOverScreen;
 
         #region Levels
         ILevel CurrentLevel;
         List<ILevel> Levels;
-        public static bool ChangeMaps = false;
         #endregion
-
         #region Textures
         Dictionary<CharacterState, List<Texture2D>> PlayerTextures;
         List<Dictionary<CharacterState, List<Texture2D>>> EnemyTextures;
         List<Dictionary<SurroundingObjects, List<Texture2D>>> LevelTextures;
         Dictionary<DoorState, List<Texture2D>> DoorTextures;
         public static List<Texture2D> BottleTextures;
+        List<Texture2D> SignTextures;
         #endregion
-
         #region Camera
         Camera2d camera;
         float rotation = 0;
@@ -53,7 +52,6 @@ namespace Sailor
             _graphics.PreferredBackBufferWidth = 1750;
             _graphics.PreferredBackBufferHeight = 750;
 
-            Levels = new List<ILevel>();
             EnemyTextures = new List<Dictionary<CharacterState, List<Texture2D>>>();
             LevelTextures = new List<Dictionary<SurroundingObjects, List<Texture2D>>>();
         }
@@ -70,7 +68,7 @@ namespace Sailor
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            BottleTextures = LoadTextures.LoadAttakObjectsSprites("Bottle", Content);
+            BottleTextures = LoadTextures.LoadSingleObjectsSprites("Bottle", Content);
 
             PlayerTextures = LoadTextures.LoadCharacterSprites("Sailor", Content);
             InitializeGameObject();
@@ -78,8 +76,12 @@ namespace Sailor
             EnemyTextures.Add(LoadTextures.LoadCharacterSprites("Cucumber", Content));
             LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Background", Content));
             LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Surroundings", Content));
+            LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Foreground", Content));
             DoorTextures = LoadTextures.LoadDoorSprites("Door", Content);
-            InitializeSurroundings();
+            InitializeLevels();
+
+            GameOverScreen = new StaticBlok(LoadTextures.LoadSingleObjectsSprites("GameOver", Content)[0],
+                new Vector2((_graphics.PreferredBackBufferWidth - 512) / 2, (_graphics.PreferredBackBufferHeight - 224) / 2));
 
             // this.song = Content.Load<Song>("The Rocky Road To Dublin");
             // MediaPlayer.Play(song);
@@ -95,14 +97,18 @@ namespace Sailor
             Player = new Player(PlayerTextures, new KeyBoardReader());
         }
 
-        private void InitializeSurroundings()
+        private void InitializeLevels()
         {
-            List<BaseSchematic> Schematics = new List<BaseSchematic>()
+            List<Schematic> Schematics = new List<Schematic>()
             {
+                new StartSchematic(),
+                new TutorialSchematic(),
                 new FirstSchematic(),
-                new SecondSchematic()
+                new SecondSchematic(),
+                new EndSchematic()
             };
-            for (int i = 0; i < 2; i++)
+            Levels = new List<ILevel>();
+            for (int i = 0; i < Schematics.Count; i++)
             {
                 Levels.Add(new Level(LevelTextures, EnemyTextures, DoorTextures));
             }
@@ -110,7 +116,7 @@ namespace Sailor
             {
                 level.CreateWorld(Player, Schematics[Levels.IndexOf(level)]);
             }
-            CurrentLevel = Levels[0];
+            CurrentLevel = Levels[4];
         }
         #endregion
 
@@ -120,38 +126,48 @@ namespace Sailor
                 Exit();
 
             // TODO: Add your update logic here
-            Player.Update(gameTime, CurrentLevel.Surroundings, CurrentLevel.Enemies, CurrentLevel.ThrowAbles);
+            Player.Update(gameTime, CurrentLevel.Surroundings, CurrentLevel.Enemies, CurrentLevel.ThrowAbles, CurrentLevel.LowestTile);
 
-            camPos = Vector2.Subtract(Player.Positie, new Vector2(
+            if (Player.Levens > 0)
+            {
+                camPos = Vector2.Subtract(Player.Positie, new Vector2(
                 this.Window.ClientBounds.Width / 5,
                 7 * this.Window.ClientBounds.Height / 10));
 
-            foreach (var door in CurrentLevel.Doors)
-            {
-                door.Update(gameTime, Player);
-            }
-            foreach (var bottle in CurrentLevel.ThrowAbles)
-            {
-                bottle.Update(gameTime, CurrentLevel.Surroundings, CurrentLevel.Enemies, CurrentLevel.ThrowAbles);
-            }
-            foreach (var enemy in CurrentLevel.Enemies)
-            {
-                enemy.Update(gameTime, CurrentLevel.Surroundings, new List<CharacterBlok>() { Player }, CurrentLevel.ThrowAbles);
+                foreach (var door in CurrentLevel.Doors)
+                {
+                    door.Update(gameTime, Player);
+                }
+                foreach (var bottle in CurrentLevel.ThrowAbles)
+                {
+                    bottle.Update(gameTime, CurrentLevel.Surroundings, CurrentLevel.Enemies, CurrentLevel.ThrowAbles, CurrentLevel.LowestTile);
+                }
+                foreach (var enemy in CurrentLevel.Enemies)
+                {
+                    enemy.Update(gameTime, CurrentLevel.Surroundings, new List<CharacterBlok>() { Player }, CurrentLevel.ThrowAbles, CurrentLevel.LowestTile);
+                }
+
+                CurrentLevel.RemoveDead(Player);
+                CurrentLevel.RemoveSpecialBloks();
+
+                ChangeLevel(CurrentLevel.Doors, Player);
+            } else {
+                camPos = Vector2.Zero;
+                if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+                {
+                    System.Threading.Thread.Sleep(100);
+                    LoadContent();
+                }
             }
 
-            CurrentLevel.RemoveDead(Player);
-            CurrentLevel.RemoveSpecialBloks();
-
-            ChangeLevel(CurrentLevel.Doors, Player);
             base.Update(gameTime);
         }
 
         #region UpdateMethods
         private void ChangeLevel(List<DoorBlok> doors, IGameObject player)
         {
-            if (ChangeMaps)
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter))
             {
-                ChangeMaps = false;
                 System.Threading.Thread.Sleep(100);
                 foreach (var door in doors)
                 {
@@ -186,7 +202,7 @@ namespace Sailor
                                         break;
                                     case DoorType.End:
                                         // Eindigt het spel
-                                        Quit();
+                                        Exit();
                                         break;
                                     default:
                                         break;
@@ -197,11 +213,6 @@ namespace Sailor
                     }
                 }
             }
-        }
-
-        private void Quit()
-        {
-            this.Exit();
         }
         #endregion
 
@@ -218,7 +229,8 @@ namespace Sailor
 
             _spriteBatch.Begin(transformMatrix: viewMatrix);
 
-            CurrentLevel.DrawWorld(_spriteBatch);
+            if (Player.Levens > 0) CurrentLevel.DrawWorld(_spriteBatch);
+            else GameOverScreen.Draw(_spriteBatch);
 
             _spriteBatch.End();
 

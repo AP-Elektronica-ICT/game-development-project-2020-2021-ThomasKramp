@@ -12,12 +12,8 @@ using System.Text;
 namespace Sailor.World
 {
     public enum DoorType { Next, Previous, End}
-    class DoorBlok : DrawBlok, IPassable, IDrawDoorState
+    class DoorBlok : DrawBlok, IDrawDoorState
     {
-        public bool PassLeft { get; set; }
-        public bool PassRight { get; set; }
-        public bool PassTop { get; set; }
-        public bool PassBottom { get; set; }
         public DoorState State { get; set; }
         public DoorType Type { get; set; }
 
@@ -28,11 +24,6 @@ namespace Sailor.World
 
         public DoorBlok(Dictionary<DoorState, List<Texture2D>> textures, Vector2 positie, DoorType doorType)
         {
-            PassLeft = true;
-            PassRight = true;
-            PassTop = true;
-            PassBottom = true;
-
             Positie = positie;
             this.textures = textures;
             CurrentTexture = this.textures[State][0];
