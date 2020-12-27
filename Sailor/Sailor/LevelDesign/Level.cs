@@ -102,14 +102,18 @@ namespace Sailor.LevelDesign
                                 new Vector2(x * 64, y * 16 - 40)));
                             break;
                         case 7:
+                            Surroundings.Add(new StaticBlok(surrTextures[SurroundingObjects.Object][3],
+                                new Vector2(x * 64 + 44, y * 16 - 40)));
+                            break;
+                        case 8:
                             Surroundings.Add(new PassableBlok(surrTextures[SurroundingObjects.Platform][0],
                                 new Vector2(x * 64, y * 16)));
                             break;
-                        case 8:
+                        case 9:
                             Surroundings.Add(new PassableBlok(surrTextures[SurroundingObjects.Platform][1],
                                 new Vector2(x * 64, y * 16)));
                             break;
-                        case 9:
+                        case 10:
                             DoorBlok newDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80));
                             Doors.Add(newDoor);
                             Surroundings.Add(newDoor);
