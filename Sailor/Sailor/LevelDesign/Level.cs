@@ -116,21 +116,6 @@ namespace Sailor.LevelDesign
                             Surroundings.Add(new PassableBlok(surrTextures[SurroundingObjects.Platform][1],
                                 new Vector2(x * 64, y * 16)));
                             break;
-                        case 10:
-                            DoorBlok NextDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.Next);
-                            Doors.Add(NextDoor);
-                            Surroundings.Add(NextDoor);
-                            break;
-                        case 11:
-                            DoorBlok PrevDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.Previous);
-                            Doors.Add(PrevDoor);
-                            Surroundings.Add(PrevDoor);
-                            break;
-                        case 12:
-                            DoorBlok EndDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.End);
-                            Doors.Add(EndDoor);
-                            Surroundings.Add(EndDoor);
-                            break;
                         default:
                             break;
                     }
@@ -148,7 +133,22 @@ namespace Sailor.LevelDesign
                     switch (ForegroundArray[y, x])
                     {
                         case 1:
-                            Background.Add(new StaticBlok(signTextures[0], new Vector2(x * 64, y * 16)));
+                            DoorBlok NextDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.Next);
+                            Doors.Add(NextDoor);
+                            Foreground.Add(NextDoor);
+                            break;
+                        case 2:
+                            DoorBlok PrevDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.Previous);
+                            Doors.Add(PrevDoor);
+                            Foreground.Add(PrevDoor);
+                            break;
+                        case 3:
+                            DoorBlok EndDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.End);
+                            Doors.Add(EndDoor);
+                            Foreground.Add(EndDoor);
+                            break;
+                        case 4:
+                            Foreground.Add(new StaticBlok(signTextures[0], new Vector2(x * 64, y * 16)));
                             break;
                         default:
                             break;
@@ -195,7 +195,7 @@ namespace Sailor.LevelDesign
             {
                 backItem.Draw(spritebatch);
             }
-            foreach (var foreItem in Background)
+            foreach (var foreItem in Foreground)
             {
                 foreItem.Draw(spritebatch);
             }
