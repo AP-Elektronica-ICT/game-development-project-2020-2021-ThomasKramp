@@ -10,10 +10,10 @@ using System.Collections.Generic;
 
 namespace Sailor.LevelDesign
 {
-    class Level
+    class Level : ILevel
     {
         private List<DrawBlok> Background = new List<DrawBlok>();
-        public List<DrawBlok> Surroundings = new List<DrawBlok>();
+        public List<DrawBlok> Surroundings { get; set; } = new List<DrawBlok>();
         private List<DrawBlok> Foreground = new List<DrawBlok>();
 
         private Dictionary<SurroundingObjects, List<Texture2D>> backTextures;
@@ -22,9 +22,9 @@ namespace Sailor.LevelDesign
         private List<Dictionary<CharacterState, List<Texture2D>>> enemyTexures;
         private Dictionary<DoorState, List<Texture2D>> doorTexures;
 
-        public List<CharacterBlok> Enemies = new List<CharacterBlok>();
-        public List<DynamicBlok> ThrowAbles = new List<DynamicBlok>();
-        public List<DoorBlok> Doors = new List<DoorBlok>();
+        public List<CharacterBlok> Enemies { get; set; } = new List<CharacterBlok>();
+        public List<DynamicBlok> ThrowAbles { get; set; } = new List<DynamicBlok>();
+        public List<DoorBlok> Doors { get; set; } = new List<DoorBlok>();
 
         public Level(List<Dictionary<SurroundingObjects, List<Texture2D>>> LevelTexures,
             List<Dictionary<CharacterState, List<Texture2D>>> EnemyTexures,

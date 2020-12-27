@@ -21,9 +21,9 @@ namespace Sailor
         SpriteBatch _spriteBatch;
 
         CharacterBlok Player;
-        Level CurrentLevel;
-        Level FirstLevel;
-        Level SecondLevel;
+        ILevel CurrentLevel;
+        ILevel FirstLevel;
+        ILevel SecondLevel;
         Camera2d camera;
 
         #region Textures
