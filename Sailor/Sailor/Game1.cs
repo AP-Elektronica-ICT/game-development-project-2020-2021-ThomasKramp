@@ -79,8 +79,8 @@ namespace Sailor
             EnemyTextures.Add(LoadTextures.LoadCharacterSprites("Cucumber", Content));
             LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Background", Content));
             LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Surroundings", Content));
+            LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Foreground", Content));
             DoorTextures = LoadTextures.LoadDoorSprites("Door", Content);
-            SignTextures = LoadTextures.LoadSingleObjectsSprites("Sign", Content);
             InitializeSurroundings();
 
             // this.song = Content.Load<Song>("The Rocky Road To Dublin");
@@ -108,7 +108,7 @@ namespace Sailor
             };
             for (int i = 0; i < Schematics.Count; i++)
             {
-                Levels.Add(new Level(LevelTextures, EnemyTextures, DoorTextures, SignTextures));
+                Levels.Add(new Level(LevelTextures, EnemyTextures, DoorTextures));
             }
             foreach (var level in Levels)
             {

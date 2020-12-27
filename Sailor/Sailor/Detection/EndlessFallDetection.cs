@@ -11,7 +11,7 @@ namespace Sailor.Detection
     {
         public static void FallingToDeath(IGameObject lowestTile, IDeathFall player)
         {
-            if (player.Positie.Y + player.Frame.Top > lowestTile.Positie.Y + lowestTile.Frame.Bottom + 25)
+            if (player.Positie.Y + player.Frame.Top > lowestTile.Positie.Y + lowestTile.Frame.Bottom + 250)
             {
                 player.Levens = 0;
                 player.Dead = true;

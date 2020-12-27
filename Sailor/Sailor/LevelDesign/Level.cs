@@ -32,13 +32,12 @@ namespace Sailor.LevelDesign
 
         public Level(List<Dictionary<SurroundingObjects, List<Texture2D>>> LevelTexures,
             List<Dictionary<CharacterState, List<Texture2D>>> EnemyTexures,
-            Dictionary<DoorState, List<Texture2D>> DoorTextures,
-            List<Texture2D> signTextures) {
+            Dictionary<DoorState, List<Texture2D>> DoorTextures) {
             this.backTextures = LevelTexures[0];
             this.surrTextures = LevelTexures[1];
+            this.foreTextures = LevelTexures[2];
             this.enemyTexures = EnemyTexures;
             this.doorTexures = DoorTextures;
-            this.signTextures = signTextures;
         }
 
         public void CreateWorld(DrawBlok player, Schematic schematic)
@@ -152,22 +151,28 @@ namespace Sailor.LevelDesign
                             Foreground.Add(EndDoor);
                             break;
                         case 10:
-                            Foreground.Add(new StaticBlok(signTextures[0], new Vector2(x * 64, y * 16)));
+                            Foreground.Add(new StaticBlok(foreTextures[SurroundingObjects.Tile][0],
+                                new Vector2(x * 64, y * 16)));
                             break;
                         case 11:
-                            Foreground.Add(new StaticBlok(signTextures[1], new Vector2(x * 64, y * 16)));
+                            Foreground.Add(new StaticBlok(foreTextures[SurroundingObjects.Tile][1],
+                                new Vector2(x * 64, y * 16)));
                             break;
                         case 12:
-                            Foreground.Add(new StaticBlok(signTextures[2], new Vector2(x * 64, y * 16)));
+                            Foreground.Add(new StaticBlok(foreTextures[SurroundingObjects.Tile][2],
+                                new Vector2(x * 64, y * 16)));
                             break;
                         case 13:
-                            Foreground.Add(new StaticBlok(signTextures[3], new Vector2(x * 64, y * 16)));
+                            Foreground.Add(new StaticBlok(foreTextures[SurroundingObjects.Tile][3],
+                                new Vector2(x * 64, y * 16)));
                             break;
                         case 14:
-                            Foreground.Add(new StaticBlok(signTextures[4], new Vector2(x * 64, y * 16)));
+                            Foreground.Add(new StaticBlok(foreTextures[SurroundingObjects.Tile][4],
+                                new Vector2(x * 64, y * 16)));
                             break;
                         case 15:
-                            Foreground.Add(new StaticBlok(signTextures[5], new Vector2(x * 64, y * 16)));
+                            Foreground.Add(new StaticBlok(foreTextures[SurroundingObjects.Tile][5],
+                                new Vector2(x * 64, y * 16)));
                             break;
                         default:
                             break;
