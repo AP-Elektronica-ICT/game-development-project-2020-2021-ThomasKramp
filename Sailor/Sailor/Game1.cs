@@ -34,6 +34,7 @@ namespace Sailor
         List<Dictionary<SurroundingObjects, List<Texture2D>>> LevelTextures;
         Dictionary<DoorState, List<Texture2D>> DoorTextures;
         public static List<Texture2D> BottleTextures;
+        List<Texture2D> SignTextures;
         #endregion
 
         #region Camera
@@ -70,7 +71,7 @@ namespace Sailor
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            BottleTextures = LoadTextures.LoadAttakObjectsSprites("Bottle", Content);
+            BottleTextures = LoadTextures.LoadSingleObjectsSprites("Bottle", Content);
 
             PlayerTextures = LoadTextures.LoadCharacterSprites("Sailor", Content);
             InitializeGameObject();
@@ -79,6 +80,7 @@ namespace Sailor
             LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Background", Content));
             LevelTextures.Add(LoadTextures.LoadSurroundingsSprites("Surroundings", Content));
             DoorTextures = LoadTextures.LoadDoorSprites("Door", Content);
+            SignTextures = LoadTextures.LoadSingleObjectsSprites("Sign", Content);
             InitializeSurroundings();
 
             // this.song = Content.Load<Song>("The Rocky Road To Dublin");
@@ -99,12 +101,13 @@ namespace Sailor
         {
             List<BaseSchematic> Schematics = new List<BaseSchematic>()
             {
+                new StartSchematic(),
                 new FirstSchematic(),
                 new SecondSchematic()
             };
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < Schematics.Count; i++)
             {
-                Levels.Add(new Level(LevelTextures, EnemyTextures, DoorTextures));
+                Levels.Add(new Level(LevelTextures, EnemyTextures, DoorTextures, SignTextures));
             }
             foreach (var level in Levels)
             {

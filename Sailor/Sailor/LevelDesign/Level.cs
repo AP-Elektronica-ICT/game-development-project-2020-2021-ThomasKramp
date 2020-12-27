@@ -21,6 +21,7 @@ namespace Sailor.LevelDesign
         private Dictionary<SurroundingObjects, List<Texture2D>> foreTextures;
         private List<Dictionary<CharacterState, List<Texture2D>>> enemyTexures;
         private Dictionary<DoorState, List<Texture2D>> doorTexures;
+        private List<Texture2D> signTextures;
 
         public List<CharacterBlok> Enemies { get; set; } = new List<CharacterBlok>();
         public List<DynamicBlok> ThrowAbles { get; set; } = new List<DynamicBlok>();
@@ -28,11 +29,13 @@ namespace Sailor.LevelDesign
 
         public Level(List<Dictionary<SurroundingObjects, List<Texture2D>>> LevelTexures,
             List<Dictionary<CharacterState, List<Texture2D>>> EnemyTexures,
-            Dictionary<DoorState, List<Texture2D>> DoorTextures) {
+            Dictionary<DoorState, List<Texture2D>> DoorTextures,
+            List<Texture2D> signTextures) {
             this.backTextures = LevelTexures[0];
             this.surrTextures = LevelTexures[1];
             this.enemyTexures = EnemyTexures;
-            doorTexures = DoorTextures;
+            this.doorTexures = DoorTextures;
+            this.signTextures = signTextures;
         }
 
         public void CreateWorld(DrawBlok player, BaseSchematic schematic)
@@ -49,12 +52,16 @@ namespace Sailor.LevelDesign
             {
                 for (int x = 0; x < BackgroundArray.GetLength(1); x++)
                 {
-                    if (BackgroundArray[y, x] == 1)
+                    // X en Y zijn geinverteerd in de array[hoogte, breedte]
+                    switch (BackgroundArray[y, x])
                     {
-                        // X en Y zijn geinverteerd in de array[hoogte, breedte]
-                        Background.Add(new StaticBlok(backTextures[SurroundingObjects.Tile]
-                            [r.Next(0, backTextures[SurroundingObjects.Tile].Count)],
-                            new Vector2((x * 64) + ((y % 2) * 32), y * 16)));
+                        case 1:
+                            Background.Add(new StaticBlok(backTextures[SurroundingObjects.Tile]
+                                [r.Next(0, backTextures[SurroundingObjects.Tile].Count)],
+                                new Vector2((x * 64) + ((y % 2) * 32), y * 16)));
+                            break;
+                        default:
+                            break;
                     }
                 }
             }
@@ -133,7 +140,22 @@ namespace Sailor.LevelDesign
 
         private void CreateForeground(byte[,] ForegroundArray)
         {
-            
+            for (int y = 0; y < ForegroundArray.GetLength(0); y++)
+            {
+                for (int x = 0; x < ForegroundArray.GetLength(1); x++)
+                {
+                    // X en Y zijn geinverteerd in de array[hoogte, breedte]
+                    switch (ForegroundArray[y, x])
+                    {
+                        case 1:
+                            Background.Add(new StaticBlok(signTextures[0], new Vector2(x * 64, y * 16)));
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+                        
         }
 
         public void RemoveDead(IKillAble Player)
@@ -173,11 +195,15 @@ namespace Sailor.LevelDesign
             {
                 backItem.Draw(spritebatch);
             }
-            foreach (var SurrItem in Surroundings)
+            foreach (var foreItem in Background)
             {
-                if (SurrItem != null)
+                foreItem.Draw(spritebatch);
+            }
+            foreach (var surrItem in Surroundings)
+            {
+                if (surrItem != null)
                 {
-                    SurrItem.Draw(spritebatch);
+                    surrItem.Draw(spritebatch);
                 }
             }
         }

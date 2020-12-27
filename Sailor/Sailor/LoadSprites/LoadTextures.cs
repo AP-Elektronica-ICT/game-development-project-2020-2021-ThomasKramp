@@ -84,7 +84,7 @@ namespace Sailor.LoadSprites
             }
             return textureDic;
         }
-        public static List<Texture2D> LoadAttakObjectsSprites(String Directory, ContentManager Content)
+        public static List<Texture2D> LoadSingleObjectsSprites(String Directory, ContentManager Content)
         {
             System.IO.DirectoryInfo directory = new System.IO.DirectoryInfo($"Content\\{Directory}");
             List<Texture2D> tempList = new List<Texture2D>();
