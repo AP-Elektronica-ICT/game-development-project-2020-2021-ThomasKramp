@@ -21,9 +21,12 @@ namespace Sailor
         SpriteBatch _spriteBatch;
 
         CharacterBlok Player;
+
+        #region Levels
         ILevel CurrentLevel;
         List<ILevel> Levels;
-        Camera2d camera;
+        public static bool ChangeMaps = false;
+        #endregion
 
         #region Textures
         Dictionary<CharacterState, List<Texture2D>> PlayerTextures;
@@ -33,7 +36,12 @@ namespace Sailor
         public static List<Texture2D> BottleTextures;
         #endregion
 
-        public static bool ChangeMaps = false;
+        #region Camera
+        Camera2d camera;
+        float rotation = 0;
+        float zoom = 1;
+        public Vector2 camPos = new Vector2();
+        #endregion
 
         Song song;
 
@@ -81,6 +89,7 @@ namespace Sailor
             // TODO: use this.Content to load your game content here
         }
 
+        #region LoadContentMethods
         private void InitializeGameObject()
         {
             Player = new Player(PlayerTextures, new KeyBoardReader());
@@ -103,6 +112,7 @@ namespace Sailor
             }
             CurrentLevel = Levels[0];
         }
+        #endregion
 
         protected override void Update(GameTime gameTime)
         {
@@ -136,6 +146,7 @@ namespace Sailor
             base.Update(gameTime);
         }
 
+        #region UpdateMethods
         private void ChangeLevel(List<DoorBlok> doors, IGameObject player)
         {
             if (ChangeMaps)
@@ -146,31 +157,53 @@ namespace Sailor
                 {
                     if (PlayerDetection.StandsWithin(door, player))
                     {
-
-                        //if (door == doors[0])
-                        //{
-                        //    player.Positie = SecondLevel.Doors[1].Positie;
-                        //    CurrentLevel.Surroundings.Remove(Player);
-                        //    CurrentLevel = SecondLevel;
-                        //    CurrentLevel.Surroundings.Add(Player);
-                        //    break;
-                        //}
-                        //else if (door == doors[1])
-                        //{
-                        //    player.Positie = SecondLevel.Doors[0].Positie;
-                        //    CurrentLevel.Surroundings.Remove(Player);
-                        //    CurrentLevel = SecondLevel;
-                        //    CurrentLevel.Surroundings.Add(Player);
-                        //    break;
-                        //}
+                        foreach (var level in Levels)
+                        {
+                            if (level.Doors.Contains(door))
+                            {
+                                int levelIndex = Levels.IndexOf(level);
+                                CurrentLevel.Surroundings.Remove(Player);
+                                ILevel warpLevel;
+                                switch (door.Type)
+                                {
+                                    case DoorType.Next:
+                                        // Gaat een level verder
+                                        warpLevel = Levels[levelIndex + 1];
+                                        foreach (var warpDoor in warpLevel.Doors)
+                                        {
+                                            if (warpDoor.Type == DoorType.Previous) player.Positie = warpDoor.Positie;
+                                        }
+                                        CurrentLevel = warpLevel;
+                                        break;
+                                    case DoorType.Previous:
+                                        // Gaat een level terug
+                                        warpLevel = Levels[levelIndex - 1];
+                                        foreach (var warpDoor in warpLevel.Doors)
+                                        {
+                                            if (warpDoor.Type == DoorType.Next) player.Positie = warpDoor.Positie;
+                                        }
+                                        CurrentLevel = warpLevel;
+                                        break;
+                                    case DoorType.End:
+                                        // Eindigt het spel
+                                        Quit();
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                CurrentLevel.Surroundings.Add(Player);
+                            }
+                        }
                     }
                 }
             }
         }
 
-        float rotation = 0;
-        float zoom = 1;
-        public Vector2 camPos = new Vector2();
+        private void Quit()
+        {
+            this.Exit();
+        }
+        #endregion
 
         protected override void Draw(GameTime gameTime)
         {

@@ -110,9 +110,19 @@ namespace Sailor.LevelDesign
                                 new Vector2(x * 64, y * 16)));
                             break;
                         case 10:
-                            DoorBlok newDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80));
-                            Doors.Add(newDoor);
-                            Surroundings.Add(newDoor);
+                            DoorBlok NextDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.Next);
+                            Doors.Add(NextDoor);
+                            Surroundings.Add(NextDoor);
+                            break;
+                        case 11:
+                            DoorBlok PrevDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.Previous);
+                            Doors.Add(PrevDoor);
+                            Surroundings.Add(PrevDoor);
+                            break;
+                        case 12:
+                            DoorBlok EndDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.End);
+                            Doors.Add(EndDoor);
+                            Surroundings.Add(EndDoor);
                             break;
                         default:
                             break;

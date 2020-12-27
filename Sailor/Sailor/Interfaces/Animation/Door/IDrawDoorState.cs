@@ -10,6 +10,6 @@ namespace Sailor.Interfaces.Animation.Door
     {
         public Vector2 Positie { get; set; }
         public Rectangle Frame { get; set; }
-        public DoorState state { get; set; }
+        public DoorState State { get; set; }
     }
 }
