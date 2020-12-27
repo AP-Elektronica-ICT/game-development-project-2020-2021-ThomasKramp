@@ -16,13 +16,13 @@ namespace Sailor.Animation.Static
             float result = PlayerDetection.Search(transform, player);
             if (-afstand < result && result < afstand)
             {
-                if (transform.state != DoorState.Open && transform.state != DoorState.Closing)
-                    transform.state = DoorState.Opening;
+                if (transform.State != DoorState.Open && transform.State != DoorState.Closing)
+                    transform.State = DoorState.Opening;
             }
             else if (-afstand * 1.5 < result && result < afstand * 1.5)
             {
-                if (transform.state != DoorState.Closed && transform.state != DoorState.Opening)
-                    transform.state = DoorState.Closing;
+                if (transform.State != DoorState.Closed && transform.State != DoorState.Opening)
+                    transform.State = DoorState.Closing;
             }
         }
     }

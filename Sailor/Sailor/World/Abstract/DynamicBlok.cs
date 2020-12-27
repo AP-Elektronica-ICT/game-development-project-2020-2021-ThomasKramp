@@ -34,7 +34,15 @@ namespace Sailor.World.Abstract
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(CurrentTexture, Positie, Frame, Color.White, BasicRotation, BasicOrigin, BasicScale, effect, BasicLayerDepth);
+            // Deze Try Catch is tegen het crashen van het spel.
+            // Indien er van level verandert wordt, wordt de currentTexture van de Player op "null" gezet.
+            // Na die ene keer werkt de game zoals het terug hoort (inculsief currentTexture).
+            try
+            {
+                spriteBatch.Draw(CurrentTexture, Positie, Frame, Color.White, BasicRotation, BasicOrigin, BasicScale, effect, BasicLayerDepth);
+            }
+            catch (Exception)
+            { }
         }
     }
 }

@@ -18,10 +18,10 @@ namespace Sailor.Animation.Static
             if (counter >= Textures.Count)
             {
                 counter = 0;
-                if (door.state == DoorState.Opening)
-                    door.state = DoorState.Open;
-                if (door.state == DoorState.Closing)
-                    door.state = DoorState.Closed;
+                if (door.State == DoorState.Opening)
+                    door.State = DoorState.Open;
+                if (door.State == DoorState.Closing)
+                    door.State = DoorState.Closed;
             }
 
             door.CurrentTexture = Textures[counter];
