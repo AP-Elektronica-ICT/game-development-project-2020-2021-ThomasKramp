@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sailor.Detection;
+using Sailor.Interfaces;
 using Sailor.Interfaces.Commands;
 using Sailor.LevelDesign.Schematics;
 using Sailor.LoadSprites;
@@ -26,6 +28,7 @@ namespace Sailor.LevelDesign
         public List<CharacterBlok> Enemies { get; set; } = new List<CharacterBlok>();
         public List<DynamicBlok> ThrowAbles { get; set; } = new List<DynamicBlok>();
         public List<DoorBlok> Doors { get; set; } = new List<DoorBlok>();
+        public IGameObject LowestTile { get; set; }
 
         public Level(List<Dictionary<SurroundingObjects, List<Texture2D>>> LevelTexures,
             List<Dictionary<CharacterState, List<Texture2D>>> EnemyTexures,
@@ -43,6 +46,7 @@ namespace Sailor.LevelDesign
             CreateBackGround(schematic.BackgroundArray);
             CreateSurroundings(schematic.SurroundingsArray, player);
             CreateForeground(schematic.ForegroundArray);
+            LowestTile = EndlessFallDetection.GetLowestTile(Surroundings);
         }
 
         private void CreateBackGround(byte[,] BackgroundArray)

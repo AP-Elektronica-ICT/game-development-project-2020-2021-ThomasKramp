@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sailor.Commands.Move;
 using Sailor.Detection;
+using Sailor.Interfaces;
 using Sailor.World.Abstract;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace Sailor.World.Attack
             else if (effect == SpriteEffects.FlipHorizontally) richting.X = -1;
         }
 
-        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables)
+        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables, IGameObject LowestTile)
         {
             if (effect == SpriteEffects.None) BasicRotation += 0.5f;
             else if (effect == SpriteEffects.FlipHorizontally) BasicRotation -= 0.5f;
@@ -39,7 +40,7 @@ namespace Sailor.World.Attack
                 Surroundings.Remove(this);
                 Hit = true;
             }
-            base.Update(gameTime, Surroundings, Targets, Thowables);
+            base.Update(gameTime, Surroundings, Targets, Thowables, LowestTile);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sailor.Commands.Move;
+using Sailor.Interfaces;
 using Sailor.LoadSprites;
 using Sailor.World.Abstract;
 using System;
@@ -19,9 +20,9 @@ namespace Sailor.World
             Levens = 2;
         }
 
-        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables)
+        public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables, IGameObject LowestTile)
         {
-            base.Update(gameTime, Surroundings, Targets, Thowables);
+            base.Update(gameTime, Surroundings, Targets, Thowables, LowestTile);
         }
     }
 }

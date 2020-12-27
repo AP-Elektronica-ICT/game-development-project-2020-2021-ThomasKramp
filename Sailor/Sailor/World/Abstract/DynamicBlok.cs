@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sailor.Commands.Move;
+using Sailor.Interfaces;
 using Sailor.Interfaces.Animation;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace Sailor.World.Abstract
         protected float BasicLayerDepth = 0f;
         #endregion
 
-        public virtual void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables) {
+        public virtual void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables, IGameObject LowestTile) {
             richting = moveCommand.Execute(this, richting, Surroundings);
         }
 

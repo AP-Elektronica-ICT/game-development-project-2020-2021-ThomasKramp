@@ -114,7 +114,7 @@ namespace Sailor
             {
                 level.CreateWorld(Player, Schematics[Levels.IndexOf(level)]);
             }
-            CurrentLevel = Levels[1];
+            CurrentLevel = Levels[3];
         }
         #endregion
 
@@ -124,7 +124,7 @@ namespace Sailor
                 Exit();
 
             // TODO: Add your update logic here
-            Player.Update(gameTime, CurrentLevel.Surroundings, CurrentLevel.Enemies, CurrentLevel.ThrowAbles);
+            Player.Update(gameTime, CurrentLevel.Surroundings, CurrentLevel.Enemies, CurrentLevel.ThrowAbles, CurrentLevel.LowestTile);
 
             camPos = Vector2.Subtract(Player.Positie, new Vector2(
                 this.Window.ClientBounds.Width / 5,
@@ -136,11 +136,11 @@ namespace Sailor
             }
             foreach (var bottle in CurrentLevel.ThrowAbles)
             {
-                bottle.Update(gameTime, CurrentLevel.Surroundings, CurrentLevel.Enemies, CurrentLevel.ThrowAbles);
+                bottle.Update(gameTime, CurrentLevel.Surroundings, CurrentLevel.Enemies, CurrentLevel.ThrowAbles, CurrentLevel.LowestTile);
             }
             foreach (var enemy in CurrentLevel.Enemies)
             {
-                enemy.Update(gameTime, CurrentLevel.Surroundings, new List<CharacterBlok>() { Player }, CurrentLevel.ThrowAbles);
+                enemy.Update(gameTime, CurrentLevel.Surroundings, new List<CharacterBlok>() { Player }, CurrentLevel.ThrowAbles, CurrentLevel.LowestTile);
             }
 
             CurrentLevel.RemoveDead(Player);
