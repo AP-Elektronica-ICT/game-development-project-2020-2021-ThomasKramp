@@ -8,19 +8,31 @@ using System.Text;
 
 namespace Sailor.Commands.Move
 {
-    class EnemyMoveCommand : MoveCommand
+    class MoveToPlayer : MoveCommand
     {
-        public EnemyMoveCommand(Vector2 snelheid) : base(snelheid)
+        float playerDistance;
+        public MoveToPlayer(Vector2 snelheid, float playerDistance) : base(snelheid)
         {
+            this.playerDistance = playerDistance;
         }
 
         public override Vector2 Execute(IGameObject mover, Vector2 richting, List<DrawBlok> Surroundings)
         {
-            if (richting.X == 0) richting.X = 1;
             verplaatsing = richting * snelheid;
+            
             if (CollisionDetection.LeftCollide(mover, verplaatsing, Surroundings)
                 || CollisionDetection.RightCollide(mover, verplaatsing, Surroundings))
-                richting.X *= -1;
+            {
+                richting.X = 0;
+                mover.Positie += new Vector2(0, 0.25f);
+            }
+            else
+            {
+                if (-100 <= playerDistance && playerDistance <= 100) richting = new Vector2(0, 1);
+                else if (100 < playerDistance) richting = new Vector2(1, 1);
+                else richting = new Vector2(-1, 1);
+            }
+
             mover.Positie += verplaatsing;
             return richting;
         }
