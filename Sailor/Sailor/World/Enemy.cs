@@ -31,7 +31,7 @@ namespace Sailor.World
                 if (playerDistance < -150 || 150 < playerDistance) punched = false;
             } else if (-100 < playerDistance && playerDistance < 100) {
                 moveCommand = new MoveToPlayerCommand(new Vector2(3, 0), playerDistance);
-                if (-25 <= playerDistance && playerDistance <= 25)
+                if (-15 <= playerDistance && playerDistance <= 15)
                 {
                     Punch = true;
                     punched = true;

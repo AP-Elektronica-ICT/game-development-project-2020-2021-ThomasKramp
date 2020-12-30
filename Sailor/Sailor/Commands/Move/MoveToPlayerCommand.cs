@@ -28,8 +28,8 @@ namespace Sailor.Commands.Move
             }
             else
             {
-                if (-25 <= playerDistance && playerDistance <= 25) richting = new Vector2(0, 1);
-                else if (25 < playerDistance) richting = new Vector2(1, 1);
+                if (-15 <= playerDistance && playerDistance <= 15) richting = new Vector2(0, 1);
+                else if (15 < playerDistance) richting = new Vector2(1, 1);
                 else richting = new Vector2(-1, 1);
             }
 
