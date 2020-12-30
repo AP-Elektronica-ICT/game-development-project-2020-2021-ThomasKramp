@@ -94,7 +94,7 @@ namespace Sailor
         #region LoadContentMethods
         private void InitializeGameObject()
         {
-            Player = new Player(PlayerTextures, new KeyBoardReader());
+            Player = new Player(PlayerTextures, 10, 5, 50, new KeyBoardReader());
         }
 
         private void InitializeLevels()

@@ -28,6 +28,8 @@ namespace Sailor.World.Abstract
         public bool Dead { get; set; }
         #endregion
         public int Levens { get; set; }
+        int strength;
+        int punchRange;
 
         // Moet nog weggehaald worden
         MoveAbleAnimatie animatie;
@@ -36,7 +38,7 @@ namespace Sailor.World.Abstract
         JumpCommand jumpCommands;
         PunchCommand punchCommands;
 
-        public CharacterBlok(Dictionary<CharacterState, List<Texture2D>> textures)
+        public CharacterBlok(Dictionary<CharacterState, List<Texture2D>> textures, int Levens, int Strength, int PunchRange)
         {
             Textures = textures;
             #region Animatie
@@ -49,6 +51,9 @@ namespace Sailor.World.Abstract
             punchCommands = new PunchCommand();
             #endregion
             state = CharacterState.Idle;
+            this.Levens = Levens;
+            strength = Strength;
+            punchRange = PunchRange;
         }
 
         public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables, IGameObject LowestTile)
@@ -56,7 +61,7 @@ namespace Sailor.World.Abstract
             #region Commands
             if (!Hit && !Dead)
             {
-                punchCommands.Execute(this, Targets);
+                punchCommands.Execute(this, Targets, strength, punchRange);
                 base.Update(gameTime, Surroundings, Targets, Thowables, LowestTile);
                 jumpCommands.Execute(this, richting, Surroundings);
                 EndlessFallDetection.FallingToDeath(LowestTile, this);

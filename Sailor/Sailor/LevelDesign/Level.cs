@@ -90,7 +90,7 @@ namespace Sailor.LevelDesign
                             player.Positie = new Vector2(x * 64, y * 16 - 58);
                             break;
                         case 3:
-                            Enemy newEnemy = new Enemy(enemyTexures[0]);
+                            Enemy newEnemy = new Enemy(enemyTexures[0], 2, 2, 30);
                             Enemies.Add(newEnemy);
                             Surroundings.Add(newEnemy);
                             newEnemy.Positie = new Vector2(x * 64, y * 16 - 58);
