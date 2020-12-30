@@ -13,7 +13,7 @@ namespace Sailor.Animation.Static
         int afstand = 50;
         public virtual void Update(IDrawDoorState transform, IGameObject player)
         {
-            float result = PlayerDetection.Search(transform, player);
+            float result = PlayerDetection.SearchCenter(transform, player);
             if (-afstand < result && result < afstand)
             {
                 if (transform.State != DoorState.Open && transform.State != DoorState.Closing)

@@ -46,8 +46,11 @@ namespace Sailor.Commands
                         snelheid.X += 0.001f;
                     else if (CollisionDetection.RightCollide(jumper, richting, Surroundings))
                         snelheid.X -= 0.001f;
-                } else {
-                    snelheid.Y = (snelheid.Y * - 0.55f) - 0.1f;
+                    snelheid.Y = 0f;
+                }
+                else
+                {
+                    snelheid.Y = -0.25f;
                     grounded = true;
                     jumper.Falling = false;
                 }

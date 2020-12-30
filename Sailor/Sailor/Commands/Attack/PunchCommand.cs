@@ -15,21 +15,21 @@ namespace Sailor.Commands.Attack
     {
         IGameObject AttackObject;
         bool lastAttack = false;
-        int punchWidth = 75;
         int punchHeight = 10;
 
-        public void Execute(IPuncher attacker, List<CharacterBlok> Targets)
+        public void Execute(IPuncher attacker, List<CharacterBlok> Targets, int strength, int punchRange)
         {
             if (attacker.Punch && !lastAttack)
             {
                 if (attacker.effect == SpriteEffects.None)
                 {
                     AttackObject = new PunchBlok(new Vector2(
-                        attacker.Positie.X + attacker.Frame.Center.X,
+                        attacker.Positie.X + attacker.Frame.Right,
                         attacker.Positie.Y + attacker.Frame.Center.Y),
-                        new Rectangle(0, 0, punchWidth, punchHeight));
+                        new Rectangle(0, 0, punchRange, punchHeight));
 
-                    for (int i = 0; i < 3; i++)
+                    // Zo verwijdert hij 3 levens
+                    for (int i = 0; i < strength; i++)
                     {
                         AttackDetection.LeftCollide(AttackObject, Vector2.Zero, Targets);
                     }
@@ -37,11 +37,11 @@ namespace Sailor.Commands.Attack
                 else if (attacker.effect == SpriteEffects.FlipHorizontally)
                 {
                     AttackObject = new PunchBlok(new Vector2(
-                        attacker.Positie.X + attacker.Frame.Center.X,
+                        attacker.Positie.X + attacker.Frame.Left,
                         attacker.Positie.Y + attacker.Frame.Center.Y),
-                        new Rectangle(0, 0, -punchWidth, punchHeight));
+                        new Rectangle(0, 0, -punchRange, punchHeight));
 
-                    for (int i = 0; i < 3; i++)
+                    for (int i = 0; i < strength; i++)
                     {
                         AttackDetection.LeftCollide(AttackObject, Vector2.Zero, Targets);
                     }
