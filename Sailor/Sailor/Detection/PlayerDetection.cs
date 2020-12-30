@@ -24,7 +24,7 @@ namespace Sailor.Detection
                     return (player.Positie.X + player.Frame.Center.X) - (searcher.Positie.X + searcher.Frame.Center.X);
                 }
             }
-            return 0;
+            return 1000;
         }
         public static bool StandsWithin(IGameObject searcher, IGameObject player)
         {
