@@ -25,3 +25,15 @@ namespace Sailor.Commands.Move
         }
     }
 }
+
+/*
+   if (CollisionDetection.LeftCollide(mover, verplaatsing, Surroundings))
+            {
+                if (verplaatsing.X < 0) verplaatsing.X = 0.0f;
+                else verplaatsing.X = 0.37f;
+            }
+            else if (CollisionDetection.RightCollide(mover, verplaatsing, Surroundings))
+            {
+                if (verplaatsing.X > 0) verplaatsing.X = 0.0f;
+                else verplaatsing.X = -0.37f;
+ */

@@ -53,14 +53,13 @@ namespace Sailor.World.Abstract
 
         public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables, IGameObject LowestTile)
         {
-
             #region Commands
             if (!Hit && !Dead)
             {
                 punchCommands.Execute(this, Targets);
+                base.Update(gameTime, Surroundings, Targets, Thowables, LowestTile);
                 jumpCommands.Execute(this, richting, Surroundings);
                 EndlessFallDetection.FallingToDeath(LowestTile, this);
-                base.Update(gameTime, Surroundings, Targets, Thowables, LowestTile);
             }
             #endregion
 
@@ -69,7 +68,6 @@ namespace Sailor.World.Abstract
             animatieState.Update(this, richting);
             animatie.Update(this, Textures[state], gameTime);
             #endregion
-
         }
     }
 }

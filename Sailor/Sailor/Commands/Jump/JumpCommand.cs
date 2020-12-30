@@ -42,9 +42,12 @@ namespace Sailor.Commands
                     // Indien het spel in deze lus komt
                     // betekent het dat er Right of Left Collsion is
                     // en geen eigenlijke Bottom Collision
-                    snelheid.Y = 0f;
+                    if (CollisionDetection.LeftCollide(jumper, richting, Surroundings))
+                        snelheid.X += 0.001f;
+                    else if (CollisionDetection.RightCollide(jumper, richting, Surroundings))
+                        snelheid.X -= 0.001f;
                 } else {
-                    snelheid.Y = -0.25f;
+                    snelheid.Y = (snelheid.Y * - 0.55f) - 0.1f;
                     grounded = true;
                     jumper.Falling = false;
                 }
