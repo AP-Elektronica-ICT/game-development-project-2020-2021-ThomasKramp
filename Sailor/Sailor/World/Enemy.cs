@@ -25,13 +25,13 @@ namespace Sailor.World
 
         public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables, IGameObject LowestTile)
         {
-            float playerDistance = PlayerDetection.Search(this, Targets[0]);
+            float playerDistance = PlayerDetection.SearchSides(this, Targets[0]);
             if (punched) {
-                moveCommand = new MoveToPlayerCommand(new Vector2(3, 0), playerDistance * -2);
-                if (playerDistance < -200 || 200 < playerDistance) punched = false;
-            } else if (-125 < playerDistance && playerDistance < 125) {
+                if (Punch) moveCommand = new MoveToPlayerCommand(new Vector2(3, 0), playerDistance * -2);
+                if (playerDistance < -150 || 150 < playerDistance) punched = false;
+            } else if (-100 < playerDistance && playerDistance < 100) {
                 moveCommand = new MoveToPlayerCommand(new Vector2(3, 0), playerDistance);
-                if (-100 <= playerDistance && playerDistance <= 100)
+                if (-25 <= playerDistance && playerDistance <= 25)
                 {
                     Punch = true;
                     punched = true;
