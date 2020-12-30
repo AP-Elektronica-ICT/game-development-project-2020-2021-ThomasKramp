@@ -23,7 +23,7 @@ namespace Sailor.World
             inputReader = reader;
             moveCommand = new PlayerMoveCommand(new Vector2(3, 0));
             throwCommand = new ThrowCommand();
-            Levens = 3;
+            Levens = 10;
         }
 
         public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables, IGameObject LowestTile)

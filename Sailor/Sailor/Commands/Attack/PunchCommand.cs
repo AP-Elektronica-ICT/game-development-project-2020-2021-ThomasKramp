@@ -17,6 +17,7 @@ namespace Sailor.Commands.Attack
         bool lastAttack = false;
         int punchWidth = 75;
         int punchHeight = 10;
+        int slaagKracht = 3;
 
         public void Execute(IPuncher attacker, List<CharacterBlok> Targets)
         {
@@ -29,7 +30,8 @@ namespace Sailor.Commands.Attack
                         attacker.Positie.Y + attacker.Frame.Center.Y),
                         new Rectangle(0, 0, punchWidth, punchHeight));
 
-                    for (int i = 0; i < 3; i++)
+                    // Zo verwijdert hij 3 levens
+                    for (int i = 0; i < slaagKracht; i++)
                     {
                         AttackDetection.LeftCollide(AttackObject, Vector2.Zero, Targets);
                     }
@@ -41,7 +43,7 @@ namespace Sailor.Commands.Attack
                         attacker.Positie.Y + attacker.Frame.Center.Y),
                         new Rectangle(0, 0, -punchWidth, punchHeight));
 
-                    for (int i = 0; i < 3; i++)
+                    for (int i = 0; i < slaagKracht; i++)
                     {
                         AttackDetection.LeftCollide(AttackObject, Vector2.Zero, Targets);
                     }

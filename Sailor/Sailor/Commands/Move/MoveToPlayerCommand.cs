@@ -8,10 +8,10 @@ using System.Text;
 
 namespace Sailor.Commands.Move
 {
-    class MoveToPlayer : MoveCommand
+    class MoveToPlayerCommand : MoveCommand
     {
         float playerDistance;
-        public MoveToPlayer(Vector2 snelheid, float playerDistance) : base(snelheid)
+        public MoveToPlayerCommand(Vector2 snelheid, float playerDistance) : base(snelheid)
         {
             this.playerDistance = playerDistance;
         }
