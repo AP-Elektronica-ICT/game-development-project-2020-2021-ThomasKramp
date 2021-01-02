@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Cucumber/Idle/Idle17.png</SourceFile>
-  <SourceTime>2020-11-19T23:08:10.4419088+01:00</SourceTime>
+  <SourceTime>2021-01-02T22:37:47.8244203+01:00</SourceTime>
   <DestFile>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/bin/Windows/Content/Cucumber/Idle/Idle17.xnb</DestFile>
-  <DestTime>2020-11-20T16:58:42.3474437+01:00</DestTime>
+  <DestTime>2021-01-02T23:20:44.2896022+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
