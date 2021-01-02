@@ -203,6 +203,12 @@
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Sailor/Run/Run7.png</File>
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Sailor/Run/Run8.png</File>
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Sailor/Run/Run9.png</File>
+    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/SoundTrack/Background/Background1.mp3</File>
+    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/SoundTrack/Background/Background2.mp3</File>
+    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/SoundTrack/Character/Character1.mp3</File>
+    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/SoundTrack/Character/Character2.mp3</File>
+    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/SoundTrack/Character/Character3.mp3</File>
+    <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/SoundTrack/Character/Character4.mp3</File>
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Surroundings/Object/Object1.png</File>
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Surroundings/Object/Object2.png</File>
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Surroundings/Object/Object3.png</File>
@@ -217,6 +223,12 @@
     <File>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/Surroundings/Tile/Tile6.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

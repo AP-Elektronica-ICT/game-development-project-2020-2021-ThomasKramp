@@ -2401,6 +2401,42 @@
 /processorParam:TextureFormat=Color
 /build:Sailor/Run/Run9.png
 
+#begin SoundTrack/Background/Background1.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:SoundTrack/Background/Background1.mp3
+
+#begin SoundTrack/Background/Background2.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:SoundTrack/Background/Background2.mp3
+
+#begin SoundTrack/Character/Character1.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:SoundTrack/Character/Character1.mp3
+
+#begin SoundTrack/Character/Character2.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:SoundTrack/Character/Character2.mp3
+
+#begin SoundTrack/Character/Character3.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:SoundTrack/Character/Character3.mp3
+
+#begin SoundTrack/Character/Character4.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:SoundTrack/Character/Character4.mp3
+
 #begin Surroundings/Object/Object1.png
 /importer:TextureImporter
 /processor:TextureProcessor

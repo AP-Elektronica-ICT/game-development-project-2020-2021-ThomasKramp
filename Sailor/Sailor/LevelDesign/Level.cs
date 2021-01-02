@@ -5,6 +5,7 @@ using Sailor.Interfaces;
 using Sailor.Interfaces.Commands;
 using Sailor.LevelDesign.Schematics;
 using Sailor.LoadSprites;
+using Sailor.Sound;
 using Sailor.World;
 using Sailor.World.Abstract;
 using System;
@@ -210,6 +211,7 @@ namespace Sailor.LevelDesign
             foreach (var bottle in ThrowAbles)
             {
                 if (bottle.Hit) specialBloks.Add(bottle);
+                PlayCharachterSound.PlayBottleBreak();
             }
             foreach (var dead in specialBloks)
             {

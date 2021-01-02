@@ -2,6 +2,7 @@
 using Sailor.Detection;
 using Sailor.Interfaces;
 using Sailor.Interfaces.Commands;
+using Sailor.Sound;
 using Sailor.World.Abstract;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,7 @@ namespace Sailor.Commands
                 }
                 else
                 {
+                    if (!grounded) PlayCharachterSound.PlayGround();
                     snelheid.Y = -0.25f;
                     grounded = true;
                     jumper.Falling = false;

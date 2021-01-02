@@ -8,6 +8,7 @@ using Sailor.World.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Sailor.Sound;
 
 namespace Sailor.Commands.Attack
 {
@@ -21,6 +22,7 @@ namespace Sailor.Commands.Attack
         {
             if (attacker.Punch && !lastAttack)
             {
+                PlayCharachterSound.PlayPunch();
                 if (attacker.effect == SpriteEffects.None)
                 {
                     AttackObject = new PunchBlok(new Vector2(
