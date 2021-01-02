@@ -462,3 +462,15 @@ C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-20
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Cucumber\Run\Run7.xnb
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Cucumber\Run\Run8.xnb
 C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\Cucumber\Run\Run9.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\SoundTrack\Background\Background1.wma
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\SoundTrack\Background\Background1.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\SoundTrack\Background\Background2.wma
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\SoundTrack\Background\Background2.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\SoundTrack\Character\MP3\Character1.wma
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\SoundTrack\Character\MP3\Character1.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\SoundTrack\Character\MP3\Character2.wma
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\SoundTrack\Character\MP3\Character2.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\SoundTrack\Character\MP3\Character3.wma
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\SoundTrack\Character\MP3\Character3.xnb
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\SoundTrack\Character\MP3\Character4.wma
+C:\Users\Thoma\Documents\AP\Semester 3\Game Dev\game-development-project-2020-2021-ThomasKramp\Sailor\Sailor\bin\Debug\netcoreapp3.1\Content\SoundTrack\Character\MP3\Character4.xnb

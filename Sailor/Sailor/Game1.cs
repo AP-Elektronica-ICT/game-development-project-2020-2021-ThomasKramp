@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
@@ -7,7 +8,9 @@ using Sailor.Input;
 using Sailor.Interfaces;
 using Sailor.LevelDesign;
 using Sailor.LevelDesign.Schematics;
+using Sailor.LoadSounds;
 using Sailor.LoadSprites;
+using Sailor.Sound;
 using Sailor.World;
 using Sailor.World.Abstract;
 using System;
@@ -41,8 +44,10 @@ namespace Sailor
         float zoom = 1;
         public Vector2 camPos = new Vector2();
         #endregion
-
-        Song song;
+        #region Sound
+        public static List<Song> BackGroundSound;
+        public static List<SoundEffect> CharacterSound;
+        #endregion
 
         public Game1()
         {
@@ -68,6 +73,10 @@ namespace Sailor
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            BackGroundSound = LoadSongs.LoadSong("Background", Content);
+            CharacterSound = LoadSongs.LoadEffect("Character", Content);
+            PlayBackgroundSound.PlayBackground();
+
             BottleTextures = LoadTextures.LoadSingleObjectsSprites("Bottle", Content);
 
             PlayerTextures = LoadTextures.LoadCharacterSprites("Sailor", Content);
@@ -82,11 +91,6 @@ namespace Sailor
 
             GameOverScreen = new StaticBlok(LoadTextures.LoadSingleObjectsSprites("GameOver", Content)[0],
                 new Vector2((_graphics.PreferredBackBufferWidth - 512) / 2, (_graphics.PreferredBackBufferHeight - 224) / 2));
-
-            // this.song = Content.Load<Song>("The Rocky Road To Dublin");
-            // MediaPlayer.Play(song);
-            //  Uncomment the following line will also loop the song
-            //  MediaPlayer.IsRepeating = true;
 
             // TODO: use this.Content to load your game content here
         }
@@ -152,6 +156,7 @@ namespace Sailor
 
                 ChangeLevel(CurrentLevel.Doors, Player);
             } else {
+                if (camPos != Vector2.Zero) PlayBackgroundSound.PlayGameOver();
                 camPos = Vector2.Zero;
                 if (Keyboard.GetState().IsKeyDown(Keys.Enter))
                 {
