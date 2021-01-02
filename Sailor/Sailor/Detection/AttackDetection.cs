@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Sailor.Interfaces;
+using Sailor.Sound;
 using Sailor.World.Abstract;
 using System;
 using System.Collections.Generic;
@@ -36,6 +37,7 @@ namespace Sailor.Detection
                                 {
                                     target.Levens--;
                                     target.Hit = true;
+                                    PlayCharachterSound.PlayHit();
                                 }
                             }
                         }
@@ -70,6 +72,7 @@ namespace Sailor.Detection
                                 {
                                     target.Levens--;
                                     target.Hit = true;
+                                    PlayCharachterSound.PlayHit();
                                 }
                             }
                         }
