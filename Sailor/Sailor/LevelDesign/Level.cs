@@ -95,7 +95,7 @@ namespace Sailor.LevelDesign
                             player.Positie = new Vector2(x * 64, y * 16 - 58);
                             break;
                         case 3:
-                            Enemy newEnemy = new Enemy(enemyTexures[0], 2, 2, 15, new MoveAbleAnimatie(), new MoveAbleEffectAnimatie(), new MoveAbleStateAnimatie(),
+                            Enemy newEnemy = new Enemy(enemyTexures[0], 2, 2, 20, new MoveAbleAnimatie(), new MoveAbleEffectAnimatie(), new MoveAbleStateAnimatie(),
                                 new JumpCommand(), new PunchCommand(), new EnemyMoveCommand(new Vector2(3, 0)), new MoveToPlayerCommand(new Vector2(3, 0)));
                             Enemies.Add(newEnemy);
                             Surroundings.Add(newEnemy);
