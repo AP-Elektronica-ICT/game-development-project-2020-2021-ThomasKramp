@@ -16,27 +16,33 @@ namespace Sailor.World
 {
     class Enemy : CharacterBlok
     {
-        MoveCommand givenMoveComand;
+        MoveCommand normalMoveCommand;
+        MoveToPlayerCommand moveToPlayerCommand;
         bool punched = false;
 
         public Enemy(Dictionary<CharacterState, List<Texture2D>> textures, int Levens, int Strength, int PunchRange,
             MoveAbleAnimatie animatie, MoveAbleEffectAnimatie animatieEffect, MoveAbleStateAnimatie animatieState,
-            JumpCommand jumpCommands, PunchCommand punchCommands, MoveCommand moveCommand)
+            JumpCommand jumpCommands, PunchCommand punchCommands, MoveCommand moveCommand, MoveToPlayerCommand moveToPlayerCommand)
             : base(textures, Levens, Strength, PunchRange, animatie, animatieEffect, animatieState, jumpCommands, punchCommands, moveCommand)
         {
             // Moet weg, wanneer loop patroon geimplementeerd is
             richting = new Vector2(1, 1);
-            givenMoveComand = moveCommand;
+            normalMoveCommand = moveCommand;
+            this.moveToPlayerCommand = moveToPlayerCommand;
         }
 
         public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables, IGameObject LowestTile)
         {
             float playerDistance = PlayerDetection.SearchSides(this, Targets[0]);
             if (punched) {
-                if (!Punch) moveCommand = new MoveToPlayerCommand(new Vector2(3, 0), playerDistance * -2);
+                if (!Punch) {
+                    moveToPlayerCommand.SetPLayerDistance(playerDistance * -2);
+                    moveCommand = moveToPlayerCommand;
+                }
                 if (playerDistance < -150 || 150 < playerDistance) punched = false;
             } else if (-100 < playerDistance && playerDistance < 100) {
-                moveCommand = new MoveToPlayerCommand(new Vector2(3, 0), playerDistance);
+                moveToPlayerCommand.SetPLayerDistance(playerDistance);
+                moveCommand = moveToPlayerCommand;
                 if (-15 <= playerDistance && playerDistance <= 15)
                 {
                     Punch = true;
@@ -48,7 +54,7 @@ namespace Sailor.World
                     if (effect == SpriteEffects.None) richting.X = 1;
                     else richting.X = -1;
                 }
-                moveCommand = givenMoveComand;
+                moveCommand = normalMoveCommand;
             }
             base.Update(gameTime, Surroundings, Targets, Thowables, LowestTile);
         }

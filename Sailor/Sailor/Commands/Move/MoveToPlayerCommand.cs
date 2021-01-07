@@ -11,10 +11,8 @@ namespace Sailor.Commands.Move
     class MoveToPlayerCommand : MoveCommand
     {
         float playerDistance;
-        public MoveToPlayerCommand(Vector2 snelheid, float playerDistance) : base(snelheid)
-        {
-            this.playerDistance = playerDistance;
-        }
+        public MoveToPlayerCommand(Vector2 snelheid) : base(snelheid)
+        { }
 
         public override Vector2 Execute(IGameObject mover, Vector2 richting, List<DrawBlok> Surroundings)
         {
@@ -35,6 +33,11 @@ namespace Sailor.Commands.Move
 
             mover.Positie += verplaatsing;
             return richting;
+        }
+
+        public void SetPLayerDistance(float playerDistance)
+        {
+            this.playerDistance = playerDistance;
         }
     }
 }

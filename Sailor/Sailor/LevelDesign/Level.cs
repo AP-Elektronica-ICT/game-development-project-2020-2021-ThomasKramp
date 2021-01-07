@@ -29,7 +29,6 @@ namespace Sailor.LevelDesign
         private Dictionary<SurroundingObjects, List<Texture2D>> foreTextures;
         private List<Dictionary<CharacterState, List<Texture2D>>> enemyTexures;
         private Dictionary<DoorState, List<Texture2D>> doorTexures;
-        private List<Texture2D> signTextures;
 
         public List<CharacterBlok> Enemies { get; set; } = new List<CharacterBlok>();
         public List<DynamicBlok> ThrowAbles { get; set; } = new List<DynamicBlok>();
@@ -97,7 +96,7 @@ namespace Sailor.LevelDesign
                             break;
                         case 3:
                             Enemy newEnemy = new Enemy(enemyTexures[0], 2, 2, 15, new MoveAbleAnimatie(), new MoveAbleEffectAnimatie(), new MoveAbleStateAnimatie(),
-                                new JumpCommand(), new PunchCommand(), new EnemyMoveCommand(new Vector2(3, 0)));
+                                new JumpCommand(), new PunchCommand(), new EnemyMoveCommand(new Vector2(3, 0)), new MoveToPlayerCommand(new Vector2(3, 0)));
                             Enemies.Add(newEnemy);
                             Surroundings.Add(newEnemy);
                             newEnemy.Positie = new Vector2(x * 64, y * 16 - 58);
