@@ -159,6 +159,10 @@ namespace Sailor.LevelDesign
                             Doors.Add(EndDoor);
                             Foreground.Add(EndDoor);
                             break;
+                        case 4:
+                            Foreground.Add(new StaticBlok(foreTextures[SurroundingObjects.Object][0],
+                                new Vector2(x * 64, y * 16)));
+                            break;
                         case 10:
                             Foreground.Add(new StaticBlok(foreTextures[SurroundingObjects.Tile][0],
                                 new Vector2(x * 64, y * 16)));

@@ -125,7 +125,7 @@ namespace Sailor
             {
                 level.CreateWorld(Player, Schematics[Levels.IndexOf(level)]);
             }
-            CurrentLevel = Levels[0];
+            CurrentLevel = Levels[2];
         }
         #endregion
 

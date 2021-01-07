@@ -24,6 +24,7 @@ namespace Sailor.LevelDesign.Schematics
          * NextDoor = 1
          * PreviousDoor = 2
          * EndDoor = 3
+         * Window = 4
          * Title Sign = 10
          * Move Sign = 11
          * Punch Sign = 12

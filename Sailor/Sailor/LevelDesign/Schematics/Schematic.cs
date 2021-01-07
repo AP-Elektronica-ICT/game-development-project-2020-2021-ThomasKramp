@@ -6,7 +6,7 @@ namespace Sailor.LevelDesign.Schematics
 {
     abstract class Schematic
     {
-        /* Texture number:
+        /* Surroundings number:
          * Nothing = 0
          * Tile = 1
          * Player = 2
@@ -17,11 +17,21 @@ namespace Sailor.LevelDesign.Schematics
          * Reverse Chair = 7
          * Small Platform = 8
          * Big Platform = 9
-         * NextDoor = 10
-         * PreviousDoor = 11
-         * EndDoor = 12
          */
         // 6 spaces between platforms full jump
+
+        /* Foreground number:
+         * NextDoor = 1
+         * PreviousDoor = 2
+         * EndDoor = 3
+         * Window = 4
+         * Title Sign = 10
+         * Move Sign = 11
+         * Punch Sign = 12
+         * Thorw Sign = 13
+         * Warp Sign = 14
+         * Jump Sign = 15
+         */
 
         public byte[,] BackgroundArray { get; protected set; }
         public byte[,] SurroundingsArray { get; protected set; }
