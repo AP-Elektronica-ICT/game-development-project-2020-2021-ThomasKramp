@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/SoundTrack/Character/Character3.mp3</SourceFile>
-  <SourceTime>2021-01-02T13:14:48.2801064+01:00</SourceTime>
+  <SourceFile>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/SoundTrack/Character/Character3.wav</SourceFile>
+  <SourceTime>2021-01-07T12:53:39.4026148+01:00</SourceTime>
   <DestFile>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/bin/Windows/SoundTrack/Character/Character3.xnb</DestFile>
-  <DestTime>2021-01-07T11:49:29.55336+01:00</DestTime>
-  <Importer>Mp3Importer</Importer>
+  <DestTime>2021-01-07T13:00:31.0899799+01:00</DestTime>
+  <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54+02:00</ImporterTime>
-  <Processor>SongProcessor</Processor>
+  <Processor>SoundEffectProcessor</Processor>
   <ProcessorTime>2020-08-10T16:17:54+02:00</ProcessorTime>
   <Parameters>
     <Key>Quality</Key>
@@ -14,7 +14,5 @@
   </Parameters>
   <Dependencies />
   <BuildAsset />
-  <BuildOutput>
-    <string>C:/Users/Thoma/Documents/AP/Semester 3/Game Dev/game-development-project-2020-2021-ThomasKramp/Sailor/Sailor/Content/bin/Windows/SoundTrack/Character/Character3.wma</string>
-  </BuildOutput>
+  <BuildOutput />
 </PipelineBuildEvent>

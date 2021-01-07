@@ -222,8 +222,11 @@ namespace Sailor.LevelDesign
             List<DynamicBlok> specialBloks = new List<DynamicBlok>();
             foreach (var bottle in ThrowAbles)
             {
-                if (bottle.Hit) specialBloks.Add(bottle);
-                PlayCharachterSound.PlayBottleBreak();
+                if (bottle.Hit)
+                {
+                    specialBloks.Add(bottle);
+                    PlayCharachterSound.PlayBottleBreak();
+                }
             }
             foreach (var dead in specialBloks)
             {

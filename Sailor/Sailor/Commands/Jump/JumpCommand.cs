@@ -50,7 +50,6 @@ namespace Sailor.Commands
                 }
                 else
                 {
-                    if (!grounded) PlayCharachterSound.PlayGround();
                     snelheid.Y = -0.25f;
                     grounded = true;
                     jumper.Falling = false;

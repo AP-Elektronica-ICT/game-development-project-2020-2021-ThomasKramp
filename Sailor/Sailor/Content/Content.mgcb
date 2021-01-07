@@ -2425,29 +2425,23 @@
 /processorParam:Quality=Best
 /build:SoundTrack/Background/Background2.mp3
 
-#begin SoundTrack/Character/Character1.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
+#begin SoundTrack/Character/Character1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:SoundTrack/Character/Character1.mp3
+/build:SoundTrack/Character/Character1.wav
 
-#begin SoundTrack/Character/Character2.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
+#begin SoundTrack/Character/Character2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:SoundTrack/Character/Character2.mp3
+/build:SoundTrack/Character/Character2.wav
 
-#begin SoundTrack/Character/Character3.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
+#begin SoundTrack/Character/Character3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:SoundTrack/Character/Character3.mp3
-
-#begin SoundTrack/Character/Character4.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:SoundTrack/Character/Character4.mp3
+/build:SoundTrack/Character/Character3.wav
 
 #begin Surroundings/Object/Object1.png
 /importer:TextureImporter
