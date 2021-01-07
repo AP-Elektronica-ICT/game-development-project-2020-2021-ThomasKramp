@@ -20,6 +20,20 @@ using Sailor.World.Abstract;
 using System;
 using System.Collections.Generic;
 
+/*/ Links:
+ * Sprites:
+ * https://pixelfrog-store.itch.io/pirate-bomb
+ * 
+ * Sounds:
+ * https://soundcloud.com/jobegiar99
+ * The Bards Tale
+ * Cristal Wood Falls
+ * https://www.zapsplat.com/
+ * Cartoon punch 1
+ * Cartoon impact, bounce or thud 3
+ * Full glass beer bottle drop onto concrete ground with wet smash 2
+/*/
+
 namespace Sailor
 {
     public class Game1 : Game
@@ -176,7 +190,7 @@ namespace Sailor
         #region UpdateMethods
         private void ChangeLevel(List<DoorBlok> doors, IGameObject player)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) || Keyboard.GetState().IsKeyDown(Keys.Up))
             {
                 System.Threading.Thread.Sleep(100);
                 foreach (var door in doors)
