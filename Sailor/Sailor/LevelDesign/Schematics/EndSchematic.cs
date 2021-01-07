@@ -17,6 +17,7 @@ namespace Sailor.LevelDesign.Schematics
          * Reverse Chair = 7
          * Small Platform = 8
          * Big Platform = 9
+         * Skull = 10
          */
         // 6 spaces between platforms full jump
 
