@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sailor.Animation.Static;
 using Sailor.Detection;
 using Sailor.Interfaces;
 using Sailor.Interfaces.Commands;
@@ -137,17 +138,20 @@ namespace Sailor.LevelDesign
                     switch (ForegroundArray[y, x])
                     {
                         case 1:
-                            DoorBlok NextDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.Next);
+                            DoorBlok NextDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.Next,
+                                new StaticAnimatie(), new StaticStateAnimatie());
                             Doors.Add(NextDoor);
                             Foreground.Add(NextDoor);
                             break;
                         case 2:
-                            DoorBlok PrevDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.Previous);
+                            DoorBlok PrevDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.Previous,
+                                new StaticAnimatie(), new StaticStateAnimatie());
                             Doors.Add(PrevDoor);
                             Foreground.Add(PrevDoor);
                             break;
                         case 3:
-                            DoorBlok EndDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.End);
+                            DoorBlok EndDoor = new DoorBlok(doorTexures, new Vector2(x * 64, y * 16 - 80), DoorType.End,
+                                new StaticAnimatie(), new StaticStateAnimatie());
                             Doors.Add(EndDoor);
                             Foreground.Add(EndDoor);
                             break;

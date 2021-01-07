@@ -22,15 +22,16 @@ namespace Sailor.World
         StaticAnimatie animatie;
         StaticStateAnimatie animatieState;
 
-        public DoorBlok(Dictionary<DoorState, List<Texture2D>> textures, Vector2 positie, DoorType doorType)
+        public DoorBlok(Dictionary<DoorState, List<Texture2D>> textures, Vector2 positie, DoorType doorType,
+            StaticAnimatie animatie, StaticStateAnimatie animatieState)
         {
             Positie = positie;
             this.textures = textures;
             CurrentTexture = this.textures[State][0];
             Frame = new Rectangle(0, 0, CurrentTexture.Width, CurrentTexture.Height);
 
-            animatie = new StaticAnimatie();
-            animatieState = new StaticStateAnimatie();
+            this.animatie = animatie;
+            this.animatieState = animatieState;
 
             State = DoorState.Closed;
             Type = doorType;

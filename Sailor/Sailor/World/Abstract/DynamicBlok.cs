@@ -17,6 +17,7 @@ namespace Sailor.World.Abstract
         protected Vector2 richting;
         protected MoveCommand moveCommand;
 
+
         #region DrawVariables
         // Extra variabelen voor de draw methode
         //  A rotation of this sprite.

@@ -15,6 +15,7 @@ namespace Sailor.World
     {
         MoveCommand givenMoveComand;
         bool punched = false;
+
         public Enemy(Dictionary<CharacterState, List<Texture2D>> textures, int Levens, int Strength, int PunchRange)
             : base(textures, Levens, Strength, PunchRange)
         {
