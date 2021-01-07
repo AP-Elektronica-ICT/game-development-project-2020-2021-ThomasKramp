@@ -37,15 +37,15 @@ namespace Sailor.Commands
             }
             else if (CollisionDetection.BottomCollide(jumper, richting, Surroundings))
             {
+                if (CollisionDetection.LeftCollide(jumper, richting, Surroundings))
+                    snelheid.X += 0.001f;
+                else if (CollisionDetection.RightCollide(jumper, richting, Surroundings))
+                    snelheid.X -= 0.001f;
                 if (CollisionDetection.TopCollide(jumper, richting, Surroundings))
                 {
                     // Indien het spel in deze lus komt
                     // betekent het dat er Right of Left Collsion is
                     // en geen eigenlijke Bottom Collision
-                    if (CollisionDetection.LeftCollide(jumper, richting, Surroundings))
-                        snelheid.X += 0.001f;
-                    else if (CollisionDetection.RightCollide(jumper, richting, Surroundings))
-                        snelheid.X -= 0.001f;
                     snelheid.Y = 0f;
                 }
                 else
