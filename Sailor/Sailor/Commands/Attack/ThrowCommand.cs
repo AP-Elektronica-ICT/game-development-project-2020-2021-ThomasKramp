@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sailor.Commands.Move;
 using Sailor.Interfaces.Commands;
 using Sailor.World.Abstract;
 using Sailor.World.Attack;
@@ -9,7 +10,7 @@ using System.Text;
 
 namespace Sailor.Commands.Attack
 {
-    class ThrowCommand
+    public class ThrowCommand
     {
         bool lastAttack = false;
 
@@ -22,7 +23,8 @@ namespace Sailor.Commands.Attack
                     DynamicBlok temp = new ThrowBlok(new Vector2(
                         attacker.Positie.X + attacker.Frame.Right,
                         attacker.Positie.Y + attacker.Frame.Center.Y),
-                        attacker.effect);
+                        attacker.effect,
+                        new ThrowBlokMoveCommand(new Vector2(5, 0)));
                     Surroundings.Add(temp);
                     ThrowAbles.Add(temp);
                 }
@@ -32,7 +34,8 @@ namespace Sailor.Commands.Attack
                     DynamicBlok temp = new ThrowBlok(new Vector2(
                         attacker.Positie.X + attacker.Frame.Left - 16,
                         attacker.Positie.Y + attacker.Frame.Center.Y),
-                        attacker.effect);
+                        attacker.effect,
+                        new ThrowBlokMoveCommand(new Vector2(5, 0)));
                     Surroundings.Add(temp);
                     ThrowAbles.Add(temp);
                 }

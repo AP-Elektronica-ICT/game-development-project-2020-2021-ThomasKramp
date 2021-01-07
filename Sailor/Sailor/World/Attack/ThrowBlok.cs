@@ -12,14 +12,13 @@ namespace Sailor.World.Attack
 {
     class ThrowBlok : DynamicBlok
     {
-        public ThrowBlok(Vector2 positie, SpriteEffects effect)
+        public ThrowBlok(Vector2 positie, SpriteEffects effect, MoveCommand moveCommand) : base (moveCommand)
         {
             Random random = new Random();
             CurrentTexture = Game1.BottleTextures[random.Next(0, 3)];
             this.Positie = positie;
             Frame = new Rectangle(0, 0, CurrentTexture.Width, CurrentTexture.Height);
             this.effect = effect;
-            moveCommand = new ThrowBlokMoveCommand(new Vector2(5, 0));
             BasicOrigin = new Vector2(Frame.Center.X, Frame.Center.Y);
             if (effect == SpriteEffects.None) richting.X = 1;
             else if (effect == SpriteEffects.FlipHorizontally) richting.X = -1;

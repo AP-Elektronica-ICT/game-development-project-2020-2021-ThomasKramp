@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sailor.Interfaces.Commands
 {
-    interface IPuncher : IGameObject
+    public interface IPuncher : IGameObject
     {
         public bool Punch { get; set; }
         public int Levens { get; set; }

@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Sailor.Detection;
-using Sailor.Interfaces;
 using Sailor.Interfaces.Commands;
 using Sailor.Sound;
 using Sailor.World.Abstract;
@@ -10,7 +9,7 @@ using System.Text;
 
 namespace Sailor.Commands
 {
-    class JumpCommand
+    public class JumpCommand
     {
         private Vector2 snelheid;
         private bool grounded = false;

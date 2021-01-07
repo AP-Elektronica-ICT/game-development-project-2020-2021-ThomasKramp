@@ -1,5 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sailor.Animation.MoveAble;
+using Sailor.Commands;
+using Sailor.Commands.Attack;
 using Sailor.Commands.Move;
 using Sailor.Detection;
 using Sailor.Interfaces;
@@ -16,12 +19,14 @@ namespace Sailor.World
         MoveCommand givenMoveComand;
         bool punched = false;
 
-        public Enemy(Dictionary<CharacterState, List<Texture2D>> textures, int Levens, int Strength, int PunchRange)
-            : base(textures, Levens, Strength, PunchRange)
+        public Enemy(Dictionary<CharacterState, List<Texture2D>> textures, int Levens, int Strength, int PunchRange,
+            MoveAbleAnimatie animatie, MoveAbleEffectAnimatie animatieEffect, MoveAbleStateAnimatie animatieState,
+            JumpCommand jumpCommands, PunchCommand punchCommands, MoveCommand moveCommand)
+            : base(textures, Levens, Strength, PunchRange, animatie, animatieEffect, animatieState, jumpCommands, punchCommands, moveCommand)
         {
             // Moet weg, wanneer loop patroon geimplementeerd is
             richting = new Vector2(1, 1);
-            givenMoveComand = new EnemyMoveCommand(new Vector2(3, 0));
+            givenMoveComand = moveCommand;
         }
 
         public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables, IGameObject LowestTile)

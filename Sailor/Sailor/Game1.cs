@@ -3,6 +3,10 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Sailor.Animation.MoveAble;
+using Sailor.Commands;
+using Sailor.Commands.Attack;
+using Sailor.Commands.Move;
 using Sailor.Detection;
 using Sailor.Input;
 using Sailor.Interfaces;
@@ -98,7 +102,8 @@ namespace Sailor
         #region LoadContentMethods
         private void InitializeGameObject()
         {
-            Player = new Player(PlayerTextures, 10, 5, 35, new KeyBoardReader());
+            Player = new Player(PlayerTextures, new KeyBoardReader(), 10, 5, 35, new MoveAbleAnimatie(), new MoveAbleEffectAnimatie(), new MoveAbleStateAnimatie(),
+                new JumpCommand(), new PunchCommand(), new PlayerMoveCommand(new Vector2(3, 0)), new ThrowCommand());
         }
 
         private void InitializeLevels()

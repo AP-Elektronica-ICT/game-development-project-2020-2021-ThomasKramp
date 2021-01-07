@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Sailor.Animation.MoveAble;
 using Sailor.Commands;
 using Sailor.Commands.Attack;
+using Sailor.Commands.Move;
 using Sailor.Detection;
 using Sailor.Interfaces;
 using Sailor.Interfaces.Animation;
@@ -35,20 +36,22 @@ namespace Sailor.World.Abstract
         MoveAbleAnimatie animatie;
         MoveAbleEffectAnimatie animatieEffect;
         MoveAbleStateAnimatie animatieState;
-        JumpCommand jumpCommands;
-        PunchCommand punchCommands;
+        JumpCommand jumpCommand;
+        PunchCommand punchCommand;
 
-        public CharacterBlok(Dictionary<CharacterState, List<Texture2D>> textures, int Levens, int Strength, int PunchRange)
+        public CharacterBlok(Dictionary<CharacterState, List<Texture2D>> textures, int Levens, int Strength, int PunchRange,
+            MoveAbleAnimatie animatie, MoveAbleEffectAnimatie animatieEffect, MoveAbleStateAnimatie animatieState,
+            JumpCommand jumpCommands, PunchCommand punchCommands, MoveCommand moveCommand) : base(moveCommand)
         {
             Textures = textures;
             #region Animatie
-            animatie = new MoveAbleAnimatie();
-            animatieEffect = new MoveAbleEffectAnimatie();
-            animatieState = new MoveAbleStateAnimatie();
+            this.animatie = animatie;
+            this.animatieEffect = animatieEffect;
+            this.animatieState = animatieState;
             #endregion
             #region Commands
-            jumpCommands = new JumpCommand();
-            punchCommands = new PunchCommand();
+            this.jumpCommand = jumpCommands;
+            this.punchCommand = punchCommands;
             #endregion
             state = CharacterState.Idle;
             this.Levens = Levens;
@@ -61,9 +64,9 @@ namespace Sailor.World.Abstract
             #region Commands
             if (!Hit && !Dead)
             {
-                punchCommands.Execute(this, Targets, strength, punchRange);
+                punchCommand.Execute(this, Targets, strength, punchRange);
                 base.Update(gameTime, Surroundings, Targets, Thowables, LowestTile);
-                jumpCommands.Execute(this, richting, Surroundings);
+                jumpCommand.Execute(this, richting, Surroundings);
                 EndlessFallDetection.FallingToDeath(LowestTile, this);
             }
             #endregion

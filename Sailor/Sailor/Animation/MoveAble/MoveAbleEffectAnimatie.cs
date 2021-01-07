@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Sailor.Animation.MoveAble
 {
-    class MoveAbleEffectAnimatie
+    public class MoveAbleEffectAnimatie
     {
         public void Update(IDrawEffect transform, Vector2 richting)
         {

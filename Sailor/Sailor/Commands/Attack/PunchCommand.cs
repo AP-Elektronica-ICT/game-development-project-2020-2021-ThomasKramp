@@ -12,7 +12,7 @@ using Sailor.Sound;
 
 namespace Sailor.Commands.Attack
 {
-    class PunchCommand
+    public class PunchCommand
     {
         IGameObject AttackObject;
         bool lastAttack = false;

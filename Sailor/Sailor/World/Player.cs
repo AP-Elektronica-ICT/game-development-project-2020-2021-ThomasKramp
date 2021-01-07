@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sailor.Animation.MoveAble;
+using Sailor.Commands;
 using Sailor.Commands.Attack;
 using Sailor.Commands.Move;
 using Sailor.Input;
@@ -17,12 +19,13 @@ namespace Sailor.World
         private IInputReader inputReader;
         ThrowCommand throwCommand;
 
-        public Player(Dictionary<CharacterState, List<Texture2D>> textures, int Levens, int Strength, int PunchRange, IInputReader reader)
-            : base(textures, Levens, Strength, PunchRange)
+        public Player(Dictionary<CharacterState, List<Texture2D>> textures, IInputReader reader, int Levens, int Strength, int PunchRange,
+            MoveAbleAnimatie animatie, MoveAbleEffectAnimatie animatieEffect, MoveAbleStateAnimatie animatieState,
+            JumpCommand jumpCommands, PunchCommand punchCommands, MoveCommand moveCommand, ThrowCommand throwCommand)
+            : base(textures, Levens, Strength, PunchRange, animatie, animatieEffect, animatieState, jumpCommands, punchCommands, moveCommand)
         {
             inputReader = reader;
-            moveCommand = new PlayerMoveCommand(new Vector2(3, 0));
-            throwCommand = new ThrowCommand();
+            this.throwCommand = throwCommand;
         }
 
         public override void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables, IGameObject LowestTile)

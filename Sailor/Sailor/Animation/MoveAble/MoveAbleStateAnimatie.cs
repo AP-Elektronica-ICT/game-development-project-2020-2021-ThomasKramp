@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Sailor.Animation.MoveAble
 {
-    class MoveAbleStateAnimatie
+    public class MoveAbleStateAnimatie
     {
         public virtual void Update(CharacterBlok transform, Vector2 richting)
         {

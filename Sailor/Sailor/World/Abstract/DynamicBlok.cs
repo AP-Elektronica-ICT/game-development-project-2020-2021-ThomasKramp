@@ -17,6 +17,14 @@ namespace Sailor.World.Abstract
         protected Vector2 richting;
         protected MoveCommand moveCommand;
 
+        public DynamicBlok(MoveCommand moveCommand)
+        {
+            this.moveCommand = moveCommand;
+        }
+
+        public virtual void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables, IGameObject LowestTile) {
+            richting = moveCommand.Execute(this, richting, Surroundings);
+        }
 
         #region DrawVariables
         // Extra variabelen voor de draw methode
@@ -30,21 +38,14 @@ namespace Sailor.World.Abstract
         protected float BasicLayerDepth = 0f;
         #endregion
 
-        public virtual void Update(GameTime gameTime, List<DrawBlok> Surroundings, List<CharacterBlok> Targets, List<DynamicBlok> Thowables, IGameObject LowestTile) {
-            richting = moveCommand.Execute(this, richting, Surroundings);
-        }
-
         public override void Draw(SpriteBatch spriteBatch)
         {
             // Deze Try Catch is tegen het crashen van het spel.
             // Indien er van level verandert wordt, wordt de currentTexture van de Player op "null" gezet.
             // Na die ene keer werkt de game zoals het terug hoort (inculsief currentTexture).
-            try
-            {
+            try {
                 spriteBatch.Draw(CurrentTexture, Positie, Frame, Color.White, BasicRotation, BasicOrigin, BasicScale, effect, BasicLayerDepth);
-            }
-            catch (Exception)
-            { }
+            } catch (Exception) { }
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Sailor.Animation.MoveAble
 {
-    class MoveAbleAnimatie
+    public class MoveAbleAnimatie
     {
         private int counter = 0;
         private double frameMovement = 0;
